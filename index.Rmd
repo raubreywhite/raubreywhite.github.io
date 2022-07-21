@@ -1,50 +1,41 @@
 ---
 site: distill::distill_website
-title: "Sykdomspulsen"
-description: |
-  Sykdomspulsen is a real-time analysis and disease surveillance system designed and developed at the Norwegian Institute of Public Health (NIPH/FHI).
-preview: images/logo.png
+output:
+  postcards::solana:
+    css: theme.css
+title: "Richard Aubrey White"
+image: images/richard.jpeg
+preview: images/richard.jpeg
 links:
   - label: GitHub
-    url: "https://github.com/sykdomspulsen-org/"
+    url: "https://github.com/raubreywhite/"
   - label: fhi.no
     url: "https://www.fhi.no/hn/statistikk/sykdomspulsen/"
   - label: For kommunehelsetjenesten
     url: "https://spuls.fhi.no"
+base_url: https://rwhite.no
 ---
 
-### What is Sykdomspulsen
+## Contact
 
-Sykdomspulsen is a unique project that processes new data (e.g. covid-19 cases) shortly after it is available. Complex statistical analyses are automatically run for all locations in Norway, producing reports and alerting various stakeholders.
+[hello\@rwhite.no](mailto:hello@rwhite.no){.email}
 
-This provides the health authorities the ability to make proactive strategic decisions with the most up-to-date information.
+## Bio
 
-### Analyses delivered in _near real-time_
+Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes developing and managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in Palestine.
 
-«Data» is not useful by itself. Data must be cleaned, analysed, and the results delivered to stakeholders.
+## Education
 
-An effective outbreak response requires this in near real-time.
+**University of Bergen, Norway**
 
-Sykdomspulsen's goal is to achieve this.
+2022 - 2023 / One year program (Årsstudium) in Nordic languages and literature
 
-### Quick stats
+**Harvard University, USA**
 
-- We receive data from more than 15 data sources every day
-- 2 000 000 000+ rows of data and results (1TB)
-- 1000+ database tables
-- 1 000 000+ analyses per day
-- 1 000+ automatic reports per day
+2011 - 2012 / Ph.D in Biostatistics
 
-### Data flow in Sykdomspulsen
+2009 - 2011 / MA in Biostatistics (Frank Knox fellowship)
 
-[<img src="./images/data_flow_large.PNG" width="100%" height="100%">](./images/data_flow_large.PNG)
+**University of Wollongong, Australia**
 
-### Sykdomspulsen Core
-
-[Sykdomspulsen Core](/core-in-depth/) is the free and open-source backbone of Sykdomspulsen.
-
-Sykdomspulsen Core is a standalone R package, which means it is easy for other teams to build up their own surveillance infrastructure based on Sykdomspulsen Core.
-
-### splverse
-
-[splverse](/packages) is a number of R packages that have been developed by the Sykdomspulsen team to help with infectious diseases surveillance.
+2005 - 2009 / B. Maths (Advanced) Honours (Applied Statistics)

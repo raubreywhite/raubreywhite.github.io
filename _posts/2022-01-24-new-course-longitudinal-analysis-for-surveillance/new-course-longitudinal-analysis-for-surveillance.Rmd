@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-You can find the course "Longitudinal Analysis for Surveillance" in the [Learning page](/learning.html).
+You can find the course "Longitudinal Analysis for Surveillance" [here](https://docs.sykdomspulsen.no/longitudinal-analysis-for-surveillance/).
 
 ```{r, layout="l-body", out.width = "100%"}
 knitr::include_graphics("longitudinal-analysis-for-surveillance.png")

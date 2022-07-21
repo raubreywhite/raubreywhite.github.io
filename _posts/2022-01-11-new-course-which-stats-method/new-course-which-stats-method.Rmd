@@ -19,7 +19,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-You can find the course "Which Stats Method" in the [Learning page](/learning.html).
+You can find the course "Which Stats Method" [here](https://docs.sykdomspulsen.no/which-stats-method/).
 
 This course will not teach students how to implement these statistical methods. The aim of this course is to enable the student to identify which methods are required for their study, allowing the student to identify their needs for subsequent methods courses, self-learning, or external help.
 

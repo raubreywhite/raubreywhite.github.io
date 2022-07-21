@@ -19,9 +19,11 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+*This blog post has also been posted [here](https://docs.sykdomspulsen.no/posts/2022-07-18-custom-airflow-docker-operator/).*
+
 ## What do we want?
 
-Sykdomspulsen Analytic uses [Airflow](https://airflow.apache.org/) to schedule its tasks.
+Sykdomspulsen Analytics uses [Airflow](https://airflow.apache.org/) to schedule its tasks.
 
 ```{r, layout="l-body", out.width = "100%"}
 knitr::include_graphics("airflow.png")
@@ -41,23 +43,23 @@ It is not easy to seamlessly turn on and turn off multiple Airflow instances. We
 
 It is for this reason that we developed a [custom Airflow Docker operator](https://airflow.apache.org/docs/apache-airflow/stable/howto/custom-operator.html). This custom Airflow Docker operator:
 
-1. Checks an external YAML config file (`https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml`) to see which server each DAG should be run on.
-2. Checks to see if this server is the correct one.
-3. If this is not the correct server, change the command to be excecuted to: `echo NOT CORRECT SERVER`.
-4. Executes the command inside the Docker container. 
+1.  Checks an external YAML config file (`https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml`) to see which server each DAG should be run on.
+2.  Checks to see if this server is the correct one.
+3.  If this is not the correct server, change the command to be excecuted to: `echo NOT CORRECT SERVER`.
+4.  Executes the command inside the Docker container.
 
 ## Details
 
-**https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml**
+[**https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml**](https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml){.uri}
 
-```{.yaml}
+``` yaml
 ---
 dag_1: "server-1.tld"
 ```
 
 **docker-compose.yml** (If using [Podman](https://podman.io/))
 
-```{.yaml}
+``` yaml
   volumes:
     - /var/run/podman/podman.sock:/var/run/docker.sock
   environment:
@@ -66,7 +68,7 @@ dag_1: "server-1.tld"
 
 **/opt/airflow/plugins/operators/sc_operators.py** accesses the environmental variable `HOST_HOSTNAME` that is passed through from `docker-compose.yml`.
 
-```{.yaml}
+``` yaml
 import os
 import requests
 import time
@@ -104,7 +106,7 @@ class SCDockerOperator(DockerOperator):
 
 **/opt/airflow/dags/dag_1.py**
 
-```{.yaml}
+``` yaml
 import random
 from operators.sc_operators import SCDockerOperator
 
