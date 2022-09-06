@@ -65,8 +65,8 @@ knitr::opts_chunk$set(echo = FALSE)
     -   Gastritis.
 -   Interactive website for municipal health authorities.
 -   APIs for internal/external use.
--   500 000+ analyses per day.
--   1000+ automatic reports (pdf/excel/email/sms) per day.
+-   1 000 000+ analyses per day.
+-   1 000+ automatic reports (pdf/excel/email/sms) per day.
 
 ### Infectious Diseases Statistician - Infectious Disease Epidemiology
 
@@ -77,7 +77,7 @@ knitr::opts_chunk$set(echo = FALSE)
     -   Gastritis and upper-respiratory outbreaks using the syndromic surveillance registry.
     -   Outbreaks using the notifiable disease registry (MSIS).
     -   Excessive mortality using the death registry (DÅR).
--   Developed statistical protocol for a 20,000 person longitudinal study regarding Norwegian water usage.
+-   Developed statistical protocol for a 20 000 person longitudinal study regarding Norwegian water usage.
 -   Modelled the 2014 Ebola outbreak to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.
 -   Modelled the burden of HCV in Norwegian people who inject drugs.
 -   Statistician on the data monitoring committee (DMC) for the:
@@ -98,7 +98,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 *10.2015 - now / Oslo, Norway*
 
--   Developed statistical protocol for a 10,000 person stepwise-RCT regarding DR-TB in a Mumbai slum.
+-   Developed statistical protocol for a 10 000 person stepwise-RCT regarding DR-TB in a Mumbai slum.
 -   Advised on surveillance methods to detect extreme malaria seasons in areas with low quality data.
 -   Identified predictors of death amongst Ebola patients in a Guinean Ebola Treatment Unit.
 

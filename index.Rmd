@@ -9,10 +9,6 @@ preview: images/richard.jpeg
 links:
   - label: GitHub
     url: "https://github.com/raubreywhite/"
-  - label: fhi.no
-    url: "https://www.fhi.no/hn/statistikk/sykdomspulsen/"
-  - label: For kommunehelsetjenesten
-    url: "https://spuls.fhi.no"
 base_url: https://rwhite.no
 ---
 
