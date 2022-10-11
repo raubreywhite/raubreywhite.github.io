@@ -1,0 +1,14 @@
+{
+  "hash": "baf6fbdb344b6f06b94b6e66408b1545",
+  "result": {
+    "markdown": "---\n\n---\n\n\nSykdomspulsen's poster \"Sykdomspulsen - An exciting and forward-looking infrastructure and website for the real-time surveillance of Covid-19, other infections, and deaths\" received the prize for \"Best Poster\" at Helse- og Kvalitetsregisterkonferansen 2021.\n\nRead more about it [here!](https://docs.sykdomspulsen.no/posts/2021-11-18-poster-prize-for-sykdomspulsen/).\n\n\n::: {.cell}\n\n```{.r .cell-code}\nknitr::include_graphics(\"screenshot.png\")\n```\n\n::: {.cell-output-display}\n![](screenshot.png){width=1022}\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

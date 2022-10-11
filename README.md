@@ -1,1 +1,0 @@
-# sykdomspulsen-org.github.io

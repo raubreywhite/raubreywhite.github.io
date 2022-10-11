@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "Richard Aubrey White"
+  navbar:
+    right:
+      - text: "Home"
+        href: index.html
+      - cv.qmd
+      - publications.qmd
+      - blog.qmd
+      - icon: github
+        href: https://github.com/raubreywhite
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    title-block-banner: "#b8e2f2"
+    title-block-banner-color: "#000000"
+
+
+
