@@ -9,7 +9,7 @@ author:
 date: 2022-09-29
 ---
 
-[Dagens Medisin](https://www.dagensmedisin.no/artikler/2022/09/29/fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneleger--tragisk/) published an article about the website "Sykdomspulsen for kommunehelsetjenesten" being shut down due to budget cuts.
+[Dagens Medisin](https://www.dagensmedisin.no/artikler/2022/09/29/fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneleger--tragisk/) published an [article](https://www.dagensmedisin.no/artikler/2022/09/29/fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneleger--tragisk/) ([pdf](./fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger-tragisk-dagens-medisin.pdf)) about the website "Sykdomspulsen for kommunehelsetjenesten" being shut down due to budget cuts.
 
 ```{r}
 knitr::include_graphics("dagens_medisin.png")
