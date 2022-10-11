@@ -1,0 +1,20 @@
+---
+title: "Publications"
+description: |
+  Publications of scholarly articles.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(data.table)
+```
+
+```{r echo=FALSE, warning=FALSE, results = "asis"}
+d <- knitcitations::read.bibtex("publications.bib")
+```
+
+`r length(d)` articles.
+
+```{r echo=FALSE, warning=FALSE, results = "asis"}
+print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
+```
