@@ -16,13 +16,13 @@ hello@rwhite.no
 
 **Harvard University, USA**
 
-2011 - 2012 / Ph.D in Biostatistics
+2011 - 2012 / PhD in Biostatistics
 
 2009 - 2011 / MA in Biostatistics (Frank Knox fellowship)
 
 **University of Wollongong, Australia**
 
-2005 - 2009 / B. Maths (Advanced) Honours (Applied Statistics)
+2005 - 2009 / B. Advanced Mathematics (First Class Honours) majoring in Applied Statistics
 
 ## Skills
 
@@ -42,9 +42,10 @@ hello@rwhite.no
 
 ```{r echo=FALSE, warning=FALSE, include=FALSE}
 d <- knitcitations::read.bibtex("publications.bib")
+citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), big.mark = " ", format = "f", digits = 0)
 ```
 
-- `r length(d)` [scientific articles](publications.html).
+- `r length(d)` [scientific articles](publications.html) (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
 - 8 R packages as first author/maintainer ([attrib](https://docs.sykdomspulsen.no/attrib/), [org](https://docs.sykdomspulsen.no/org/), [plnr](https://docs.sykdomspulsen.no/plnr/), [spldata](https://docs.sykdomspulsen.no/spldata/), [splmaps](https://docs.sykdomspulsen.no/splmaps/), [spltidy](https://docs.sykdomspulsen.no/spltidy/), [splutil](https://docs.sykdomspulsen.no/splutil/), [spread](https://docs.sykdomspulsen.no/spread/)).
 - 5 R packages as co-author ([MOMO](https://github.com/EuroMOMOnetwork/MOMO/), [nowcast](https://docs.sykdomspulsen.no/nowcast/), [splalert](https://docs.sykdomspulsen.no/splalert/), [splstyle](https://docs.sykdomspulsen.no/splstyle/), [spltime](https://docs.sykdomspulsen.no/spltime/)).
 
@@ -91,7 +92,7 @@ d <- knitcitations::read.bibtex("publications.bib")
 - Developed statistical protocol for a 60 000 person longitudinal study regarding Norwegian water usage.
 - Modelled the [2014 Ebola outbreak](articles/2015-white-ebola.pdf) to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.
 - Modelled the [burden of HCV](articles/2017-meijerink.pdf) in Norwegian people who inject drugs.
-- Statistician on the data monitoring committee (DMC) for the:
+- Head statistician on the data monitoring committee (DMC) for the:
   - PEEP RCT in Haydom, Tanzania.
   - Safer Births Moyo RCT in Muhimbili, Tanzania.
 - Developed surveillance reports (and all relevant infrastructure and code for signal processing) in the format of interactive websites for:
