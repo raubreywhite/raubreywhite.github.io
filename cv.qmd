@@ -105,8 +105,8 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
 *01.2012 - 05.2014 / Oslo, Norway*
 
 - Developed database management structures to allow for the construction of analysis datasets from multiple disparate sources (e.g. written questionnaires, lab toxicant concentrations, Illumina microbial data).
-- Investigated the relationship between seasonality, sunlight, and suicide.
-- Investigated the relationship between gun ownership and completed suicide in the US, highlighting the lack of method substitution where gun ownership is less prevalent.
+- [Investigated](articles/2015-white-suicide.pdf) the relationship between seasonality, sunlight, and suicide.
+- [Investigated](articles/2013-miller.pdf) the relationship between gun ownership and completed suicide in the US, highlighting the lack of method substitution where gun ownership is less prevalent.
 
 ## Médecins Sans Frontières (MSF)
 
@@ -134,7 +134,7 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
 *04.2019 - 05.2019 / Beira, Sofala, Mozambique*
 
 - Responded to a cholera outbreak.
-- Managed a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by Cyclone Idai.
+- Managed a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by [Cyclone Idai](https://en.wikipedia.org/wiki/Cyclone_Idai).
 - Liaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea.
 
 {{< video resources/cbs.webm >}}
@@ -154,7 +154,7 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
 
 *01.2015 - 02.2015 / Kambia, Sierra Leone*
 
-- Responded to an Ebola outbreak.
+- Responded to the [2013-2016 Western African Ebola virus epidemic](https://en.wikipedia.org/wiki/Western_African_Ebola_virus_epidemic).
 - Developed and managed a real-time surveillance system for the Ebola outbreak in Kambia, linking the national emergency number, Ebola holding centers, Ebola community care centers, Ebola treatment centers, and burials.
 - Geocoded and mapped relevant outbreak data (alerts, cases, border crossings).
 - Generated daily sitreps using GIS data and epidemiological information from the surveillance database.
@@ -164,12 +164,12 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
 
 *04.2011 - 11.2011 / Geneva, Switzerland*
 
-- Collected cause of death data from multiple national cause of death registries into a database and calculated avoidable mortality estimates for disease groups over time, comparing trends in high income versus developing countries.
-- Produced disease prevalence estimates for the Global Burden of Disease project (GBD 2010), most notably for vision loss, micronutrient deficiency, and osteoarthritis for all UN member nations, in all sex/age combinations, from 1990 to 2010.
+- Collected [cause of death](articles/2015-mathers.pdf) data from multiple national cause of death registries into a database and calculated avoidable mortality estimates for disease groups over time, comparing trends in high income versus developing countries.
+- Produced disease prevalence estimates for the Global Burden of Disease project (GBD 2010), most notably for [vision loss](articles/2013-stevens.pdf), [micronutrient deficiency](articles/2015-stevens.pdf), and [stunting](articles/2012-stevens.pdf) for all UN member nations, in all sex/age combinations, from 1990 to 2010.
 
 ### Biostatistician - Stop TB Department
 
 *06.2010 - 11.2010 / Boston, USA*
 
 - Liaised with NGOs from South Africa, Uzbekistan, Bangladesh, and Peru to gain access to MDR-TB datasets, then managed, cleaned, and analysed the datasets.
-- Provided recommendations for the WHO Guidelines for the Programmatic Management of Drug Resistant Tuberculosis (3rd edition) via multi-cohort survival analyses to determine factors affecting detection of MDR-TB and survival in a programmatic context.
+- Provided [recommendations](articles/2016-mitnick.pdf) for the WHO Guidelines for the Programmatic Management of Drug Resistant Tuberculosis (3rd edition) via multi-cohort survival analyses to determine factors affecting detection of MDR-TB and survival in a programmatic context.

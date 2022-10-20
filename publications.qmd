@@ -14,7 +14,7 @@ d <- knitcitations::read.bibtex("publications.bib")
 citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), big.mark = " ", format = "f", digits = 0)
 ```
 
-`r length(d)` [scientific articles](publications.html) (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
+`r length(d)` scientific articles (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
 
 ```{r echo=FALSE, warning=FALSE, results = "asis"}
 print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
