@@ -13,7 +13,7 @@ library(data.table)
 d <- knitcitations::read.bibtex("publications.bib")
 ```
 
-`r length(d)` articles.
+`r length(d)` scientific articles.
 
 ```{r echo=FALSE, warning=FALSE, results = "asis"}
 print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))

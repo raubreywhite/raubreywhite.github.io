@@ -5,7 +5,7 @@ description: |
   Personal website of Richard Aubrey White
 favicon: favicon.ico
 base_url: https://rwhite.no
-preview: images/logo.png
+preview: resources/logo.png
 repository_url: https://github.com/raubreywhite/raubreywhite.github.io
 creative_commons: CC BY
 output_dir: "docs"

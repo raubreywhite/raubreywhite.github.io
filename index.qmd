@@ -1,6 +1,6 @@
 ---
 title: "Richard Aubrey White"
-image: images/richard.jpeg
+image: resources/richard.jpeg
 about:
   id: hero-heading
   template: solana
@@ -19,7 +19,7 @@ title-block-banner: false
 
 :::{#hero-heading}
 
-Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes developing and managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in Palestine.
+Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in Sri Lanka and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in Palestine.
 
 :::
 
