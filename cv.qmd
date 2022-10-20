@@ -90,8 +90,8 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
   - Mentoring and supervising them in statistics.
   - Quality assurance of statistical analyses in peer-reviewed publications.
 - Developed statistical protocol for a 60 000 person longitudinal study regarding Norwegian water usage.
-- Modelled the [2014 Ebola outbreak](articles/2015-white-ebola.pdf) to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.
-- Modelled the [burden of HCV](articles/2017-meijerink.pdf) in Norwegian people who inject drugs.
+- [Modelled](articles/2015-white-ebola.pdf) the 2014 Ebola outbreak to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.
+- [Modelled](articles/2017-meijerink.pdf) the burden of HCV in Norwegian people who inject drugs.
 - Head statistician on the data monitoring committee (DMC) for the:
   - PEEP RCT in Haydom, Tanzania.
   - Safer Births Moyo RCT in Muhimbili, Tanzania.
