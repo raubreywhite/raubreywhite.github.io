@@ -112,6 +112,8 @@ hello@rwhite.no
 -   Managed a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by Cyclone Idai.
 -   Liaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea.
 
+{{< video cv/cbs.mov >}}
+
 ## Palestinian National Institute of Public Health (PNIPH)
 
 ### Statistician
