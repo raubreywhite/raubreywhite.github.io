@@ -2,7 +2,6 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/post/2022-09-29-fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger/fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger.html",
       "/post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html",
       "/post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
       "/post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html",
@@ -14,9 +13,9 @@
   {
     "listing": "/recipes.html",
     "items": [
-      "/recipe/sourdough/sourdough.html",
+      "/recipe/malva-pudding/malva-pudding.html",
       "/recipe/palak-paneer/palak-paneer.html",
-      "/recipe/malva-pudding/malva-pudding.html"
+      "/recipe/sourdough/sourdough.html"
     ]
   }
 ]
