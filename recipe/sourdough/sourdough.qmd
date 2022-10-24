@@ -1,0 +1,47 @@
+---
+title: "Sourdough"
+description: |
+  A simple sourdough method.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2021-11-18
+categories: [bread, baking]
+editor_options: 
+  chunk_output_type: console
+---
+
+::: {layout-ncol="2" layout-valign="center"}
+![A 1,3 kg loaf of sourdough.](weight.jpg){#fig-weight}
+
+![Sliced bread.](sliced.jpg){#fig-sliced}
+:::
+
+|    Metric    |        Value        |
+|:------------:|:-------------------:|
+|  Prep time   |       12-24h        |
+| Cooking time |        1,5h         |
+|    Serves    | 1,3kg loaf of bread |
+
+: Information
+
+# Ingredients
+
+|             |                   |              |
+|:-----------:|:-----------------:|:------------:|
+| **Purpose** |  **Ingredient**   | **Quantity** |
+|   Levain    | Sourdough starter |     30g      |
+|             |       Water       |     60g      |
+|             |       Flour       |     60g      |
+|             |       Yeast       |      4g      |
+|             |                   |              |
+| **Purpose** |  **Ingredient**   | **Quantity** |
+|    Dough    |       Flour       |     750g     |
+|             |       Water       |     550g     |
+|             |       Salt        |     15g      |
+|             |        MSG        |      5g      |
+
+# Instructions
+
+Test

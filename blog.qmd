@@ -3,7 +3,7 @@ title: "Blog"
 description: |
   A collection of thoughts.
 listing:
-  contents: posts
+  contents: post
   sort: "date desc"
   type: default
   categories: false

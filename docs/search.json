@@ -238,6 +238,34 @@
     "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
   },
   {
+    "objectID": "recipe/palak-paneer/palak-paneer.html",
+    "href": "recipe/palak-paneer/palak-paneer.html",
+    "title": "Palak Paneer",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nsix people"
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html#pudding",
+    "href": "recipe/palak-paneer/palak-paneer.html#pudding",
+    "title": "Palak Paneer",
+    "section": "Pudding",
+    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html#sauce",
+    "href": "recipe/palak-paneer/palak-paneer.html#sauce",
+    "title": "Palak Paneer",
+    "section": "Sauce",
+    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html#serving",
+    "href": "recipe/palak-paneer/palak-paneer.html#serving",
+    "title": "Palak Paneer",
+    "section": "Serving",
+    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
+  },
+  {
     "objectID": "recipe/sourdough/sourdough.html",
     "href": "recipe/sourdough/sourdough.html",
     "title": "Sourdough",
@@ -249,6 +277,6 @@
     "href": "recipes.html",
     "title": "Recipes",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\nDescription\n\n\nCategories\n\n\n\n\n\n\nSourdough\n\n\nA simple sourdough method.\n\n\nbread,baking\n\n\n\n\nMalva Pudding\n\n\nA sweet South African pudding.\n\n\ndessert,baking\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\nDescription\n\n\nCategories\n\n\n\n\n\n\nPalak Paneer\n\n\nClassic North Indian curry with paneer and spinach.\n\n\nnorth india\n\n\n\n\nSourdough\n\n\nA simple sourdough method.\n\n\nbread,baking\n\n\n\n\nMalva Pudding\n\n\nA sweet South African pudding.\n\n\ndessert,baking\n\n\n\n\n\n\nNo matching items"
   }
 ]

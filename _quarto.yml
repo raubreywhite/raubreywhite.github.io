@@ -5,12 +5,14 @@ project:
 
 website:
   title: "Richard Aubrey White"
+  favicon: favicon.png
   navbar:
     right:
       - text: "Home"
         href: index.html
       - cv.qmd
       - publications.qmd
+      - recipes.qmd
       - blog.qmd
       - icon: github
         href: https://github.com/raubreywhite

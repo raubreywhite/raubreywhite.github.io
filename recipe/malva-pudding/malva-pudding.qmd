@@ -1,0 +1,71 @@
+---
+title: "Malva Pudding"
+description: |
+  A sweet South African pudding.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2021-11-01
+categories: [dessert, baking]
+---
+
+|    Metric    |   Value    |
+|:------------:|:----------:|
+|  Prep time   |   30min    |
+| Cooking time |   45min    |
+|    Serves    | six people |
+
+: Information
+
+# Ingredients
+
+|                     |                |                 |
+|:-------------------:|:--------------:|:---------------:|
+|     **Purpose**     | **Ingredient** |  **Quantity**   |
+| Pudding (flour mix) |     Flour      |      185g       |
+|                     |  Bicarb soda   |   1 teaspoon    |
+|                     |      Salt      |  1/2 teaspoon   |
+|                     |                |                 |
+|     **Purpose**     | **Ingredient** |  **Quantity**   |
+|  Pudding (egg mix)  |     Sugar      |  250mL (1 cup)  |
+|                     |      Eggs      |     2 large     |
+|                     |  Apricot jam   |  1 tablespoon   |
+|                     |                |                 |
+|     **Purpose**     | **Ingredient** |  **Quantity**   |
+| Pudding (milk mix)  |     Butter     |  2 tablespoons  |
+|                     | White vinegar  |   1 teaspoon    |
+|                     |      Milk      | 125mL (1/2 cup) |
+|                     |                |                 |
+|     **Purpose**     | **Ingredient** |  **Quantity**   |
+|        Sauce        |     Cream      |  250mL (1 cup)  |
+|                     |     Butter     | 125mL (1/2 cup) |
+|                     |     Sugar      | 125mL (1/2 cup) |
+|                     |     Water      | 125mL (1/2 cup) |
+|                     |                |                 |
+|     **Purpose**     | **Ingredient** |  **Quantity**   |
+|       Garnish       |  Mint leaves   |       \-        |
+
+# Instructions
+
+## Pudding
+
+1.  Sift together flour, bicarb soda, and salt.
+2.  Beat sugar and eggs until light and fluffy.
+3.  Add apricot jam and beat well.
+4.  In a saucepan, melt the butter.
+5.  Add the vinegar and milk.
+6.  Fold in the flour and egg mixtures alternatively.
+7.  Pour into a greased baking tray.
+8.  Bake at 180C for 45 minutes.
+
+## Sauce
+
+1.  Place all ingredients into a saucepan.
+2.  Stir over moderate heat until butter has melted and the sugar dissolved.
+3.  Pierce pudding with skewer and pour sauce over hot pudding.
+
+## Serving
+
+1.  Garnish with fresh mint leaves.
+2.  Serve hot or cold with cream or custard.
