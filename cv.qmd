@@ -127,8 +127,6 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
 -	Head statistician for a 3100-household multi-sector nationwide needs assessment, in response to the complex humanitarian emergency in Sri Lanka.
 -	Developed statistical protocol for all sectors, questions for the health sector, and analyzed most of the data.
 
-{{< video resources/sri_lanka.webm >}}
-
 ### Community Based Surveillance Delegate (IFRC)
 
 *04.2019 - 05.2019 / Beira, Sofala, Mozambique*
@@ -136,8 +134,6 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
 - Responded to a cholera outbreak.
 - Managed a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by [Cyclone Idai](https://en.wikipedia.org/wiki/Cyclone_Idai).
 - Liaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea.
-
-{{< video resources/cbs.webm >}}
 
 ## Palestinian National Institute of Public Health (PNIPH)
 
