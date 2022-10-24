@@ -214,21 +214,21 @@
     "href": "recipe/malva-pudding/malva-pudding.html",
     "title": "Malva Pudding",
     "section": "",
-    "text": "Serves 6 people.\n\n\n\nCream: 250ml (1 cup)\nButter: 125ml (1/2 cup)\nSugar: 125ml (1/2 cup)\nWater: 125ml (1/2 cup)\n\n\n\n\n\nSugar: 250ml (1 cup)\nEggs: 2 large\nApricot jam: 1 tablespoon\nFlour: 185g\nBicarb soda: 1 teaspoon\nSalt: 1/2 teaspoon\nButter: 2 tablespoons\nWhite vinegar: 1 teaspoon\nMilk: 125ml (1/2 cup)\n\n\n\n\n\nMint leaves"
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nsix people"
   },
   {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-1",
-    "href": "recipe/malva-pudding/malva-pudding.html#pudding-1",
+    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding",
+    "href": "recipe/malva-pudding/malva-pudding.html#pudding",
     "title": "Malva Pudding",
     "section": "Pudding",
-    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and milk mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
+    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
   },
   {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#sauce-1",
-    "href": "recipe/malva-pudding/malva-pudding.html#sauce-1",
+    "objectID": "recipe/malva-pudding/malva-pudding.html#sauce",
+    "href": "recipe/malva-pudding/malva-pudding.html#sauce",
     "title": "Malva Pudding",
     "section": "Sauce",
-    "text": "Sauce\n\nPlace all incredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
+    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
   },
   {
     "objectID": "recipe/malva-pudding/malva-pudding.html#serving",
@@ -242,7 +242,7 @@
     "href": "recipe/sourdough/sourdough.html",
     "title": "Sourdough",
     "section": "",
-    "text": "Figure 1: A 1,3 kg loaf of sourdough.\n\n\n\n\n\n\n\nFigure 2: Sliced bread."
+    "text": "Figure 1: A 1,3 kg loaf of sourdough.\n\n\n\n\n\n\n\nFigure 2: Sliced bread.\n\n\n\n\n\n\nInformation\n\n\nMetric\nValue\n\n\n\n\nPrep time\n12-24h\n\n\nCooking time\n1,5h\n\n\nServes\n1,3kg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\n\n\nLevain\nSourdough starter\n30g\n\n\n\nWater\n60g\n\n\n\nFlour\n60g\n\n\n\nYeast\n4g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nFlour\n750g\n\n\n\nWater\n550g\n\n\n\nSalt\n15g\n\n\n\nMSG\n5g\n\n\n\n\n\nInstructions\nTest"
   },
   {
     "objectID": "recipes.html",
