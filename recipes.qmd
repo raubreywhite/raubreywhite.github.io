@@ -7,7 +7,7 @@ listing:
   sort: "title asc"
   type: table
   categories: true
-  sort-ui: true
+  sort-ui: false
   filter-ui: true
   fields: [title, description, categories]
 ---
