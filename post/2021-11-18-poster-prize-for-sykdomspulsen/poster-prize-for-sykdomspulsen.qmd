@@ -4,11 +4,12 @@ description: |
   Sykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.
 author:
   - name: "Richard Aubrey White"
-    url: https://rwhite.no
-    affiliation: Folkehelseinstituttet
-    affiliation-url: https://www.fhi.no
+    url: https://www.rwhite.no
     orcid: 0000-0002-6747-1726
 date: 2021-11-18
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
 ---
 
 Sykdomspulsen's poster "Sykdomspulsen - An exciting and forward-looking infrastructure and website for the real-time surveillance of Covid-19, other infections, and deaths" received the prize for "Best Poster" at Helse- og Kvalitetsregisterkonferansen 2021.

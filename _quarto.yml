@@ -19,8 +19,7 @@ website:
 format:
   html:
     theme: flatly
-    css: styles.css
-    title-block: "#b8e2f2"
+    # css: styles.css
     title-block-banner: "#b8e2f2"
     title-block-banner-color: "#000000"
 

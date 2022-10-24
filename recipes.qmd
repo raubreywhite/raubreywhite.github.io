@@ -4,7 +4,7 @@ description: |
   A collection of recipes.
 listing:
   contents: recipe
-  sort: "date desc"
+  sort: "title asc"
   type: table
   categories: true
   sort-ui: true

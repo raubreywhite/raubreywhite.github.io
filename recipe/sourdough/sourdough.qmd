@@ -8,6 +8,7 @@ author:
     orcid: 0000-0002-6747-1726
 date: 2021-11-18
 categories: [bread, baking]
+title-block-banner: "#b8e2f2"
 editor_options: 
   chunk_output_type: console
 ---
@@ -28,19 +29,22 @@ editor_options:
 
 # Ingredients
 
-|             |                   |              |
-|:-----------:|:-----------------:|:------------:|
-| **Purpose** |  **Ingredient**   | **Quantity** |
-|   Levain    | Sourdough starter |     30g      |
-|             |       Water       |     60g      |
-|             |       Flour       |     60g      |
-|             |       Yeast       |      4g      |
-|             |                   |              |
-| **Purpose** |  **Ingredient**   | **Quantity** |
-|    Dough    |       Flour       |     750g     |
-|             |       Water       |     550g     |
-|             |       Salt        |     15g      |
-|             |        MSG        |      5g      |
+|             |                          |              |
+|:-----------:|:------------------------:|:------------:|
+| **Purpose** |      **Ingredient**      | **Quantity** |
+|   Levain    |    Sourdough starter     |     30g      |
+|             |          Water           |     60g      |
+|             |          Flour           |     60g      |
+|             |          Yeast           |      4g      |
+|             |                          |              |
+| **Purpose** |      **Ingredient**      | **Quantity** |
+|    Dough    |          Flour           |     750g     |
+|             |          Water           |     550g     |
+|             |           Salt           |     15g      |
+|             |           MSG            |      5g      |
+|             |                          |              |
+| **Purpose** |      **Ingredient**      | **Quantity** |
+| Oven steam  | Water in metal container |    250mL     |
 
 # Instructions
 
