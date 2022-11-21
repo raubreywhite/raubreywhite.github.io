@@ -1,0 +1,68 @@
+---
+title: "Butter Chicken"
+description: |
+  North Indian curry with butter, yoghurt, and chicken.
+categories: [North India, Chicken]
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+|    Metric    |   Value    |
+|:------------:|:----------:|
+|  Prep time   |   30min    |
+| Cooking time |   45min    |
+|    Serves    | six people |
+
+: Information
+
+# Ingredients
+
+| **Purpose**  |   **Ingredient**   |    **Quantity**     |
+|:------------:|:------------------:|:-------------------:|
+|  Spice mix   |       Butter       |        100g         |
+|              |    Garam Masala    |    1 tablespoon     |
+|              |      Paprika       |    1 tablespoon     |
+|              | Coriander (ground) |    1 tablespoon     |
+|              |   Cumin (ground)   |    1 tablespoon     |
+|              |  Garlic (minced)   |    1 tablespoon     |
+|              |  Cardamom (green)  |       5 pods        |
+|              |                    |                     |
+| **Purpose**  |   **Ingredient**   |    **Quantity**     |
+| Main protein |      Chicken       |        500g         |
+|              |                    |                     |
+| **Purpose**  |   **Ingredient**   |    **Quantity**     |
+|    Sauce     |    Tomato paste    | 3 tablespoons (45g) |
+|              |       Sugar        | 1 tablespoon (15g)  |
+|              |      Yoghurt       |        100mL        |
+|              |    Lemon juice     | 1 tablespoon (15mL) |
+|              |       Cream        |        200mL        |
+|              |       Chili        |    1 tablespoon     |
+|              |                    |                     |
+| **Purpose**  |   **Ingredient**   |    **Quantity**     |
+|   Garnish    |    Pomegranate     |       1 piece       |
+|              | Coriander (fresh)  |                     |
+
+# Instructions
+
+## Pudding
+
+1.  Sift together flour, bicarb soda, and salt.
+2.  Beat sugar and eggs until light and fluffy.
+3.  Add apricot jam and beat well.
+4.  In a saucepan, melt the butter.
+5.  Add the vinegar and milk.
+6.  Fold in the flour and egg mixtures alternatively.
+7.  Pour into a greased baking tray.
+8.  Bake at 180C for 45 minutes.
+
+## Sauce
+
+1.  Place all ingredients into a saucepan.
+2.  Stir over moderate heat until butter has melted and the sugar dissolved.
+3.  Pierce pudding with skewer and pour sauce over hot pudding.
+
+## Serving
+
+1.  Garnish with fresh mint leaves.
+2.  Serve hot or cold with cream or custard.

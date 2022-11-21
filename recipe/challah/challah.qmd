@@ -1,0 +1,40 @@
+---
+title: "Challah"
+description: |
+  Yeast-risen egg bread.
+categories: [Bread]
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+|    Metric    |       Value        |
+|:------------:|:------------------:|
+|  Prep time   |         2h         |
+| Cooking time |       45min        |
+|    Serves    | XXkg loaf of bread |
+
+: Information
+
+# Ingredients
+
+|             |                |              |
+|:-----------:|:--------------:|:------------:|
+| **Purpose** | **Ingredient** | **Quantity** |
+|    Dough    |     Water      |     160g     |
+|             |     Yeast      |     10g      |
+|             |     Sugar      |     40g      |
+|             |     Flour      |     400g     |
+|             |   Egg (yolk)   |   2 (40g)    |
+|             |  Egg (whole)   |   1 (60g)    |
+|             |      Oil       |    37,5g     |
+|             |      Salt      |     10g      |
+
+# Instructions
+
+1.  Combine all ingredients.
+2.  Knead.
+3.  Cover and leave to rise until doubled in size.
+4.  Knead, shape, and place in pan.
+5.  Leave to rise until doubled in size.
+6.  Place covered in oven and fan-bake at 180C for 40 minutes.

@@ -1,0 +1,81 @@
+---
+title: "Mango Sticky Rice"
+description: |
+  A sweet Thai dessert.
+categories: [Dessert, Thailand]
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+|    Metric    |   Value    |
+|:------------:|:----------:|
+|  Prep time   |   30min    |
+| Cooking time |   45min    |
+|    Serves    | One person |
+
+: Information
+
+# Ingredients
+
+|                      |                         |                |
+|:--------------------:|:-----------------------:|:--------------:|
+|     **Purpose**      |     **Ingredient**      |  **Quantity**  |
+|     Sticky rice      | Sticky (glutinous) rice |    1/3 cup     |
+|                      |                         |                |
+|     **Purpose**      |     **Ingredient**      |  **Quantity**  |
+| Sticky rice marinade |      Coconut cream      | 60mL (1/4 cup) |
+|                      |          Sugar          | 2 tablespoons  |
+|                      |          Salt           |  1/4 teaspoon  |
+|                      |                         |                |
+|     **Purpose**      |     **Ingredient**      |  **Quantity**  |
+|  Sticky rice sauce   |      Coconut cream      | 60mL (1/4 cup) |
+|                      |          Sugar          |  1 tablespoon  |
+|                      |          Salt           |  1/4 teaspoon  |
+|                      |          Flour          |  2 teaspoons   |
+|                      |                         |                |
+|     **Purpose**      |     **Ingredient**      |  **Quantity**  |
+| Sticky rice garnish  | Sesame seeds (roasted)  |       \-       |
+|                      |                         |                |
+|     **Purpose**      |     **Ingredient**      |  **Quantity**  |
+|        Mango         |          Mango          |       1        |
+
+# Instructions
+
+## Sticky rice (I)
+
+1.  Wash sticky (glutinous) rice until water runs clear.
+2.  Soak sticky rice in water in fridge overnight.
+
+## Sticky rice (II)
+
+1.  Drain water.
+2.  Wrap in cheese cloth.
+3.  Steam for 20 minutes.
+
+## Sticky rice marinade
+
+1.  Mix all ingredients in saucepan and bring to a boil.
+2.  Remove from heat.
+
+## Sticky rice (III)
+
+1.  Remove sticky rice from cheese cloth, place in bowl, add sticky rice marinade, and stir.
+2.  Cover for 20 minutes.
+3.  Stir again.
+4.  Press/mold the sticky rice into a ball. Cover for 20 minutes.
+
+## Sticky rice sauce
+
+1.  Mix all ingredients in saucepan and bring to a boil.
+2.  Stir until thickened.
+
+## Sticky rice garnish
+
+1.  Toast sesame seeds in saucepan.
+
+## Serving
+
+1.  Plate sticky rice and mango.
+2.  Pour sticky rice sauce on sticky rice.
+3.  Garnish sticky rice with sesame seeds.

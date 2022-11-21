@@ -19,7 +19,7 @@ title-block-banner: false
 
 :::{#hero-heading}
 
-Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in Sri Lanka and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in Palestine.
+Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in [Palestine](articles/2021-isbeih.pdf).
 
 :::
 
@@ -27,11 +27,7 @@ Richard is an applied infectious diseases statistician based in Oslo, Norway. He
 
 hello@rwhite.no
 
-## Education
-
-**University of Bergen, Norway**
-
-2022 - 2023 / One year program (Årsstudium) in Nordic languages and literature
+## Education / Statistics
 
 **Harvard University, USA**
 
@@ -41,4 +37,10 @@ hello@rwhite.no
 
 **University of Wollongong, Australia**
 
-2005 - 2009 / B. Advanced Mathematics (First Class Honours) majoring in Applied Statistics
+2005 - 2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours) 
+
+## Education / Humanities
+
+**University of Bergen, Norway**
+
+2022 - 2023 / One year program (Årsstudium) in Nordic languages and literature

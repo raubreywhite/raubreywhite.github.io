@@ -1,0 +1,36 @@
+---
+title: "Hummus"
+description: |
+  A simple sourdough method.
+categories: [Vegetarian, Palestine]
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+|    Metric    |       Value        |
+|:------------:|:------------------:|
+|  Prep time   |       12-24h       |
+| Cooking time |        1,5h        |
+|    Serves    | XXkg loaf of bread |
+
+: Information
+
+# Ingredients
+
+| **Purpose** | **Ingredient** |  **Quantity**  |
+|:-----------:|:--------------:|:--------------:|
+|   Hummus    |   Chickpeas    |      200g      |
+|             |     Water      |     125mL      |
+|             |  Baking soda   | 1/2 tablespoon |
+|             |     Garlic     |    2 cloves    |
+|             |  Tahini paste  |      100g      |
+|             | Cumin (powder) |  1/4 teaspoon  |
+|             |    Paprika     |  1/2 teaspoon  |
+|             |      Salt      |  1/2 teaspoon  |
+|             |  Lemon juice   |  1 tablespoon  |
+|             |   Olive oil    |  1 tablespoon  |
+
+# Instructions
+
+Test

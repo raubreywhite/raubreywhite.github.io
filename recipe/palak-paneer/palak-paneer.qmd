@@ -2,12 +2,7 @@
 title: "Palak Paneer"
 description: |
   North Indian curry with paneer and spinach.
-author:
-  - name: "Richard Aubrey White"
-    url: https://www.rwhite.no
-    orcid: 0000-0002-6747-1726
-date: 2021-12-01
-categories: [north india]
+categories: [North India, Vegetarian]
 title-block-banner: "#b8e2f2"
 editor_options: 
   chunk_output_type: console
@@ -17,7 +12,7 @@ editor_options:
 |:------------:|:----------:|
 |  Prep time   |   30min    |
 | Cooking time |   45min    |
-|    Serves    | six people |
+|    Serves    | Six people |
 
 : Information
 
@@ -29,7 +24,7 @@ editor_options:
 |               |    Fenugreek    |  1 teaspoon  |
 |               |      Cumin      | 1 tablespoon |
 |               |    Coriander    | 1 tablespoon |
-|               |     Tumeric     | 1 tablespoon |
+|               |    Turmeric     | 1 tablespoon |
 |               |     Garlic      |   4 cloves   |
 |               |      Onion      |   1 piece    |
 |               |                 |              |

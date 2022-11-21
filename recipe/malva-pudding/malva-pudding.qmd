@@ -2,12 +2,7 @@
 title: "Malva Pudding"
 description: |
   A sweet South African pudding.
-author:
-  - name: "Richard Aubrey White"
-    url: https://www.rwhite.no
-    orcid: 0000-0002-6747-1726
-date: 2021-11-01
-categories: [dessert, baking]
+categories: [Dessert, Baking, South Africa]
 title-block-banner: "#b8e2f2"
 editor_options: 
   chunk_output_type: console
@@ -51,22 +46,31 @@ editor_options:
 
 # Instructions
 
-## Pudding
+## Pudding (flour mix)
 
 1.  Sift together flour, bicarb soda, and salt.
-2.  Beat sugar and eggs until light and fluffy.
-3.  Add apricot jam and beat well.
-4.  In a saucepan, melt the butter.
-5.  Add the vinegar and milk.
-6.  Fold in the flour and egg mixtures alternatively.
-7.  Pour into a greased baking tray.
-8.  Bake at 180C for 45 minutes.
+
+## Pudding (egg mix)
+
+1.  Beat sugar and eggs until light and fluffy.
+2.  Add apricot jam and beat well.
+
+## Pudding (I)
+
+1.  In a saucepan, melt the butter.
+2.  Add the vinegar and milk.
+3.  Fold in the flour and egg mixtures alternatively.
+4.  Pour into a greased baking tray.
+5.  Bake at 180C for 45 minutes.
 
 ## Sauce
 
 1.  Place all ingredients into a saucepan.
 2.  Stir over moderate heat until butter has melted and the sugar dissolved.
-3.  Pierce pudding with skewer and pour sauce over hot pudding.
+
+## Pudding (II)
+
+1.  Pierce pudding with skewer and pour sauce over hot pudding.
 
 ## Serving
 

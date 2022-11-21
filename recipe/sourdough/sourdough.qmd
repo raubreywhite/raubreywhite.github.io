@@ -2,12 +2,7 @@
 title: "Sourdough"
 description: |
   A simple sourdough method.
-author:
-  - name: "Richard Aubrey White"
-    url: https://www.rwhite.no
-    orcid: 0000-0002-6747-1726
-date: 2021-11-18
-categories: [bread, baking]
+categories: [Bread]
 title-block-banner: "#b8e2f2"
 editor_options: 
   chunk_output_type: console
