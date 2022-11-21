@@ -53,7 +53,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n79 scientific articles (50 603 citations).\n8 R packages as first author/maintainer:\n\nattrib \ncsdata\norg \nplnr \nsplmaps\nspltidy\nsplutil \nspread \n\n5 R packages as co-author:\n\nMOMO\nnowcast\nsplalert\nsplstyle\nspltime"
+    "text": "Scientific production\n\n79 scientific articles (50 603 citations).\n8 R packages as first author/maintainer:\n\nattrib \ncsdata\norg \nplnr \ncsmaps\ncstidy\nsplutil \nspread \n\n5 R packages as co-author:\n\nMOMO\nnowcast\ncsalert\ncsstyle\ncstime"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
@@ -67,7 +67,7 @@
     "href": "cv.html#médecins-sans-frontières-msf",
     "title": "CV",
     "section": "Médecins Sans Frontières (MSF)",
-    "text": "Médecins Sans Frontières (MSF)\n\nStatistician OCB\n10.2015–now / Oslo, Norway\n\nDeveloped statistical protocol for a 10 000 person stepwise-RCT regarding DR-TB in a Mumbai slum.\nAdvised on surveillance methods to detect extreme malaria seasons in areas with low quality data.\nIdentified predictors of death amongst Ebola patients in a Guinean Ebola Treatment Unit."
+    "text": "Médecins Sans Frontières (MSF)\n\nStatistician OCB\n10.2015–now / Oslo, Norway\n\nDeveloped statistical protocol for a 10 000-person stepwise-RCT regarding DR-TB in a Mumbai slum.\nAdvised on surveillance methods to detect extreme malaria seasons in areas with low quality data.\nIdentified predictors of death amongst Ebola patients in a Guinean Ebola Treatment Unit."
   },
   {
     "objectID": "cv.html#norwegian-red-cross-norcross",
