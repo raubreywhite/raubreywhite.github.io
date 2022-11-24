@@ -53,7 +53,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n79 scientific articles (50 661 citations).\n8 R packages as first author/maintainer:\n\nattrib \ncsdata \ncsmaps \ncstidy\ncsutil \norg \nplnr \nspread \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime\nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil"
+    "text": "Scientific production\n\n79 scientific articles (50 661 citations).\n8 R packages as first author/maintainer:\n\nattrib (cran) \ncsdata \ncsmaps \ncstidy\ncsutil \norg \nplnr \nspread \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime\nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
