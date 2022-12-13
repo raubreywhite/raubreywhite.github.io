@@ -231,53 +231,71 @@ background: #b8e2f2;
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">interactive</span>()){</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  folder_location <span class="ot">&lt;-</span> <span class="st">"post/2022-12-13-all-cause-mortality-in-norway/"</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  folder_location <span class="ot">&lt;-</span> <span class="st">""</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> PxWebApiData<span class="sc">::</span><span class="fu">ApiData</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://data.ssb.no/api/v0/en/table/07995"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kjonn =</span> <span class="st">"0"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Alder =</span> <span class="st">"999A"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tid =</span> <span class="fu">as.character</span>(<span class="dv">2000</span><span class="sc">:</span><span class="dv">2022</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Uke =</span> <span class="fu">paste0</span>(<span class="st">"U"</span>,<span class="fu">formatC</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">52</span>, <span class="at">width=</span><span class="dv">2</span>, <span class="at">flag=</span><span class="st">"0"</span>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> data<span class="sc">$</span>dataset[,<span class="fu">c</span>(<span class="st">"Uke"</span>, <span class="st">"Tid"</span>, <span class="st">"value"</span>)]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setDT</span>(d)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(d, <span class="fu">c</span>(<span class="st">"week"</span>,<span class="st">"isoyear"</span>,<span class="st">"deaths_n"</span>))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>d[, isoweek <span class="sc">:</span><span class="er">=</span> stringr<span class="sc">::</span><span class="fu">str_remove</span>(week, <span class="st">"U"</span>)]</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>d[, isoyearweek <span class="sc">:</span><span class="er">=</span> <span class="fu">paste0</span>(isoyear, <span class="st">"-"</span>, isoweek)]</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>d[, isoweek <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(isoweek)]</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>d[, isoyear <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(isoyear)]</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>d[, week <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">setcolorder</span>(d, <span class="fu">c</span>(<span class="st">"isoyear"</span>,<span class="st">"isoweek"</span>,<span class="st">"isoyearweek"</span>, <span class="st">"deaths_n"</span>))</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>max_isoweek <span class="ot">&lt;-</span> d[isoyear<span class="sc">==</span><span class="dv">2022</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(deaths_n)]<span class="sc">$</span>isoweek <span class="sc">%&gt;%</span> </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>() <span class="sc">-</span> <span class="dv">3</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d[isoweek <span class="sc">&lt;=</span> max_isoweek]</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(d, <span class="at">file =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{folder_location}data_2022-12-13.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downloading data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> PxWebApiData<span class="sc">::</span><span class="fu">ApiData</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://data.ssb.no/api/v0/en/table/07995"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kjonn =</span> <span class="st">"0"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Alder =</span> <span class="st">"999A"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tid =</span> <span class="fu">as.character</span>(<span class="dv">2000</span><span class="sc">:</span><span class="dv">2022</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Uke =</span> <span class="fu">paste0</span>(<span class="st">"U"</span>, <span class="fu">formatC</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">52</span>, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">flag =</span> <span class="st">"0"</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Cleaning</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> data<span class="sc">$</span>dataset[, <span class="fu">c</span>(<span class="st">"Uke"</span>, <span class="st">"Tid"</span>, <span class="st">"value"</span>)]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">setDT</span>(d)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(d, <span class="fu">c</span>(<span class="st">"week"</span>, <span class="st">"isoyear"</span>, <span class="st">"deaths_n"</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>d[, isoweek <span class="sc">:</span><span class="er">=</span> stringr<span class="sc">::</span><span class="fu">str_remove</span>(week, <span class="st">"U"</span>)]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>d[, isoyearweek <span class="sc">:</span><span class="er">=</span> <span class="fu">paste0</span>(isoyear, <span class="st">"-"</span>, isoweek)]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>d[, isoweek <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(isoweek)]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>d[, isoyear <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(isoyear)]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>d[, week <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">setcolorder</span>(d, <span class="fu">c</span>(<span class="st">"isoyear"</span>, <span class="st">"isoweek"</span>, <span class="st">"isoyearweek"</span>, <span class="st">"deaths_n"</span>))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing the latest 3 weeks of data (due to registration delay)</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>max_isoweek <span class="ot">&lt;-</span> d[isoyear <span class="sc">==</span> <span class="dv">2022</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(deaths_n)]<span class="sc">$</span>isoweek <span class="sc">%&gt;%</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>() <span class="sc">-</span> <span class="dv">3</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d[isoweek <span class="sc">&lt;=</span> max_isoweek]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Saving the cleaned data</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(d, <span class="at">file =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{folder_location}data_2022-12-13.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{folder_location}data_2022-12-13.rds"</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>max_isoweek <span class="ot">&lt;-</span> <span class="fu">max</span>(d<span class="sc">$</span>isoweek)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> d[,.(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">deaths_n =</span> <span class="fu">sum</span>(deaths_n)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>), keyby<span class="ot">=</span>.(isoyear)]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pd, <span class="fu">aes</span>(<span class="at">x=</span>isoyear, <span class="at">y =</span> deaths_n))</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="st">"Isoyear"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, <span class="dv">2022</span>, <span class="dv">2</span>))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="st">"Number of deaths"</span>, <span class="at">labels =</span> csstyle<span class="sc">::</span>format_nor_num_0, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">33000</span>, <span class="dv">38000</span>, <span class="dv">1000</span>))</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">expand_limits</span>(<span class="at">y=</span><span class="fu">c</span>(<span class="dv">33000</span>,<span class="dv">38000</span>))</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"Number of deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)"</span>))</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Data extracted 2022-12-13 from SSB table 07995."</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading the cleaned data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{folder_location}data_2022-12-13.rds"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>max_isoweek <span class="ot">&lt;-</span> <span class="fu">max</span>(d<span class="sc">$</span>isoweek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregating</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> d[, .(<span class="at">deaths_n =</span> <span class="fu">sum</span>(deaths_n)), keyby <span class="ot">=</span> .(isoyear)]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pd, <span class="fu">aes</span>(<span class="at">x =</span> isoyear, <span class="at">y =</span> deaths_n))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="st">"Isoyear"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, <span class="dv">2022</span>, <span class="dv">2</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Number of deaths"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> csstyle<span class="sc">::</span>format_nor_num_0,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">33000</span>, <span class="dv">38000</span>, <span class="dv">1000</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">33000</span>, <span class="dv">38000</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> glue<span class="sc">::</span><span class="fu">glue</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Data extracted 2022-12-13 from SSB table 07995."</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
