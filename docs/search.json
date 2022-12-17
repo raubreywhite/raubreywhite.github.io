@@ -53,7 +53,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n79 scientific articles:\n\n52 047 citations\n43 h-index\n\n8 R packages as first author/maintainer:\n\nattrib (cran) \ncsdata (cran) \ncsmaps (cran) \ncstidy\ncsutil (cran) \norg (cran) \nplnr (cran) \nspread (cran) \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime (cran) \nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (cran)"
+    "text": "Scientific production\n\n79 scientific articles:\n\n52 091 citations\n43 h-index\n\n8 R packages as first author/maintainer:\n\nattrib (cran) \ncsdata (cran) \ncsmaps (cran) \ncstidy\ncsutil (cran) \norg (cran) \nplnr (cran) \nspread (cran) \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime (cran) \nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (cran)"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
@@ -284,7 +284,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "79 scientific articles (52 047 citations, 43 h-index)."
+    "text": "79 scientific articles (52 091 citations, 43 h-index)."
   },
   {
     "objectID": "publications.html#section",
@@ -406,6 +406,13 @@
     "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n45min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n160g\n\n\n\nYeast\n10g\n\n\n\nSugar\n40g\n\n\n\nFlour\n400g\n\n\n\nEgg (yolk)\n2 (40g)\n\n\n\nEgg (whole)\n1 (60g)\n\n\n\nOil\n37,5g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
   },
   {
+    "objectID": "recipe/flat-bread/flat-bread.html",
+    "href": "recipe/flat-bread/flat-bread.html",
+    "title": "Flat Bread",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n1h\n\n\nCooking time\n10min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n320g\n\n\n\nYeast\n15g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\nOlive oil\n50g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise for 30 minutes.\nFlatten with fingers and place in pan.\nCover and leave to rise for 20 minutes\nFlatten with fingers.\nLeave to rise for 10 minutes\nPlace covered in oven and fan-bake at 220 for 10 minutes (soft) or 15 minutes (crisp)."
+  },
+  {
     "objectID": "recipe/hummus/hummus.html",
     "href": "recipe/hummus/hummus.html",
     "title": "Hummus",
@@ -497,10 +504,17 @@
     "text": "Figure 1: A 1,3 kg loaf of sourdough.\n\n\n\n\n\n\n\nFigure 2: Sliced bread.\n\n\n\n\n\n\nInformation\n\n\nMetric\nValue\n\n\n\n\nPrep time\n12-24h\n\n\nCooking time\n1,5h\n\n\nServes\n1,3kg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nLevain\nSourdough starter\n30g\n\n\n\nWater\n60g\n\n\n\nFlour\n60g\n\n\n\nYeast\n4g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nFlour\n750g\n\n\n\nWater\n550g\n\n\n\nSalt\n15g\n\n\n\nMSG\n5g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nOven steam\nWater in metal container\n250mL\n\n\n\n\n\nInstructions\nTest"
   },
   {
+    "objectID": "recipe/white-bread/white-bread.html",
+    "href": "recipe/white-bread/white-bread.html",
+    "title": "White Bread",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n45min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n350g\n\n\n\nYeast\n10g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
+  },
+  {
     "objectID": "recipes.html",
     "href": "recipes.html",
     "title": "Recipes",
     "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nButter Chicken\n\n\nNorth Indian curry with butter, yoghurt, and chicken.\n\n\n\n\nChallah\n\n\nYeast-risen egg bread.\n\n\n\n\nHummus\n\n\nA simple sourdough method.\n\n\n\n\nMalva Pudding\n\n\nA sweet South African pudding.\n\n\n\n\nPalak Paneer\n\n\nNorth Indian curry with paneer and spinach.\n\n\n\n\nSourdough\n\n\nA simple sourdough method.\n\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nButter Chicken\n\n\nNorth Indian curry with butter, yoghurt, and chicken.\n\n\n\n\nChallah\n\n\nYeast-risen egg bread.\n\n\n\n\nFlat Bread\n\n\nBasic olive flat bread.\n\n\n\n\nHummus\n\n\nA simple sourdough method.\n\n\n\n\nMalva Pudding\n\n\nA sweet South African pudding.\n\n\n\n\nPalak Paneer\n\n\nNorth Indian curry with paneer and spinach.\n\n\n\n\nSourdough\n\n\nA simple sourdough method.\n\n\n\n\nWhite Bread\n\n\nBasic white bread.\n\n\n\n\n\n\nNo matching items"
   }
 ]

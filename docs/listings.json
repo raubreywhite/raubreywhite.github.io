@@ -16,10 +16,12 @@
     "items": [
       "/recipe/butter-chicken/butter-chicken.html",
       "/recipe/challah/challah.html",
+      "/recipe/flat-bread/flat-bread.html",
       "/recipe/hummus/hummus.html",
       "/recipe/malva-pudding/malva-pudding.html",
       "/recipe/palak-paneer/palak-paneer.html",
-      "/recipe/sourdough/sourdough.html"
+      "/recipe/sourdough/sourdough.html",
+      "/recipe/white-bread/white-bread.html"
     ]
   }
 ]
