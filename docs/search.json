@@ -39,7 +39,7 @@
     "href": "cv.html#skills",
     "title": "CV",
     "section": "Skills",
-    "text": "Skills\n\nR (15+ years)\nSTATA (10+ years)\nDocker (5+ years)\nCI/CD (5+ years)\nPython (1 year)\nKubernetes (6 months)"
+    "text": "Skills\n\nR (15+ years)\nSTATA (10+ years)\nDocker (5+ years)\nCI/CD (5+ years)\nPython (1 year)\nKubernetes (1 year)"
   },
   {
     "objectID": "cv.html#languages",
@@ -53,7 +53,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n79 scientific articles:\n\n52 091 citations\n43 h-index\n\n8 R packages as first author/maintainer:\n\nattrib (cran) \ncsdata (cran) \ncsmaps (cran) \ncstidy\ncsutil (cran) \norg (cran) \nplnr (cran) \nspread (cran) \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime (cran) \nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (cran)"
+    "text": "Scientific production\n\n79 scientific articles:\n\n52 189 citations\n43 h-index\n\n8 R packages as first author/maintainer:\n\nattrib (cran) \ncsdata (cran) \ncsmaps (cran) \ncstidy\ncsutil (cran) \norg (cran) \nplnr (cran) \nspread (cran) \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime (cran) \nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (cran)"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
@@ -284,7 +284,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "79 scientific articles (52 091 citations, 43 h-index)."
+    "text": "79 scientific articles (52 189 citations, 43 h-index)."
   },
   {
     "objectID": "publications.html#section",
@@ -508,7 +508,7 @@
     "href": "recipe/white-bread/white-bread.html",
     "title": "White Bread",
     "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n45min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n350g\n\n\n\nYeast\n10g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n40min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n350g\n\n\n\nYeast\n10g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
   },
   {
     "objectID": "recipes.html",
