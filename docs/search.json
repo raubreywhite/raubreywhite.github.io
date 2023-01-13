@@ -53,7 +53,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n79 scientific articles:\n\n52 189 citations\n43 h-index\n\n8 R packages as first author/maintainer:\n\nattrib (cran) \ncsdata (cran) \ncsmaps (cran) \ncstidy\ncsutil (cran) \norg (cran) \nplnr (cran) \nspread (cran) \n\n5 R packages as co-author:\n\ncsalert\ncsstyle\ncstime (cran) \nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (cran)"
+    "text": "Scientific production\n\n79 scientific articles:\n\n52 514 citations\n43 h-index\n\n9 R packages as first author/maintainer:\n\nattrib (cran, downloads: 694 (/month))\ncsdata (cran) \ncsmaps (cran) \ncsstyle\ncstidy\ncsutil (cran) \norg (cran) \nplnr (cran) \nspread (cran) \n\n4 R packages as co-author:\n\ncsalert\ncstime (cran) \nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (cran)"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
@@ -284,7 +284,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "79 scientific articles (52 189 citations, 43 h-index)."
+    "text": "79 scientific articles (52 514 citations, 43 h-index)."
   },
   {
     "objectID": "publications.html#section",
