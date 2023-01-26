@@ -2,6 +2,8 @@
 title: "Publications"
 description: |
   Publications of scientific articles.
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -11,11 +13,37 @@ library(data.table)
 
 ```{r echo=FALSE, warning=FALSE, include=FALSE}
 d <- knitcitations::read.bibtex("publications.bib")
-citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), big.mark = " ", format = "f", digits = 0)
+prof <- scholar::get_profile("75oKEWoAAAAJ")
+citations <- formatC(prof$total_cites, big.mark = " ", format = "f", digits = 0)
+h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
 ```
 
-`r length(d)` scientific articles (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
+`r length(d)` scientific articles (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao), `r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
 
 ```{r echo=FALSE, warning=FALSE, results = "asis"}
-print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
+q <- capture.output(print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html")))
+
+index <- length(d)
+current_year <- 9999
+for(i in seq_along(q)){
+  to_print <- q[i]
+  
+  # year headings
+  if(i < length(q)-1) if(stringr::str_detect(q[i+1], "\\(20[0-9][0-9]\\)\\.")){
+    new_year <- stringr::str_extract(q[i+1], "[0-9][0-9][0-9][0-9]")
+    if(new_year != current_year){
+      current_year <- new_year
+      cat("##", current_year, "\n\n")
+    }
+  }
+  
+  # numbering publications
+  if(stringr::str_detect(to_print, "<p><cite>")){
+    to_print <- stringr::str_replace(to_print, "<p><cite>", glue::glue("<p><cite>[{index}] "))
+    index <- index - 1
+  }
+  
+  # outputting
+  cat(to_print, "\n")
+}
 ```

@@ -2,6 +2,8 @@
 title: "CV"
 description: |
   Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in [Palestine](articles/2021-isbeih.pdf).
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Contact
@@ -33,7 +35,7 @@ hello\@rwhite.no
 -   Docker (5+ years)
 -   CI/CD (5+ years)
 -   Python (1 year)
--   Kubernetes (6 months)
+-   Kubernetes (1 year)
 
 ## Languages
 
@@ -43,28 +45,65 @@ hello\@rwhite.no
 ## Scientific production
 
 ```{r echo=FALSE, warning=FALSE, include=FALSE}
+library(data.table)
+library(magrittr)
+
 d <- knitcitations::read.bibtex("publications.bib")
-citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), big.mark = " ", format = "f", digits = 0)
+prof <- scholar::get_profile("75oKEWoAAAAJ")
+citations <- formatC(prof$total_cites, big.mark = " ", format = "f", digits = 0)
+h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
+
+downloads <- dlstats::cran_stats(
+  c(
+    "attrib",
+    "csdata",
+    "csmaps",
+    "csutil",
+    "org",
+    "plnr",
+    "spread",
+    "cstime",
+    "splutil"
+  )
+)
+setDT(downloads)
+setorder(downloads, package, -start)
+downloads[, n := 1:.N, by=.(package)]
+total_downloads <- downloads[,.(downloads = sum(downloads)), by=.(package)]
+downloads <- downloads[
+  n %in% 2:7,
+  .(
+    downloads_monthly = round(mean(downloads))
+  ),
+  keyby=.(package)
+  ]
+downloads[total_downloads, on="package", downloads_total := downloads]
+downloads[, formatted := glue::glue(
+  "{a} downloads/month from", 
+  a = csstyle::format_nor_num_0(signif(downloads_monthly, 1))
+  )]
 ```
 
--   `r length(d)` [scientific articles](publications.html) (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
--   8 R packages as first author/maintainer:
-    - [attrib](https://www.csids.no/attrib/) ![](https://cranlogs.r-pkg.org/badges/last-month/attrib?color=lightgrey&blah)
-    - [csdata](https://www.csids.no/csdata/) ![](https://cranlogs.r-pkg.org/badges/last-month/csdata?color=lightgrey&blah)
-    - [csmaps](https://www.csids.no/csmaps/) ![](https://cranlogs.r-pkg.org/badges/last-month/csmaps?color=lightgrey&blah)
-    - [cstidy](https://www.csids.no/cstidy/)
-    - [csutil](https://www.csids.no/csutil/) ![](https://cranlogs.r-pkg.org/badges/last-month/csutil?color=lightgrey&blah)
-    - [org](https://www.csids.no/org/) ![](https://cranlogs.r-pkg.org/badges/last-month/org?color=lightgrey&blah)
-    - [plnr](https://www.csids.no/plnr/) ![](https://cranlogs.r-pkg.org/badges/last-month/plnr?color=lightgrey&blah)
-    - [spread](https://docs.sykdomspulsen.no/spread/) ![](https://cranlogs.r-pkg.org/badges/last-month/spread?color=lightgrey&blah)
--   5 R packages as co-author:
-    - [csalert](https://www.csids.no/csalert/)
-    - [csstyle](https://www.csids.no/csstyle/)
-    - [cstime](https://www.csids.no/cstime/)
-    - [MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
-    - [nowcast](https://www.csids.no/nowcast/)
+-   `r length(d)` [scientific articles](publications.html):
+    -   `r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
+    -   `r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
+-   9 R packages as first author/maintainer:
+    -   [attrib](https://www.csids.no/attrib/) (`r downloads[package=="attrib"]$formatted` [cran](https://cloud.r-project.org/web/packages/attrib/index.html))
+    -   [csdata](https://www.csids.no/csdata/) (`r downloads[package=="csdata"]$formatted` [cran](https://cloud.r-project.org/web/packages/csdata/index.html))
+    -   [csmaps](https://www.csids.no/csmaps/) (`r downloads[package=="csmaps"]$formatted` [cran](https://cloud.r-project.org/web/packages/csmaps/index.html))
+    -   [csstyle](https://www.csids.no/csstyle/)
+    -   [cstidy](https://www.csids.no/cstidy/)
+    -   [csutil](https://www.csids.no/csutil/) (`r downloads[package=="csutil"]$formatted` [cran](https://cloud.r-project.org/web/packages/csutil/index.html))
+    -   [org](https://www.csids.no/org/) (`r downloads[package=="org"]$formatted` [cran](https://cloud.r-project.org/web/packages/org/index.html))
+    -   [plnr](https://www.csids.no/plnr/) (`r downloads[package=="plnr"]$formatted` [cran](https://cloud.r-project.org/web/packages/plnr/index.html)) 
+    -   [spread](https://docs.sykdomspulsen.no/spread/) (`r downloads[package=="spread"]$formatted` [cran](https://cloud.r-project.org/web/packages/spread/index.html))
+-   4 R packages as co-author:
+    -   [csalert](https://www.csids.no/csalert/)
+    -   [cstime](https://www.csids.no/cstime/) (`r downloads[package=="cstime"]$formatted` [cran](https://cloud.r-project.org/web/packages/cstime/index.html))
+    -   [MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
+    -   [nowcast](https://www.csids.no/nowcast/)
 -   1 Deprecated R package:
-    - [splutil](https://www.csids.no/splutil/) ![](https://cranlogs.r-pkg.org/badges/last-month/splutil?color=lightgrey&blah)
+    -   [splutil](https://www.csids.no/splutil/) (`r downloads[package=="splutil"]$formatted` [cran](https://cloud.r-project.org/web/packages/splutil/index.html))
 
 ## Norwegian Institute of Public Health (NIPH/FHI)
 
@@ -78,6 +117,7 @@ citations <- formatC(sum(scholar::get_citation_history("75oKEWoAAAAJ")$cites), b
     -   Kubernetes.
     -   Docker/Podman.
     -   CI/CD (Jenkins/GoCD/ArgoCD).
+    -   Apache Airflow.
     -   R/Python.
 -   Surveils:
     -   All cause/cause-specific/attributable mortality (part of the [EuroMOMO](https://euromomo.eu) network).

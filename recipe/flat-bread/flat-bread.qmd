@@ -1,0 +1,39 @@
+---
+title: "Flat Bread"
+description: |
+  Basic olive flat bread.
+categories: [Bread]
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+|    Metric    |       Value        |
+|:------------:|:------------------:|
+|  Prep time   |         1h         |
+| Cooking time |       10min        |
+|    Serves    | XXkg loaf of bread |
+
+: Information
+
+# Ingredients
+
+|             |                |              |
+|:-----------:|:--------------:|:------------:|
+| **Purpose** | **Ingredient** | **Quantity** |
+|    Dough    |     Water      |     320g     |
+|             |     Yeast      |     15g      |
+|             |     Flour      |     500g     |
+|             |      Salt      |     10g      |
+|             |   Olive oil    |     50g      |
+
+# Instructions
+
+1.  Combine all ingredients.
+2.  Knead.
+3.  Cover and leave to rise for 30 minutes.
+4.  Flatten with fingers and place in pan.
+5.  Cover and leave to rise for 20 minutes
+6.  Flatten with fingers.
+7.  Leave to rise for 10 minutes
+8.  Place covered in oven and fan-bake at 220 for 10 minutes (soft) or 15 minutes (crisp).
