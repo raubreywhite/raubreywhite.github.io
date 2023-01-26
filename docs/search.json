@@ -53,7 +53,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n79 scientific articles:\n\n52 702 citations\n43 h-index\n\n9 R packages as first author/maintainer:\n\nattrib (700 downloads/month from cran)\ncsdata (200 downloads/month from cran)\ncsmaps (200 downloads/month from cran)\ncsstyle\ncstidy\ncsutil (200 downloads/month from cran)\norg (500 downloads/month from cran)\nplnr (500 downloads/month from cran)\nspread (30 downloads/month from cran)\n\n4 R packages as co-author:\n\ncsalert\ncstime (300 downloads/month from cran)\nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (400 downloads/month from cran)"
+    "text": "Scientific production\n\n80 scientific articles:\n\n52 702 citations\n43 h-index\n\n9 R packages as first author/maintainer:\n\nattrib (700 downloads/month from cran)\ncsdata (200 downloads/month from cran)\ncsmaps (200 downloads/month from cran)\ncsstyle\ncstidy\ncsutil (200 downloads/month from cran)\norg (500 downloads/month from cran)\nplnr (500 downloads/month from cran)\nspread (30 downloads/month from cran)\n\n4 R packages as co-author:\n\ncsalert\ncstime (300 downloads/month from cran)\nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (400 downloads/month from cran)"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
@@ -284,14 +284,14 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "79 scientific articles (52 702 citations, 43 h-index)."
+    "text": "80 scientific articles (52 702 citations, 43 h-index)."
   },
   {
     "objectID": "publications.html#section",
     "href": "publications.html#section",
     "title": "Publications",
     "section": "2023",
-    "text": "2023\n\n[79] Ruiz, P. L. et al.  (2023). “Short-term safety of COVID-19 mRNA vaccines with respect to all-cause mortality in the older population in Norway”. In: Vaccine 41.2, pp. 323–332. URL: https://rwhite.no/articles/2023-ruiz.pdf."
+    "text": "2023\n\n[80] Engebretsen, S. et al.  (2023). “Regional probabilistic situational awareness and forecasting of COVID-19”. In: PLOS Computational Biology 19.1, pp. 1-26. URL: https://rwhite.no/articles/2023-engebretsen.pdf.\n\n\n[79] Ruiz, P. L. et al.  (2023). “Short-term safety of COVID-19 mRNA vaccines with respect to all-cause mortality in the older population in Norway”. In: Vaccine 41.2, pp. 323–332. URL: https://rwhite.no/articles/2023-ruiz.pdf."
   },
   {
     "objectID": "publications.html#section-1",
