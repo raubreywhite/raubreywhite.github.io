@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "recipes.html",
+    "href": "recipes.html",
+    "title": "Recipes",
+    "section": "",
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nButter Chicken\n\n\nNorth Indian curry with butter, yoghurt, and chicken.\n\n\n\n\nChallah\n\n\nYeast-risen egg bread.\n\n\n\n\nFlat Bread\n\n\nBasic olive flat bread.\n\n\n\n\nHummus\n\n\nA simple sourdough method.\n\n\n\n\nMalva Pudding\n\n\nA sweet South African pudding.\n\n\n\n\nPalak Paneer\n\n\nNorth Indian curry with paneer and spinach.\n\n\n\n\nSourdough\n\n\nA simple sourdough method.\n\n\n\n\nWhite Bread\n\n\nBasic white bread.\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "2022-09-29-fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger/fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger.html",
     "href": "2022-09-29-fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger/fhi-varsler-kutt-av-viktig-tjeneste-for-kommuneoverleger.html",
     "title": "FHI varsler kutt av viktig tjeneste for kommuneoverleger",
@@ -7,88 +14,249 @@
     "text": "Dagens Medisin published an article (pdf) about the website “Sykdomspulsen for kommunehelsetjenesten” (“Sykdomspulsen for the municipal health authorities”) being shut down due to budget cuts."
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
+    "objectID": "post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html",
+    "href": "post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html",
+    "title": "Sykdomspulsen Receives Prize for Best Poster",
     "section": "",
-    "text": "All-Cause Mortality in Norway\n\n\n\n\n\nExamining all-cause mortality in Norway using publically available mortality data from SSB.\n\n\n\n\n\n\nDec 13, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nR-Package “org” (version 2022.7.20) Published on CRAN\n\n\n\n\n\n“org” is a system to help you organize projects. Most analyses have three (or more) main sections: code, results, and data, each with different requirements (version control/sharing/encryption). You provide folder locations and ‘org’ helps you take care of the details.\n\n\n\n\n\n\nJul 21, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nCustom Airflow Docker Operator (Poor-Man’s Kubernetes)\n\n\n\n\n\nAirflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”.\n\n\n\n\n\n\nJul 18, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nR-Package “plnr” (version 2022.6.8) Published on CRAN\n\n\n\n\n\n“plnr” is a system to plan analyses within the mental model where you have one (or more) datasets and want to run either A) the same function multiple times with different arguments, or B) multiple functions. This is appropriate when you have multiple strata (e.g. locations, age groups) that you want to apply the same function to, or you have multiple variables (e.g. exposures) that you want to apply the same statistical method to, or when you are creating the output for a report and you need multiple different tables or graphs.\n\n\n\n\n\n\nJun 8, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nNew Course: Longitudinal Analysis for Surveillance\n\n\n\n\n\nSykdomspulsen has published a short course that teaches students to run “normal regressions” in situations where the data structure would ordinarily prohibit you from running regression models. These situations mostly pertain to clusters of correlated data.\n\n\n\n\n\n\nJan 24, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nNew Course: Which Stats Method?\n\n\n\n\n\nSykdomspulsen has published a short course that provides a basic overview of general statistical methodology that can be useful in the areas of infectious diseases, environmental medicine, and labwork. By the end of this course, students will be able to identify appropriate statistical methods for a variety of circumstances.\n\n\n\n\n\n\nJan 11, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nSykdomspulsen Receives Prize for Best Poster\n\n\n\n\n\nSykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.\n\n\n\n\n\n\nNov 18, 2021\n\n\nRichard Aubrey White\n\n\n\n\n\n\nNo matching items"
+    "text": "Sykdomspulsen’s poster “Sykdomspulsen - An exciting and forward-looking infrastructure and website for the real-time surveillance of Covid-19, other infections, and deaths” received the prize for “Best Poster” at Helse- og Kvalitetsregisterkonferansen 2021.\nRead more about it here!.\n\nknitr::include_graphics(\"screenshot.png\")"
   },
   {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
+    "objectID": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html",
+    "href": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html",
+    "title": "R-Package “plnr” (version 2022.6.8) Published on CRAN",
     "section": "",
-    "text": "hello@rwhite.no"
+    "text": "This blog post has also been posted here."
   },
   {
-    "objectID": "cv.html#education-statistics",
-    "href": "cv.html#education-statistics",
-    "title": "CV",
-    "section": "Education / Statistics",
-    "text": "Education / Statistics\nHarvard University, USA\n2011–2012 / Ph.D. in Biostatistics\n2009–2011 / M.A. in Biostatistics (Frank Knox fellowship)\nUniversity of Wollongong, Australia\n2005–2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours)"
+    "objectID": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#changes-since-last-version",
+    "href": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#changes-since-last-version",
+    "title": "R-Package “plnr” (version 2022.6.8) Published on CRAN",
+    "section": "Changes since last version",
+    "text": "Changes since last version\nThe R-package “plnr” (version 2022.6.8) has been published on CRAN. “plnr” is a part of the splverse, a set of R packages developed to help solve problems that frequently occur when performing infectious disease surveillance. “plnr” has two vignettes that briefly show the mental model behind “plnr”:\n\n\n\n\n\n\n\n\nIntroduction to plnr\nAdding Analyses to a Plan"
   },
   {
-    "objectID": "cv.html#education-humanities",
-    "href": "cv.html#education-humanities",
-    "title": "CV",
-    "section": "Education / Humanities",
-    "text": "Education / Humanities\nUniversity of Bergen, Norway\n2022–2023 / One year program (Årsstudium) in Nordic languages and literature"
+    "objectID": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#concept",
+    "href": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#concept",
+    "title": "R-Package “plnr” (version 2022.6.8) Published on CRAN",
+    "section": "Concept",
+    "text": "Concept\n\n\n\n\n\n\n\nBroad technical terms\n\n\n\nObject\nDescription\n\n\nargset\nA named list containing a set of arguments.\n\n\nanalysis\nThese are the fundamental units that are scheduled in plnr:\n\n1 argset\n1 (action) function that takes two arguments\n\ndata (named list)\nargset (named list)\n\n\n\n\nplan\nThis is the overarching “scheduler”:\n\n1 data pull\n1 list of analyses\n\n\n\nDifferent types of plans\n\n\n\nPlan Type\nDescription\n\n\nSingle-function plan\nSame action function applied multiple times with different argsets applied to the same datasets.\n\n\nMulti-function plan\nDifferent action functions applied to the same datasets.\n\n\nPlan Examples\n\n\n\nPlan Type\nExample\n\n\nSingle-function plan\nMultiple strata (e.g. locations, age groups) that you need to apply the same function to to (e.g. outbreak detection, trend detection, graphing).\n\n\nSingle-function plan\nMultiple variables (e.g. multiple outcomes, multiple exposures) that you need to apply the same statistical methods to (e.g. regression models, correlation plots).\n\n\nMulti-function plan\nCreating the output for a report (e.g. multiple different tables and graphs).\n\n\n\nIn brief, we work within the mental model where we have one (or more) datasets and we want to run multiple analyses on these datasets. These multiple analyses can take the form of:\n\nSingle-function plans: One action function (e.g. table_1) called multiple times with different argsets (e.g. year=2019, year=2020).\nMulti-function plans: Multiple action functions (e.g. table_1, table_2) called multiple times with different argsets (e.g. table_1: year=2019, while for table_2: year=2019 and year=2020)\n\nBy demanding that all analyses use the same data sources we can:\n\nBe efficient with requiring the minimal amount of data-pulling (this only happens once at the start).\nBetter enforce the concept that data-cleaning and analysis should be completely separate.\n\nBy demanding that all analysis functions only use two arguments (data and argset) we can:\n\nReduce mental fatigue by working within the same mental model for each analysis.\nMake it easier for analyses to be exchanged with each other and iterated on.\nEasily schedule the running of each analysis.\n\nBy including all of this in one Plan class, we can easily maintain a good overview of all the analyses (i.e. outputs) that need to be run."
   },
   {
-    "objectID": "cv.html#skills",
-    "href": "cv.html#skills",
-    "title": "CV",
-    "section": "Skills",
-    "text": "Skills\n\nR (15+ years)\nSTATA (10+ years)\nDocker (5+ years)\nCI/CD (5+ years)\nPython (1 year)\nKubernetes (1 year)"
+    "objectID": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html",
+    "href": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html",
+    "title": "R-Package “org” (version 2022.7.20) Published on CRAN",
+    "section": "",
+    "text": "This blog post has also been posted here."
   },
   {
-    "objectID": "cv.html#languages",
-    "href": "cv.html#languages",
-    "title": "CV",
-    "section": "Languages",
-    "text": "Languages\n\nEnglish (Fluent)\nNorwegian (B2)"
+    "objectID": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#changes-since-last-version",
+    "href": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#changes-since-last-version",
+    "title": "R-Package “org” (version 2022.7.20) Published on CRAN",
+    "section": "Changes since last version",
+    "text": "Changes since last version\nThe R-package “org” (version 2022.7.20) has been published on CRAN. “org” is a part of the splverse, a set of R packages developed to help solve problems that frequently occur when performing infectious disease surveillance. A significant breaking change is that org::initialize_project now takes in env as an argument (the environment into which the functions will be sourced). It is now recommended to include env = .GlobalEnv into the function call.\n\n\n\n\n\n\n\norg::initialize_project(\n  env = .GlobalEnv,\n  home = \"/git/analyses/2019/analysis3/\",\n  results = \"/dropbox/analyses_results/2019/analysis3/\"\n  raw = \"/data/analyses/2019/analysis3/\"\n)"
   },
   {
-    "objectID": "cv.html#scientific-production",
-    "href": "cv.html#scientific-production",
-    "title": "CV",
-    "section": "Scientific production",
-    "text": "Scientific production\n\n80 scientific articles:\n\n52 702 citations\n43 h-index\n\n9 R packages as first author/maintainer:\n\nattrib (700 downloads/month from cran)\ncsdata (200 downloads/month from cran)\ncsmaps (200 downloads/month from cran)\ncsstyle\ncstidy\ncsutil (200 downloads/month from cran)\norg (500 downloads/month from cran)\nplnr (500 downloads/month from cran)\nspread (30 downloads/month from cran)\n\n4 R packages as co-author:\n\ncsalert\ncstime (300 downloads/month from cran)\nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (400 downloads/month from cran)"
+    "objectID": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#concept",
+    "href": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#concept",
+    "title": "R-Package “org” (version 2022.7.20) Published on CRAN",
+    "section": "Concept",
+    "text": "Concept\nThe concept behind org is fairly simple - most analyses have three main sections:\n\ncode\nresults\ndata\n\nYet each of these sections have extremely different requirements.\nCode should:\n\nBe version controlled\nBe publically accessible\nHave 1 analysis pipeline that logically and sequentially details all steps of the data cleaning, analysis, and result generation\n\nResults should:\n\nBe immediately shared with close collaborators\nHave each set of results saved and accessible, so that you can see how your results have changed over time (i.e. “if we run the code today, do we get similar results to yesterday?”)\n\nData should:\n\nBe encrypted (if sensitive)\nNot stored on the cloud (if sensitive)"
   },
   {
-    "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
-    "href": "cv.html#norwegian-institute-of-public-health-niphfhi",
-    "title": "CV",
-    "section": "Norwegian Institute of Public Health (NIPH/FHI)",
-    "text": "Norwegian Institute of Public Health (NIPH/FHI)\n\nTechnical Lead — Sykdomspulsen: Real-Time Surveillance\n07.2019–now / Oslo, Norway\n\nTech lead for Sykdomspulsen (8-person team), a real-time analysis and disease surveillance system. Complex statistical analyses are automatically run for all locations in Norway, producing reports and alerting various stakeholders.\nResponsible for training, mentoring, supervision, and quality assurance of statistical methods and code.\nTechnology in use includes:\n\nKubernetes.\nDocker/Podman.\nCI/CD (Jenkins/GoCD/ArgoCD).\nApache Airflow.\nR/Python.\n\nSurveils:\n\nAll cause/cause-specific/attributable mortality (part of the EuroMOMO network).\nVaccine associated mortality.\nCovid-19.\nInfluenza.\nTuberculosis.\nIPD.\nMeningococcal disease.\nPertussis.\nAntibiotic use and healthcare associated infection (NOIS-PIAH).\nGastritis.\n80+ syndromes via the syndromic surveillance registry (sKUHR).\n\nInteractive website for municipal health authorities (Sykdomspulsen for kommunehelsetjenesten).\nAPIs for internal/external use.\n1 000 000+ analyses per day.\n1 000+ automatic reports (pdf/excel/email/sms) per day.\n\n\n\nInfectious Diseases Statistician — Infectious Disease Epidemiology\n06.2014–06.2019 / Oslo, Norway\n\nAdvised outbreak teams and researchers in statistical concepts, methods, and programming.\nStatistical supervisor for five fellows of the European Programme for Intervention Epidemiology Training (EPIET) and nine PhD students:\n\nAnswered statistical questions.\nEnsured that the statistical methods chosen by them in their projects were correct.\nMentoring and supervising them in statistics.\nQuality assurance of statistical analyses in peer-reviewed publications.\n\nDeveloped statistical protocol for a 60 000-person longitudinal study regarding Norwegian water usage.\nModelled the 2014 Ebola outbreak to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.\nModelled the burden of HCV in Norwegian people who inject drugs.\nHead statistician on the data monitoring committee (DMC) for the:\n\nPEEP RCT in Haydom, Tanzania.\nSafer Births Moyo RCT in Muhimbili, Tanzania.\n\nDeveloped surveillance reports (and all relevant infrastructure and code for signal processing) in the format of interactive websites for:\n\nGastritis and upper-respiratory outbreaks using the syndromic surveillance registry (sKUHR).\nOutbreaks using the notifiable disease registry (MSIS).\nAll cause/cause-specific/attributable mortality (part of the EuroMOMO network).\n\n\n\n\nStatistician/Postdoc — Genes and Environment\n01.2012–05.2014 / Oslo, Norway\n\nDeveloped database management structures to allow for the construction of analysis datasets from multiple disparate sources (e.g. written questionnaires, lab toxicant concentrations, Illumina microbial data).\nInvestigated the relationship between seasonality, sunlight, and suicide.\nInvestigated the relationship between gun ownership and completed suicide in the US, highlighting the lack of method substitution where gun ownership is less prevalent."
+    "objectID": "post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html",
+    "href": "post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html",
+    "title": "New Course: Which Stats Method?",
+    "section": "",
+    "text": "You can find the course “Which Stats Method” here.\nThis course will not teach students how to implement these statistical methods. The aim of this course is to enable the student to identify which methods are required for their study, allowing the student to identify their needs for subsequent methods courses, self-learning, or external help.\nYou should take this course if you are one of the following:\n\nHave experience with applying statistical methods, but are sometimes confused or uncertain as to whether or not you have selected the correct method.\nDo not have experience with applying statistical methods, and would like to get an overview over which methods are applicable for your projects so that you can then undertake further studies in these areas.\n\n\n\n\n\n\nThis course covers the following scenarios:\n\nIdentifying continuous, categorical, count, and censored variables.\nIdentifying exposure and outcome variables.\nIdentifying when t-tests (paired and unpaired) should be used.\nIdentifying when non-parametric t-test equivalents should be used.\nIdentifying when ANOVA should be used.\nIdentifying when linear regression should be used.\nIdentifying the similarities between t-tests, ANOVA, and regression.\nIdentifying when logistic regression models should be used.\nIdentifying when Poisson/negative binomial and cox regression models should be used.\nIdentifying when chi-squared/fisher’s exact test should be used.\nIdentifying when data does not have any dependencies (i.e. all observations are independent of each other) versus when data has complicated dependencies (i.e. longitudinal data, matched data, multiple cohorts).\nIdentifying when mixed effects regression models should be used.\nIdentifying when conditional logistic regression models should be used."
   },
   {
-    "objectID": "cv.html#médecins-sans-frontières-msf",
-    "href": "cv.html#médecins-sans-frontières-msf",
-    "title": "CV",
-    "section": "Médecins Sans Frontières (MSF)",
-    "text": "Médecins Sans Frontières (MSF)\n\nStatistician OCB\n10.2015–now / Oslo, Norway\n\nDeveloped statistical protocol for a 10 000-person stepwise-RCT regarding DR-TB in a Mumbai slum.\nAdvised on surveillance methods to detect extreme malaria seasons in areas with low quality data.\nIdentified predictors of death amongst Ebola patients in a Guinean Ebola Treatment Unit."
+    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
+    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
+    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
+    "section": "",
+    "text": "This blog post has also been posted here."
   },
   {
-    "objectID": "cv.html#norwegian-red-cross-norcross",
-    "href": "cv.html#norwegian-red-cross-norcross",
-    "title": "CV",
-    "section": "Norwegian Red Cross (NorCross)",
-    "text": "Norwegian Red Cross (NorCross)\n\nHealth Officer (IFRC)\n08.2022–09.2022 / Colombo, Sri Lanka\n\nHead statistician for a 3100-household multi-sector nationwide needs assessment (annex), in response to the complex humanitarian emergency in Sri Lanka.\nDeveloped statistical protocol for all sectors, questions for the health sector, and analyzed most of the data.\n\n\n\nCommunity Based Surveillance Delegate (IFRC)\n04.2019–05.2019 / Beira, Mozambique\n\nResponded to a cholera outbreak.\nManaged a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by Cyclone Idai.\nLiaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea."
+    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#what-do-we-want",
+    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#what-do-we-want",
+    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
+    "section": "What do we want?",
+    "text": "What do we want?\nSykdomspulsen Analytics uses Airflow to schedule its tasks.\n\n\n\n\n\nAirflow and Sykdomspulsen Analytics’ tasks can be run on Kubernetes. This can be seen in the below graph, where one Airflow implementation dispatches tasks to both Server 1 and Server 2. However, with such a small team there is always the risk of something going wrong with a complicated Kubernetes setup. It is therefore preferable to have a failback solution that is independent of Kubernetes. We have achieved this by installing a duplicate Airflow system on each of the servers using Docker-compose. Each Docker-compose Airflow instance can dispatch tasks to its own server.\n\n\n\n\n\nHowever, this means that we have anywhere between 1 to 3 duplicate Airflow DAGs running at any time. All of these will be reading and writing to the same databases. This is obviously not desirable. We must have only one Airflow instance operative at any time."
   },
   {
-    "objectID": "cv.html#palestinian-national-institute-of-public-health-pniph",
-    "href": "cv.html#palestinian-national-institute-of-public-health-pniph",
-    "title": "CV",
-    "section": "Palestinian National Institute of Public Health (PNIPH)",
-    "text": "Palestinian National Institute of Public Health (PNIPH)\n\nStatistician\n09.2017–09.2019 / Ramallah, Palestine\n\nTrained local staff in data management and statistical programming for the national maternal and child health registry.\nUsed raw survey data to validate indicators from the newly formed national healthcare worker registry."
+    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#how-do-we-get-it",
+    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#how-do-we-get-it",
+    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
+    "section": "How do we get it?",
+    "text": "How do we get it?\nIt is not easy to seamlessly turn on and turn off multiple Airflow instances. We can, however, alter the operators inside each Airflow instance to be functional or non-functional.\nIt is for this reason that we developed a custom Airflow Docker operator. This custom Airflow Docker operator:\n\nChecks an external YAML config file (https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml) to see which server each DAG should be run on.\nChecks to see if this server is the correct one.\nIf this is not the correct server, change the command to be excecuted to: echo NOT CORRECT SERVER.\nExecutes the command inside the Docker container."
   },
   {
-    "objectID": "cv.html#world-health-organization-who",
-    "href": "cv.html#world-health-organization-who",
-    "title": "CV",
-    "section": "World Health Organization (WHO)",
-    "text": "World Health Organization (WHO)\n\nGIS Expert/Data Manager — Global Outbreak Alert and Response Network (GOARN)\n01.2015—02.2015 / Kambia, Sierra Leone\n\nResponded to the 2013–2016 Western African Ebola virus epidemic.\nDeveloped and managed a real-time surveillance system for the Ebola outbreak in Kambia, linking the national emergency number, Ebola holding centers, Ebola community care centers, Ebola treatment centers, and burials.\nGeocoded and mapped relevant outbreak data (alerts, cases, border crossings).\nGenerated daily sitreps using GIS data and epidemiological information from the surveillance database.\nTrained and supervised international and national staff in the use of the Kambian Ebola surveillance system.\n\n\n\nBiostatistician — Mortality and Burden of Disease\n04.2011–11.2011 / Geneva, Switzerland\n\nCollected cause of death data from multiple national cause of death registries into a database and calculated avoidable mortality estimates for disease groups over time, comparing trends in high income versus developing countries.\nProduced disease prevalence estimates for the Global Burden of Disease project (GBD 2010), most notably for vision loss, micronutrient deficiency, and stunting for all UN member nations, in all sex/age combinations, from 1990 to 2010.\n\n\n\nBiostatistician — Stop TB Department\n06.2010–11.2010 / Boston, USA\n\nLiaised with NGOs from South Africa, Uzbekistan, Bangladesh, and Peru to gain access to MDR-TB datasets, then managed, cleaned, and analysed the datasets.\nProvided recommendations for the WHO Guidelines for the Programmatic Management of Drug Resistant Tuberculosis (3rd edition) via multi-cohort survival analyses to determine factors affecting detection of MDR-TB and survival in a programmatic context."
+    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#details",
+    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#details",
+    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
+    "section": "Details",
+    "text": "Details\nhttps://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml\n---\ndag_1: \"server-1.tld\"\ndocker-compose.yml (If using Podman)\n  volumes:\n    - /var/run/podman/podman.sock:/var/run/docker.sock\n  environment:\n    HOST_HOSTNAME: $HOSTNAME\n/opt/airflow/plugins/operators/sc_operators.py accesses the environmental variable HOST_HOSTNAME that is passed through from docker-compose.yml.\nimport os\nimport requests\nimport time\nimport yaml\n\nfrom airflow.operators.docker_operator import DockerOperator\n\nclass SCDockerOperator(DockerOperator):\n    def __init__(self, **kwargs) -> None:\n        super().__init__(**kwargs)\n\n    def execute(self, context):\n        response = requests.get(\n            \"https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml\",\n            headers = {\"Cache-Control\": \"no-cache\"}\n        )\n        unparsed_data = response.text\n    \n        data = yaml.safe_load(unparsed_data)\n        \n        print(data)\n        print(self.dag.dag_id)\n        \n        if self.dag.dag_id not in data:\n            self.command = '''bash -c \"echo NOT CORRECT SERVER\"'''\n        elif data[self.dag.dag_id] != os.getenv(\"HOST_HOSTNAME\"):\n            self.command = '''bash -c \"echo NOT CORRECT SERVER\"'''\n        else:\n            print(\"OK\")\n        \n        time.sleep(5)\n        retval = super().execute(context)\n        return retval\n/opt/airflow/dags/dag_1.py\nimport random\nfrom operators.sc_operators import SCDockerOperator\n\ntask = SCDockerOperator(\n    task_id='my_task',\n    image='localhost/splanalytics:latest',\n    container_name= 'my_task_' + str(random.randint(10,100000)),\n    api_version='auto',\n    auto_remove=True,\n    command=cmd,\n    docker_url='unix://var/run/docker.sock',\n    network_mode='bridge',\n    privileged = True,\n    dag=dag\n)"
+  },
+  {
+    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#conclusion",
+    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#conclusion",
+    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
+    "section": "Conclusion",
+    "text": "Conclusion\nBy editing https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml we can quickly choose which server will execute the desired task. This is an easy way to manually control identical installations of Airflow as a failback system."
+  },
+  {
+    "objectID": "post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html",
+    "href": "post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html",
+    "title": "New Course: Longitudinal Analysis for Surveillance",
+    "section": "",
+    "text": "You can find the course “Longitudinal Analysis for Surveillance” here.\n\n\n\n\n\nWhen dealing with longitudinal data, there are two kinds of analyses that can be performed:\n\n“Time series” analyses generally deal with one variable. The aim is to then predict the future only using the previous observations. A common example would be to predict tomorrow’s temperature, using today’s and yesterday’s temperature as exposures. We will not be focusing on these kinds of analyses in this course.\n“Regression analyses” are very similar to ordinary regressions that you have been working with for many years. The only difference is that they have more advanced data structures that your current methods cannot handle. For example, if you want to see how the number of tuberculosis patients (outcome) is affected by the number of immigrants to Norway (exposure) over a 20 year period, then the number of patients in each year might be associated with each other, which might break assumptions of the regression models that you normally use (independent residuals). To account for the advanced structure of the data (correlation between different years) we will use more advanced regression techniques. This will be the focus of the course."
+  },
+  {
+    "objectID": "post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
+    "href": "post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
+    "title": "All-Cause Mortality in Norway",
+    "section": "",
+    "text": "library(data.table)\nlibrary(magrittr)\nlibrary(ggplot2)\n\nif (interactive()) {\n  folder_location <- \"post/2022-12-13-all-cause-mortality-in-norway/\"\n} else {\n  folder_location <- \"\"\n}\n\n\n# Downloading data\ndata <- PxWebApiData::ApiData(\n  \"https://data.ssb.no/api/v0/en/table/07995\",\n  Kjonn = \"0\",\n  Alder = \"999A\",\n  Tid = as.character(2000:2022),\n  Uke = paste0(\"U\", formatC(1:52, width = 2, flag = \"0\"))\n)\n\n# Cleaning\nd_deaths <- data$dataset[, c(\"Uke\", \"Tid\", \"value\")]\nsetDT(d_deaths)\nsetnames(d_deaths, c(\"week\", \"isoyear\", \"deaths_n\"))\nd_deaths[, isoweek := stringr::str_remove(week, \"U\")]\nd_deaths[, isoyearweek := paste0(isoyear, \"-\", isoweek)]\nd_deaths[, isoweek := as.numeric(isoweek)]\nd_deaths[, isoyear := as.numeric(isoyear)]\nd_deaths[, week := NULL]\nsetcolorder(d_deaths, c(\"isoyear\", \"isoweek\", \"isoyearweek\", \"deaths_n\"))\n\n# Removing the latest 3 weeks of data (due to registration delay)\nmax_isoweek <- d_deaths[isoyear == 2022 & !is.na(deaths_n)]$isoweek %>%\n  max() - 3\nd_deaths <- d_deaths[isoweek <= max_isoweek]\n\n\n# Aggregating\npd <- d_deaths[, .(deaths_n = sum(deaths_n)), keyby = .(isoyear)]\n\n# Plotting\nq <- ggplot(pd, aes(x = isoyear, y = deaths_n))\nq <- q + geom_line()\nq <- q + geom_point()\nq <- q + scale_x_continuous(\n  \"Isoyear\",\n  breaks = seq(2000, 2022, 2)\n  )\nq <- q + scale_y_continuous(\n  \"Number of deaths\",\n  labels = csstyle::format_nor_num_0,\n  breaks = seq(33000, 38000, 1000)\n)\nq <- q + expand_limits(y = c(33000, 38000))\nq <- q + labs(\n    title = glue::glue(\n      \"Deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)\"\n    )\n  )\nq <- q + labs(caption = \"Data extracted 2022-12-13 from SSB table 07995.\")\nq\n\n\n\n\n\n# Estimating the baseline\nsetorder(d_deaths, isoyearweek)\nfor(isoyear_pred in 2011:2022) for(isoweek_model in unique(d_deaths$isoweek)){\n\n  # Determining the training data\n  if(isoyear_pred <= 2019){\n    isoyear_train <- (isoyear_pred-10):(isoyear_pred-1)\n  } else {\n    isoyear_train <- 2010:2019\n  }\n  \n  # Fitting the model\n  fit <- glm(\n    deaths_n ~ isoyear, \n    data = d_deaths[isoweek %in% isoweek_model & isoyear %in% isoyear_train],\n    family = \"poisson\"\n  )\n  \n  # Predicting the baseline\n  pred <- predict(\n      fit, \n      d_deaths[isoweek %in% isoweek_model & isoyear %in% isoyear_pred]\n    ) %>% \n    exp()\n  d_deaths[\n    isoweek %in% isoweek_model & isoyear %in% isoyear_pred, \n    deaths_baseline_n := pred\n  ]\n}\n\n\n# Calculating the excess mortality\nd_deaths[, deaths_excess_n := deaths_n - deaths_baseline_n]\n\n\n# Aggregating\npd <- d_deaths[\n  !is.na(deaths_excess_n),\n  .(deaths_excess_n = sum(deaths_excess_n)), \n  keyby = .(isoyear)\n]\n\n# Plotting\nq <- ggplot(pd, aes(x = isoyear, y = deaths_excess_n))\nq <- q + geom_col()\nq <- q + geom_hline(yintercept = 0, color = \"black\")\nq <- q + scale_x_continuous(\n  \"Isoyear\",\n  breaks = seq(2011, 2022, 1)\n  )\nq <- q + scale_y_continuous(\n  \"Number of excess deaths\",\n  labels = csstyle::format_nor_num_0,\n  breaks = seq(-1000, 4000, 500)\n)\nq <- q + labs(\n    title = glue::glue(\n      \"Excess deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)\"\n    )\n  )\nq <- q + labs(\n  caption = \"Weekly baseline calculated from a poisson regression of the previous 10 years of data.\\nBaselines for 2020, 2021, and 2022 calculated using data for 2010-2019.\\nData extracted 2022-12-13 from SSB table 07995.\"\n)\nq"
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html",
+    "href": "recipe/malva-pudding/malva-pudding.html",
+    "title": "Malva Pudding",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nsix people"
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-flour-mix",
+    "href": "recipe/malva-pudding/malva-pudding.html#pudding-flour-mix",
+    "title": "Malva Pudding",
+    "section": "Pudding (flour mix)",
+    "text": "Pudding (flour mix)\n\nSift together flour, bicarb soda, and salt."
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-egg-mix",
+    "href": "recipe/malva-pudding/malva-pudding.html#pudding-egg-mix",
+    "title": "Malva Pudding",
+    "section": "Pudding (egg mix)",
+    "text": "Pudding (egg mix)\n\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well."
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-i",
+    "href": "recipe/malva-pudding/malva-pudding.html#pudding-i",
+    "title": "Malva Pudding",
+    "section": "Pudding (I)",
+    "text": "Pudding (I)\n\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html#sauce",
+    "href": "recipe/malva-pudding/malva-pudding.html#sauce",
+    "title": "Malva Pudding",
+    "section": "Sauce",
+    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved."
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-ii",
+    "href": "recipe/malva-pudding/malva-pudding.html#pudding-ii",
+    "title": "Malva Pudding",
+    "section": "Pudding (II)",
+    "text": "Pudding (II)\n\nPierce pudding with skewer and pour sauce over hot pudding."
+  },
+  {
+    "objectID": "recipe/malva-pudding/malva-pudding.html#serving",
+    "href": "recipe/malva-pudding/malva-pudding.html#serving",
+    "title": "Malva Pudding",
+    "section": "Serving",
+    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
+  },
+  {
+    "objectID": "recipe/challah/challah.html",
+    "href": "recipe/challah/challah.html",
+    "title": "Challah",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n45min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n160g\n\n\n\nYeast\n10g\n\n\n\nSugar\n40g\n\n\n\nFlour\n400g\n\n\n\nEgg (yolk)\n2 (40g)\n\n\n\nEgg (whole)\n1 (60g)\n\n\n\nOil\n37,5g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
+  },
+  {
+    "objectID": "recipe/sourdough/sourdough.html",
+    "href": "recipe/sourdough/sourdough.html",
+    "title": "Sourdough",
+    "section": "",
+    "text": "Figure 1: A 1,3 kg loaf of sourdough.\n\n\n\n\n\n\n\nFigure 2: Sliced bread.\n\n\n\n\n\n\nInformation\n\n\nMetric\nValue\n\n\n\n\nPrep time\n12-24h\n\n\nCooking time\n1,5h\n\n\nServes\n1,3kg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nLevain\nSourdough starter\n30g\n\n\n\nWater\n60g\n\n\n\nFlour\n60g\n\n\n\nYeast\n4g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nFlour\n750g\n\n\n\nWater\n550g\n\n\n\nSalt\n15g\n\n\n\nMSG\n5g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nOven steam\nWater in metal container\n250mL\n\n\n\n\n\nInstructions\nTest"
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html",
+    "href": "recipe/palak-paneer/palak-paneer.html",
+    "title": "Palak Paneer",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nSix people"
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html#pudding",
+    "href": "recipe/palak-paneer/palak-paneer.html#pudding",
+    "title": "Palak Paneer",
+    "section": "Pudding",
+    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html#sauce",
+    "href": "recipe/palak-paneer/palak-paneer.html#sauce",
+    "title": "Palak Paneer",
+    "section": "Sauce",
+    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
+  },
+  {
+    "objectID": "recipe/palak-paneer/palak-paneer.html#serving",
+    "href": "recipe/palak-paneer/palak-paneer.html#serving",
+    "title": "Palak Paneer",
+    "section": "Serving",
+    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
+  },
+  {
+    "objectID": "recipe/hummus/hummus.html",
+    "href": "recipe/hummus/hummus.html",
+    "title": "Hummus",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n12-24h\n\n\nCooking time\n1,5h\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\n\n\nHummus\nChickpeas\n200g\n\n\n\nWater\n125mL\n\n\n\nBaking soda\n1/2 tablespoon\n\n\n\nGarlic\n2 cloves\n\n\n\nTahini paste\n100g\n\n\n\nCumin (powder)\n1/4 teaspoon\n\n\n\nPaprika\n1/2 teaspoon\n\n\n\nSalt\n1/2 teaspoon\n\n\n\nLemon juice\n1 tablespoon\n\n\n\nOlive oil\n1 tablespoon\n\n\n\n\n\nInstructions\nTest"
+  },
+  {
+    "objectID": "recipe/butter-chicken/butter-chicken.html",
+    "href": "recipe/butter-chicken/butter-chicken.html",
+    "title": "Butter Chicken",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nsix people"
+  },
+  {
+    "objectID": "recipe/butter-chicken/butter-chicken.html#pudding",
+    "href": "recipe/butter-chicken/butter-chicken.html#pudding",
+    "title": "Butter Chicken",
+    "section": "Pudding",
+    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
+  },
+  {
+    "objectID": "recipe/butter-chicken/butter-chicken.html#sauce",
+    "href": "recipe/butter-chicken/butter-chicken.html#sauce",
+    "title": "Butter Chicken",
+    "section": "Sauce",
+    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
+  },
+  {
+    "objectID": "recipe/butter-chicken/butter-chicken.html#serving",
+    "href": "recipe/butter-chicken/butter-chicken.html#serving",
+    "title": "Butter Chicken",
+    "section": "Serving",
+    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
+  },
+  {
+    "objectID": "recipe/white-bread/white-bread.html",
+    "href": "recipe/white-bread/white-bread.html",
+    "title": "White Bread",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n40min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n350g\n\n\n\nYeast\n10g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
+  },
+  {
+    "objectID": "recipe/flat-bread/flat-bread.html",
+    "href": "recipe/flat-bread/flat-bread.html",
+    "title": "Flat Bread",
+    "section": "",
+    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n1h\n\n\nCooking time\n10min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n320g\n\n\n\nYeast\n15g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\nOlive oil\n50g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise for 30 minutes.\nFlatten with fingers and place in pan.\nCover and leave to rise for 20 minutes\nFlatten with fingers.\nLeave to rise for 10 minutes\nPlace covered in oven and fan-bake at 220 for 10 minutes (soft) or 15 minutes (crisp)."
   },
   {
     "objectID": "index.html",
@@ -175,123 +343,18 @@
     "text": "Serving\n\nPlate sticky rice and mango.\nPour sticky rice sauce on sticky rice.\nGarnish sticky rice with sesame seeds."
   },
   {
-    "objectID": "post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html",
-    "href": "post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html",
-    "title": "Sykdomspulsen Receives Prize for Best Poster",
-    "section": "",
-    "text": "Sykdomspulsen’s poster “Sykdomspulsen - An exciting and forward-looking infrastructure and website for the real-time surveillance of Covid-19, other infections, and deaths” received the prize for “Best Poster” at Helse- og Kvalitetsregisterkonferansen 2021.\nRead more about it here!.\n\nknitr::include_graphics(\"screenshot.png\")"
-  },
-  {
-    "objectID": "post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html",
-    "href": "post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html",
-    "title": "New Course: Which Stats Method?",
-    "section": "",
-    "text": "You can find the course “Which Stats Method” here.\nThis course will not teach students how to implement these statistical methods. The aim of this course is to enable the student to identify which methods are required for their study, allowing the student to identify their needs for subsequent methods courses, self-learning, or external help.\nYou should take this course if you are one of the following:\n\nHave experience with applying statistical methods, but are sometimes confused or uncertain as to whether or not you have selected the correct method.\nDo not have experience with applying statistical methods, and would like to get an overview over which methods are applicable for your projects so that you can then undertake further studies in these areas.\n\n\n\n\n\n\nThis course covers the following scenarios:\n\nIdentifying continuous, categorical, count, and censored variables.\nIdentifying exposure and outcome variables.\nIdentifying when t-tests (paired and unpaired) should be used.\nIdentifying when non-parametric t-test equivalents should be used.\nIdentifying when ANOVA should be used.\nIdentifying when linear regression should be used.\nIdentifying the similarities between t-tests, ANOVA, and regression.\nIdentifying when logistic regression models should be used.\nIdentifying when Poisson/negative binomial and cox regression models should be used.\nIdentifying when chi-squared/fisher’s exact test should be used.\nIdentifying when data does not have any dependencies (i.e. all observations are independent of each other) versus when data has complicated dependencies (i.e. longitudinal data, matched data, multiple cohorts).\nIdentifying when mixed effects regression models should be used.\nIdentifying when conditional logistic regression models should be used."
-  },
-  {
-    "objectID": "post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html",
-    "href": "post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html",
-    "title": "New Course: Longitudinal Analysis for Surveillance",
-    "section": "",
-    "text": "You can find the course “Longitudinal Analysis for Surveillance” here.\n\n\n\n\n\nWhen dealing with longitudinal data, there are two kinds of analyses that can be performed:\n\n“Time series” analyses generally deal with one variable. The aim is to then predict the future only using the previous observations. A common example would be to predict tomorrow’s temperature, using today’s and yesterday’s temperature as exposures. We will not be focusing on these kinds of analyses in this course.\n“Regression analyses” are very similar to ordinary regressions that you have been working with for many years. The only difference is that they have more advanced data structures that your current methods cannot handle. For example, if you want to see how the number of tuberculosis patients (outcome) is affected by the number of immigrants to Norway (exposure) over a 20 year period, then the number of patients in each year might be associated with each other, which might break assumptions of the regression models that you normally use (independent residuals). To account for the advanced structure of the data (correlation between different years) we will use more advanced regression techniques. This will be the focus of the course."
-  },
-  {
-    "objectID": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html",
-    "href": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html",
-    "title": "R-Package “plnr” (version 2022.6.8) Published on CRAN",
-    "section": "",
-    "text": "This blog post has also been posted here."
-  },
-  {
-    "objectID": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#changes-since-last-version",
-    "href": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#changes-since-last-version",
-    "title": "R-Package “plnr” (version 2022.6.8) Published on CRAN",
-    "section": "Changes since last version",
-    "text": "Changes since last version\nThe R-package “plnr” (version 2022.6.8) has been published on CRAN. “plnr” is a part of the splverse, a set of R packages developed to help solve problems that frequently occur when performing infectious disease surveillance. “plnr” has two vignettes that briefly show the mental model behind “plnr”:\n\n\n\n\n\n\n\n\nIntroduction to plnr\nAdding Analyses to a Plan"
-  },
-  {
-    "objectID": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#concept",
-    "href": "post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html#concept",
-    "title": "R-Package “plnr” (version 2022.6.8) Published on CRAN",
-    "section": "Concept",
-    "text": "Concept\n\n\n\n\n\n\n\nBroad technical terms\n\n\n\nObject\nDescription\n\n\nargset\nA named list containing a set of arguments.\n\n\nanalysis\nThese are the fundamental units that are scheduled in plnr:\n\n1 argset\n1 (action) function that takes two arguments\n\ndata (named list)\nargset (named list)\n\n\n\n\nplan\nThis is the overarching “scheduler”:\n\n1 data pull\n1 list of analyses\n\n\n\nDifferent types of plans\n\n\n\nPlan Type\nDescription\n\n\nSingle-function plan\nSame action function applied multiple times with different argsets applied to the same datasets.\n\n\nMulti-function plan\nDifferent action functions applied to the same datasets.\n\n\nPlan Examples\n\n\n\nPlan Type\nExample\n\n\nSingle-function plan\nMultiple strata (e.g. locations, age groups) that you need to apply the same function to to (e.g. outbreak detection, trend detection, graphing).\n\n\nSingle-function plan\nMultiple variables (e.g. multiple outcomes, multiple exposures) that you need to apply the same statistical methods to (e.g. regression models, correlation plots).\n\n\nMulti-function plan\nCreating the output for a report (e.g. multiple different tables and graphs).\n\n\n\nIn brief, we work within the mental model where we have one (or more) datasets and we want to run multiple analyses on these datasets. These multiple analyses can take the form of:\n\nSingle-function plans: One action function (e.g. table_1) called multiple times with different argsets (e.g. year=2019, year=2020).\nMulti-function plans: Multiple action functions (e.g. table_1, table_2) called multiple times with different argsets (e.g. table_1: year=2019, while for table_2: year=2019 and year=2020)\n\nBy demanding that all analyses use the same data sources we can:\n\nBe efficient with requiring the minimal amount of data-pulling (this only happens once at the start).\nBetter enforce the concept that data-cleaning and analysis should be completely separate.\n\nBy demanding that all analysis functions only use two arguments (data and argset) we can:\n\nReduce mental fatigue by working within the same mental model for each analysis.\nMake it easier for analyses to be exchanged with each other and iterated on.\nEasily schedule the running of each analysis.\n\nBy including all of this in one Plan class, we can easily maintain a good overview of all the analyses (i.e. outputs) that need to be run."
-  },
-  {
-    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
-    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
-    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
-    "section": "",
-    "text": "This blog post has also been posted here."
-  },
-  {
-    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#what-do-we-want",
-    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#what-do-we-want",
-    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
-    "section": "What do we want?",
-    "text": "What do we want?\nSykdomspulsen Analytics uses Airflow to schedule its tasks.\n\n\n\n\n\nAirflow and Sykdomspulsen Analytics’ tasks can be run on Kubernetes. This can be seen in the below graph, where one Airflow implementation dispatches tasks to both Server 1 and Server 2. However, with such a small team there is always the risk of something going wrong with a complicated Kubernetes setup. It is therefore preferable to have a failback solution that is independent of Kubernetes. We have achieved this by installing a duplicate Airflow system on each of the servers using Docker-compose. Each Docker-compose Airflow instance can dispatch tasks to its own server.\n\n\n\n\n\nHowever, this means that we have anywhere between 1 to 3 duplicate Airflow DAGs running at any time. All of these will be reading and writing to the same databases. This is obviously not desirable. We must have only one Airflow instance operative at any time."
-  },
-  {
-    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#how-do-we-get-it",
-    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#how-do-we-get-it",
-    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
-    "section": "How do we get it?",
-    "text": "How do we get it?\nIt is not easy to seamlessly turn on and turn off multiple Airflow instances. We can, however, alter the operators inside each Airflow instance to be functional or non-functional.\nIt is for this reason that we developed a custom Airflow Docker operator. This custom Airflow Docker operator:\n\nChecks an external YAML config file (https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml) to see which server each DAG should be run on.\nChecks to see if this server is the correct one.\nIf this is not the correct server, change the command to be excecuted to: echo NOT CORRECT SERVER.\nExecutes the command inside the Docker container."
-  },
-  {
-    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#details",
-    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#details",
-    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
-    "section": "Details",
-    "text": "Details\nhttps://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml\n---\ndag_1: \"server-1.tld\"\ndocker-compose.yml (If using Podman)\n  volumes:\n    - /var/run/podman/podman.sock:/var/run/docker.sock\n  environment:\n    HOST_HOSTNAME: $HOSTNAME\n/opt/airflow/plugins/operators/sc_operators.py accesses the environmental variable HOST_HOSTNAME that is passed through from docker-compose.yml.\nimport os\nimport requests\nimport time\nimport yaml\n\nfrom airflow.operators.docker_operator import DockerOperator\n\nclass SCDockerOperator(DockerOperator):\n    def __init__(self, **kwargs) -> None:\n        super().__init__(**kwargs)\n\n    def execute(self, context):\n        response = requests.get(\n            \"https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml\",\n            headers = {\"Cache-Control\": \"no-cache\"}\n        )\n        unparsed_data = response.text\n    \n        data = yaml.safe_load(unparsed_data)\n        \n        print(data)\n        print(self.dag.dag_id)\n        \n        if self.dag.dag_id not in data:\n            self.command = '''bash -c \"echo NOT CORRECT SERVER\"'''\n        elif data[self.dag.dag_id] != os.getenv(\"HOST_HOSTNAME\"):\n            self.command = '''bash -c \"echo NOT CORRECT SERVER\"'''\n        else:\n            print(\"OK\")\n        \n        time.sleep(5)\n        retval = super().execute(context)\n        return retval\n/opt/airflow/dags/dag_1.py\nimport random\nfrom operators.sc_operators import SCDockerOperator\n\ntask = SCDockerOperator(\n    task_id='my_task',\n    image='localhost/splanalytics:latest',\n    container_name= 'my_task_' + str(random.randint(10,100000)),\n    api_version='auto',\n    auto_remove=True,\n    command=cmd,\n    docker_url='unix://var/run/docker.sock',\n    network_mode='bridge',\n    privileged = True,\n    dag=dag\n)"
-  },
-  {
-    "objectID": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#conclusion",
-    "href": "post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html#conclusion",
-    "title": "Custom Airflow Docker Operator (Poor-Man’s Kubernetes)",
-    "section": "Conclusion",
-    "text": "Conclusion\nBy editing https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml we can quickly choose which server will execute the desired task. This is an easy way to manually control identical installations of Airflow as a failback system."
-  },
-  {
-    "objectID": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html",
-    "href": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html",
-    "title": "R-Package “org” (version 2022.7.20) Published on CRAN",
-    "section": "",
-    "text": "This blog post has also been posted here."
-  },
-  {
-    "objectID": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#changes-since-last-version",
-    "href": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#changes-since-last-version",
-    "title": "R-Package “org” (version 2022.7.20) Published on CRAN",
-    "section": "Changes since last version",
-    "text": "Changes since last version\nThe R-package “org” (version 2022.7.20) has been published on CRAN. “org” is a part of the splverse, a set of R packages developed to help solve problems that frequently occur when performing infectious disease surveillance. A significant breaking change is that org::initialize_project now takes in env as an argument (the environment into which the functions will be sourced). It is now recommended to include env = .GlobalEnv into the function call.\n\n\n\n\n\n\n\norg::initialize_project(\n  env = .GlobalEnv,\n  home = \"/git/analyses/2019/analysis3/\",\n  results = \"/dropbox/analyses_results/2019/analysis3/\"\n  raw = \"/data/analyses/2019/analysis3/\"\n)"
-  },
-  {
-    "objectID": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#concept",
-    "href": "post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html#concept",
-    "title": "R-Package “org” (version 2022.7.20) Published on CRAN",
-    "section": "Concept",
-    "text": "Concept\nThe concept behind org is fairly simple - most analyses have three main sections:\n\ncode\nresults\ndata\n\nYet each of these sections have extremely different requirements.\nCode should:\n\nBe version controlled\nBe publically accessible\nHave 1 analysis pipeline that logically and sequentially details all steps of the data cleaning, analysis, and result generation\n\nResults should:\n\nBe immediately shared with close collaborators\nHave each set of results saved and accessible, so that you can see how your results have changed over time (i.e. “if we run the code today, do we get similar results to yesterday?”)\n\nData should:\n\nBe encrypted (if sensitive)\nNot stored on the cloud (if sensitive)"
-  },
-  {
-    "objectID": "post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
-    "href": "post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
-    "title": "All-Cause Mortality in Norway",
-    "section": "",
-    "text": "library(data.table)\nlibrary(magrittr)\nlibrary(ggplot2)\n\nif (interactive()) {\n  folder_location <- \"post/2022-12-13-all-cause-mortality-in-norway/\"\n} else {\n  folder_location <- \"\"\n}\n\n\n# Downloading data\ndata <- PxWebApiData::ApiData(\n  \"https://data.ssb.no/api/v0/en/table/07995\",\n  Kjonn = \"0\",\n  Alder = \"999A\",\n  Tid = as.character(2000:2022),\n  Uke = paste0(\"U\", formatC(1:52, width = 2, flag = \"0\"))\n)\n\n# Cleaning\nd_deaths <- data$dataset[, c(\"Uke\", \"Tid\", \"value\")]\nsetDT(d_deaths)\nsetnames(d_deaths, c(\"week\", \"isoyear\", \"deaths_n\"))\nd_deaths[, isoweek := stringr::str_remove(week, \"U\")]\nd_deaths[, isoyearweek := paste0(isoyear, \"-\", isoweek)]\nd_deaths[, isoweek := as.numeric(isoweek)]\nd_deaths[, isoyear := as.numeric(isoyear)]\nd_deaths[, week := NULL]\nsetcolorder(d_deaths, c(\"isoyear\", \"isoweek\", \"isoyearweek\", \"deaths_n\"))\n\n# Removing the latest 3 weeks of data (due to registration delay)\nmax_isoweek <- d_deaths[isoyear == 2022 & !is.na(deaths_n)]$isoweek %>%\n  max() - 3\nd_deaths <- d_deaths[isoweek <= max_isoweek]\n\n\n# Aggregating\npd <- d_deaths[, .(deaths_n = sum(deaths_n)), keyby = .(isoyear)]\n\n# Plotting\nq <- ggplot(pd, aes(x = isoyear, y = deaths_n))\nq <- q + geom_line()\nq <- q + geom_point()\nq <- q + scale_x_continuous(\n  \"Isoyear\",\n  breaks = seq(2000, 2022, 2)\n  )\nq <- q + scale_y_continuous(\n  \"Number of deaths\",\n  labels = csstyle::format_nor_num_0,\n  breaks = seq(33000, 38000, 1000)\n)\nq <- q + expand_limits(y = c(33000, 38000))\nq <- q + labs(\n    title = glue::glue(\n      \"Deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)\"\n    )\n  )\nq <- q + labs(caption = \"Data extracted 2022-12-13 from SSB table 07995.\")\nq\n\n\n\n\n\n# Estimating the baseline\nsetorder(d_deaths, isoyearweek)\nfor(isoyear_pred in 2011:2022) for(isoweek_model in unique(d_deaths$isoweek)){\n\n  # Determining the training data\n  if(isoyear_pred <= 2019){\n    isoyear_train <- (isoyear_pred-10):(isoyear_pred-1)\n  } else {\n    isoyear_train <- 2010:2019\n  }\n  \n  # Fitting the model\n  fit <- glm(\n    deaths_n ~ isoyear, \n    data = d_deaths[isoweek %in% isoweek_model & isoyear %in% isoyear_train],\n    family = \"poisson\"\n  )\n  \n  # Predicting the baseline\n  pred <- predict(\n      fit, \n      d_deaths[isoweek %in% isoweek_model & isoyear %in% isoyear_pred]\n    ) %>% \n    exp()\n  d_deaths[\n    isoweek %in% isoweek_model & isoyear %in% isoyear_pred, \n    deaths_baseline_n := pred\n  ]\n}\n\n\n# Calculating the excess mortality\nd_deaths[, deaths_excess_n := deaths_n - deaths_baseline_n]\n\n\n# Aggregating\npd <- d_deaths[\n  !is.na(deaths_excess_n),\n  .(deaths_excess_n = sum(deaths_excess_n)), \n  keyby = .(isoyear)\n]\n\n# Plotting\nq <- ggplot(pd, aes(x = isoyear, y = deaths_excess_n))\nq <- q + geom_col()\nq <- q + geom_hline(yintercept = 0, color = \"black\")\nq <- q + scale_x_continuous(\n  \"Isoyear\",\n  breaks = seq(2011, 2022, 1)\n  )\nq <- q + scale_y_continuous(\n  \"Number of excess deaths\",\n  labels = csstyle::format_nor_num_0,\n  breaks = seq(-1000, 4000, 500)\n)\nq <- q + labs(\n    title = glue::glue(\n      \"Excess deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)\"\n    )\n  )\nq <- q + labs(\n  caption = \"Weekly baseline calculated from a poisson regression of the previous 10 years of data.\\nBaselines for 2020, 2021, and 2022 calculated using data for 2010-2019.\\nData extracted 2022-12-13 from SSB table 07995.\"\n)\nq"
-  },
-  {
     "objectID": "publications.html",
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "80 scientific articles (52 702 citations, 43 h-index)."
+    "text": "81 scientific articles (52 797 citations, 43 h-index)."
   },
   {
     "objectID": "publications.html#section",
     "href": "publications.html#section",
     "title": "Publications",
     "section": "2023",
-    "text": "2023\n\n[80] Engebretsen, S. et al.  (2023). “Regional probabilistic situational awareness and forecasting of COVID-19”. In: PLOS Computational Biology 19.1, pp. 1-26. URL: https://rwhite.no/articles/2023-engebretsen.pdf.\n\n\n[79] Ruiz, P. L. et al.  (2023). “Short-term safety of COVID-19 mRNA vaccines with respect to all-cause mortality in the older population in Norway”. In: Vaccine 41.2, pp. 323–332. URL: https://rwhite.no/articles/2023-ruiz.pdf."
+    "text": "2023\n\n[81] Axfors, C. et al.  (2023). “Prepregnancy participation and performance in world’s largest cross-country ski race as a proxy for physical exercise and fitness, and perinatal outcomes: prospective registry-based cohort study”. In: BJOG: An International Journal of Obstetrics & Gynaecology.\n\n\n[80] Engebretsen, S. et al.  (2023). “Regional probabilistic situational awareness and forecasting of COVID-19”. In: PLOS Computational Biology 19.1, pp. 1-26. URL: https://rwhite.no/articles/2023-engebretsen.pdf.\n\n\n[79] Ruiz, P. L. et al.  (2023). “Short-term safety of COVID-19 mRNA vaccines with respect to all-cause mortality in the older population in Norway”. In: Vaccine 41.2, pp. 323–332. URL: https://rwhite.no/articles/2023-ruiz.pdf."
   },
   {
     "objectID": "publications.html#section-1",
@@ -378,150 +441,87 @@
     "text": "2011\n\n[3] Falzon, D. et al.  (2011). WHO guidelines for the programmatic management of drug-resistant tuberculosis: 2011 update. URL: https://rwhite.no/articles/2011-falzon.pdf.\n\n\n[2] Fredrickson, M. J. et al.  (2011). “Low-volume ultrasound-guided nerve block provides inferior postoperative analgesia compared to a higher-volume landmark technique”. In: Regional Anesthesia and Pain Medicine 36.4, pp. 393–398. URL: https://rwhite.no/articles/2011-fredrickson.pdf.\n\n\n[1] White, R. et al.  (2011). “History of Military Service and the Risk of Suicidal Ideation: Findings From the 2008 National Survey on Drug Use and Health”. In: Suicide and Life-Threatening Behavior 41.5, pp. 554–561. URL: https://rwhite.no/articles/2011-white.pdf."
   },
   {
-    "objectID": "recipe/butter-chicken/butter-chicken.html",
-    "href": "recipe/butter-chicken/butter-chicken.html",
-    "title": "Butter Chicken",
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
     "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nsix people"
+    "text": "hello@rwhite.no"
   },
   {
-    "objectID": "recipe/butter-chicken/butter-chicken.html#pudding",
-    "href": "recipe/butter-chicken/butter-chicken.html#pudding",
-    "title": "Butter Chicken",
-    "section": "Pudding",
-    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
+    "objectID": "cv.html#education-statistics",
+    "href": "cv.html#education-statistics",
+    "title": "CV",
+    "section": "Education / Statistics",
+    "text": "Education / Statistics\nHarvard University, USA\n2011–2012 / Ph.D. in Biostatistics\n2009–2011 / M.A. in Biostatistics (Frank Knox fellowship)\nUniversity of Wollongong, Australia\n2005–2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours)"
   },
   {
-    "objectID": "recipe/butter-chicken/butter-chicken.html#sauce",
-    "href": "recipe/butter-chicken/butter-chicken.html#sauce",
-    "title": "Butter Chicken",
-    "section": "Sauce",
-    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
+    "objectID": "cv.html#education-humanities",
+    "href": "cv.html#education-humanities",
+    "title": "CV",
+    "section": "Education / Humanities",
+    "text": "Education / Humanities\nUniversity of Bergen, Norway\n2022–2023 / One year program (Årsstudium) in Nordic languages and literature"
   },
   {
-    "objectID": "recipe/butter-chicken/butter-chicken.html#serving",
-    "href": "recipe/butter-chicken/butter-chicken.html#serving",
-    "title": "Butter Chicken",
-    "section": "Serving",
-    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
+    "objectID": "cv.html#skills",
+    "href": "cv.html#skills",
+    "title": "CV",
+    "section": "Skills",
+    "text": "Skills\n\nR (15+ years)\nSTATA (10+ years)\nDocker (5+ years)\nCI/CD (5+ years)\nPython (1 year)\nKubernetes (1 year)"
   },
   {
-    "objectID": "recipe/challah/challah.html",
-    "href": "recipe/challah/challah.html",
-    "title": "Challah",
+    "objectID": "cv.html#languages",
+    "href": "cv.html#languages",
+    "title": "CV",
+    "section": "Languages",
+    "text": "Languages\n\nEnglish (Fluent)\nNorwegian (B2)"
+  },
+  {
+    "objectID": "cv.html#scientific-production",
+    "href": "cv.html#scientific-production",
+    "title": "CV",
+    "section": "Scientific production",
+    "text": "Scientific production\n\n81 scientific articles:\n\n52 797 citations\n43 h-index\n\n9 R packages as first author/maintainer:\n\nattrib (600 downloads/month from cran)\ncsdata (300 downloads/month from cran)\ncsmaps (300 downloads/month from cran)\ncsstyle\ncstidy\ncsutil (300 downloads/month from cran)\norg (500 downloads/month from cran)\nplnr (400 downloads/month from cran)\nspread (30 downloads/month from cran)\n\n4 R packages as co-author:\n\ncsalert\ncstime (300 downloads/month from cran)\nMOMO\nnowcast\n\n1 Deprecated R package:\n\nsplutil (400 downloads/month from cran)"
+  },
+  {
+    "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
+    "href": "cv.html#norwegian-institute-of-public-health-niphfhi",
+    "title": "CV",
+    "section": "Norwegian Institute of Public Health (NIPH/FHI)",
+    "text": "Norwegian Institute of Public Health (NIPH/FHI)\n\nTechnical Lead — Sykdomspulsen: Real-Time Surveillance\n07.2019–now / Oslo, Norway\n\nTech lead for Sykdomspulsen (8-person team), a real-time analysis and disease surveillance system. Complex statistical analyses are automatically run for all locations in Norway, producing reports and alerting various stakeholders.\nResponsible for training, mentoring, supervision, and quality assurance of statistical methods and code.\nTechnology in use includes:\n\nKubernetes.\nDocker/Podman.\nCI/CD (Jenkins/GoCD/ArgoCD).\nApache Airflow.\nR/Python.\n\nSurveils:\n\nAll cause/cause-specific/attributable mortality (part of the EuroMOMO network).\nVaccine associated mortality.\nCovid-19.\nInfluenza.\nTuberculosis.\nIPD.\nMeningococcal disease.\nPertussis.\nAntibiotic use and healthcare associated infection (NOIS-PIAH).\nGastritis.\n80+ syndromes via the syndromic surveillance registry (sKUHR).\n\nInteractive website for municipal health authorities (Sykdomspulsen for kommunehelsetjenesten).\nAPIs for internal/external use.\n1 000 000+ analyses per day.\n1 000+ automatic reports (pdf/excel/email/sms) per day.\n\n\n\nInfectious Diseases Statistician — Infectious Disease Epidemiology\n06.2014–06.2019 / Oslo, Norway\n\nAdvised outbreak teams and researchers in statistical concepts, methods, and programming.\nStatistical supervisor for five fellows of the European Programme for Intervention Epidemiology Training (EPIET) and nine PhD students:\n\nAnswered statistical questions.\nEnsured that the statistical methods chosen by them in their projects were correct.\nMentoring and supervising them in statistics.\nQuality assurance of statistical analyses in peer-reviewed publications.\n\nDeveloped statistical protocol for a 60 000-person longitudinal study regarding Norwegian water usage.\nModelled the 2014 Ebola outbreak to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.\nModelled the burden of HCV in Norwegian people who inject drugs.\nHead statistician on the data monitoring committee (DMC) for the:\n\nPEEP RCT in Haydom, Tanzania.\nSafer Births Moyo RCT in Muhimbili, Tanzania.\n\nDeveloped surveillance reports (and all relevant infrastructure and code for signal processing) in the format of interactive websites for:\n\nGastritis and upper-respiratory outbreaks using the syndromic surveillance registry (sKUHR).\nOutbreaks using the notifiable disease registry (MSIS).\nAll cause/cause-specific/attributable mortality (part of the EuroMOMO network).\n\n\n\n\nStatistician/Postdoc — Genes and Environment\n01.2012–05.2014 / Oslo, Norway\n\nDeveloped database management structures to allow for the construction of analysis datasets from multiple disparate sources (e.g. written questionnaires, lab toxicant concentrations, Illumina microbial data).\nInvestigated the relationship between seasonality, sunlight, and suicide.\nInvestigated the relationship between gun ownership and completed suicide in the US, highlighting the lack of method substitution where gun ownership is less prevalent."
+  },
+  {
+    "objectID": "cv.html#médecins-sans-frontières-msf",
+    "href": "cv.html#médecins-sans-frontières-msf",
+    "title": "CV",
+    "section": "Médecins Sans Frontières (MSF)",
+    "text": "Médecins Sans Frontières (MSF)\n\nStatistician OCB\n10.2015–now / Oslo, Norway\n\nDeveloped statistical protocol for a 10 000-person stepwise-RCT regarding DR-TB in a Mumbai slum.\nAdvised on surveillance methods to detect extreme malaria seasons in areas with low quality data.\nIdentified predictors of death amongst Ebola patients in a Guinean Ebola Treatment Unit."
+  },
+  {
+    "objectID": "cv.html#norwegian-red-cross-norcross",
+    "href": "cv.html#norwegian-red-cross-norcross",
+    "title": "CV",
+    "section": "Norwegian Red Cross (NorCross)",
+    "text": "Norwegian Red Cross (NorCross)\n\nHealth Officer (IFRC)\n08.2022–09.2022 / Colombo, Sri Lanka\n\nHead statistician for a 3100-household multi-sector nationwide needs assessment (annex), in response to the complex humanitarian emergency in Sri Lanka.\nDeveloped statistical protocol for all sectors, questions for the health sector, and analyzed most of the data.\n\n\n\nCommunity Based Surveillance Delegate (IFRC)\n04.2019–05.2019 / Beira, Mozambique\n\nResponded to a cholera outbreak.\nManaged a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by Cyclone Idai.\nLiaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea."
+  },
+  {
+    "objectID": "cv.html#palestinian-national-institute-of-public-health-pniph",
+    "href": "cv.html#palestinian-national-institute-of-public-health-pniph",
+    "title": "CV",
+    "section": "Palestinian National Institute of Public Health (PNIPH)",
+    "text": "Palestinian National Institute of Public Health (PNIPH)\n\nStatistician\n09.2017–09.2019 / Ramallah, Palestine\n\nTrained local staff in data management and statistical programming for the national maternal and child health registry.\nUsed raw survey data to validate indicators from the newly formed national healthcare worker registry."
+  },
+  {
+    "objectID": "cv.html#world-health-organization-who",
+    "href": "cv.html#world-health-organization-who",
+    "title": "CV",
+    "section": "World Health Organization (WHO)",
+    "text": "World Health Organization (WHO)\n\nGIS Expert/Data Manager — Global Outbreak Alert and Response Network (GOARN)\n01.2015—02.2015 / Kambia, Sierra Leone\n\nResponded to the 2013–2016 Western African Ebola virus epidemic.\nDeveloped and managed a real-time surveillance system for the Ebola outbreak in Kambia, linking the national emergency number, Ebola holding centers, Ebola community care centers, Ebola treatment centers, and burials.\nGeocoded and mapped relevant outbreak data (alerts, cases, border crossings).\nGenerated daily sitreps using GIS data and epidemiological information from the surveillance database.\nTrained and supervised international and national staff in the use of the Kambian Ebola surveillance system.\n\n\n\nBiostatistician — Mortality and Burden of Disease\n04.2011–11.2011 / Geneva, Switzerland\n\nCollected cause of death data from multiple national cause of death registries into a database and calculated avoidable mortality estimates for disease groups over time, comparing trends in high income versus developing countries.\nProduced disease prevalence estimates for the Global Burden of Disease project (GBD 2010), most notably for vision loss, micronutrient deficiency, and stunting for all UN member nations, in all sex/age combinations, from 1990 to 2010.\n\n\n\nBiostatistician — Stop TB Department\n06.2010–11.2010 / Boston, USA\n\nLiaised with NGOs from South Africa, Uzbekistan, Bangladesh, and Peru to gain access to MDR-TB datasets, then managed, cleaned, and analysed the datasets.\nProvided recommendations for the WHO Guidelines for the Programmatic Management of Drug Resistant Tuberculosis (3rd edition) via multi-cohort survival analyses to determine factors affecting detection of MDR-TB and survival in a programmatic context."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n45min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n160g\n\n\n\nYeast\n10g\n\n\n\nSugar\n40g\n\n\n\nFlour\n400g\n\n\n\nEgg (yolk)\n2 (40g)\n\n\n\nEgg (whole)\n1 (60g)\n\n\n\nOil\n37,5g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
-  },
-  {
-    "objectID": "recipe/flat-bread/flat-bread.html",
-    "href": "recipe/flat-bread/flat-bread.html",
-    "title": "Flat Bread",
-    "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n1h\n\n\nCooking time\n10min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n320g\n\n\n\nYeast\n15g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\nOlive oil\n50g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise for 30 minutes.\nFlatten with fingers and place in pan.\nCover and leave to rise for 20 minutes\nFlatten with fingers.\nLeave to rise for 10 minutes\nPlace covered in oven and fan-bake at 220 for 10 minutes (soft) or 15 minutes (crisp)."
-  },
-  {
-    "objectID": "recipe/hummus/hummus.html",
-    "href": "recipe/hummus/hummus.html",
-    "title": "Hummus",
-    "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n12-24h\n\n\nCooking time\n1,5h\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\n\n\nHummus\nChickpeas\n200g\n\n\n\nWater\n125mL\n\n\n\nBaking soda\n1/2 tablespoon\n\n\n\nGarlic\n2 cloves\n\n\n\nTahini paste\n100g\n\n\n\nCumin (powder)\n1/4 teaspoon\n\n\n\nPaprika\n1/2 teaspoon\n\n\n\nSalt\n1/2 teaspoon\n\n\n\nLemon juice\n1 tablespoon\n\n\n\nOlive oil\n1 tablespoon\n\n\n\n\n\nInstructions\nTest"
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html",
-    "href": "recipe/malva-pudding/malva-pudding.html",
-    "title": "Malva Pudding",
-    "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nsix people"
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-flour-mix",
-    "href": "recipe/malva-pudding/malva-pudding.html#pudding-flour-mix",
-    "title": "Malva Pudding",
-    "section": "Pudding (flour mix)",
-    "text": "Pudding (flour mix)\n\nSift together flour, bicarb soda, and salt."
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-egg-mix",
-    "href": "recipe/malva-pudding/malva-pudding.html#pudding-egg-mix",
-    "title": "Malva Pudding",
-    "section": "Pudding (egg mix)",
-    "text": "Pudding (egg mix)\n\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well."
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-i",
-    "href": "recipe/malva-pudding/malva-pudding.html#pudding-i",
-    "title": "Malva Pudding",
-    "section": "Pudding (I)",
-    "text": "Pudding (I)\n\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#sauce",
-    "href": "recipe/malva-pudding/malva-pudding.html#sauce",
-    "title": "Malva Pudding",
-    "section": "Sauce",
-    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved."
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#pudding-ii",
-    "href": "recipe/malva-pudding/malva-pudding.html#pudding-ii",
-    "title": "Malva Pudding",
-    "section": "Pudding (II)",
-    "text": "Pudding (II)\n\nPierce pudding with skewer and pour sauce over hot pudding."
-  },
-  {
-    "objectID": "recipe/malva-pudding/malva-pudding.html#serving",
-    "href": "recipe/malva-pudding/malva-pudding.html#serving",
-    "title": "Malva Pudding",
-    "section": "Serving",
-    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
-  },
-  {
-    "objectID": "recipe/palak-paneer/palak-paneer.html",
-    "href": "recipe/palak-paneer/palak-paneer.html",
-    "title": "Palak Paneer",
-    "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n30min\n\n\nCooking time\n45min\n\n\nServes\nSix people"
-  },
-  {
-    "objectID": "recipe/palak-paneer/palak-paneer.html#pudding",
-    "href": "recipe/palak-paneer/palak-paneer.html#pudding",
-    "title": "Palak Paneer",
-    "section": "Pudding",
-    "text": "Pudding\n\nSift together flour, bicarb soda, and salt.\nBeat sugar and eggs until light and fluffy.\nAdd apricot jam and beat well.\nIn a saucepan, melt the butter.\nAdd the vinegar and milk.\nFold in the flour and egg mixtures alternatively.\nPour into a greased baking tray.\nBake at 180C for 45 minutes."
-  },
-  {
-    "objectID": "recipe/palak-paneer/palak-paneer.html#sauce",
-    "href": "recipe/palak-paneer/palak-paneer.html#sauce",
-    "title": "Palak Paneer",
-    "section": "Sauce",
-    "text": "Sauce\n\nPlace all ingredients into a saucepan.\nStir over moderate heat until butter has melted and the sugar dissolved.\nPierce pudding with skewer and pour sauce over hot pudding."
-  },
-  {
-    "objectID": "recipe/palak-paneer/palak-paneer.html#serving",
-    "href": "recipe/palak-paneer/palak-paneer.html#serving",
-    "title": "Palak Paneer",
-    "section": "Serving",
-    "text": "Serving\n\nGarnish with fresh mint leaves.\nServe hot or cold with cream or custard."
-  },
-  {
-    "objectID": "recipe/sourdough/sourdough.html",
-    "href": "recipe/sourdough/sourdough.html",
-    "title": "Sourdough",
-    "section": "",
-    "text": "Figure 1: A 1,3 kg loaf of sourdough.\n\n\n\n\n\n\n\nFigure 2: Sliced bread.\n\n\n\n\n\n\nInformation\n\n\nMetric\nValue\n\n\n\n\nPrep time\n12-24h\n\n\nCooking time\n1,5h\n\n\nServes\n1,3kg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nLevain\nSourdough starter\n30g\n\n\n\nWater\n60g\n\n\n\nFlour\n60g\n\n\n\nYeast\n4g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nFlour\n750g\n\n\n\nWater\n550g\n\n\n\nSalt\n15g\n\n\n\nMSG\n5g\n\n\n\n\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nOven steam\nWater in metal container\n250mL\n\n\n\n\n\nInstructions\nTest"
-  },
-  {
-    "objectID": "recipe/white-bread/white-bread.html",
-    "href": "recipe/white-bread/white-bread.html",
-    "title": "White Bread",
-    "section": "",
-    "text": "Information\n\n\nMetric\nValue\n\n\n\n\nPrep time\n2h\n\n\nCooking time\n40min\n\n\nServes\nXXkg loaf of bread\n\n\n\n\nIngredients\n\n\n\nPurpose\nIngredient\nQuantity\n\n\nDough\nWater\n350g\n\n\n\nYeast\n10g\n\n\n\nFlour\n500g\n\n\n\nSalt\n10g\n\n\n\n\n\nInstructions\n\nCombine all ingredients.\nKnead.\nCover and leave to rise until doubled in size.\nKnead, shape, and place in pan.\nLeave to rise until doubled in size.\nPlace covered in oven and fan-bake at 180C for 40 minutes."
-  },
-  {
-    "objectID": "recipes.html",
-    "href": "recipes.html",
-    "title": "Recipes",
-    "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nButter Chicken\n\n\nNorth Indian curry with butter, yoghurt, and chicken.\n\n\n\n\nChallah\n\n\nYeast-risen egg bread.\n\n\n\n\nFlat Bread\n\n\nBasic olive flat bread.\n\n\n\n\nHummus\n\n\nA simple sourdough method.\n\n\n\n\nMalva Pudding\n\n\nA sweet South African pudding.\n\n\n\n\nPalak Paneer\n\n\nNorth Indian curry with paneer and spinach.\n\n\n\n\nSourdough\n\n\nA simple sourdough method.\n\n\n\n\nWhite Bread\n\n\nBasic white bread.\n\n\n\n\n\n\nNo matching items"
+    "text": "All-Cause Mortality in Norway\n\n\n\n\n\nExamining all-cause mortality in Norway using publically available mortality data from SSB.\n\n\n\n\n\n\nDec 13, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nR-Package “org” (version 2022.7.20) Published on CRAN\n\n\n\n\n\n“org” is a system to help you organize projects. Most analyses have three (or more) main sections: code, results, and data, each with different requirements (version control/sharing/encryption). You provide folder locations and ‘org’ helps you take care of the details.\n\n\n\n\n\n\nJul 21, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nCustom Airflow Docker Operator (Poor-Man’s Kubernetes)\n\n\n\n\n\nAirflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”.\n\n\n\n\n\n\nJul 18, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nR-Package “plnr” (version 2022.6.8) Published on CRAN\n\n\n\n\n\n“plnr” is a system to plan analyses within the mental model where you have one (or more) datasets and want to run either A) the same function multiple times with different arguments, or B) multiple functions. This is appropriate when you have multiple strata (e.g. locations, age groups) that you want to apply the same function to, or you have multiple variables (e.g. exposures) that you want to apply the same statistical method to, or when you are creating the output for a report and you need multiple different tables or graphs.\n\n\n\n\n\n\nJun 8, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nNew Course: Longitudinal Analysis for Surveillance\n\n\n\n\n\nSykdomspulsen has published a short course that teaches students to run “normal regressions” in situations where the data structure would ordinarily prohibit you from running regression models. These situations mostly pertain to clusters of correlated data.\n\n\n\n\n\n\nJan 24, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nNew Course: Which Stats Method?\n\n\n\n\n\nSykdomspulsen has published a short course that provides a basic overview of general statistical methodology that can be useful in the areas of infectious diseases, environmental medicine, and labwork. By the end of this course, students will be able to identify appropriate statistical methods for a variety of circumstances.\n\n\n\n\n\n\nJan 11, 2022\n\n\nRichard Aubrey White\n\n\n\n\n\n\n\n\nSykdomspulsen Receives Prize for Best Poster\n\n\n\n\n\nSykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.\n\n\n\n\n\n\nNov 18, 2021\n\n\nRichard Aubrey White\n\n\n\n\n\n\nNo matching items"
   }
 ]
