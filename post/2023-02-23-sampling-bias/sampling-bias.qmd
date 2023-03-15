@@ -1,0 +1,82 @@
+---
+title: "Sampling Bias"
+description: |
+  Examining all-cause mortality in Norway using publically available mortality data from SSB.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2023-02-23
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(data.table)
+library(magrittr)
+library(ggplot2)
+```
+
+```{r}
+set.seed(4)
+
+d <- data.table(id = 1:100000)
+d[, is_smoker := rbinom(.N, 1, 0.2)]
+d[, probability_of_exercises_frequently := ifelse(is_smoker==T, 0.05, 0.3)]
+d[, exercises_frequently := rbinom(.N, 1, probability_of_exercises_frequently)]
+d[, has_good_genes := rbinom(.N, 1, 0.2)]
+d[, wears_hats_frequently := rbinom(.N, 1, 0.2)]
+
+d[, lung_function := 30 - 10 * is_smoker + 5 * exercises_frequently + 8 * has_good_genes + rnorm(.N, mean = 0, sd = 3)]
+
+d[, probability_of_selection_uniform := 1/.N]
+
+d[, probability_of_selection_oversample_smoker := ifelse(is_smoker==T, 5, 1)]
+d[, probability_of_selection_oversample_smoker := probability_of_selection_oversample_smoker/sum(probability_of_selection_oversample_smoker)]
+
+# We have a dataset with oversampled smokers
+d_oversampled_smokers <- d[sample(1:.N, size = 5000, prob = probability_of_selection_oversample_smoker)]
+(weight_smoker <- mean(d$is_smoker)/mean(d_oversampled_smokers$is_smoker))
+(weight_non_smoker <- mean(!d$is_smoker)/mean(!d_oversampled_smokers$is_smoker))
+d_oversampled_smokers[, weights := ifelse(is_smoker==T, weight_smoker, weight_non_smoker)]
+
+# The real associations:
+# is_smoker: -10 (also associated with exercises_frequently!)
+# exercises_frequently: +5 (also associated with is_smoker!)
+# has_good_genes: +8 (only associated with outcome, not with other exposures)
+# wears_hats_frequently: 0 (not associated with outcome nor other exposures)
+summary(lm(lung_function ~ is_smoker + exercises_frequently + has_good_genes + wears_hats_frequently, data=d))
+
+# When we run the model in the full data, excluding is_smoker, we get the following associations:
+# exercises_frequently: +7.2 (biased from association with is_smoker)
+# has_good_genes: +8 (not biased)
+# wears_hats_frequently: 0 (not biased)
+summary(lm(lung_function ~ exercises_frequently + has_good_genes + wears_hats_frequently, data=d))
+
+# When we run the model in the biased data, with oversampling of smokers (that has also an association with the outcome):
+# exercises_frequently: +9.8 (biased from association with is_smoker and the biased sampling)
+# has_good_genes: +7.6 (not biased)
+# wears_hats_frequently: +0.3 (not biased)
+summary(lm(lung_function ~ exercises_frequently + has_good_genes + wears_hats_frequently, data=d_oversampled_smokers))
+
+# Run the model in the biased data, with weights:
+# exercises_frequently: +7.4 (biased from association with is_smoker)
+# has_good_genes: +7.6 (not biased)
+# wears_hats_frequently: +0.3 (not biased)
+summary(lm(lung_function ~ exercises_frequently + has_good_genes + wears_hats_frequently, data=d_oversampled_smokers, weights = weights))
+
+# Run the model in the biased data, with is_smoker:
+# is_smoker: -9.9 (not biased)
+# exercises_frequently: +5.3 (not biased)
+# has_good_genes: +7.8 (not biased)
+# wears_hats_frequently: +0.2 (not biased)
+summary(lm(lung_function ~ is_smoker + exercises_frequently + has_good_genes + wears_hats_frequently, data=d_oversampled_smokers))
+```
+
+Conclusion: Biased datasets can be corrected for by either:
+
+- Sample weights
+- Including the sampling variables as covariates in the regression model
+
+

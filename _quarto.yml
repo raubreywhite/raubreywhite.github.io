@@ -5,6 +5,7 @@ project:
 
 website:
   title: "Richard Aubrey White"
+  body-header: <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   favicon: favicon.png
   navbar:
     right:
