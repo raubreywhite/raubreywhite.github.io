@@ -1,18 +1,5 @@
 [
   {
-    "listing": "/recipes.html",
-    "items": [
-      "/recipe/butter-chicken/butter-chicken.html",
-      "/recipe/challah/challah.html",
-      "/recipe/flat-bread/flat-bread.html",
-      "/recipe/hummus/hummus.html",
-      "/recipe/malva-pudding/malva-pudding.html",
-      "/recipe/palak-paneer/palak-paneer.html",
-      "/recipe/sourdough/sourdough.html",
-      "/recipe/white-bread/white-bread.html"
-    ]
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/post/2023-02-23-sampling-bias/sampling-bias.html",
@@ -24,6 +11,19 @@
       "/post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html",
       "/post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html",
       "/post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html"
+    ]
+  },
+  {
+    "listing": "/recipes.html",
+    "items": [
+      "/recipe/butter-chicken/butter-chicken.html",
+      "/recipe/challah/challah.html",
+      "/recipe/flat-bread/flat-bread.html",
+      "/recipe/hummus/hummus.html",
+      "/recipe/malva-pudding/malva-pudding.html",
+      "/recipe/palak-paneer/palak-paneer.html",
+      "/recipe/sourdough/sourdough.html",
+      "/recipe/white-bread/white-bread.html"
     ]
   }
 ]
