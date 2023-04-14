@@ -8,7 +8,7 @@
 
 <meta name="author" content="Richard Aubrey White">
 <meta name="dcterms.date" content="2023-02-23">
-<meta name="description" content="Examining all-cause mortality in Norway using publically available mortality data from SSB.">
+<meta name="description" content="Examining sampling bias in simulated data.">
 
 <title>Richard Aubrey White - Sampling Bias</title>
 <style>
@@ -189,7 +189,7 @@ background: #b8e2f2;
       <h1 class="title">Sampling Bias</h1>
                   <div>
         <div class="description">
-          <p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+          <p>Examining sampling bias in simulated data.</p>
         </div>
       </div>
                 </div>
@@ -231,6 +231,34 @@ background: #b8e2f2;
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="what-is-sampling-bias" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-sampling-bias">What is Sampling Bias?</h2>
+<p>Sampling bias refers to the phenomenon of a biased sample being used in a study that does not accurately represent the population being studied. This can happen in a number of ways, such as through selection bias, survivorship bias, or measurement bias. When sampling bias is present, it can lead to inaccurate results, incorrect estimates of associations between variables, and incorrect conclusions. This, in turn, can have an impact on public policy decisions, research funding, and clinical practice.</p>
+</section>
+<section id="types-of-sampling-bias" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-sampling-bias">Types of Sampling Bias</h2>
+<p>There are several types of sampling bias, including:</p>
+<section id="selection-bias" class="level3">
+<h3 class="anchored" data-anchor-id="selection-bias">1. Selection Bias</h3>
+<p>Selection bias occurs when the selection of study participants is not random or representative of the larger population. This can happen when certain groups are excluded or overrepresented, leading to inaccurate conclusions about the study population.</p>
+<p>For example, if a study only recruits participants from a single geographic region, the results may not be generalizable to the larger population. Similarly, if a study only recruits individuals with a certain health condition, the results may not accurately reflect the general population.</p>
+</section>
+<section id="survivorship-bias" class="level3">
+<h3 class="anchored" data-anchor-id="survivorship-bias">2. Survivorship Bias</h3>
+<p>Survivorship bias occurs when only the surviving members of a population are included in a study. This can lead to inaccurate conclusions about the population, as those who did not survive may have had different characteristics or experiences.</p>
+<p>For example, if a study only includes individuals who survived a specific disease, the results may not be generalizable to the larger population of individuals who did not survive.</p>
+</section>
+<section id="measurement-bias" class="level3">
+<h3 class="anchored" data-anchor-id="measurement-bias">3. Measurement Bias</h3>
+<p>Measurement bias occurs when the measurement instruments or techniques used in a study are inaccurate or unreliable. This can result in inaccurate data and misinterpretation of results.</p>
+<p>For example, if a study relies on self-reported data, individuals may underreport or overreport certain behaviors, leading to inaccurate conclusions about the study population. Similarly, if a study uses different measurement techniques for different groups, the results may not be comparable and may lead to inaccurate conclusions.</p>
+</section>
+</section>
+<section id="example-of-sampling-bias-in-a-study" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-sampling-bias-in-a-study">Example of Sampling Bias in a Study</h2>
+<p>To better understand the impact of sampling bias on study results, let’s take a look at an example.</p>
+<p>Suppose we want to study the relationship between smoking and lung function. We know that in our city there are 100,000 people, 20,000 of whom are smokers. To our study we recruit 5,000 smokers and 5,000 non-smokers (oversampling the smokers, a type of selection bias). We also collect data on how frequently they exercise, whether they have good genes for lung function, and whether they frequently wear hats.</p>
+<p>We now want to overcome our selection bias when assessing the association between the outcome of lung function and the exposures of exercise, good genes, and the frequency of hat wearing.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -405,6 +433,9 @@ Multiple R-squared:  0.8313,    Adjusted R-squared:  0.8311
 F-statistic:  6152 on 4 and 4995 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>Conclusion: Biased datasets can be corrected for by either:</p>
 <ul>
 <li>Sample weights</li>
@@ -412,6 +443,7 @@ F-statistic:  6152 on 4 and 4995 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
