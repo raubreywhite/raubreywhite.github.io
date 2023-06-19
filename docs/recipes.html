@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A collection of thoughts.">
+<meta name="description" content="A collection of recipes.">
 
-<title>Richard Aubrey White - Blog</title>
+<title>Richard Aubrey White - Recipes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,9 +73,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -115,7 +115,7 @@ background: #b8e2f2;
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -145,11 +145,11 @@ background: #b8e2f2;
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./recipes.html" rel="" target="">
+    <a class="nav-link active" href="./recipes.html" rel="" target="" aria-current="page">
  <span class="menu-text">Recipes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./blog.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item compact">
@@ -168,10 +168,10 @@ background: #b8e2f2;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Blog</h1>
+      <h1 class="title">Recipes</h1>
                   <div>
         <div class="description">
-          <p>A collection of thoughts.</p>
+          <p>A collection of recipes.</p>
         </div>
       </div>
                 </div>
@@ -189,7 +189,9 @@ background: #b8e2f2;
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Baking">Baking <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Bread">Bread <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Chicken">Chicken <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Dessert">Dessert <span class="quarto-category-count">(1)</span></div><div class="category" data-category="North India">North India <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Palestine">Palestine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="South Africa">South Africa <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Vegetarian">Vegetarian <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -200,317 +202,93 @@ background: #b8e2f2;
 
 <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1681941600000" data-listing-file-modified-sort="1681986071380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-<div class="body">
-<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html">
-<h3 class="no-anchor listing-title">
-Multivariate imputation by chained equations (MICE) with interaction terms
-</h3>
-<div class="listing-subtitle">
 
-</div>
-<div class="listing-description">
-<p>Examining how MICE works with interaction terms.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html">
-<div class="listing-date">
-Apr 20, 2023
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1681423200000" data-listing-file-modified-sort="1681455148381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
-<div class="thumbnail">
-<p><a href="./post/2023-04-14-sparse-inference/sparse-inference.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./post/2023-04-14-sparse-inference/sparse-inference.html">
-<h3 class="no-anchor listing-title">
-Sparse Inference
-</h3>
-<div class="listing-subtitle">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+Title
+</th>
+<th>
+Description
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="North India,Chicken" data-listing-file-modified-sort="1678873032197" data-listing-reading-time-sort="5" data-listing-title-sort="Butter Chicken" data-listing-filename-sort="butter-chicken.qmd">
+<td>
+<a href="./recipe/butter-chicken/butter-chicken.html" class="title listing-title">Butter Chicken</a>
+</td>
+<td>
+<span class="listing-description">North Indian curry with butter, yoghurt, and chicken. </span>
+</td>
+</tr>
+<tr data-index="1" data-categories="Bread" data-listing-file-modified-sort="1678873032201" data-listing-reading-time-sort="3" data-listing-title-sort="Challah" data-listing-filename-sort="challah.qmd">
+<td>
+<a href="./recipe/challah/challah.html" class="title listing-title">Challah</a>
+</td>
+<td>
+<span class="listing-description">Yeast-risen egg bread. </span>
+</td>
+</tr>
+<tr data-index="2" data-categories="Bread" data-listing-file-modified-sort="1678873032204" data-listing-reading-time-sort="2" data-listing-title-sort="Flat Bread" data-listing-filename-sort="flat-bread.qmd">
+<td>
+<a href="./recipe/flat-bread/flat-bread.html" class="title listing-title">Flat Bread</a>
+</td>
+<td>
+<span class="listing-description">Basic olive flat bread. </span>
+</td>
+</tr>
+<tr data-index="3" data-categories="Vegetarian,Palestine" data-listing-file-modified-sort="1678873032207" data-listing-reading-time-sort="2" data-listing-title-sort="Hummus" data-listing-filename-sort="hummus.qmd">
+<td>
+<a href="./recipe/hummus/hummus.html" class="title listing-title">Hummus</a>
+</td>
+<td>
+<span class="listing-description">A simple sourdough method. </span>
+</td>
+</tr>
+<tr data-index="4" data-categories="Dessert,Baking,South Africa" data-listing-file-modified-sort="1678873032210" data-listing-reading-time-sort="5" data-listing-title-sort="Malva Pudding" data-listing-filename-sort="malva-pudding.qmd">
+<td>
+<a href="./recipe/malva-pudding/malva-pudding.html" class="title listing-title">Malva Pudding</a>
+</td>
+<td>
+<span class="listing-description">A sweet South African pudding. </span>
+</td>
+</tr>
+<tr data-index="5" data-categories="North India,Vegetarian" data-listing-file-modified-sort="1678873032214" data-listing-reading-time-sort="4" data-listing-title-sort="Palak Paneer" data-listing-filename-sort="palak-paneer.qmd">
+<td>
+<a href="./recipe/palak-paneer/palak-paneer.html" class="title listing-title">Palak Paneer</a>
+</td>
+<td>
+<span class="listing-description">North Indian curry with paneer and spinach. </span>
+</td>
+</tr>
+<tr data-index="6" data-categories="Bread" data-listing-file-modified-sort="1678873032237" data-listing-reading-time-sort="4" data-listing-title-sort="Sourdough" data-listing-filename-sort="sourdough.qmd">
+<td>
+<a href="./recipe/sourdough/sourdough.html" class="title listing-title">Sourdough</a>
+</td>
+<td>
+<span class="listing-description">A simple sourdough method. </span>
+</td>
+</tr>
+<tr data-index="7" data-categories="Bread" data-listing-file-modified-sort="1678873032258" data-listing-reading-time-sort="2" data-listing-title-sort="White Bread" data-listing-filename-sort="white-bread.qmd">
+<td>
+<a href="./recipe/white-bread/white-bread.html" class="title listing-title">White Bread</a>
+</td>
+<td>
+<span class="listing-description">Basic white bread. </span>
+</td>
+</tr>
+</tbody>
 
-</div>
-<div class="listing-description">
-<p>Examining sparse inference using both frequentist and bayesian methodology.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2023-04-14-sparse-inference/sparse-inference.html">
-<div class="listing-date">
-Apr 14, 2023
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1681452991880" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="thumbnail">
-<p><a href="./post/2023-02-23-sampling-bias/sampling-bias.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./post/2023-02-23-sampling-bias/sampling-bias.html">
-<h3 class="no-anchor listing-title">
-Sampling Bias
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Examining sampling bias in simulated data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2023-02-23-sampling-bias/sampling-bias.html">
-<div class="listing-date">
-Feb 23, 2023
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1678873032154" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="thumbnail">
-<p><a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html"> <p class="card-img-top"><img src="post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-5-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html">
-<h3 class="no-anchor listing-title">
-All-Cause Mortality in Norway
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html">
-<div class="listing-date">
-Dec 13, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1678873032173" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html">
-<h3 class="no-anchor listing-title">
-Regression using tensorflow in R
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html">
-<div class="listing-date">
-Dec 13, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1658354400000" data-listing-file-modified-sort="1678873032147" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html"> <p class="card-img-top"><img src="post/2022-07-21-org-version-2022-7-20-published-on-cran/org.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html">
-<h3 class="no-anchor listing-title">
-R-Package “org” (version 2022.7.20) Published on CRAN
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>“org” is a system to help you organize projects. Most analyses have three (or more) main sections: code, results, and data, each with different requirements (version control/sharing/encryption). You provide folder locations and ‘org’ helps you take care of the details.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html">
-<div class="listing-date">
-Jul 21, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1658095200000" data-listing-file-modified-sort="1678873032136" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<div class="thumbnail">
-<p><a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html"> <p class="card-img-top"><img src="post/2022-07-18-custom-airflow-docker-operator/airflow.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html">
-<h3 class="no-anchor listing-title">
-Custom Airflow Docker Operator (Poor-Man’s Kubernetes)
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html">
-<div class="listing-date">
-Jul 18, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1654639200000" data-listing-file-modified-sort="1678873032125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19">
-<div class="thumbnail">
-<p><a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html"> <p class="card-img-top"><img src="post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html">
-<h3 class="no-anchor listing-title">
-R-Package “plnr” (version 2022.6.8) Published on CRAN
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>“plnr” is a system to plan analyses within the mental model where you have one (or more) datasets and want to run either A) the same function multiple times with different arguments, or B) multiple functions. This is appropriate when you have multiple strata (e.g.&nbsp;locations, age groups) that you want to apply the same function to, or you have multiple variables (e.g.&nbsp;exposures) that you want to apply the same statistical method to, or when you are creating the output for a report and you need multiple different tables or graphs.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html">
-<div class="listing-date">
-Jun 8, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1642978800000" data-listing-file-modified-sort="1678873032121" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html"> <p class="card-img-top"><img src="post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/longitudinal-analysis-for-surveillance.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html">
-<h3 class="no-anchor listing-title">
-New Course: Longitudinal Analysis for Surveillance
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Sykdomspulsen has published a short course that teaches students to run “normal regressions” in situations where the data structure would ordinarily prohibit you from running regression models. These situations mostly pertain to clusters of correlated data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html">
-<div class="listing-date">
-Jan 24, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1641855600000" data-listing-file-modified-sort="1678873032098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html"> <p class="card-img-top"><img src="post/2022-01-11-new-course-which-stats-method/reference.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html">
-<h3 class="no-anchor listing-title">
-New Course: Which Stats Method?
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Sykdomspulsen has published a short course that provides a basic overview of general statistical methodology that can be useful in the areas of infectious diseases, environmental medicine, and labwork. By the end of this course, students will be able to identify appropriate statistical methods for a variety of circumstances.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html">
-<div class="listing-date">
-Jan 11, 2022
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1637190000000" data-listing-file-modified-sort="1678873032040" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html"> <p class="card-img-top"><img src="post/2021-11-18-poster-prize-for-sykdomspulsen/screenshot.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html">
-<h3 class="no-anchor listing-title">
-Sykdomspulsen Receives Prize for Best Poster
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Sykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html">
-<div class="listing-date">
-Nov 18, 2021
-</div>
-<div class="listing-author">
-Richard Aubrey White
-</div>
-</a>
-</div>
-</div>
-</div>
+</table>
 <div class="listing-no-matching d-none">
 No matching items
 </div>

@@ -1,0 +1,31 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html",
+      "/post/2023-04-14-sparse-inference/sparse-inference.html",
+      "/post/2023-02-23-sampling-bias/sampling-bias.html",
+      "/post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
+      "/post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html",
+      "/post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html",
+      "/post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
+      "/post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html",
+      "/post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html",
+      "/post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html",
+      "/post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html"
+    ]
+  },
+  {
+    "listing": "/recipes.html",
+    "items": [
+      "/recipe/butter-chicken/butter-chicken.html",
+      "/recipe/challah/challah.html",
+      "/recipe/flat-bread/flat-bread.html",
+      "/recipe/hummus/hummus.html",
+      "/recipe/malva-pudding/malva-pudding.html",
+      "/recipe/palak-paneer/palak-paneer.html",
+      "/recipe/sourdough/sourdough.html",
+      "/recipe/white-bread/white-bread.html"
+    ]
+  }
+]
