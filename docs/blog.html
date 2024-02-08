@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -49,7 +49,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -113,15 +120,42 @@ background: #b8e2f2;
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Richard Aubrey White</span>
     </a>
@@ -133,34 +167,34 @@ background: #b8e2f2;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html" rel="" target="">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="./cv.html"> 
+<span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html" rel="" target="">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./recipes.html" rel="" target="">
- <span class="menu-text">Recipes</span></a>
+    <a class="nav-link" href="./recipes.html"> 
+<span class="menu-text">Recipes</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" rel="" target="" aria-current="page">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/raubreywhite" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/raubreywhite"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -198,29 +232,58 @@ background: #b8e2f2;
 
 
 
+
 <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1681941600000" data-listing-file-modified-sort="1681986071380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1693000800000" data-listing-file-modified-sort="1707383289473" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="729">
 <div class="thumbnail">
-<p><a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external"></a></p><a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
+<p class="card-img-top"><img src="post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-6-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html">
 <h3 class="no-anchor listing-title">
-Multivariate imputation by chained equations (MICE) with interaction terms
+<a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">All-Cause Mortality in Norway</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Examining how MICE works with interaction terms.</p>
+<a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">Examining all-cause mortality in Norway using publically available mortality data from SSB. </a>
+</div>
+</div>
+<div class="metadata">
+<a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
+<div class="listing-date">
+Aug 26, 2023
+</div>
+<div class="listing-author">
+Richard Aubrey White
 </div>
 </a>
 </div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1681941600000" data-listing-file-modified-sort="1681986071380" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="417">
+<div class="thumbnail">
+<p><a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external"></a></p><a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external">Multivariate imputation by chained equations (MICE) with interaction terms</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external">Examining how MICE works with interaction terms. </a>
+</div>
+</div>
 <div class="metadata">
-<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html">
+<a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external">
 <div class="listing-date">
 Apr 20, 2023
 </div>
@@ -230,25 +293,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1681423200000" data-listing-file-modified-sort="1681455148381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1681423200000" data-listing-file-modified-sort="1681455148381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
 <div class="thumbnail">
-<p><a href="./post/2023-04-14-sparse-inference/sparse-inference.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external"></a></p><a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2023-04-14-sparse-inference/sparse-inference.html">
 <h3 class="no-anchor listing-title">
-Sparse Inference
+<a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external">Sparse Inference</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Examining sparse inference using both frequentist and bayesian methodology.</p>
+<a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external">Examining sparse inference using both frequentist and bayesian methodology. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2023-04-14-sparse-inference/sparse-inference.html">
+<a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external">
 <div class="listing-date">
 Apr 14, 2023
 </div>
@@ -258,25 +321,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1681452991880" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1681452991880" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="738">
 <div class="thumbnail">
-<p><a href="./post/2023-02-23-sampling-bias/sampling-bias.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external"></a></p><a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2023-02-23-sampling-bias/sampling-bias.html">
 <h3 class="no-anchor listing-title">
-Sampling Bias
+<a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external">Sampling Bias</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Examining sampling bias in simulated data.</p>
+<a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external">Examining sampling bias in simulated data. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2023-02-23-sampling-bias/sampling-bias.html">
+<a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -286,25 +349,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1678873032154" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1678873032154" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="704">
 <div class="thumbnail">
-<p><a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html"> <p class="card-img-top"><img src="post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-5-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external"></a></p><a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
+<p class="card-img-top"><img src="post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-5-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html">
 <h3 class="no-anchor listing-title">
-All-Cause Mortality in Norway
+<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">All-Cause Mortality in Norway</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">Examining all-cause mortality in Norway using publically available mortality data from SSB. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html">
+<a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
 <div class="listing-date">
 Dec 13, 2022
 </div>
@@ -314,25 +377,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1678873032173" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1678873032173" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="13">
 <div class="thumbnail">
-<p><a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external"></a></p><a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external">
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+</a><p><a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html">
 <h3 class="no-anchor listing-title">
-Regression using tensorflow in R
+<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external">Regression using tensorflow in R</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external">Examining all-cause mortality in Norway using publically available mortality data from SSB. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html">
+<a href="./post/2023-02-15-tensorflow-in-r/tensorflow-in-r.html" class="no-external">
 <div class="listing-date">
 Dec 13, 2022
 </div>
@@ -342,25 +405,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1658354400000" data-listing-file-modified-sort="1678873032147" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1658354400000" data-listing-file-modified-sort="1678873032147" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="203">
 <div class="thumbnail">
-<p><a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html"> <p class="card-img-top"><img src="post/2022-07-21-org-version-2022-7-20-published-on-cran/org.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external"></a></p><a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external">
+<p class="card-img-top"><img src="post/2022-07-21-org-version-2022-7-20-published-on-cran/org.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html">
 <h3 class="no-anchor listing-title">
-R-Package “org” (version 2022.7.20) Published on CRAN
+<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external">R-Package “org” (version 2022.7.20) Published on CRAN</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>“org” is a system to help you organize projects. Most analyses have three (or more) main sections: code, results, and data, each with different requirements (version control/sharing/encryption). You provide folder locations and ‘org’ helps you take care of the details.</p>
+<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external">“org” is a system to help you organize projects. Most analyses have three (or more) main sections: code, results, and data, each with different requirements (version control/sharing/encryption). You provide folder locations and ‘org’ helps you take care of the details. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html">
+<a href="./post/2022-07-21-org-version-2022-7-20-published-on-cran/org-version-2022-7-20-published-on-cran.html" class="no-external">
 <div class="listing-date">
 Jul 21, 2022
 </div>
@@ -370,25 +433,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1658095200000" data-listing-file-modified-sort="1678873032136" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1658095200000" data-listing-file-modified-sort="1678873032136" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="630">
 <div class="thumbnail">
-<p><a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html"> <p class="card-img-top"><img src="post/2022-07-18-custom-airflow-docker-operator/airflow.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external"></a></p><a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external">
+<p class="card-img-top"><img src="post/2022-07-18-custom-airflow-docker-operator/airflow.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html">
 <h3 class="no-anchor listing-title">
-Custom Airflow Docker Operator (Poor-Man’s Kubernetes)
+<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external">Custom Airflow Docker Operator (Poor-Man’s Kubernetes)</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”.</p>
+<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external">Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html">
+<a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external">
 <div class="listing-date">
 Jul 18, 2022
 </div>
@@ -398,25 +461,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1654639200000" data-listing-file-modified-sort="1678873032125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19">
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1654639200000" data-listing-file-modified-sort="1678873032125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3798">
 <div class="thumbnail">
-<p><a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html"> <p class="card-img-top"><img src="post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external"></a></p><a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external">
+<p class="card-img-top"><img src="post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html">
 <h3 class="no-anchor listing-title">
-R-Package “plnr” (version 2022.6.8) Published on CRAN
+<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external">R-Package “plnr” (version 2022.6.8) Published on CRAN</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>“plnr” is a system to plan analyses within the mental model where you have one (or more) datasets and want to run either A) the same function multiple times with different arguments, or B) multiple functions. This is appropriate when you have multiple strata (e.g.&nbsp;locations, age groups) that you want to apply the same function to, or you have multiple variables (e.g.&nbsp;exposures) that you want to apply the same statistical method to, or when you are creating the output for a report and you need multiple different tables or graphs.</p>
+<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external">“plnr” is a system to plan analyses within the mental model where you have one (or more) datasets and want to run either A) the same function multiple times with different arguments, or B) multiple functions. This is appropriate when you have multiple strata (e.g.&nbsp;locations, age groups) that you want to apply the same function to, or you have multiple variables (e.g.&nbsp;exposures) that you want to apply the same statistical method to, or when you are creating the output for a report and you need multiple different tables or graphs. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html">
+<a href="./post/2022-06-08-plnr-version-2022-6-8-published-on-cran/plnr-version-2022-6-8-published-on-cran.html" class="no-external">
 <div class="listing-date">
 Jun 8, 2022
 </div>
@@ -426,25 +489,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1642978800000" data-listing-file-modified-sort="1678873032121" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1642978800000" data-listing-file-modified-sort="1678873032121" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="200">
 <div class="thumbnail">
-<p><a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html"> <p class="card-img-top"><img src="post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/longitudinal-analysis-for-surveillance.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external"></a></p><a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external">
+<p class="card-img-top"><img src="post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/longitudinal-analysis-for-surveillance.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html">
 <h3 class="no-anchor listing-title">
-New Course: Longitudinal Analysis for Surveillance
+<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external">New Course: Longitudinal Analysis for Surveillance</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Sykdomspulsen has published a short course that teaches students to run “normal regressions” in situations where the data structure would ordinarily prohibit you from running regression models. These situations mostly pertain to clusters of correlated data.</p>
+<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external">Sykdomspulsen has published a short course that teaches students to run “normal regressions” in situations where the data structure would ordinarily prohibit you from running regression models. These situations mostly pertain to clusters of correlated data. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html">
+<a href="./post/2022-01-24-new-course-longitudinal-analysis-for-surveillance/new-course-longitudinal-analysis-for-surveillance.html" class="no-external">
 <div class="listing-date">
 Jan 24, 2022
 </div>
@@ -454,25 +517,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1641855600000" data-listing-file-modified-sort="1678873032098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1641855600000" data-listing-file-modified-sort="1678873032098" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="255">
 <div class="thumbnail">
-<p><a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html"> <p class="card-img-top"><img src="post/2022-01-11-new-course-which-stats-method/reference.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external"></a></p><a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external">
+<p class="card-img-top"><img src="post/2022-01-11-new-course-which-stats-method/reference.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html">
 <h3 class="no-anchor listing-title">
-New Course: Which Stats Method?
+<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external">New Course: Which Stats Method?</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Sykdomspulsen has published a short course that provides a basic overview of general statistical methodology that can be useful in the areas of infectious diseases, environmental medicine, and labwork. By the end of this course, students will be able to identify appropriate statistical methods for a variety of circumstances.</p>
+<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external">Sykdomspulsen has published a short course that provides a basic overview of general statistical methodology that can be useful in the areas of infectious diseases, environmental medicine, and labwork. By the end of this course, students will be able to identify appropriate statistical methods for a variety of circumstances. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html">
+<a href="./post/2022-01-11-new-course-which-stats-method/new-course-which-stats-method.html" class="no-external">
 <div class="listing-date">
 Jan 11, 2022
 </div>
@@ -482,25 +545,25 @@ Richard Aubrey White
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1637190000000" data-listing-file-modified-sort="1678873032040" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="quarto-post image-right" data-index="11" data-listing-date-sort="1637190000000" data-listing-file-modified-sort="1678873032040" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="36">
 <div class="thumbnail">
-<p><a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html"> <p class="card-img-top"><img src="post/2021-11-18-poster-prize-for-sykdomspulsen/screenshot.png"  class="thumbnail-image card-img"/></p> </a></p>
+<p><a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external"></a></p><a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external">
+<p class="card-img-top"><img src="post/2021-11-18-poster-prize-for-sykdomspulsen/screenshot.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html">
 <h3 class="no-anchor listing-title">
-Sykdomspulsen Receives Prize for Best Poster
+<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external">Sykdomspulsen Receives Prize for Best Poster</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external"></a>
 </div>
 <div class="listing-description">
-<p>Sykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.</p>
+<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external">Sykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021. </a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html">
+<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external">
 <div class="listing-date">
 Nov 18, 2021
 </div>
@@ -594,10 +657,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -607,8 +669,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -621,6 +692,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -664,6 +854,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -689,6 +880,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -749,6 +966,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
