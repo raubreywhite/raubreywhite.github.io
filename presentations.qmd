@@ -1,0 +1,29 @@
+---
+title: "Presentations"
+description: |
+  Presentations at scientific conferences.
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(data.table)
+```
+
+## 2024
+
+
+### R/Medicine
+
+[org](https://www.csids.no/org/) + [plnr](https://www.csids.no/plnr/): Packages for Organized Project Material and Effective Analysis. [\[pdf\]](2024-06-14-org-plnr-packages-for-organized-project-material-and-effective-analysis.pdf)
+
+## 2023
+
+### Northern European Symposium on Automated Surveillance
+
+Core Surveillance 9 as a framework for real-time analysis and disease surveillance, using NorSySS as an example. [\[pdf\]](presentations/2023-12-07-core-surveillance-9-as-a-framework-for-real-time-analysis-and-disease-surveillance.pdf)
+
+### Ukrainian Symposium on Syndromic Surveillance
+
+The Role of Statistics in Syndromic Surveillance. [\[pdf\]](presentations/2023-07-06-the-role-of-statistics-in-syndromic-surveillance.pdf)

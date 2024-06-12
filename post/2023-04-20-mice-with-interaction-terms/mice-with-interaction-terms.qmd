@@ -1,0 +1,100 @@
+---
+title: "Multivariate imputation by chained equations (MICE) with interaction terms"
+description: |
+  Examining how MICE works with interaction terms.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2023-04-20
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+We simulate a dataset where it is not harmful to be male nor a smoker (coefficient = 0), but the interaction of the two is very harmful (coefficient = 5).
+
+We then set the outcome to missing for 70% of the males and 70% of the smokers, and run the following analyses:
+
+- Complete case analysis
+- Blindly imputed analysis (using MICE)
+- Imputed analysis (using MICE) where males and females were imputed separately.
+
+We repeat this for multiple datasets with various sample sizes, to see how the imputation strategies are affected by the size of the dataset.
+
+```{r}
+#| warning: false
+
+library(data.table)
+library(magrittr)
+library(ggplot2)
+
+sim_function <- function(data, argset){
+  data <- data.table(id = 1:argset$n)
+  
+  data[, is_male := rbinom(.N, 1, 0.5)]
+  data[, is_smoker := rbinom(.N, 1, 0.5)]
+  data[, lung_function := -1 + 0 * is_male + 0 * is_smoker + 5 * is_male * is_smoker + rnorm(.N, sd = 2)]
+  
+  data_missing <- copy(data)
+  data_missing[is_male==1 & runif(.N)<0.7, lung_function := NA]
+  data_missing[is_smoker==1 & runif(.N)<0.7, lung_function := NA]
+  
+  # complete case analysis
+  coef_complete_case <- coef(summary(lm(lung_function ~ is_male*is_smoker, data = data_missing)))[,1]
+  
+  # we impute the data blindly
+  data_imputed <- mice::mice(data_missing, print=F, m = 20)
+  fit_imputed <- with(data_imputed, lm(lung_function ~ is_male*is_smoker))
+  coef_imputed_blindly <- mice::pool(fit_imputed)$pooled$estimate
+  
+  # we impute the data separately for males and females
+  data_imputed_male <- mice::mice(data_missing[is_male==1], print=F, m = 20)
+  data_imputed_female <- mice::mice(data_missing[is_male==0], print=F, m = 20)
+  data_imputed_sex_specific <- mice:::rbind.mids(data_imputed_male, data_imputed_female)
+  fit_imputed <- with(data_imputed_sex_specific, lm(lung_function ~ is_male*is_smoker))
+  coef_imputed_separately <- mice::pool(fit_imputed)$pooled$estimate
+  
+  retval <- data.table(
+    var = names(coef_complete_case),
+    coef_complete_case,
+    coef_imputed_blindly,
+    coef_imputed_separately,
+    n = argset$n
+  )
+  return(retval)
+}
+
+p <- plnr::Plan$new()
+for(n in c(100, 500, 1000, 2000, 4000)) for(i in 1:100){
+  p$add_argset(
+    name = uuid::UUIDgenerate(),
+    n=n,
+    i=i
+  )
+}
+p$apply_action_fn_to_all_argsets(sim_function)
+set.seed(1234)
+results <- p$run_all()
+results <- rbindlist(results)
+
+results[var == "is_male:is_smoker", .(
+  coef_complete_case = round(mean(coef_complete_case), 2),
+  coef_imputed_blindly = round(mean(coef_imputed_blindly), 2),
+  coef_imputed_separately = round(mean(coef_imputed_separately), 2)
+), keyby=.(n)] %>% 
+  print()
+```
+
+We can see that (in this simple example) complete case analysis correctly captured the interaction's coefficient of 5.
+
+More interesting is that with lower sample sizes, imputing males/females separately performed better than imputing blindly, however, once the sample size became sufficient then there was little difference between the two methods.
+
+The code used to impute the data separately for males and females:
+
+```
+data_imputed_male <- mice::mice(data_missing[is_male==1], print=F, m = 20)
+data_imputed_female <- mice::mice(data_missing[is_male==0], print=F, m = 20)
+data_imputed_sex_specific <- mice:::rbind.mids(data_imputed_male, data_imputed_female)
+```
+

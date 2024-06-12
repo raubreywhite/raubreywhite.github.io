@@ -1,7 +1,7 @@
 ---
 title: "Sampling Bias"
 description: |
-  Examining all-cause mortality in Norway using publically available mortality data from SSB.
+  Examining sampling bias in simulated data.
 author:
   - name: "Richard Aubrey White"
     url: https://www.rwhite.no
@@ -17,6 +17,40 @@ library(data.table)
 library(magrittr)
 library(ggplot2)
 ```
+
+## What is Sampling Bias?
+
+Sampling bias refers to the phenomenon of a biased sample being used in a study that does not accurately represent the population being studied. This can happen in a number of ways, such as through selection bias, survivorship bias, or measurement bias. When sampling bias is present, it can lead to inaccurate results, incorrect estimates of associations between variables, and incorrect conclusions. This, in turn, can have an impact on public policy decisions, research funding, and clinical practice.
+
+## Types of Sampling Bias
+
+There are several types of sampling bias, including:
+
+### 1. Selection Bias
+
+Selection bias occurs when the selection of study participants is not random or representative of the larger population. This can happen when certain groups are excluded or overrepresented, leading to inaccurate conclusions about the study population.
+
+For example, if a study only recruits participants from a single geographic region, the results may not be generalizable to the larger population. Similarly, if a study only recruits individuals with a certain health condition, the results may not accurately reflect the general population.
+
+### 2. Survivorship Bias
+
+Survivorship bias occurs when only the surviving members of a population are included in a study. This can lead to inaccurate conclusions about the population, as those who did not survive may have had different characteristics or experiences.
+
+For example, if a study only includes individuals who survived a specific disease, the results may not be generalizable to the larger population of individuals who did not survive.
+
+### 3. Measurement Bias
+
+Measurement bias occurs when the measurement instruments or techniques used in a study are inaccurate or unreliable. This can result in inaccurate data and misinterpretation of results.
+
+For example, if a study relies on self-reported data, individuals may underreport or overreport certain behaviors, leading to inaccurate conclusions about the study population. Similarly, if a study uses different measurement techniques for different groups, the results may not be comparable and may lead to inaccurate conclusions.
+
+## Example of Sampling Bias in a Study
+
+To better understand the impact of sampling bias on study results, let's take a look at an example.
+
+Suppose we want to study the relationship between smoking and lung function. We know that in our city there are 100,000 people, 20,000 of whom are smokers. To our study we recruit 5,000 smokers and 5,000 non-smokers (oversampling the smokers, a type of selection bias). We also collect data on how frequently they exercise, whether they have good genes for lung function, and whether they frequently wear hats.
+
+We now want to overcome our selection bias when assessing the association between the outcome of lung function and the exposures of exercise, good genes, and the frequency of hat wearing.
 
 ```{r}
 set.seed(4)
@@ -73,6 +107,8 @@ summary(lm(lung_function ~ exercises_frequently + has_good_genes + wears_hats_fr
 # wears_hats_frequently: +0.2 (not biased)
 summary(lm(lung_function ~ is_smoker + exercises_frequently + has_good_genes + wears_hats_frequently, data=d_oversampled_smokers))
 ```
+
+## Conclusion
 
 Conclusion: Biased datasets can be corrected for by either:
 

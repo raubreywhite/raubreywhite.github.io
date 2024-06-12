@@ -1,0 +1,192 @@
+---
+title: "Sparse Inference"
+description: |
+  Examining sparse inference using both frequentist and bayesian methodology.
+bibliography: references.bib
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2023-04-14
+title-block-banner: "#b8e2f2"
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+
+Machine learning and statistical modeling are two important tools in data science that are used to make predictions and infer relationships between variables, respectively. Models for prediction aim to estimate the relationship between inputs and outputs in order to make accurate predictions about new, unseen data. In contrast, models for inference aim to understand the underlying relationships between variables in the data, often in the form of identifying causal relationships.
+
+In this blog post, we will explore using models for inference using a simulated dataset, and we will apply penalized regression to perform feature selection on a binary outcome. Penalized regression is particularly useful in situations where the number of predictors (i.e. independent variables) is much larger than the sample size.
+
+We will investigate the frequentist solution of using a two-stage solution with LASSO regression via `glmnet` and then using the `selectiveInference` package to perform post inference and adjust for the bias introduced by the selection process. We will also investigate a Bayesian solution that approximates a LASSO regression via a Laplace prior.
+
+## Simulating a Dataset
+
+We will simulate a dataset with `n = 5000` people and `p = 50` variables, where only three of the 50 variables will have an association with the binary outcome, and they will have odds ratios of 4, 3, and 2. The remaining variables will have no association with the outcome.
+
+```{r}
+library(data.table)
+library(magrittr)
+library(ggplot2)
+
+set.seed(123)
+n <- 5000
+p <- 50
+x <- matrix(rnorm(n * p), nrow = n)
+beta <- c(log(4), log(3), log(2), rep(0, 47))
+prob <- plogis(x %*% beta)
+y <- rbinom(n, 1, prob)
+
+data <- data.frame(cbind(y,x))
+colnames(data) <- c("y", paste0("x",1:ncol(x)))
+
+x <- model.matrix(y ~ ., data = data)[,-1]
+y <- data$y
+```
+
+
+## LASSO Regression
+
+We will now fit a LASSO regression model using the `glmnet` package in R. LASSO is a popular method for feature selection in high-dimensional data, where the number of predictors `p` is much larger than the number of observations `n`.
+
+```{r}
+# get standard deviation of X, because we will need to standardize/scale it outside of glmnet
+sds <- apply(x, 2, sd)
+
+# standardize x
+x_scaled <- scale(x,TRUE,TRUE)
+
+# run glmnet
+cfit <- glmnet::cv.glmnet(x_scaled,y,standardize=FALSE, family="binomial")
+coef(cfit)
+```
+
+::: {.callout-info}
+
+## No confidence intervals
+
+Note that LASSO regression does not provide any confidence intervals or p-values, only coeficient estimates.
+
+:::
+
+### Inference
+
+LASSO regression is a popular method for variable selection in high-dimensional datasets. It shrinks some coefficients to zero, allowing us to select only a subset of variables that have the strongest association with the outcome. However, LASSO does not provide confidence intervals or p-values for the selected variables.
+
+The reason for this is that LASSO performs variable selection by penalizing the likelihood function, not by explicitly testing the significance of each variable. Therefore, we cannot use traditional methods to compute confidence intervals or p-values. Instead, we need to use methods that are specifically designed for post-selection inference.
+
+One such method is provided in the R package `selectiveInference.` The function `fixedLassoInf` provides confidence intervals and p-values for LASSO selected variables by accounting for the fact that variable selection was performed. It does this by using a two-stage procedure. In the first stage, LASSO selects a subset of variables. In the second stage, selectiveInference performs inference on the selected variables, adjusting for the selection procedure.
+
+::: {.callout-warning}
+
+## Remember to account for decisions taken at all stages of your modelling process.
+
+It is important to use `selectiveInference` rather than naively using simpler (but incorrect) methods that do not take into account the two-stage process. 
+
+A simpler (but incorrect) method involves first selecting variables with LASSO and then fitting a traditional logistic regression on the selected variables. However, this can lead to biased estimates because the LASSO selection process ignores the uncertainty in the variable selection. Therefore, the second-stage regression will not account for the fact that the variable selection was performed, leading to over-optimistic estimates of the significance of the selected variables.
+
+By using `selectiveInference`, we can properly account for the selection process and obtain unbiased estimates of the significance of the selected variables.
+
+:::
+
+```{r}
+#| warning: false
+# compute fixed lambda p-values and selection intervals
+out <- selectiveInference::fixedLassoInf(
+  x = x_scaled,
+  y = y,
+  beta = coef(cfit),
+  lambda = cfit$lambda.1se,
+  alpha = 0.05,
+  family = "binomial"
+)
+
+retval <- data.frame(
+  var = names(out$vars),
+  Odds_Ratio = exp(out$coef0/sds[out$vars]),
+  LowConf = exp(out$ci[,1]/sds[out$vars]),
+  UpperConf = exp(out$ci[,2]/sds[out$vars]),
+  pval = out$pv
+)
+row.names(retval) <- NULL
+retval$var[retval$pval < 0.05] <- paste0("*", retval$var[retval$pval < 0.05])
+names(retval) <- c(
+  "Variable",
+  "Odds ratio",
+  "Conf int 5%",
+  "Conf int 95%",
+  "Pvalue"
+)
+retval
+```
+
+## Bayesian Logistic Regression using `rstanarm`
+
+Another way to perform inference on a logistic regression model with feature selection is through Bayesian methods. In particular, we can use the `rstanarm` R package to fit a Bayesian logistic regression model with a Laplace prior. 
+
+::: {.callout-info}
+
+## Laplace prior
+
+The Laplace prior is used to promote sparsity by assigning a probability distribution to the coefficients that puts more probability mass around zero. It is equivalent to LASSO regression [@Tibshirani1996].
+
+:::
+
+```{r}
+options(mc.cores = parallel::detectCores())
+
+fit <- rstanarm::stan_glm(
+  formula = y ~ .,
+  data = data,
+  family = binomial(),
+  prior = rstanarm::laplace(),
+  chains = 4,
+  iter = 5000,
+  refresh=0
+)
+
+retval <- data.frame(
+  var = names(coef(fit)),
+  Odds_Ratio = round(exp(coef(fit)),3),
+  round(exp(rstanarm::posterior_interval(fit, prob = 0.9)),3),
+  pvalue_equivalent = round(bayestestR::pd_to_p(bayestestR::p_direction(fit)$pd),2)
+)
+row.names(retval) <- NULL
+retval$var[retval$pvalue_equivalent < 0.05] <- paste0("*", retval$var[retval$pvalue_equivalent < 0.05])
+names(retval) <- c(
+  "Variable",
+  "Odds ratio",
+  "Cred int 5%",
+  "Cred int 95%",
+  "Pvalue equivalent"
+)
+retval
+```
+
+::: {.callout-info}
+
+## P-value equivalent
+
+Probability of Direction (PoD) and p-values are both statistical measures used in hypothesis testing [@Makowski2019bayestestR, @Makowski2019Indices]. They are similar in that they both provide evidence for or against a null hypothesis.
+PoD measures the proportion of posterior draws from a Bayesian model that are in the direction of the alternative hypothesis. It provides a measure of the strength of evidence for the alternative hypothesis relative to the null hypothesis. A high PoD value indicates strong evidence in favor of the alternative hypothesis, while a low PoD value indicates weak evidence in favor of the alternative hypothesis.
+
+Similarly, a p-value measures the probability of obtaining a test statistic as extreme as or more extreme than the observed value, assuming that the null hypothesis is true. A low p-value indicates that the observed result is unlikely to have occurred by chance alone, providing evidence against the null hypothesis.
+
+To convert PoD to a p-value equivalent, one approach is to use the following formula:
+
+p-value = 2 * min(PoD, 1-PoD)
+
+This formula assumes a two-tailed test and converts the PoD to a p-value for a test of the null hypothesis that the effect size is equal to zero. The resulting p-value can be interpreted as the probability of obtaining the observed result or a more extreme result under the null hypothesis.
+
+:::
+
+## Conclusion
+
+The blog article discusses the limitations of using LASSO (Least Absolute Shrinkage and Selection Operator) models for statistical inference, particularly in situations where the number of predictors (i.e. independent variables) is much larger than the sample size. In these cases, LASSO models can suffer from high variability in the estimated coefficients, which can lead to incorrect or unreliable conclusions.
+
+One proposed solution to this problem is to use a two-stage inference approach, where LASSO is first used to select a subset of predictors, and then a separate statistical method (such as ordinary least squares) is used to estimate the coefficients for the selected predictors. However, this two-stage approach can also have limitations, such as a loss of power in the second stage and increased computational complexity.
+
+In contrast, Bayesian statistics offer a one-stage inference approach that can provide more reliable and interpretable results in complex modeling situations. Bayesian statistics allow for the incorporation of prior knowledge and uncertainty in the model, which can help to reduce variability and improve accuracy. Bayesian methods also provide a framework for model comparison and selection, which can help to identify the most appropriate model for a given dataset.
+
+Overall, while LASSO models can be useful in certain situations, their limitations in high-dimensional data settings highlight the advantages of Bayesian statistics for reliable and interpretable statistical inference.

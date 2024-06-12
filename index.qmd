@@ -6,20 +6,19 @@ about:
   template: solana
   links:
     - icon: github
-      text: Github
       href: https://github.com/raubreywhite
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
+    - icon: twitter-x
+      href: https://x.com/raubreywhite
     - icon: linkedin
-      text: LinkedIn
       href: https://no.linkedin.com/in/richard-white4
 title-block-banner: false
 ---
 
 :::{#hero-heading}
 
-Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in [Palestine](articles/2021-isbeih.pdf).
+Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the project manager for the Norwegian Syndromic Surveillance System ([NorSySS](https://www.github.com/norsyss/)), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities, based in the Norwegian Institute of Public Health (Folkehelseinstituttet). 
+
+His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in [Palestine](articles/2021-isbeih.pdf).
 
 :::
 

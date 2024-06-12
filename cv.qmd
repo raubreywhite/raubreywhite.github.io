@@ -1,7 +1,7 @@
 ---
 title: "CV"
 description: |
-  Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no), a real-time analysis and disease surveillance system based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in [Palestine](articles/2021-isbeih.pdf).
+  Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the project manager for the Norwegian Syndromic Surveillance System ([NorSySS](https://www.github.com/norsyss/)), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities, based in the Norwegian Institute of Public Health (Folkehelseinstituttet). His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in [Palestine](articles/2021-isbeih.pdf).
 editor_options: 
   chunk_output_type: console
 ---
@@ -56,20 +56,24 @@ h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
 downloads <- dlstats::cran_stats(
   c(
     "attrib",
+    "covidnor",
+    "csalert",
     "csdata",
     "csmaps",
+    "cstidy",
+    "cstime",
     "csutil",
     "org",
     "plnr",
-    "spread",
-    "cstime",
-    "splutil"
+    "spread"
   )
 )
 setDT(downloads)
 setorder(downloads, package, -start)
 downloads[, n := 1:.N, by=.(package)]
 total_downloads <- downloads[,.(downloads = sum(downloads)), by=.(package)]
+downloads[, N := .N, by=.(package)] # for new packages
+downloads[N==1, n := 2] # for new packages
 downloads <- downloads[
   n %in% 2:7,
   .(
@@ -80,46 +84,60 @@ downloads <- downloads[
 downloads[total_downloads, on="package", downloads_total := downloads]
 downloads[, formatted := glue::glue(
   "{a} downloads/month from", 
-  a = csstyle::format_nor_num_0(signif(downloads_monthly, 1))
+  a = csstyle::format_num_as_nor_num_0(signif(downloads_monthly, 1))
   )]
 ```
 
 -   `r length(d)` [scientific articles](publications.html):
     -   `r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
     -   `r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
--   9 R packages as first author/maintainer:
+-   12 R packages as first author/maintainer:
     -   [attrib](https://www.csids.no/attrib/) (`r downloads[package=="attrib"]$formatted` [cran](https://cloud.r-project.org/web/packages/attrib/index.html))
+    -   [csalert](https://www.csids.no/csalert/) (`r downloads[package=="csalert"]$formatted` [cran](https://cloud.r-project.org/web/packages/csalert/index.html))
     -   [csdata](https://www.csids.no/csdata/) (`r downloads[package=="csdata"]$formatted` [cran](https://cloud.r-project.org/web/packages/csdata/index.html))
+    -   [csdb](https://www.csids.no/csdb/)
     -   [csmaps](https://www.csids.no/csmaps/) (`r downloads[package=="csmaps"]$formatted` [cran](https://cloud.r-project.org/web/packages/csmaps/index.html))
     -   [csstyle](https://www.csids.no/csstyle/)
-    -   [cstidy](https://www.csids.no/cstidy/)
+    -   [cstidy](https://www.csids.no/cstidy/) (`r downloads[package=="cstidy"]$formatted` [cran](https://cloud.r-project.org/web/packages/cstidy/index.html))
     -   [csutil](https://www.csids.no/csutil/) (`r downloads[package=="csutil"]$formatted` [cran](https://cloud.r-project.org/web/packages/csutil/index.html))
     -   [org](https://www.csids.no/org/) (`r downloads[package=="org"]$formatted` [cran](https://cloud.r-project.org/web/packages/org/index.html))
     -   [plnr](https://www.csids.no/plnr/) (`r downloads[package=="plnr"]$formatted` [cran](https://cloud.r-project.org/web/packages/plnr/index.html)) 
     -   [spread](https://docs.sykdomspulsen.no/spread/) (`r downloads[package=="spread"]$formatted` [cran](https://cloud.r-project.org/web/packages/spread/index.html))
--   4 R packages as co-author:
-    -   [csalert](https://www.csids.no/csalert/)
+    -   [cs9](https://www.csids.no/cs9/)
+-   3 R packages as co-author:
     -   [cstime](https://www.csids.no/cstime/) (`r downloads[package=="cstime"]$formatted` [cran](https://cloud.r-project.org/web/packages/cstime/index.html))
     -   [MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
     -   [nowcast](https://www.csids.no/nowcast/)
--   1 Deprecated R package:
-    -   [splutil](https://www.csids.no/splutil/) (`r downloads[package=="splutil"]$formatted` [cran](https://cloud.r-project.org/web/packages/splutil/index.html))
 
 ## Norwegian Institute of Public Health (NIPH/FHI)
 
-### Technical Lead --- Sykdomspulsen: Real-Time Surveillance
+### Project Manager --- Norwegian Syndromic Surveillance System (NorSySS)
 
-*07.2019--now / Oslo, Norway*
+*02.2023--now / Oslo, Norway*
 
--   Tech lead for [Sykdomspulsen](https://docs.sykdomspulsen.no) (8-person team), a real-time analysis and disease surveillance system. Complex statistical analyses are automatically run for all locations in Norway, producing reports and alerting various stakeholders.
--   Responsible for training, mentoring, supervision, and quality assurance of statistical methods and code.
+-   Project manager for [NorSySS](https://www.github.com/norsyss/), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities. Complex statistical analyses are automatically run for all locations in Norway, producing reports and alerting various stakeholders.
 -   Technology in use includes:
     -   Kubernetes.
     -   Docker/Podman.
     -   CI/CD (Jenkins/GoCD/ArgoCD).
     -   Apache Airflow.
+    -   [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/)
+-   Surveils 80+ syndromes.
+- Organized the 2023 Northern European Symposium on Automated Surveillance.
+
+### Technical Lead --- Sykdomspulsen: Real-Time Surveillance
+
+*07.2019--01.2023 / Oslo, Norway*
+
+-   Tech lead for Sykdomspulsen (8-person team), a real-time analysis and disease surveillance system. Complex statistical analyses were automatically run for all locations in Norway, producing reports and alerting various stakeholders.
+-   Responsible for training, mentoring, supervision, and quality assurance of statistical methods and code.
+-   Technology in use included:
+    -   Kubernetes.
+    -   Docker/Podman.
+    -   CI/CD (Jenkins/GoCD/ArgoCD).
+    -   Apache Airflow.
     -   R/Python.
--   Surveils:
+-   Surveilled:
     -   All cause/cause-specific/attributable mortality (part of the [EuroMOMO](https://euromomo.eu) network).
     -   Vaccine associated mortality.
     -   Covid-19.
@@ -130,7 +148,7 @@ downloads[, formatted := glue::glue(
     -   Pertussis.
     -   Antibiotic use and healthcare associated infection (NOIS-PIAH).
     -   Gastritis.
-    -   80+ syndromes via the syndromic surveillance registry (sKUHR).
+    -   80+ syndromes via the Norwegian Syndromic Surveillance System (NorSySS).
 -   Interactive website for municipal health authorities (Sykdomspulsen for kommunehelsetjenesten).
 -   APIs for internal/external use.
 -   1 000 000+ analyses per day.
@@ -153,7 +171,7 @@ downloads[, formatted := glue::glue(
     -   PEEP RCT in Haydom, Tanzania.
     -   Safer Births Moyo RCT in Muhimbili, Tanzania.
 -   Developed surveillance reports (and all relevant infrastructure and code for signal processing) in the format of interactive websites for:
-    -   Gastritis and upper-respiratory outbreaks using the syndromic surveillance registry (sKUHR).
+    -   Gastritis and upper-respiratory outbreaks using the Norwegian Syndromic Surveillance System (NorSySS).
     -   Outbreaks using the notifiable disease registry (MSIS).
     -   All cause/cause-specific/attributable mortality (part of the [EuroMOMO](https://euromomo.eu) network).
 
@@ -165,17 +183,22 @@ downloads[, formatted := glue::glue(
 -   [Investigated](articles/2015-white-suicide.pdf) the relationship between seasonality, sunlight, and suicide.
 -   [Investigated](articles/2013-miller.pdf) the relationship between gun ownership and completed suicide in the US, highlighting the lack of method substitution where gun ownership is less prevalent.
 
-## Médecins Sans Frontières (MSF)
+## Consortium for Statistics in Disease Surveillance (CSIDS)
 
-### Statistician OCB
+### Chairperson
 
-*10.2015--now / Oslo, Norway*
+*01.2023--now / Oslo, Norway*
 
--   Developed statistical protocol for a 10 000-person stepwise-RCT regarding DR-TB in a Mumbai slum.
--   Advised on [surveillance methods](articles/2019-benedetti.pdf) to detect extreme malaria seasons in areas with low quality data.
--   Identified predictors of death amongst Ebola patients in a Guinean Ebola Treatment Unit.
+-   Overseeing the collaboration between statisticians, epidemiologists, and researchers, working on the development of [R packages](https://csids.no/packages.html) used for disease surveillance.
 
 ## Norwegian Red Cross (NorCross)
+
+### Head Statistician (IFRC)
+
+*04.2024--05.2024 / Oslo, Norway*
+
+-   Head statistician (remote) for a 1800-household multi-sector nationwide needs assessment, in response to the [complex humanitarian emergency](https://en.wikipedia.org/wiki/2019–present_Sri_Lankan_economic_crisis) in Sri Lanka.
+-   Developed statistical protocol for all sectors, and analyzed most of the data
 
 ### Health Officer (IFRC)
 

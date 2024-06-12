@@ -2,6 +2,12 @@ project:
   type: website
   output-dir: docs
 
+resources:
+  - "favicon.png"
+  - "CNAME"
+  - "resources/*"
+  - "articles/*"
+  - "presentations/*"
 
 website:
   title: "Richard Aubrey White"
@@ -13,10 +19,13 @@ website:
         href: index.html
       - cv.qmd
       - publications.qmd
+      - presentations.qmd
       - recipes.qmd
       - blog.qmd
       - icon: github
         href: https://github.com/raubreywhite
+      - icon: twitter-x
+        href: https://www.x.com/raubreywhite
 format:
   html:
     theme: flatly
