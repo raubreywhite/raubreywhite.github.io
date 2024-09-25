@@ -74,7 +74,7 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "85 scientific articles (62 888 citations, 44 h-index)."
+    "text": "85 scientific articles (62 887 citations, 44 h-index)."
   },
   {
     "objectID": "publications.html#section",
@@ -403,7 +403,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n85 scientific articles:\n\n62 888 citations\n44 h-index\n\n12 R packages as first author/maintainer:\n\nattrib (900 downloads/month from cran)\ncsalert (800 downloads/month from cran)\ncsdata (1000 downloads/month from cran)\ncsdb\ncsmaps (900 downloads/month from cran)\ncsstyle\ncstidy (800 downloads/month from cran)\ncsutil (800 downloads/month from cran)\norg (800 downloads/month from cran)\nplnr (800 downloads/month from cran)\nspread (9 downloads/month from cran)\ncs9\n\n3 R packages as co-author:\n\ncstime (900 downloads/month from cran)\nMOMO\nnowcast"
+    "text": "Scientific production\n\n85 scientific articles:\n\n62 887 citations\n44 h-index\n\n12 R packages as first author/maintainer:\n\nattrib (900 downloads/month from cran)\ncsalert (800 downloads/month from cran)\ncsdata (1000 downloads/month from cran)\ncsdb\ncsmaps (900 downloads/month from cran)\ncsstyle\ncstidy (800 downloads/month from cran)\ncsutil (800 downloads/month from cran)\norg (800 downloads/month from cran)\nplnr (800 downloads/month from cran)\nspread (9 downloads/month from cran)\ncs9\n\n3 R packages as co-author:\n\ncstime (900 downloads/month from cran)\nMOMO\nnowcast"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
@@ -425,6 +425,13 @@
     "title": "CV",
     "section": "Norwegian Red Cross (NorCross)",
     "text": "Norwegian Red Cross (NorCross)\n\nHead Statistician (IFRC)\n04.2024–05.2024 / Oslo, Norway\n\nHead statistician (remote) for a 1800-household multi-sector nationwide needs assessment, in response to the complex humanitarian emergency in Sri Lanka.\nDeveloped statistical protocol for all sectors, and analyzed most of the data\n\n\n\nHealth Officer (IFRC)\n08.2022–09.2022 / Colombo, Sri Lanka\n\nHead statistician for a 3100-household multi-sector nationwide needs assessment (annex), in response to the complex humanitarian emergency in Sri Lanka.\nDeveloped statistical protocol for all sectors, questions for the health sector, and analyzed most of the data.\n\n\n\nCommunity Based Surveillance Delegate (IFRC)\n04.2019–05.2019 / Beira, Mozambique\n\nResponded to a cholera outbreak.\nManaged a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the cholera outbreak in Beira caused by Cyclone Idai.\nLiaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea."
+  },
+  {
+    "objectID": "cv.html#norwegian-scientific-committee-for-food-and-environment-vkm",
+    "href": "cv.html#norwegian-scientific-committee-for-food-and-environment-vkm",
+    "title": "CV",
+    "section": "Norwegian Scientific Committee for Food and Environment (VKM)",
+    "text": "Norwegian Scientific Committee for Food and Environment (VKM)\n\nExternal Expert — Next Generation Risk Assessment in Practice\n01.2023–12/2023 / Oslo, Norway\n\nDeveloped statistical protocol for the evaluation of INVITES-IN, a tool for assessing the internal validity of in vitro studies."
   },
   {
     "objectID": "cv.html#palestinian-national-institute-of-public-health-pniph",
