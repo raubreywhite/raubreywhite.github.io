@@ -74,14 +74,14 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "85 scientific articles (62 899 citations, 44 h-index)."
+    "text": "86 scientific articles (63 211 citations, 44 h-index)."
   },
   {
     "objectID": "publications.html#section",
     "href": "publications.html#section",
     "title": "Publications",
     "section": "2024",
-    "text": "2024\n\n[85] Buer, S. et al.  (2024). “Executive deficits after SARS-CoV-2 infection: A cross-sectional population study”. In: Brain, Behavior, & Immunity - Health 41, p. 100857. ISSN: 2666-3546. URL: https://www.rwhite.no/articles/2024-buer.pdf.\n\n\n[84] Gidén, K. et al.  (2024). “Remission or Persistence? A Prediction Tool to Identify Women at Risk for Long-Term Depressive Symptoms Postpartum”. In: Depression and Anxiety 2024.1, p. 7734542. URL: https://www.rwhite.no/articles/2024-giden.pdf.\n\n\n[83] Gleditsch, R. N. et al.  (2024). “Vaccine coverage among children born to immigrant parents in Norway, 2000–2020”. In: Vaccine 42.12, pp. 3049–3056. URL: https://www.rwhite.no/articles/2024-gleditsch.pdf.\n\n\n[82] Hyllestad, S. et al.  (2024). “Estimating the risk of gastrointestinal illness associated with drinking tap water in Norway: a prospective cohort study”. In: BMC Public Health 24.1, p. 2107. URL: https://www.rwhite.no/articles/2024-hyllestad.pdf."
+    "text": "2024\n\n[86] Buer, S. et al.  (2024). “Executive deficits after SARS-CoV-2 infection: A cross-sectional population study”. In: Brain, Behavior, & Immunity - Health 41, p. 100857. ISSN: 2666-3546. URL: https://www.rwhite.no/articles/2024-buer.pdf.\n\n\n[85] Gidén, K. et al.  (2024). “Remission or Persistence? A Prediction Tool to Identify Women at Risk for Long-Term Depressive Symptoms Postpartum”. In: Depression and Anxiety 2024.1, p. 7734542. URL: https://www.rwhite.no/articles/2024-giden.pdf.\n\n\n[84] Gleditsch, R. N. et al.  (2024). “Vaccine coverage among children born to immigrant parents in Norway, 2000–2020”. In: Vaccine 42.12, pp. 3049–3056. URL: https://www.rwhite.no/articles/2024-gleditsch.pdf.\n\n\n[83] Hyllestad, S. et al.  (2024). “Estimating the risk of gastrointestinal illness associated with drinking tap water in Norway: a prospective cohort study”. In: BMC Public Health 24.1, p. 2107. URL: https://www.rwhite.no/articles/2024-hyllestad.pdf.\n\n\n[82] White, R. A. et al.  (2024). “Aberrations in medically certified sick leave and primary healthcare consultations in Norway in 2023 compared to pre-COVID-19-pandemic trends”. In: Archives of Public Health 82.1, p. 187. ISSN: 2049-3258. DOI: 10.1186/s13690-024-01411-4. URL: https://www.rwhite.no/articles/2024-white.pdf."
   },
   {
     "objectID": "publications.html#section-1",
@@ -382,7 +382,7 @@
     "href": "cv.html#scientific-production",
     "title": "CV",
     "section": "Scientific production",
-    "text": "Scientific production\n\n85 scientific articles:\n\n62 899 citations\n44 h-index\n\n12 R packages as first author/maintainer:\n\nattrib (900 downloads/month from cran)\ncsalert (800 downloads/month from cran)\ncsdata (1000 downloads/month from cran)\ncsdb\ncsmaps (900 downloads/month from cran)\ncsstyle\ncstidy (800 downloads/month from cran)\ncsutil (800 downloads/month from cran)\norg (800 downloads/month from cran)\nplnr (800 downloads/month from cran)\nspread (9 downloads/month from cran)\ncs9\n\n3 R packages as co-author:\n\ncstime (900 downloads/month from cran)\nMOMO\nnowcast"
+    "text": "Scientific production\n\n86 scientific articles:\n\n63 211 citations\n44 h-index\n\n12 R packages as first author/maintainer:\n\nattrib (900 downloads/month from cran)\ncsalert (800 downloads/month from cran)\ncsdata (1000 downloads/month from cran)\ncsdb\ncsmaps (900 downloads/month from cran)\ncsstyle\ncstidy (800 downloads/month from cran)\ncsutil (800 downloads/month from cran)\norg (800 downloads/month from cran)\nplnr (800 downloads/month from cran)\nspread (9 downloads/month from cran)\ncs9\n\n3 R packages as co-author:\n\ncstime (900 downloads/month from cran)\nMOMO\nnowcast"
   },
   {
     "objectID": "cv.html#norwegian-institute-of-public-health-niphfhi",
