@@ -237,13 +237,14 @@ background: #b8e2f2;
 <p><img src="top.png" class="img-fluid"></p>
 <p>This is interesting, because the press release then states “In 2024 mortality was within expected ranges based on the development in the period 2011-2019 and 2023.”</p>
 <p>So it appears as though 2023 (a year with a large amount of excess mortality) is now included in the baseline. This is concerning because it means that the baseline is now higher than it was before.</p>
-<p>Furthermore, the press release states that:</p>
+<p>Secondly, the press release states that:</p>
 <blockquote class="blockquote">
 <p>No excess mortality in any age groups.</p>
 </blockquote>
 <p><img src="middle.png" class="img-fluid"></p>
 <p>So how much of this is due to the fact that the baseline has been shifted upwards? Lets find out.</p>
 <p>Here, I fit a Poisson regression with a baseline comprising of 2010, 2012-2019. I remove 2011 because of the terror attacks on the 22nd of July 2011. The regression includes an offset for population size. I then calculate the 5th, 50th and 95th percentiles of the posterior predictive distribution of the number of deaths in different age groups. I then plot the results as rates of death per 100 000 population.</p>
+<p>I have chosen a linear extrapolation out to 2023 and then set the 2024 baseline to be the same as 2023. I believe that this is reasonable because in last year’s report, the NIPH used a linear extrapolation out to 2023.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -372,6 +373,8 @@ background: #b8e2f2;
 </div>
 </div>
 </div>
+<p>Unfortunately, it appears as though there is still significant excess mortality in 2024, including in the younger age groups.</p>
+<p>The Norwegian Institute of Public Health’s positive press release seems to be based primarily upon a shift in the baseline, rather than a true reduction in mortality. This is concerning, as it may lead to a false sense of security.</p>
 
 
 
