@@ -1,12 +1,28 @@
 [
   {
+    "listing": "/recipes.html",
+    "items": [
+      "/recipe/butter-chicken/butter-chicken.html",
+      "/recipe/challah/challah.html",
+      "/recipe/flat-bread/flat-bread.html",
+      "/recipe/hummus/hummus.html",
+      "/recipe/malva-pudding/malva-pudding.html",
+      "/recipe/palak-paneer/palak-paneer.html",
+      "/recipe/sourdough/sourdough.html",
+      "/recipe/white-bread/white-bread.html"
+    ]
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/lofterik-behandling-av-long-covid-uten-bevis.html",
+      "/post/2025-05-10-promising-long-covid-treatment-without-evidence/promising-long-covid-treatment-without-evidence.html",
       "/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/vi-ma-beskytte-laerene-mot-long-covid.html",
       "/post/2025-03-25-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
       "/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/debatten-om-sykefravaer-er-fort-pa-feil-premisser.html",
+      "/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/the-sick-leave-debate-is-based-on-wrong-premises.html",
       "/post/2024-11-11-covid-er-farligere-enn-du-tror/covid-er-farligere-enn-du-tror.html",
+      "/post/2024-11-11-covid-is-more-dangerous-than-you-think/covid-is-more-dangerous-than-you-think.html",
       "/post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.html",
       "/post/2024-10-02-long-covid-is-common-and-often-permanent/long-covid-is-common-and-often-permanent.html",
       "/post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/forebygg-covid-19-forebygg-sykefravaer.html",
@@ -21,19 +37,6 @@
       "/post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html",
       "/post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
       "/post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html"
-    ]
-  },
-  {
-    "listing": "/recipes.html",
-    "items": [
-      "/recipe/butter-chicken/butter-chicken.html",
-      "/recipe/challah/challah.html",
-      "/recipe/flat-bread/flat-bread.html",
-      "/recipe/hummus/hummus.html",
-      "/recipe/malva-pudding/malva-pudding.html",
-      "/recipe/palak-paneer/palak-paneer.html",
-      "/recipe/sourdough/sourdough.html",
-      "/recipe/white-bread/white-bread.html"
     ]
   }
 ]

@@ -1,0 +1,40 @@
+/* Custom styles for Richard Aubrey White's website */
+
+/* Make links in main content red */
+main.content a {
+  color: #ff0000 !important;
+}
+
+main.content a:visited {
+  color: #ff0000 !important;
+}
+
+main.content a:hover {
+  color: #cc0000 !important;
+}
+
+/* Override red color for blog listing links */
+.quarto-listing a {
+  color: inherit !important;
+}
+
+.quarto-listing a:visited {
+  color: inherit !important;
+}
+
+.quarto-listing a:hover {
+  color: inherit !important;
+}
+
+/* Make links in title banner red */
+.quarto-title-banner a {
+  color: #ff0000 !important;
+}
+
+.quarto-title-banner a:visited {
+  color: #ff0000 !important;
+}
+
+.quarto-title-banner a:hover {
+  color: #cc0000 !important;
+}
