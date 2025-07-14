@@ -29,18 +29,5 @@
       "/post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html",
       "/post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html"
     ]
-  },
-  {
-    "listing": "/recipes.html",
-    "items": [
-      "/recipe/butter-chicken/butter-chicken.html",
-      "/recipe/challah/challah.html",
-      "/recipe/flat-bread/flat-bread.html",
-      "/recipe/hummus/hummus.html",
-      "/recipe/malva-pudding/malva-pudding.html",
-      "/recipe/palak-paneer/palak-paneer.html",
-      "/recipe/sourdough/sourdough.html",
-      "/recipe/white-bread/white-bread.html"
-    ]
   }
 ]
