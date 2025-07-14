@@ -1,0 +1,41 @@
+---
+title: "Tendensiøs statistikk om senfølger"
+description: |
+  Myndighetene må anerkjenne at senfølger eksisterer og utgjør et samfunnsproblem.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2024-05-03
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+[![Publisert i Dag og Tid den 3. mai 2024.](2024-05-03-tendensiøs-statistikk-om-senfølger.jpg)](https://www.dagogtid.no/ordskifte/tendensios-statistikk-om-senfolger-6.130.34442.b81af7593e?sharer_id=917982&utm_medium=sharing)
+
+I innlegget «[Meir om seinfølger](https://www.dagogtid.no/ordskifte/meir-om-seinfolgjer-6.130.34354.2b479464ab)» i Dag og Tid 26. april hevder Preben Aavitsland ved Folkehelseinstituttet at dødeligheten blant unge har vært stabil siden 2015, og trekker en rekke studier om senfølger av covid-19 i tvil. Mens han er opptatt med å kritisere andres omgang med fakta, er Aavitslands bruk av statistikk også tvilsom.
+
+Aavitsland, en av medforfatterne til FHIs [overdødelighetsrapport](https://www.fhi.no/publ/2024/dodelighet-i-norge-under-koronapandemien-2020-2023/) (16. april 2024), skriver at rapporten viser at dødsfall blant personer under 40 har vært stabile siden 2015, men i rapporten står det at det var en overdødelighet på 105 personer under 40 i 2023. Videre er påstanden om en «stabil trend» fra 2015 til 2019 feilaktig.
+
+Trenden fra 2000 til 2019 avslører at Aavitslands «stabile trend» er normal variasjon innenfor en 20-årig konstant nedgang, brått avsluttet av et oppsving i 2023. Rapporten viser kun data fra 2010, noe som legger kunstig vekt på tilfeldig variasjon i senere år. Disse nyansene er nødvendige for å forstå totalbildet, men Aavitslands ønske er tydeligvis ikke å vise helheten.
+
+Aavitsland hevder at FHI-rapporten viser at det ikke er økning i hjerte- og kardødsfall hos yngre. Det kan stemme, men man kan ikke bruke denne rapporten til å fastslå dette. Rapporten viser data per kvartal, som påvirkes av sesongmessige variasjoner, og viser kun tall f.o.m. 2016, uten en langsiktig trendanalyse.
+
+Aavitsland viser til en [systematisk gjennomgang](https://bmcmedicine.biomedcentral.com/articles/10.1186/s12916-023-03162-5) publisert i BMC Medicine, et tidsskrift med begrenset anerkjennelse, og hevder at «tilsynelatende urovekkende funn skyldes skjevheter i studiene». Konklusjonen i samme artikkel sier noe helt annet: «Det er et bredt spektrum av langvarige hjertekomplikasjoner av covid-19.»
+
+Aavitsland påstår ofte at studier som viser at senfølger er både [vanlige og alvorlige](https://www.nature.com/articles/s41591-023-02521-2), er skjeve og uten verdi for Norge. [Statistiske teknikker](https://www.acpjournals.org/doi/10.7326/M16-2607) kan måle hvor motstandsdyktige funn er mot umålte skjevheter. Jeg har brukt dem og funnet at mange av studiene som Aavitsland har avskrevet, faktisk er robuste. Det er uklart hvorfor de ignoreres av Aavitsland. Vurdering av metodisk validitet bør overlates til erfarne statistikere.
+
+Aavitsland nevner at FHI gjør systematiske litteraturgjennomganger om senfølger, og viser til en [selvpublisert rapport](https://www.fhi.no/publ/2022/senfolger-etter-covid-19-og-nyoppstatt-sykdom-etter-covid-19/) fra 2022 som ikke er fagfellevurdert. Hva med 2023 og 2024?
+
+I juli 2023 [publiserte FHI en til](https://www.fhi.no/en/publ/2023/senfolger-etter-covid-19-som-folge-av-omikronsmitte/), som vurderte 6918 studier, men regnet alle som ikke relevante. De ble sittende igjen med null studier. Dette er ikke et unntak. Aavitsland avviser ofte fagfellevurderte artikler i de mest anerkjente tidsskriftene i verden som viser at covid-19 har alvorlige langtidskonsekvenser for mange, selv etter vaksinasjon.
+
+[En nylig studie](https://www.nejm.org/doi/full/10.1056/NEJMc2311200) av 188.137 nordmenn viste en sammenheng mellom covid-19 og langsiktige hukommelsesproblemer og ble publisert i det verdenskjente tidsskriftet NEJM. Allikevel har den ikke påvirket norsk helsepolitikk. Verken [regjeringens koronastrategi](https://www.regjeringen.no/no/dokumenter/regjeringens-strategi-og-beredskapsplan-for-handteringen-av-covid-19-pandemien/id2987438/) eller [FHIs risikovurderinger](https://www.fhi.no/publ/statusrapporter/risikovurdering-for-luftveisinfeksjoner/) nevner senfølger. Er dette fordi eksistensen av senfølger går imot den nåværende strategien, hvor vi motsetter oss smitteverntiltak?
+
+Aavitsland fremstiller det som om vi kun har to muligheter: ukontrollert smitte eller nedstengning. I [Dag og Tid 15. mars](https://www.dagogtid.no/samfunn/helse/for-ein-mildare-pandemi-6.121.33729.ebf4b38e0a) ga FHIs Carol Holm-Hansen flere alternativ som kan beskytte oss uten å være inngripende. Men før vi snakker om løsningen, må myndighetene først anerkjenne at senfølger eksisterer og utgjør et samfunnsproblem.
+
+Bør vi klandre regjeringen, FHI eller begge to? Uansett er det den norske befolkningen som betaler prisen. Med helsa som innsats. For lesere som ikke kjenner noen som er påvirket av senfølger, gi det noen covid-bølger til. WHO anslår at 1 av 10 infeksjoner gir senfølger, og studier anslår at vaksiner kun er ca. 50 prosent effektive i å forebygge dem.
+
+Norge har hatt 5 millioner infeksjoner i året siden 2022. Denne gangen vil jeg la leseren gjøre statistikken selv.
+
+*Richard Aubrey White har ein doktorgrad i biostatistikk frå Harvard University. Han er forskar ved FHI, men uttalar seg ikkje på vegner av instituttet.*

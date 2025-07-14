@@ -2,6 +2,9 @@
 title: "Blog"
 description: |
   A collection of thoughts.
+title-block-banner: false
+title-block-style: none
+body-class: hide-title
 listing:
   contents: post
   sort: "date desc"

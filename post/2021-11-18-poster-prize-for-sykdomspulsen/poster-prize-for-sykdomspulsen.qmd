@@ -1,5 +1,5 @@
 ---
-title: "Sykdomspulsen Receives Prize for Best Poster"
+title: "Sykdomspulsen receives prize for best poster"
 description: |
   Sykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.
 author:
@@ -7,16 +7,17 @@ author:
     url: https://www.rwhite.no
     orcid: 0000-0002-6747-1726
 date: 2021-11-18
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---
 
 Sykdomspulsen's poster "Sykdomspulsen - An exciting and forward-looking infrastructure and website for the real-time surveillance of Covid-19, other infections, and deaths" received the prize for "Best Poster" at Helse- og Kvalitetsregisterkonferansen 2021.
 
-Read more about it [here!](https://docs.sykdomspulsen.no/posts/2021-11-18-poster-prize-for-sykdomspulsen/).
+![](screenshot.png)
 
-```{r}
-knitr::include_graphics("screenshot.png")
-```
+![](poster.png)
 
+![](conference_handout_1.jpg)
+
+![](conference_handout_2.jpg)

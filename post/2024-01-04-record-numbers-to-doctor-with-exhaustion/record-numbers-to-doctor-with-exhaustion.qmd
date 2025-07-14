@@ -1,0 +1,31 @@
+---
+title: "Sounding alarm: Record numbers to doctor with exhaustion"
+description: |
+  The number of patients seeking medical attention for exhaustion has exploded during the pandemic. Now an FHI researcher sounds the alarm.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2024-01-04
+categories:
+  - English
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+*This is a translation of the original Norwegian news article, and discrepancies may exist.*
+
+![](screenshot.png)
+
+[Published on nrk.no on January 4, 2024](https://www.nrk.no/buskerud/rekordmange-til-lege-med-utmattelse.-fhi-forsker-slar-alarm-om-senfolger-av-covid-19.-1.16678355).
+
+The case summarized:
+
+- There has been a dramatic increase in the number of patients seeking medical attention for exhaustion during the pandemic.
+- The increase has occurred in all age groups, with the exception of children aged 0–4 years.
+- FHI statistician Richard Aubrey White and other researchers are concerned about the development.
+- The increase in exhaustion came simultaneously with the omicron variant, and there is a temporal connection between infection waves and increases in exhaustion.
+- Several large studies show that COVID-19 can cause serious long-term consequences.
+- Researcher and infectious disease physician Arne Søraas urges Norwegian public health authorities to update themselves on international research in the field.
+- Professional director Preben Aavitsland at FHI believes there is not enough good knowledge to establish that COVID-19 leads to serious long-term consequences.

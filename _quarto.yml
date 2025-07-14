@@ -10,17 +10,28 @@ resources:
   - "presentations/*"
 
 website:
-  title: "Richard Aubrey White"
-  body-header: <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  title: "Richard Aubrey White, Ph.D."
+  body-header: |
+    <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var path = window.location.pathname;
+      if (path.includes('publications.html') || path.endsWith('/publications')) {
+        document.body.classList.add('js-hide-publications');
+      } else if (path.includes('presentations.html') || path.endsWith('/presentations')) {
+        document.body.classList.add('js-hide-presentations');
+      }
+    });
+    </script>
   favicon: favicon.png
   navbar:
     right:
-      - text: "Home"
+      - text: "CV"
         href: index.html
-      - cv.qmd
-      - publications.qmd
-      - presentations.qmd
-      - recipes.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Presentations"
+        href: presentations.qmd
       - blog.qmd
       - icon: github
         href: https://github.com/raubreywhite
@@ -29,8 +40,8 @@ website:
 format:
   html:
     theme: flatly
-    # css: styles.css
-    title-block-banner: "#b8e2f2"
+    css: styles.css
+    title-block-banner: "#e2ebf0"
     title-block-banner-color: "#000000"
 
 

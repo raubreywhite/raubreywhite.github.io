@@ -1,0 +1,83 @@
+---
+title: "Promising long COVID treatment without evidence"
+description: |
+  We must prioritize prevention of long COVID, just as we do with all other diseases, while developing better treatment.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2025-05-10
+categories:
+  - English
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+*This is a translation of the original Norwegian op-ed, and discrepancies may exist.*
+
+![Published on [Forskersonen on May 10, 2025](https://www.forskersonen.no/covid19-kronikk-long-covid/lofterik-behandling-av-long-covid-uten-bevis/2503503).](top.png)
+
+Approximately [3–6 percent of coronavirus infections](https://www.sciencedirect.com/science/article/pii/S0264410X2401346X) lead to [long-lasting health problems](https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008), known as "long COVID." With millions of coronavirus infections each year in Norway, we face a serious public health crisis manifested through [increased sick leave](https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4), more deaths than expected [among younger adults](https://www.nrk.no/buskerud/flere-unge-dode-av-sykdom_-forskere-slar-alarm-1.16926584), and a significant increase in medical consultations due to [exhaustion](https://www.nrk.no/buskerud/rekordmange-til-lege-med-utmattelse.-fhi-forsker-slar-alarm-om-senfolger-av-covid-19.-1.16678355).
+
+**Hopeful study with serious weaknesses**
+
+[Erna Solberg and the Conservative Party](https://www.nrk.no/buskerud/erna-solberg-vil-at-norge-skal-ta-et-nytt-koronagrep-for-a-takle-_long-covid_-1.17336151) have acknowledged that long COVID may be an important cause of increased sick leave and made an election promise to improve treatment.
+
+Despite the severity of the situation and the Conservative Party's election promise, there is [no documented effective treatment](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01136-X/fulltext) for long COVID.
+
+Some researchers, some of whom have a background in controversial [psychosocial theories about post-viral conditions](https://www.psykologtidsskriftet.no/artikkel/2024as12ae-Feilaktig-fremstilling-av-kunnskapsgrunnlaget-for-post-covid-condition-long-covid-), have proposed experimental psychosocial treatments as the solution.
+
+[A recent study](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2828267) by Tom Farmen Nerli and colleagues proposes treatment "based on a cognitive and behavioral approach." The study has created hope, but a closer examination reveals serious methodological weaknesses.
+
+**Misleading results and questionable measurement methods**
+
+"Clinically significant" is a crucial concept when assessing treatment effect. It means that the treatment provides real, noticeable improvement in the patient's health—not just a difference that can be measured statistically. It is therefore not enough to demonstrate a change; it must be large enough to have practical significance for quality of life and function.
+
+The study by Nerli uses a scale for physical function (SF-36-PF) where participants themselves assess the extent to which their health limits them in daily activities such as climbing stairs, carrying groceries, or vacuuming.
+
+In the analysis plan, written before the results were known, the authors state that an improvement of at least 10 points on this scale is necessary for a treatment to be considered clinically significant.
+
+**Misleading presentation of findings**
+
+In this study, the treatment group achieved on average only 9.2 points improvement—thus below the threshold value. They have indeed measured an effect, but according to the authors' own criteria, it is not large enough to have practical significance.
+
+Nevertheless, the authors present the treatment as clinically significant and effective in the article. This is clearly misleading.
+
+Furthermore, the authors use a problematic definition of "healthy." They consider patients healthy if they score 85 or higher on the SF-36-PF scale, regardless of age and gender. A score of 85 is typical for a healthy 60-year-old woman, but the participants in the study had an average age of 42 years. Thus, using a score of 85 as the "healthy" threshold leads to an artificially high proportion of "healthy" individuals.
+
+**Lack of data sharing prevents verification**
+
+Strong conclusions require openness and independent control. The authors promised in their data statement that anonymized data would be made available for scientific use. I requested an anonymized and limited dataset to be able to calculate real, age- and gender-adjusted recovery rates.
+
+The dataset would contain only a few variables: Whether the participant received the intervention, whether they were healthy according to the authors' definition, and whether they were healthy according to an age- and gender-adjusted definition at three time points.
+
+The request was denied after six weeks. Akershus University Hospital HF believed the data were "sensitive personal information and subject to confidentiality," despite no identifying information being requested.
+
+Another justification was that "extraction of relevant variables and subsequent anonymization will also require some work effort from the researchers associated with the project." This raises the question: Why was data sharing promised then?
+
+Researchers must not promise openness they cannot deliver. Such broken promises weaken research credibility and undermine the principle of independent reproducibility.
+
+**How many actually recovered?**
+
+It was only after I complained to the journal JAMA Network Open that the authors published the age- and gender-adjusted recovery rates. These showed that only 8 percent of participants in the control group recovered after twelve months—a strikingly low proportion that should cause serious concern among clinicians and health authorities.
+
+In the intervention group, the proportion was 29 percentage points higher. But since the participants themselves assessed the outcomes (for example, "Is your health such that it limits you in moderate activities such as vacuuming?"), and knew whether they received the intervention or not, it is unclear how much of the intervention's modest effect is due to placebo effect and response bias.
+
+This means that participants may have overestimated improvement because they expected an effect, or wanted to confirm the researchers' assumptions. Objective measures, such as number of steps per day, would likely have shown even weaker results.
+
+An unblinded psychosocial treatment with a recovery rate of only 29 percent on a subjective measure under ideal trial conditions should not be presented as a solution for a complex, multisystemic condition like long COVID.
+
+On the contrary, this underscores the need for [biomedical treatment strategies](https://www.cell.com/cell/fulltext/S0092-8674(24)00886-9) targeting, among other things, viral persistence, post-acute inflammation, autoimmunity, thrombosis, reactivation of latent viruses, dysbiosis, gut translocation, and mitochondrial dysfunction.
+
+**Need for greater openness and better methodology**
+
+Misleading presentation, weak methods, and secrecy of data are not just technical details, but serious errors with major consequences for those struggling with long COVID. Only honest and open science can form the basis for informed choices by patients, healthcare personnel, and politicians.
+
+Until results can be confirmed through robust and independent research, we must be cautious about spreading hopes about experimental treatments.
+
+The precautionary principle also suggests that we must prioritize prevention of long COVID, just as we do with all other diseases, while developing better treatment. Since long COVID is caused by an [airborne virus](https://www.nature.com/articles/s41598-023-47829-8), prevention must occur through better [ventilation, air purification](https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378) and use of [FFP2 masks](https://journals.asm.org/doi/10.1128/cmr.00124-23).
+
+We owe both patients and society to demand openness and scientific integrity. Only in this way can we find the solutions that are needed.
+
+*About the author: Richard Aubrey White has a PhD in biostatistics from Harvard University. He is a researcher at the Norwegian Institute of Public Health, but does not write on behalf of the institute.*

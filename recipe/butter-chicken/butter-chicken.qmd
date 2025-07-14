@@ -3,7 +3,7 @@ title: "Butter Chicken"
 description: |
   North Indian curry with butter, yoghurt, and chicken.
 categories: [North India, Chicken]
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

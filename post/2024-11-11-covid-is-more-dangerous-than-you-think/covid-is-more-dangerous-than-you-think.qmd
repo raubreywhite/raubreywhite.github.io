@@ -1,0 +1,92 @@
+---
+title: "COVID is more dangerous than you think"
+description: |
+  There is good reason to be concerned about the long-term consequences of COVID.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2024-11-11
+categories:
+  - English
+  - NRK
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+*This is a translation of the original Norwegian op-ed, and discrepancies may exist.*
+
+![Published on [NRK on November 11, 2024](https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008).](top.png)
+
+When the pandemic hit us in 2020, we knew little about COVID-19 and the virus that causes this entirely new disease. Now we know much more.
+
+It has been shown that the coronavirus spreads almost exclusively [through the air](https://www.thelancet.com/article/S0140-6736(21)00869-2/fulltext). If you don't breathe in the virus, you won't get infected. That's why many people experience COVID as a cold and cough. But after the virus enters through the airways, it spreads throughout the entire body.
+
+**What the coronavirus does to the body**
+
+A virus consists of almost nothing but packaged genetic material. For the virus to reproduce, it must get inside the body's cells. The virus "parasitizes" our cells to make many new copies of itself.
+
+> "Damage can be seen in the brain, even after mild illness"
+
+The coronavirus has a rather unique ability to get into many different cell types, including cells that form the [lining of blood vessels](https://www.nature.com/articles/s41401-022-00998-0) and [immune cells](https://www.nature.com/articles/s41392-022-00919-x), and damage them. Therefore, COVID is not considered a respiratory infection, but a so-called systemic, multi-organ infectious disease.
+
+While vaccines and previous infections have made acute COVID less dangerous, concerns about the virus's many long-term consequences have increased.
+
+Research shows that the risk of long-term consequences increases [the more severe](https://www.cdc.gov/covid/long-term-effects/index.html) the acute illness is, but there are still most cases of long-term consequences after mild illness, because this is so common.
+
+In some patients with long COVID, it has been shown that the virus can [remain inside the body's cells](https://www.ncbi.nlm.nih.gov/pubmed/38663423) and organs for a long time. They cannot completely get rid of it. It is therefore not surprising that new research finds that genes that [control the body's ability](https://www.medrxiv.org/content/10.1101/2024.10.07.24315052v1) to fight viruses are linked to increased risk of long COVID.
+
+> "The problems affect many and are often persistent"
+
+It has also been seen that mice injected with antibodies from people with long COVID [develop the symptoms](https://www.biorxiv.org/content/10.1101/2024.05.30.596590v1) that the patients have. It is therefore high time that we stop psychologizing these problems.
+
+**Increases the risk of many health problems**
+
+Damage to [ten different organ systems](https://journals.sagepub.com/doi/full/10.1177/01410768231154703) has been reported after COVID. Long-term consequences after COVID are therefore more than fatigue and shortness of breath. Cognitive problems such as "brain fog," reduced memory, [processing speed](https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00013-0/fulltext) and concentration ability, and reduced ability for [complex actions](https://www.sciencedirect.com/science/article/pii/S2666354624001352?via%3Dihub) are the symptoms most commonly reported after COVID, and damage can [be seen in the brain](http://www.pnas.org/doi/10.1073/pnas.2217232120) on MRI, even after mild illness.
+
+It is concerning that large studies, including the Norwegian Corona Study, find that these problems affect many and are [often persistent](http://www.sciencedirect.com/science/article/pii/S1201971224003345).
+
+The risk of getting a new, completely different disease, such as [type 1](https://www.cdc.gov/mmwr/volumes/71/wr/mm7102e2.htm) and type 2 diabetes or an [infectious disease](http://fmch.bmj.com/content/11/4/e002456), and [the risk of dying](https://www.nature.com/articles/s41591-024-02987-8) from all causes, is also increased for several years after COVID. COVID has been found to be an independent risk factor for [cardiovascular disease](https://www.nature.com/articles/s41467-024-46497-0), even in [previously healthy people](https://www.ahajournals.org/doi/10.1161/ATVBAHA.124.321001). These diseases are also associated with increased need for health services.
+
+> "There are most cases of long-term consequences after mild illness"
+
+**Increased pressure on the healthcare system and social security system**
+
+Even though the risk of long-term consequences became somewhat lower after omicron arrived and people got vaccinated, studies with control groups still show that [3 percent or more](https://www.nejm.org/doi/full/10.1056/NEJMe2407575) develop health problems of varying degrees after having COVID. Each infection involves an [increased risk](https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm#a8).
+
+As long as we don't have more effective vaccines or medical treatments, we can therefore assume that the number of Norwegians who have problems with memory, concentration ability, and the ability to perform complex tasks will increase in the years ahead. With several million coronavirus infections each year in Norway, this constitutes a societal problem.
+
+When so few test themselves, people often don't know they have had COVID. At the same time, long-term consequences can appear in the form of other diseases, long after we feel healthy.
+
+In addition, general practitioners in Norway use a diagnostic coding system that lacks a specific code for long-term consequences after COVID. Therefore, much of the increased illness and mortality that follows after COVID will be registered under completely different diagnoses, such as A04 (exhaustion) or P29 (which includes fatigue). P29 is classified under "minor mental disorders."
+
+Long COVID is likely the cause of a large number of sick leave cases with these diagnoses, which we know have [increased significantly](http://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4) in the last two years.
+
+> "Damage to ten different organ systems has been reported"
+
+We must expect more [sick leave](https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4), a more burdened healthcare system, and perhaps higher [excess mortality](https://www.fhi.no/publ/2024/dodelighet-i-norge-under-koronapandemien-2020-2023/) also in the time ahead, as we have seen since the authorities stopped limiting the spread of infection in early 2022.
+
+Even though the number of people who become seriously ill and die from acute COVID is declining, the disease is thus a driver behind this development.
+
+**How to prevent?**
+
+First, everyone who might have COVID should test themselves and avoid infecting others by staying home if the test is positive.
+
+It has been shown that [vaccines protect](https://www.nature.com/articles/s41467-024-45953-1) against long-term consequences, including [damage to the cardiovascular system](https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729), and the increased risk of disease and death. Long-term consequences can affect all age groups.
+
+Vaccines protect [all age groups](https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729), have few [side effects](https://www.sciencedirect.com/science/article/pii/S0264410X24001270), and are approved for everyone over six months. Therefore, everyone should be offered basic vaccination and boosters each time new, updated COVID vaccines become available through adapted programs for different groups, as [American health authorities recommend](https://www.cdc.gov/vaccines/covid-19/downloads/COVID-19-immunization-schedule-ages-6months-older.pdf).
+
+> "It is high time that we stop psychologizing these problems"
+
+But protection from vaccination is not complete, and [the effect drops rapidly](https://www.nejm.org/doi/full/10.1056/NEJMc2402779) after six months. The only sure way to prevent long-term consequences after COVID is currently to avoid getting infected.
+
+Since COVID spreads through the airways, we won't get infected if there are no virus particles in the air we breathe. A face mask that effectively prevents particles from reaching the nose and mouth therefore provides [good protection](https://journals.asm.org/doi/10.1128/cmr.00124-23).
+
+It is smart to use face masks at high infection risk, such as when there is a lot of infection in circulation and you are indoors with many others, or if someone has a cold.
+
+[Improving indoor air quality](https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf) can also reduce the number of sick people. Norway should invest in improving indoor ventilation and installing air purifiers in [schools, public buildings, and workplaces](https://www.epa.gov/indoor-air-quality-iaq/preventing-spread-respiratory-viruses-public-indoor-spaces), as other [countries](https://www2.education.vic.gov.au/pal/ventilation-air-purification/policy) do. This has been shown to result in [fewer infections](https://www.sciencedirect.com/science/article/pii/S2950362024000043) among kindergarten and [school children](https://www.newscientist.com/article/2398713-schools-cut-covid-19-sick-days-by-20-per-cent-using-hepa-air-filters/), reduced [sick leave among parents](https://www.sciencedirect.com/science/article/pii/S2950362024000043) and employees, and it can [save money](https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-022-00356-1) and increase quality of life.
+
+Getting COVID every other year is better for your health than getting COVID twice every year. For every infection case we prevent, there are also fewer who spread it further. Therefore, such preventive, simple infection control measures are more effective than many think, even though they are not perfect. They can probably save society large sums.
+
+*Richard Aubrey White is a researcher at the Norwegian Institute of Public Health, but does not write on behalf of his employer.*

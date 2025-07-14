@@ -1,0 +1,44 @@
+---
+title: "Senfølger av covid-19 er vanlige og ofte vedvarende"
+description: |
+  Det er ikke overraskende at økningen i sykefravær drives av diagnoser som alle er forbundet med senfølger etter koronasmitte.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2024-10-02
+categories:
+  - Norsk
+  - Aftenposten
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+![Publisert i [Aftenposten den 2. oktober 2024](https://www.aftenposten.no/meninger/debatt/i/63X530/fhi-tar-feil-senfoelger-av-covid-19-er-vanlige-og-ofte-vedvarende).](2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.png)
+
+I en artikkel i *Aftenposten* 27. september hevder professor og direktør Preben Aavitsland ved Folkehelseinstituttet (FHI) at senfølger av covid-19 er «[sjeldne og går ofte over etter hvert](https://www.aftenposten.no/norge/i/3MmpAL/trenger-vi-aa-teste-oss-for-korona)».
+
+Dette er feil --- senfølger av covid-19 er vanlige og ofte vedvarende.
+
+Aavitslands påstand om varigheten kommer trolig fra [FHIs studie](https://www.nature.com/articles/s41467-022-35240-2), som kun analyserer antall fastlegebesøk etter koronasmitte. Hans tolkning av at færre besøk betyr at senfølgene har gått over, [er feilaktig](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00744-X/fulltext). Folk slutter å gå til legen når legen ikke kan hjelpe dem, selv om senfølgene vedvarer.
+
+**Øker den samlede risikoen**
+
+Koronastudien, som ser på helse i stedet for fastlegebesøk, viste nylig at covid-19 førte til 6 prosent [risiko for hukommelsesproblemer](https://www.sciencedirect.com/science/article/pii/S2666354624001352) mer enn ett år senere hos nordmenn uten immunitet. Vaksiner og immunitet er cirka [50 prosent effektive](https://www.nature.com/articles/s41591-024-03173-6) mot senfølger, så risikoen kan reduseres til 3 prosent for de fleste. Dette gjelder pr. infeksjon.
+
+Den samlede risikoen etter to infeksjoner er da 5,9 prosent, etter fire infeksjoner 11,5 prosent, etter seks infeksjoner 16,7 prosent.
+
+Dette er ett eksempel, men flere studier viser det samme resultatet --- [gjentatte infeksjoner øker den samlede risikoen](https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm) til et uakseptabelt nivå. Dette må ses i konteksten av dagens «fri smitte»-strategi, der folk i gjennomsnitt blir smittet én gang i året.
+
+Det er ikke overraskende at økningen i sykefravær er drevet av tre diagnosekoder (A04, P02 og P29), som alle er [forbundet med senfølger](https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982).
+
+**Bagatelliserer byrden**
+
+[«Fri smitte»-strategien](https://www.regjeringen.no/no/dokumentarkiv/regjeringen-stoere/andre-dokumenter/hod/2023/regjeringens-strategi-og-beredskapsplan-for-handteringen-av-covid-19-pandemien/id2987438/) var støttet av [FHIs risikovurdering](https://www.fhi.no/publ/statusrapporter/risikovurdering-for-luftveisinfeksjoner/), som kun så på akutt covid-19. FHI har aldri publisert en risikovurdering av strategien som nevner senfølger.
+
+I lys av det høye sykefraværet, [trolig på grunn av senfølger](https://www.dagogtid.no/samfunn/kan-det-tenkast-at-sjukefravaret-aukar-fordi-flei-6.129.36438.ae444a490a), har de som var ansvarlige for strategien og de manglende risikovurderingene, gode insentiver til å bagatellisere byrden senfølger utgjør for samfunnet.
+
+Vi må forebygge covid-19-smitte og senfølger. Dette kan vi gjøre ved [å forbedre ventilasjonen](https://www.science.org/doi/full/10.1126/science.adp2241), [bruke luftrensere](https://www.science.org/doi/full/10.1126/science.adp2241) og anbefale bruk av [FFP2-åndedrettsvern](https://journals.asm.org/doi/10.1128/cmr.00124-23) når smitten er høy.
+
+*Richard Aubrey White har en doktorgrad i biostatistikk fra Harvard University. White er forsker ved Folkehelseinstituttet, men uttaler seg ikke på vegne av FHI.*

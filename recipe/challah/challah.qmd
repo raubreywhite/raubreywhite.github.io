@@ -3,7 +3,7 @@ title: "Challah"
 description: |
   Yeast-risen egg bread.
 categories: [Bread]
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

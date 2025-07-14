@@ -1,0 +1,90 @@
+---
+title: "Covid er farligere enn du tror"
+description: |
+  Det er stor grunn til å være bekymret for senskadene av covid.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2024-11-11
+categories:
+  - Norsk
+  - NRK
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+![Publisert på [NRK den 11. november 2024](https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008).](top.png)
+
+Da pandemien traff oss i 2020 visste vi lite om covid-19 og viruset som forårsaker denne helt nye sykdommen. Nå vet vi mye mer.
+
+Det har vist seg at koronaviruset nesten utelukkende smitter [gjennom luften](https://www.thelancet.com/article/S0140-6736(21)00869-2/fulltext). Hvis du ikke puster inn viruset, blir du ikke smittet. Derfor merker mange covid som forkjølelse og hoste. Men etter at viruset er kommet inn gjennom luftveiene, sprer det seg videre til hele kroppen.
+
+**Hva koronaviruset gjør med kroppen**
+
+Et virus består nesten bare av innpakket arvemateriale. For at viruset skal kunne formere seg, må det komme seg inn i kroppens celler. Viruset «snylter» på cellene våre for å lage mange nye kopier av seg selv.
+
+> «Skader kan ses på hjernen, også etter mild sykdom»
+
+Koronaviruset har en ganske unik evne til å komme seg inn i mange ulike celletyper, inkludert cellene som danner [innsiden av blodårene](https://www.nature.com/articles/s41401-022-00998-0) og [immunceller](https://www.nature.com/articles/s41392-022-00919-x), og skade dem. Derfor anses ikke covid å være en luftveisinfeksjon, men en såkalt systemisk, multiorgan infeksjonssykdom
+
+Samtidig som vaksiner og tidligere smitte har gjort akutt covid mindre farlig, har bekymringene for virusets mange senskader økt.
+
+Forskning viser at risikoen for senskader øker [jo mer alvorlig](https://www.cdc.gov/covid/long-term-effects/index.html) den akutte sykdommen er, men det er likevel flest tilfeller av senskader etter mild sykdom, fordi dette er så vanlig.
+
+Hos noen pasienter med long covid er det vist at viruset kan [forbli inne i kroppens celler](https://www.ncbi.nlm.nih.gov/pubmed/38663423) og organer i lang tid. De klarer ikke helt å bli kvitt det. Da er det ikke overraskende at ny forskning finner at gener som [styrer kroppens evne](https://www.medrxiv.org/content/10.1101/2024.10.07.24315052v1) til å bekjempe virus er knyttet til økt risiko for long covid.
+
+> «Plagene rammer mange, og er ofte vedvarende»
+
+Det er også sett at mus som får injisert antistoffer fra folk med long covid, [får de symptomene](https://www.biorxiv.org/content/10.1101/2024.05.30.596590v1) som pasientene har. Det er derfor på høy tid at vi slutter å psykologisere disse plagene.
+
+**Øker risikoen for mange helseplager**
+
+Det er rapportert skade på [ti ulike organsystemer](https://journals.sagepub.com/doi/full/10.1177/01410768231154703) etter covid. Senskader etter covid er altså mer enn slitenhet og tung pust. Kognitive plager som «hjernetåke», nedsatt hukommelse, [tempo](https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00013-0/fulltext) og konsentrasjonsevne, og redusert evne til [sammensatte handlinger](https://www.sciencedirect.com/science/article/pii/S2666354624001352?via%3Dihub) er de symptomene som oftest rapporteres etter covid, og skader kan [ses på hjernen](http://www.pnas.org/doi/10.1073/pnas.2217232120) ved MR, også etter mild sykdom.
+
+Det er bekymringsfullt at store studier, inkludert den norske Koronastudien, finner at disse plagene rammer mange, og er [ofte vedvarende](http://www.sciencedirect.com/science/article/pii/S1201971224003345).
+
+Risikoen for å få en ny, helt annen sykdom, som [diabetes type 1](https://www.cdc.gov/mmwr/volumes/71/wr/mm7102e2.htm) og type 2 eller en [infeksjonssykdom](http://fmch.bmj.com/content/11/4/e002456), og [risikoen for å dø](https://www.nature.com/articles/s41591-024-02987-8) av alle årsaker, er også økt i flere år etter covid. Covid er funnet å være en egen risikofaktor for [hjerte- og karsykdom](https://www.nature.com/articles/s41467-024-46497-0), også hos [tidligere friske](https://www.ahajournals.org/doi/10.1161/ATVBAHA.124.321001). Disse sykdommene er også forbundet med økt behov for helsetjenester.
+
+> «Det er flest tilfeller av senskader etter mild sykdom»
+
+**Økt press på helsevesenet og trygdevesenet**
+
+Selv om risikoen for senskader ble noe lavere etter at omikron kom og folk ble vaksinert, ser man fortsatt i studier med kontrollgrupper at [3 prosent eller mer](https://www.nejm.org/doi/full/10.1056/NEJMe2407575) får helseplager av varierende grad etter gjennomgått covid. Hver infeksjon innebærer en [økt risiko](https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm#a8).
+
+Så lenge vi ikke har mer effektive vaksiner eller medisinske behandlinger, kan vi derfor anta at antall nordmenn som har problemer med hukommelse, konsentrasjonsevne og evnen til å utføre komplekse oppgaver, vil øke i årene fremover. Med noen millioner koronainfeksjoner hvert år i Norge, utgjør dette et samfunnsproblem.
+
+Når så få tester seg, vet folk ofte ikke at de har hatt covid. Samtidig kan altså senskader dukke opp i form av annen sykdom, lenge etter at vi føler oss friske.
+
+I tillegg bruker allmennlegene i Norge et kodesystem for diagnoser som mangler en egen kode for senskader etter covid. Derfor vil mye av den økte syke- og dødeligheten som følger etter covid, bli registrert under helt andre diagnoser, som A04 (utmattelse) eller P29 (som inkluderer slitenhet). P29 sorterer under «lettere psykiske lidelser».
+
+Long covid er trolig årsak til et stort antall sykmeldinger med disse diagnosene, som vi vet er [økt mye](http://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4) de siste to år.
+
+> «Det er rapportert skade på ti ulike organsystemer»
+
+Vi må forvente flere [sykmeldte](https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4), et mer belastet helsevesen og kanskje høyere [overdødelighet](https://www.fhi.no/publ/2024/dodelighet-i-norge-under-koronapandemien-2020-2023/) også i tiden fremover, slik vi har sett siden myndighetene sluttet å begrense smittespredningen i begynnelsen av 2022.
+
+Selv om antallet som blir alvorlig syke og dør av akutt covid synker, er altså sykdommen en driver bak denne utviklingen.
+
+**Hvordan forebygge?**
+
+For det første bør alle som kan ha covid, teste seg og unngå å smitte andre ved å holde seg hjemme hvis testen er positiv.
+
+Det er vist at [vaksinene beskytter](https://www.nature.com/articles/s41467-024-45953-1) mot senskader, inkludert [skader på hjerte-karsystemet](https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729), og den økte risikoen for sykdom og død. Senskader kan ramme alle aldersgrupper.
+
+Vaksinene beskytter [alle aldersgrupper](https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729), har få [bivirkninger](https://www.sciencedirect.com/science/article/pii/S0264410X24001270), og er godkjent for alle over seks måneder. Derfor bør alle tilbys grunnvaksinasjon og boostere hver gang det kommer nye, oppdaterte covid-vaksiner etter tilpassede opplegg for ulike grupper, slik [amerikanske helsemyndigheter anbefaler](https://www.cdc.gov/vaccines/covid-19/downloads/COVID-19-immunization-schedule-ages-6months-older.pdf).
+
+> «Det er på høy tid at vi slutter å psykologisere disse plagene»
+
+Men beskyttelsen fra vaksinasjon er ikke fullgod, og [effekten faller raskt](https://www.nejm.org/doi/full/10.1056/NEJMc2402779) etter et halvt års tid. Den eneste sikre måten å forebygge senskader etter covid er per i dag å unngå å bli smittet.
+
+Siden covid smitter gjennom luftveiene, blir vi ikke smittet hvis det ikke er viruspartikler i luften vi puster inn. Et munnbind som effektivt hindrer partiklene å nå frem til nese og munn, gir derfor [god beskyttelse](https://journals.asm.org/doi/10.1128/cmr.00124-23).
+
+Det er lurt å bruke munnbind ved høy smitterisiko, som når det er mye smitte i omløp og man er innendørs med mange andre, eller om noen er forkjølet.
+
+[Bedring av inneklima](https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf) kan også redusere antall syke. Norge bør satse på å bedre ventilasjonen innendørs og installere luftrensere i [skoler, offentlige bygg og arbeidsplasser](https://www.epa.gov/indoor-air-quality-iaq/preventing-spread-respiratory-viruses-public-indoor-spaces), slik andre [land](https://www2.education.vic.gov.au/pal/ventilation-air-purification/policy) gjør. Dette er vist å gi [færre infeksjoner](https://www.sciencedirect.com/science/article/pii/S2950362024000043) hos barnehage- og [skolebarn](https://www.newscientist.com/article/2398713-schools-cut-covid-19-sick-days-by-20-per-cent-using-hepa-air-filters/), redusert [sykefravær hos foreldre](https://www.sciencedirect.com/science/article/pii/S2950362024000043) og ansatte, og det kan [spare penger](https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-022-00356-1) og øke livskvaliteten.
+
+Å få covid annethvert år er bedre for helsen din enn å få covid to ganger hvert år. For hvert smittetilfelle vi forebygger, er det også færre som smitter videre. Derfor er slike forebyggende, enkle smitteverntiltak mer effektive enn mange tror, selv om de ikke er perfekte. De kan trolig spare samfunnet for store summer.
+
+*Richard Aubrey White er forsker ved Folkehelseinstituttet, men skriver ikke på vegne av arbeidsgiveren.*

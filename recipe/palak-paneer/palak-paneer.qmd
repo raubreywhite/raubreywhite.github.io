@@ -3,7 +3,7 @@ title: "Palak Paneer"
 description: |
   North Indian curry with paneer and spinach.
 categories: [North India, Vegetarian]
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

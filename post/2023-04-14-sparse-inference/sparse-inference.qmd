@@ -1,5 +1,5 @@
 ---
-title: "Sparse Inference"
+title: "Sparse inference"
 description: |
   Examining sparse inference using both frequentist and bayesian methodology.
 bibliography: references.bib
@@ -8,7 +8,7 @@ author:
     url: https://www.rwhite.no
     orcid: 0000-0002-6747-1726
 date: 2023-04-14
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

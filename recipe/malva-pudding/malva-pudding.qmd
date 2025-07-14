@@ -3,7 +3,7 @@ title: "Malva Pudding"
 description: |
   A sweet South African pudding.
 categories: [Dessert, Baking, South Africa]
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

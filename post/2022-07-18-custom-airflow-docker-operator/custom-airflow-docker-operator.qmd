@@ -1,5 +1,5 @@
 ---
-title: "Custom Airflow Docker Operator (Poor-Man's Kubernetes)"
+title: "Custom Airflow Docker operator (poor-man's Kubernetes)"
 description: |
   Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a "poor-man's Kubernetes".
 author:
@@ -7,7 +7,7 @@ author:
     url: https://www.rwhite.no
     orcid: 0000-0002-6747-1726
 date: 2022-07-18
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

@@ -1,5 +1,5 @@
 ---
-title: "All-Cause Mortality in Norway"
+title: "All-cause mortality in Norway"
 description: |
   Examining all-cause mortality in Norway using publically available mortality data from SSB.
 author:
@@ -7,7 +7,7 @@ author:
     url: https://www.rwhite.no
     orcid: 0000-0002-6747-1726
 date: 2023-08-26
-title-block-banner: "#b8e2f2"
+title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---

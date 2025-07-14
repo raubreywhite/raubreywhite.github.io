@@ -1,7 +1,12 @@
 ---
-title: "Publications"
+title: ""
 description: |
   Publications of scientific articles.
+title-block-banner: false
+title-block-style: none
+format:
+  html:
+    page-layout: article
 editor_options: 
   chunk_output_type: console
 ---

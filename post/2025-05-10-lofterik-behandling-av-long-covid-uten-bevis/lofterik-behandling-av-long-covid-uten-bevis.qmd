@@ -1,0 +1,79 @@
+---
+title: "Løfterik behandling av long covid uten bevis"
+description: |
+  Vi må prioritere forebygging av long covid, akkurat som vi gjør med alle andre sykdommer, samtidig som vi utvikler bedre behandling.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2025-05-10
+categories:
+  - Norsk
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+![Publisert på [Forskersonen den 10. mai 2025](https://www.forskersonen.no/covid19-kronikk-long-covid/lofterik-behandling-av-long-covid-uten-bevis/2503503).](top.png)
+
+Omtrent [3–6 prosent av koronainfeksjoner](https://www.sciencedirect.com/science/article/pii/S0264410X2401346X) fører til [langvarige helseplager](https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008), kjent som «long covid». Med millioner av koronainfeksjoner hvert år i Norge, står vi overfor en alvorlig folkehelsekrise synliggjort gjennom [økt sykefravær](https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4), flere dødsfall enn forventet [blant yngre voksne](https://www.nrk.no/buskerud/flere-unge-dode-av-sykdom_-forskere-slar-alarm-1.16926584) og en betydelig økning i legekonsultasjoner på [grunn av utmattelse](https://www.nrk.no/buskerud/rekordmange-til-lege-med-utmattelse.-fhi-forsker-slar-alarm-om-senfolger-av-covid-19.-1.16678355).
+
+**Håpefull studie med alvorlige svakheter**
+
+[Erna Solberg og Høyre](https://www.nrk.no/buskerud/erna-solberg-vil-at-norge-skal-ta-et-nytt-koronagrep-for-a-takle-_long-covid_-1.17336151) har anerkjent at long covid kan være en viktig årsak til økningen i sykefraværet og kommet med et valgløfte om å forbedre behandlingen.
+
+Til tross for situasjonens alvor og Høyres valgløfte, finnes det [ingen dokumentert effektiv behandling](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01136-X/fulltext) mot long covid.
+
+Enkelte forskere, hvorav noen har bakgrunn i kontroversielle [psykososiale teorier om postvirale lidelser](https://www.psykologtidsskriftet.no/artikkel/2024as12ae-Feilaktig-fremstilling-av-kunnskapsgrunnlaget-for-post-covid-condition-long-covid-), har foreslått eksperimentelle psykososiale behandlinger som løsningen.
+
+[En nylig studie](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2828267) av Tom Farmen Nerli med flere, foreslår behandling «basert på en kognitiv og atferdsmessig tilnærming.» Studien har skapt håp, men en nærmere undersøkelse avslører alvorlige metodiske svakheter.
+
+**Misvisende resultater og tvilsomme målemetoder**
+
+«Klinisk signifikant» er et avgjørende begrep når man vurderer behandlingseffekt. Det betyr at behandlingen gir en reell, merkbar forbedring i pasientens helse—ikke bare en forskjell som lar seg måle statistisk. Det holder altså ikke å påvise en endring; den må være stor nok til å ha praktisk betydning for livskvalitet og funksjon.
+
+Studien fra Nerli bruker en skala for fysisk funksjon (SF-36-PF) der deltakerne selv vurderer i hvilken grad helsen begrenser dem i hverdagsaktiviteter som å gå trapper, bære varer eller støvsuge. 
+
+I analyseplanen, skrevet før resultatene var kjent, oppgir forfatterne at en forbedring på minst 10 poeng på denne skalaen er nødvendig for at en behandling skal anses som klinisk signifikant. 
+
+**Misvisende fremstilling av funn**
+
+I denne studien oppnådde behandlingsgruppen i gjennomsnitt bare 9,2 poengs forbedring - altså under terskelverdien. De har riktignok målt en effekt, men ifølge forfatternes egne kriterier er den ikke stor nok til å ha praktisk betydning.
+
+Likevel fremstiller forfatterne behandlingen som klinisk signifikant og effektiv i artikkelen. Dette er klart misvisende.
+
+Videre bruker forfatterne en problematisk definisjon av «frisk». De anser pasienter som friske dersom de scorer 85 eller høyere på SF-36-PF-skalaen, uten hensyn til alder og kjønn. En score på 85 er typisk for en frisk 60-årig kvinne, men deltakerne i studien hadde en gjennomsnittsalder på 42 år. Dermed fører bruken av en score på 85 som «frisk»-terskel til en kunstig høy andel «friske».
+
+**Manglende datadeling hindrer etterprøving**
+
+Sterke konklusjoner krever åpenhet og uavhengig kontroll. Forfatterne lovet i sin dataerklæring at anonymiserte data skulle gjøres tilgjengelig for vitenskapelig bruk. Jeg ba om et anonymisert og begrenset datasett for å kunne beregne reelle, alders- og kjønnsjusterte tilfriskningsrater. 
+
+Datasettet ville inneholde kun få variabler: Hvorvidt deltakeren fikk intervensjonen, om vedkommende var frisk etter forfatternes definisjon og om vedkommende var frisk etter en alders- og kjønnsjustert definisjon ved tre tidspunkt.
+Forespørselen ble avslått etter halvannen måned. Akershus universitetssykehus HF mente dataene var «personsensitive og underlagt taushetsplikt», til tross for at ingen identifiserende informasjon ble etterspurt. 
+En annen begrunnelse var at «uttrekk av relevante variabler og etterfølgende anonymisering vil dessuten kreve en viss arbeidsinnsats fra forskerne tilknyttet prosjektet.» Dette reiser spørsmålet: Hvorfor ble det da lovet datadeling?
+
+Forskere må ikke love åpenhet de ikke kan innfri. Slike løftebrudd svekker forskningens troverdighet og undergraver prinsippet om uavhengig etterprøvbarhet.
+
+**Hvor mange ble egentlig friske?**
+
+Det var først etter at jeg klaget til tidsskriftet JAMA Network Open at forfatterne offentliggjorde de alders- og kjønnsjusterte tilfriskningsratene. Disse viste at bare 8 prosent av deltakerne i kontrollgruppen ble friske etter tolv måneder—en oppsiktsvekkende lav andel som burde vekke alvorlig bekymring hos klinikere og helsemyndigheter.
+
+I intervensjonsgruppen var andelen 29 prosentpoeng høyere. Men siden deltakerne selv vurderte utfallene (for eksempel «Er helsen din slik at den begrenser deg i moderate aktiviteter som å støvsuge?»), og visste om de fikk intervensjonen eller ikke, er det uklart hvor mye av intervensjonens beskjedne effekt som skyldes placeboeffekten og svarskjevhet. 
+
+Det vil si at deltakerne kan ha overvurdert bedring fordi de forventet effekt, eller ønsket å bekrefte forskernes antakelser. Objektive mål, som antall skritt per dag, ville trolig ha vist enda svakere resultater.
+
+En ublindet psykososial behandling med tilfriskningsrate på kun 29 prosent på et subjektivt mål under ideelle forsøksforhold, bør ikke presenteres som en løsning for en kompleks, multisystemisk tilstand som long covid.
+
+Tvert imot understreker dette behovet for [biomedisinske behandlingsstrategier](https://www.cell.com/cell/fulltext/S0092-8674(24)00886-9) rettet mot blant annet viral persistens, postakutt inflammasjon, autoimmunitet, trombose, reaktivering av latente virus, dysbiose, tarmtranslokasjon og mitokondriell dysfunksjon.
+
+**Behov for større åpenhet og bedre metodebruk**
+
+Misvisende fremstilling, svake metoder og hemmelighold av data er ikke bare tekniske detaljer, men alvorlige feil med store konsekvenser for de som sliter med long covid. Bare ærlig og åpen vitenskap kan danne grunnlaget for informerte valg hos pasienter, helsepersonell og politikere. 
+
+Inntil resultater kan bekreftes gjennom robust og uavhengig forskning, må vi være varsomme med å spre forhåpninger om eksperimentelle behandlinger.
+
+Føre-var-prinsippet tilsier også at vi må prioritere forebygging av long covid, akkurat som vi gjør med alle andre sykdommer, samtidig som vi utvikler bedre behandling. Siden long covid skyldes et [luftbårent virus](https://www.nature.com/articles/s41598-023-47829-8), må forebygging skje gjennom bedre [ventilasjon, luftrensing](https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378) og bruk av [FFP2-munnbind](https://journals.asm.org/doi/10.1128/cmr.00124-23).
+
+Vi skylder både pasientene og samfunnet å kreve åpenhet og vitenskapelig redelighet. Bare slik kan vi finne løsningene som trengs.
+
+*Om forfatteren: Richard Aubrey White har doktorgrad i biostatistikk fra Harvard University. Han er forsker ved Folkehelseinstituttet, men skriver ikke på vegne av instituttet.*
