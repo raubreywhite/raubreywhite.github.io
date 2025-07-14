@@ -14,15 +14,28 @@ main.content a:hover {
 }
 
 /* Override red color for blog listing links */
-.quarto-listing a {
+main.content .quarto-listing a {
   color: inherit !important;
 }
 
-.quarto-listing a:visited {
+main.content .quarto-listing a:visited {
   color: inherit !important;
 }
 
-.quarto-listing a:hover {
+main.content .quarto-listing a:hover {
+  color: inherit !important;
+}
+
+/* Override red color for social media icons under "Richard Aubrey White, Ph.D." */
+main.content .about-links a {
+  color: inherit !important;
+}
+
+main.content .about-links a:visited {
+  color: inherit !important;
+}
+
+main.content .about-links a:hover {
   color: inherit !important;
 }
 
