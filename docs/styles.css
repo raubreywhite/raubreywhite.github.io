@@ -52,23 +52,30 @@ main.content .about-links a:hover {
   color: #990000 !important;
 }
 
-/* Hide title blocks on specific pages */
+/* Hide title blocks only on specific pages that should not have them */
 
-/* Hide title blocks on all pages by default, then restore for blog posts */
-.quarto-title-block,
-#title-block-header {
+/* Hide title blocks on pages with blog listing */
+body:has(.quarto-listing) .quarto-title-block,
+body:has(.quarto-listing) #title-block-header {
   display: none !important;
 }
 
-/* Restore title blocks only for individual blog posts */
-/* Blog posts have URLs containing /post/ */
-body[data-page-url*="/post/"] .quarto-title-block,
-body[data-page-url*="/post/"] #title-block-header {
-  display: block !important;
+/* Hide title blocks when page title is exactly these values */
+body:has(h1.title:first-child) .quarto-title-block:has(h1.title:is([aria-label="Publications"], [aria-label="Presentations"])),
+body:has(h1.title:first-child) #title-block-header:has(h1.title:is([aria-label="Publications"], [aria-label="Presentations"])) {
+  display: none !important;
 }
 
-/* Alternative: JavaScript-based approach for blog post detection */
-.show-title-block .quarto-title-block,
-.show-title-block #title-block-header {
-  display: block !important;
+/* Alternative approach: hide based on page structure */
+.hide-title .quarto-title-block,
+.hide-title #title-block-header {
+  display: none !important;
+}
+
+/* JavaScript-based hiding for Publications and Presentations */
+.js-hide-publications .quarto-title-block,
+.js-hide-publications #title-block-header,
+.js-hide-presentations .quarto-title-block,
+.js-hide-presentations #title-block-header {
+  display: none !important;
 }
