@@ -2,15 +2,15 @@
 
 /* Make links in main content red */
 main.content a {
-  color: #ff0000 !important;
+  color: #b30000 !important;
 }
 
 main.content a:visited {
-  color: #ff0000 !important;
+  color: #b30000 !important;
 }
 
 main.content a:hover {
-  color: #cc0000 !important;
+  color: #990000 !important;
 }
 
 /* Override red color for blog listing links */
@@ -41,13 +41,13 @@ main.content .about-links a:hover {
 
 /* Make links in title banner red */
 .quarto-title-banner a {
-  color: #ff0000 !important;
+  color: #b30000 !important;
 }
 
 .quarto-title-banner a:visited {
-  color: #ff0000 !important;
+  color: #b30000 !important;
 }
 
 .quarto-title-banner a:hover {
-  color: #cc0000 !important;
+  color: #990000 !important;
 }
