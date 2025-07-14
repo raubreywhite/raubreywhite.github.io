@@ -51,3 +51,24 @@ main.content .about-links a:hover {
 .quarto-title-banner a:hover {
   color: #990000 !important;
 }
+
+/* Hide title blocks on specific pages */
+
+/* Hide title blocks on all pages by default, then restore for blog posts */
+.quarto-title-block,
+#title-block-header {
+  display: none !important;
+}
+
+/* Restore title blocks only for individual blog posts */
+/* Blog posts have URLs containing /post/ */
+body[data-page-url*="/post/"] .quarto-title-block,
+body[data-page-url*="/post/"] #title-block-header {
+  display: block !important;
+}
+
+/* Alternative: JavaScript-based approach for blog post detection */
+.show-title-block .quarto-title-block,
+.show-title-block #title-block-header {
+  display: block !important;
+}
