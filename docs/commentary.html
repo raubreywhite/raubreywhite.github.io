@@ -81,10 +81,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -135,7 +135,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -189,7 +189,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(33)</span></div><div class="category" data-category="QWZ0ZW5wb3N0ZW4=">Aftenposten <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVu">Bladet Vesterålen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGFnJTIwb2clMjBUaWQ=">Dag og Tid <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RiVDMyVBNmRyZWxhbmRzdmVubmVu">Fædrelandsvennen <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Rm9yc2tlcnNvbmVu">Forskersonen <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RnJpJTIwRmFnYmV2ZWdlbHNl">Fri Fagbevegelse <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SW4lMjB0aGUlMjBtZWRpYQ==">In the media <span class="quarto-category-count">(8)</span></div><div class="category" data-category="TmV0dGF2aXNlbg==">Nettavisen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TlJL">NRK <span class="quarto-category-count">(7)</span></div><div class="category" data-category="T3AtZWQ=">Op-ed <span class="quarto-category-count">(16)</span></div><div class="category" data-category="VXRkYW5uaW5nc255dHQ=">Utdanningsnytt <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Commentary</h1></header>
 
@@ -208,7 +210,7 @@ window.Quarto = {
 <div class="quarto-post image-right" data-index="0" data-listing-date-sort="1752444000000" data-listing-file-modified-sort="1752513714189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964">
 <div class="thumbnail"><a href="./post/2025-07-14-random-intercepts-do-not-fix-confounding/random-intercepts-do-not-fix-confounding.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-07-14-random-intercepts-do-not-fix-confounding/random-intercepts-do-not-fix-confounding_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-07-14-random-intercepts-do-not-fix-confounding/random-intercepts-do-not-fix-confounding_files/figure-html/unnamed-chunk-2-1.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -230,10 +232,10 @@ Jul 14, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1749765600000" data-listing-file-modified-sort="1752515908670" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="110">
+<div class="quarto-post image-right" data-index="1" data-categories="SW4lMjB0aGUlMjBtZWRpYSUyQ05SSw==" data-listing-date-sort="1749765600000" data-listing-file-modified-sort="1752516569488" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="110">
 <div class="thumbnail"><a href="./post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/eksplosiv-okning-barn-sliter-med-hukommelsen.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -241,14 +243,7 @@ Jul 14, 2025
 <a href="./post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/eksplosiv-okning-barn-sliter-med-hukommelsen.html" class="no-external">Eksplosiv økning: Barn sliter med hukommelsen</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/eksplosiv-okning-barn-sliter-med-hukommelsen.html" class="no-external">In the media</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/eksplosiv-okning-barn-sliter-med-hukommelsen.html" class="no-external"><i>In the media • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/eksplosiv-okning-barn-sliter-med-hukommelsen.html" class="no-external">
 <p>Nordmenn går stadig oftere til legen fordi de sliter med hukommelsen. Blant barn i alderen 5–14 år har det vært nær en tredobling i antall legebesøk de siste årene.</p>
@@ -262,10 +257,10 @@ Jun 13, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="T3AtZWQlMkNGb3Jza2Vyc29uZW4=" data-listing-date-sort="1746828000000" data-listing-file-modified-sort="1752513675107" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="863">
+<div class="quarto-post image-right" data-index="2" data-categories="T3AtZWQlMkNGb3Jza2Vyc29uZW4=" data-listing-date-sort="1746828000000" data-listing-file-modified-sort="1752516669176" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="863">
 <div class="thumbnail"><a href="./post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/lofterik-behandling-av-long-covid-uten-bevis.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -273,14 +268,7 @@ Jun 13, 2025
 <a href="./post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/lofterik-behandling-av-long-covid-uten-bevis.html" class="no-external">Løfterik behandling av long covid uten bevis</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/lofterik-behandling-av-long-covid-uten-bevis.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Rm9yc2tlcnNvbmVu'); return false;">Forskersonen</div>
-
+<a href="./post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/lofterik-behandling-av-long-covid-uten-bevis.html" class="no-external"><i>Op-ed • Forskersonen</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/lofterik-behandling-av-long-covid-uten-bevis.html" class="no-external">
 <p>Vi må prioritere forebygging av long covid, akkurat som vi gjør med alle andre sykdommer, samtidig som vi utvikler bedre behandling.</p>
@@ -294,10 +282,10 @@ May 10, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="T3AtZWQlMkNGb3Jza2Vyc29uZW4=" data-listing-date-sort="1746828000000" data-listing-file-modified-sort="1752513680012" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="973">
+<div class="quarto-post image-right" data-index="3" data-categories="T3AtZWQlMkNGb3Jza2Vyc29uZW4=" data-listing-date-sort="1746828000000" data-listing-file-modified-sort="1752516582826" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="973">
 <div class="thumbnail"><a href="./post/2025-05-10-promising-long-covid-treatment-without-evidence/promising-long-covid-treatment-without-evidence.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-05-10-promising-long-covid-treatment-without-evidence/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-05-10-promising-long-covid-treatment-without-evidence/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -305,14 +293,7 @@ May 10, 2025
 <a href="./post/2025-05-10-promising-long-covid-treatment-without-evidence/promising-long-covid-treatment-without-evidence.html" class="no-external">Promising long COVID treatment without evidence</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-05-10-promising-long-covid-treatment-without-evidence/promising-long-covid-treatment-without-evidence.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Rm9yc2tlcnNvbmVu'); return false;">Forskersonen</div>
-
+<a href="./post/2025-05-10-promising-long-covid-treatment-without-evidence/promising-long-covid-treatment-without-evidence.html" class="no-external"><i>Op-ed • Forskersonen</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-05-10-promising-long-covid-treatment-without-evidence/promising-long-covid-treatment-without-evidence.html" class="no-external">
 <p>We must prioritize prevention of long COVID, just as we do with all other diseases, while developing better treatment.</p>
@@ -326,10 +307,10 @@ May 10, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="T3AtZWQlMkNVdGRhbm5pbmdzbnl0dA==" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1752513656140" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="603">
+<div class="quarto-post image-right" data-index="4" data-categories="T3AtZWQlMkNVdGRhbm5pbmdzbnl0dA==" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1752516690576" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="603">
 <div class="thumbnail"><a href="./post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/vi-ma-beskytte-laerene-mot-long-covid.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -337,14 +318,7 @@ May 10, 2025
 <a href="./post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/vi-ma-beskytte-laerene-mot-long-covid.html" class="no-external">Vi må beskytte lærerne mot long covid</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/vi-ma-beskytte-laerene-mot-long-covid.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VXRkYW5uaW5nc255dHQ='); return false;">Utdanningsnytt</div>
-
+<a href="./post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/vi-ma-beskytte-laerene-mot-long-covid.html" class="no-external"><i>Op-ed • Utdanningsnytt</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/vi-ma-beskytte-laerene-mot-long-covid.html" class="no-external">
 <p>Heldigvis kan luftbårne virus forebygges ved å rense inneluften.</p>
@@ -358,10 +332,10 @@ Apr 22, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="T3AtZWQlMkNVdGRhbm5pbmdzbnl0dA==" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1752513669897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
+<div class="quarto-post image-right" data-index="5" data-categories="T3AtZWQlMkNVdGRhbm5pbmdzbnl0dA==" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1752516679774" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
 <div class="thumbnail"><a href="./post/2025-04-22-we-must-protect-teachers-from-long-covid/we-must-protect-teachers-from-long-covid.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-04-22-we-must-protect-teachers-from-long-covid/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-04-22-we-must-protect-teachers-from-long-covid/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -369,14 +343,7 @@ Apr 22, 2025
 <a href="./post/2025-04-22-we-must-protect-teachers-from-long-covid/we-must-protect-teachers-from-long-covid.html" class="no-external">We must protect teachers from long COVID</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-04-22-we-must-protect-teachers-from-long-covid/we-must-protect-teachers-from-long-covid.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VXRkYW5uaW5nc255dHQ='); return false;">Utdanningsnytt</div>
-
+<a href="./post/2025-04-22-we-must-protect-teachers-from-long-covid/we-must-protect-teachers-from-long-covid.html" class="no-external"><i>Op-ed • Utdanningsnytt</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-04-22-we-must-protect-teachers-from-long-covid/we-must-protect-teachers-from-long-covid.html" class="no-external">
 <p>Fortunately, airborne viruses can be prevented by purifying indoor air.</p>
@@ -393,7 +360,7 @@ Apr 22, 2025
 <div class="quarto-post image-right" data-index="6" data-listing-date-sort="1742857200000" data-listing-file-modified-sort="1752492521929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="715">
 <div class="thumbnail"><a href="./post/2025-03-25-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-03-25-all-cause-mortality-in-norway/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-03-25-all-cause-mortality-in-norway/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -415,10 +382,10 @@ Mar 25, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVuJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1742684400000" data-listing-file-modified-sort="1752514736637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
+<div class="quarto-post image-right" data-index="7" data-categories="QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVuJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1742684400000" data-listing-file-modified-sort="1752516708302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
 <div class="thumbnail"><a href="./post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/de-fleste-tenker-ikke-pa-covid-lenger.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -426,14 +393,7 @@ Mar 25, 2025
 <a href="./post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/de-fleste-tenker-ikke-pa-covid-lenger.html" class="no-external">De fleste tenker ikke på covid lenger - men for Gro-Rita har viruset endret alt</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/de-fleste-tenker-ikke-pa-covid-lenger.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVu'); return false;">Bladet Vesterålen</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/de-fleste-tenker-ikke-pa-covid-lenger.html" class="no-external"><i>In the media • Bladet Vesterålen</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/de-fleste-tenker-ikke-pa-covid-lenger.html" class="no-external">
 <p>Pandemien roet seg. Bort med munnbind, én meter-avstand og covid-tester. Men for noen tok det aldri slutt. Noen ble ikke friske.</p>
@@ -447,10 +407,10 @@ Mar 23, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="VXRkYW5uaW5nc255dHQlMkNJbiUyMHRoZSUyMG1lZGlh" data-listing-date-sort="1741734000000" data-listing-file-modified-sort="1752514742043" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<div class="quarto-post image-right" data-index="8" data-categories="VXRkYW5uaW5nc255dHQlMkNJbiUyMHRoZSUyMG1lZGlh" data-listing-date-sort="1741734000000" data-listing-file-modified-sort="1752516721539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
 <div class="thumbnail"><a href="./post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -458,14 +418,7 @@ Mar 23, 2025
 <a href="./post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien.html" class="no-external">Stadig flere barn til legen med utmattelse etter pandemien</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('VXRkYW5uaW5nc255dHQ='); return false;">Utdanningsnytt</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien.html" class="no-external"><i>In the media • Utdanningsnytt</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien.html" class="no-external">
 <p>Vi ser at barn i aldersgruppen 5 til 14 år stadig oftere kontakter fastlegen på grunn av utmattelse. Etter 2022 har tallet steget med 31 prosent, sier forsker Richard Aubrey White.</p>
@@ -479,10 +432,10 @@ Mar 12, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="TmV0dGF2aXNlbiUyQ0luJTIwdGhlJTIwbWVkaWE=" data-listing-date-sort="1737414000000" data-listing-file-modified-sort="1752515272329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<div class="quarto-post image-right" data-index="9" data-categories="TmV0dGF2aXNlbiUyQ0luJTIwdGhlJTIwbWVkaWE=" data-listing-date-sort="1737414000000" data-listing-file-modified-sort="1752516731837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
 <div class="thumbnail"><a href="./post/2025-01-21-dramatiske-korona-funn-store-morketall/dramatiske-korona-funn-store-morketall.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-01-21-dramatiske-korona-funn-store-morketall/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-01-21-dramatiske-korona-funn-store-morketall/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -490,14 +443,7 @@ Mar 12, 2025
 <a href="./post/2025-01-21-dramatiske-korona-funn-store-morketall/dramatiske-korona-funn-store-morketall.html" class="no-external">Dramatiske korona-funn: – Store mørketall</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-01-21-dramatiske-korona-funn-store-morketall/dramatiske-korona-funn-store-morketall.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TmV0dGF2aXNlbg=='); return false;">Nettavisen</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2025-01-21-dramatiske-korona-funn-store-morketall/dramatiske-korona-funn-store-morketall.html" class="no-external"><i>In the media • Nettavisen</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-01-21-dramatiske-korona-funn-store-morketall/dramatiske-korona-funn-store-morketall.html" class="no-external">
 <p>Ifølge den nye studien er forekomsten av ME og utmattelsessyndrom 15 ganger høyere enn før pandemien.</p>
@@ -511,10 +457,10 @@ Jan 21, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="RnJpJTIwRmFnYmV2ZWdlbHNlJTJDT3AtZWQ=" data-listing-date-sort="1737154800000" data-listing-file-modified-sort="1752513642795" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="758">
+<div class="quarto-post image-right" data-index="10" data-categories="RnJpJTIwRmFnYmV2ZWdlbHNlJTJDT3AtZWQ=" data-listing-date-sort="1737154800000" data-listing-file-modified-sort="1752516756528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="758">
 <div class="thumbnail"><a href="./post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/debatten-om-sykefravaer-er-fort-pa-feil-premisser.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -522,14 +468,7 @@ Jan 21, 2025
 <a href="./post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/debatten-om-sykefravaer-er-fort-pa-feil-premisser.html" class="no-external">Debatten om sykefravær er ført på feil premisser</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/debatten-om-sykefravaer-er-fort-pa-feil-premisser.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RnJpJTIwRmFnYmV2ZWdlbHNl'); return false;">Fri Fagbevegelse</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/debatten-om-sykefravaer-er-fort-pa-feil-premisser.html" class="no-external"><i>Op-ed • Fri Fagbevegelse</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/debatten-om-sykefravaer-er-fort-pa-feil-premisser.html" class="no-external">
 <p>Covid er farligere enn du tror. Hver reinfeksjon er som å spille russisk rulett med kronisk sykdom. Sykefravær er bare toppen av isfjellet.</p>
@@ -543,10 +482,10 @@ Jan 18, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="RnJpJTIwRmFnYmV2ZWdlbHNlJTJDT3AtZWQ=" data-listing-date-sort="1737154800000" data-listing-file-modified-sort="1752513648622" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="839">
+<div class="quarto-post image-right" data-index="11" data-categories="RnJpJTIwRmFnYmV2ZWdlbHNlJTJDT3AtZWQ=" data-listing-date-sort="1737154800000" data-listing-file-modified-sort="1752516749374" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="839">
 <div class="thumbnail"><a href="./post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/the-sick-leave-debate-is-based-on-wrong-premises.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -554,14 +493,7 @@ Jan 18, 2025
 <a href="./post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/the-sick-leave-debate-is-based-on-wrong-premises.html" class="no-external">The sick leave debate is based on wrong premises</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/the-sick-leave-debate-is-based-on-wrong-premises.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RnJpJTIwRmFnYmV2ZWdlbHNl'); return false;">Fri Fagbevegelse</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/the-sick-leave-debate-is-based-on-wrong-premises.html" class="no-external"><i>Op-ed • Fri Fagbevegelse</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/the-sick-leave-debate-is-based-on-wrong-premises.html" class="no-external">
 <p>COVID is more dangerous than you think. Each reinfection is like playing Russian roulette with chronic disease. Sick leave is just the tip of the iceberg.</p>
@@ -575,10 +507,10 @@ Jan 18, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="T3AtZWQlMkNOUks=" data-listing-date-sort="1731279600000" data-listing-file-modified-sort="1752513631013" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1023">
+<div class="quarto-post image-right" data-index="12" data-categories="T3AtZWQlMkNOUks=" data-listing-date-sort="1731279600000" data-listing-file-modified-sort="1752516773894" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1023">
 <div class="thumbnail"><a href="./post/2024-11-11-covid-er-farligere-enn-du-tror/covid-er-farligere-enn-du-tror.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-11-11-covid-er-farligere-enn-du-tror/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-11-11-covid-er-farligere-enn-du-tror/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -586,14 +518,7 @@ Jan 18, 2025
 <a href="./post/2024-11-11-covid-er-farligere-enn-du-tror/covid-er-farligere-enn-du-tror.html" class="no-external">Covid er farligere enn du tror</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-11-11-covid-er-farligere-enn-du-tror/covid-er-farligere-enn-du-tror.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
+<a href="./post/2024-11-11-covid-er-farligere-enn-du-tror/covid-er-farligere-enn-du-tror.html" class="no-external"><i>Op-ed • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-11-11-covid-er-farligere-enn-du-tror/covid-er-farligere-enn-du-tror.html" class="no-external">
 <p>Det er stor grunn til å være bekymret for senskadene av covid.</p>
@@ -607,10 +532,10 @@ Nov 11, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="T3AtZWQlMkNOUks=" data-listing-date-sort="1731279600000" data-listing-file-modified-sort="1752513636537" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1133">
+<div class="quarto-post image-right" data-index="13" data-categories="T3AtZWQlMkNOUks=" data-listing-date-sort="1731279600000" data-listing-file-modified-sort="1752516764130" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1133">
 <div class="thumbnail"><a href="./post/2024-11-11-covid-is-more-dangerous-than-you-think/covid-is-more-dangerous-than-you-think.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-11-11-covid-is-more-dangerous-than-you-think/top.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-11-11-covid-is-more-dangerous-than-you-think/top.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -618,14 +543,7 @@ Nov 11, 2024
 <a href="./post/2024-11-11-covid-is-more-dangerous-than-you-think/covid-is-more-dangerous-than-you-think.html" class="no-external">COVID is more dangerous than you think</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-11-11-covid-is-more-dangerous-than-you-think/covid-is-more-dangerous-than-you-think.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
+<a href="./post/2024-11-11-covid-is-more-dangerous-than-you-think/covid-is-more-dangerous-than-you-think.html" class="no-external"><i>Op-ed • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-11-11-covid-is-more-dangerous-than-you-think/covid-is-more-dangerous-than-you-think.html" class="no-external">
 <p>There is good reason to be concerned about the long-term consequences of COVID.</p>
@@ -639,10 +557,10 @@ Nov 11, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="QWZ0ZW5wb3N0ZW4lMkNPcC1lZA==" data-listing-date-sort="1727820000000" data-listing-file-modified-sort="1752513623196" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="328">
+<div class="quarto-post image-right" data-index="14" data-categories="QWZ0ZW5wb3N0ZW4lMkNPcC1lZA==" data-listing-date-sort="1727820000000" data-listing-file-modified-sort="1752516785074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="328">
 <div class="thumbnail"><a href="./post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -650,14 +568,7 @@ Nov 11, 2024
 <a href="./post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.html" class="no-external">Senfølger av covid-19 er vanlige og ofte vedvarende</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWZ0ZW5wb3N0ZW4='); return false;">Aftenposten</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.html" class="no-external"><i>Op-ed • Aftenposten</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.html" class="no-external">
 <p>Det er ikke overraskende at økningen i sykefravær drives av diagnoser som alle er forbundet med senfølger etter koronasmitte.</p>
@@ -671,10 +582,10 @@ Oct 2, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="QWZ0ZW5wb3N0ZW4lMkNPcC1lZA==" data-listing-date-sort="1727820000000" data-listing-file-modified-sort="1752513616457" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392">
+<div class="quarto-post image-right" data-index="15" data-categories="QWZ0ZW5wb3N0ZW4lMkNPcC1lZA==" data-listing-date-sort="1727820000000" data-listing-file-modified-sort="1752516790844" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392">
 <div class="thumbnail"><a href="./post/2024-10-02-long-covid-is-common-and-often-permanent/long-covid-is-common-and-often-permanent.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-10-02-long-covid-is-common-and-often-permanent/2024-10-02-long-covid-is-common-and-often-permanent.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-10-02-long-covid-is-common-and-often-permanent/2024-10-02-long-covid-is-common-and-often-permanent.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -682,14 +593,7 @@ Oct 2, 2024
 <a href="./post/2024-10-02-long-covid-is-common-and-often-permanent/long-covid-is-common-and-often-permanent.html" class="no-external">Long Covid is common and often permanent</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-10-02-long-covid-is-common-and-often-permanent/long-covid-is-common-and-often-permanent.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QWZ0ZW5wb3N0ZW4='); return false;">Aftenposten</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-10-02-long-covid-is-common-and-often-permanent/long-covid-is-common-and-often-permanent.html" class="no-external"><i>Op-ed • Aftenposten</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-10-02-long-covid-is-common-and-often-permanent/long-covid-is-common-and-often-permanent.html" class="no-external">
 <p>It is not surprising that the increase in sick leave is driven by diagnoses that are all associated with long covid.</p>
@@ -703,10 +607,10 @@ Oct 2, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1727388000000" data-listing-file-modified-sort="1752513605166" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="614">
+<div class="quarto-post image-right" data-index="16" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1727388000000" data-listing-file-modified-sort="1752516806399" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="614">
 <div class="thumbnail"><a href="./post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/forebygg-covid-19-forebygg-sykefravaer.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -714,14 +618,7 @@ Oct 2, 2024
 <a href="./post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/forebygg-covid-19-forebygg-sykefravaer.html" class="no-external">Forebygg covid-19, forebygg sykefravær</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/forebygg-covid-19-forebygg-sykefravaer.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/forebygg-covid-19-forebygg-sykefravaer.html" class="no-external"><i>Op-ed • Dag og Tid</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/forebygg-covid-19-forebygg-sykefravaer.html" class="no-external">
 <p>Det er gode bevis for at en stor del av økningen i sykefraværet skyldes senfølger av covid-19.</p>
@@ -735,10 +632,10 @@ Sep 27, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1727388000000" data-listing-file-modified-sort="1752513610811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="700">
+<div class="quarto-post image-right" data-index="17" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1727388000000" data-listing-file-modified-sort="1752516801352" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="700">
 <div class="thumbnail"><a href="./post/2024-09-27-prevent-covid-19-prevent-sick-leave/prevent-covid-19-prevent-sick-leave.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-09-27-prevent-covid-19-prevent-sick-leave/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-09-27-prevent-covid-19-prevent-sick-leave/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -746,14 +643,7 @@ Sep 27, 2024
 <a href="./post/2024-09-27-prevent-covid-19-prevent-sick-leave/prevent-covid-19-prevent-sick-leave.html" class="no-external">Prevent COVID-19, prevent sick leave</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-09-27-prevent-covid-19-prevent-sick-leave/prevent-covid-19-prevent-sick-leave.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-09-27-prevent-covid-19-prevent-sick-leave/prevent-covid-19-prevent-sick-leave.html" class="no-external"><i>Op-ed • Dag og Tid</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-09-27-prevent-covid-19-prevent-sick-leave/prevent-covid-19-prevent-sick-leave.html" class="no-external">
 <p>There is good evidence that a large proportion of the increase in sick leave is due to long covid.</p>
@@ -767,10 +657,10 @@ Sep 27, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="RiVDMyVBNmRyZWxhbmRzdmVubmVuJTJDT3AtZWQ=" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1752513589398" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="488">
+<div class="quarto-post image-right" data-index="18" data-categories="RiVDMyVBNmRyZWxhbmRzdmVubmVuJTJDT3AtZWQ=" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1752516822385" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="488">
 <div class="thumbnail"><a href="./post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/angrepet-mot-folkehelsa-fortsetter.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -778,14 +668,7 @@ Sep 27, 2024
 <a href="./post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/angrepet-mot-folkehelsa-fortsetter.html" class="no-external">Angrepet mot folkehelsa fortsetter</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/angrepet-mot-folkehelsa-fortsetter.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RiVDMyVBNmRyZWxhbmRzdmVubmVu'); return false;">Fædrelandsvennen</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/angrepet-mot-folkehelsa-fortsetter.html" class="no-external"><i>Op-ed • Fædrelandsvennen</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/angrepet-mot-folkehelsa-fortsetter.html" class="no-external">
 <p>Preben Aavitsland begynte sine angrep på bruk av munnbind den 30. januar 2020, hvor han kalte bruken «en kulturell greie.»</p>
@@ -799,10 +682,10 @@ Aug 13, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="RiVDMyVBNmRyZWxhbmRzdmVubmVuJTJDT3AtZWQ=" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1752513598984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="518">
+<div class="quarto-post image-right" data-index="19" data-categories="RiVDMyVBNmRyZWxhbmRzdmVubmVuJTJDT3AtZWQ=" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1752516817592" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="518">
 <div class="thumbnail"><a href="./post/2024-08-13-the-attack-on-public-health-continues/the-attack-on-public-health-continues.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-08-13-the-attack-on-public-health-continues/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-08-13-the-attack-on-public-health-continues/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -810,14 +693,7 @@ Aug 13, 2024
 <a href="./post/2024-08-13-the-attack-on-public-health-continues/the-attack-on-public-health-continues.html" class="no-external">The attack on public health continues</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-08-13-the-attack-on-public-health-continues/the-attack-on-public-health-continues.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RiVDMyVBNmRyZWxhbmRzdmVubmVu'); return false;">Fædrelandsvennen</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-08-13-the-attack-on-public-health-continues/the-attack-on-public-health-continues.html" class="no-external"><i>Op-ed • Fædrelandsvennen</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-08-13-the-attack-on-public-health-continues/the-attack-on-public-health-continues.html" class="no-external">
 <p>Preben Aavitsland began his attacks on the use of face masks on January 30, 2020, where he called the use “a cultural thing.”</p>
@@ -831,10 +707,10 @@ Aug 13, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1719525600000" data-listing-file-modified-sort="1752513964379" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="116">
+<div class="quarto-post image-right" data-index="20" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1719525600000" data-listing-file-modified-sort="1752516835021" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="116">
 <div class="thumbnail"><a href="./post/2024-06-28-flere-unge-dode-av-sykdom/flere-unge-dode-av-sykdom.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-06-28-flere-unge-dode-av-sykdom/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-06-28-flere-unge-dode-av-sykdom/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -842,14 +718,7 @@ Aug 13, 2024
 <a href="./post/2024-06-28-flere-unge-dode-av-sykdom/flere-unge-dode-av-sykdom.html" class="no-external">Flere unge døde av sykdom: Forskere slår alarm</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-06-28-flere-unge-dode-av-sykdom/flere-unge-dode-av-sykdom.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2024-06-28-flere-unge-dode-av-sykdom/flere-unge-dode-av-sykdom.html" class="no-external"><i>In the media • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-06-28-flere-unge-dode-av-sykdom/flere-unge-dode-av-sykdom.html" class="no-external">
 <p>Sykdom tok uvanlig mange unge menneskeliv i fjor. Forskere frykter at senfølger av covid-19 er årsaken.</p>
@@ -863,10 +732,10 @@ Jun 28, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1752513579921" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="609">
+<div class="quarto-post image-right" data-index="21" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1752516850351" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="609">
 <div class="thumbnail"><a href="./post/2024-05-03-tendensios-statistikk-om-senfolger/tendensios-statistikk-om-senfolger.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-05-03-tendensios-statistikk-om-senfolger/2024-05-03-tendensiøs-statistikk-om-senfølger.jpg"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-05-03-tendensios-statistikk-om-senfolger/2024-05-03-tendensiøs-statistikk-om-senfølger.jpg" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -874,14 +743,7 @@ Jun 28, 2024
 <a href="./post/2024-05-03-tendensios-statistikk-om-senfolger/tendensios-statistikk-om-senfolger.html" class="no-external">Tendensiøs statistikk om senfølger</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-05-03-tendensios-statistikk-om-senfolger/tendensios-statistikk-om-senfolger.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-05-03-tendensios-statistikk-om-senfolger/tendensios-statistikk-om-senfolger.html" class="no-external"><i>Op-ed • Dag og tid</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-05-03-tendensios-statistikk-om-senfolger/tendensios-statistikk-om-senfolger.html" class="no-external">
 <p>Myndighetene må anerkjenne at senfølger eksisterer og utgjør et samfunnsproblem.</p>
@@ -895,10 +757,10 @@ May 3, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1752513572906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
+<div class="quarto-post image-right" data-index="22" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1752516862303" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
 <div class="thumbnail"><a href="./post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/biased-statistics-about-long-term-consequences-of-covid-19.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/2024-05-03-tendensiøs-statistikk-om-senfølger.jpg"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/2024-05-03-tendensiøs-statistikk-om-senfølger.jpg" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -906,14 +768,7 @@ May 3, 2024
 <a href="./post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/biased-statistics-about-long-term-consequences-of-covid-19.html" class="no-external">Biased statistics about long-term consequences of COVID-19</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/biased-statistics-about-long-term-consequences-of-covid-19.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
-
+<a href="./post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/biased-statistics-about-long-term-consequences-of-covid-19.html" class="no-external"><i>Op-ed • Dag og Tid</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/biased-statistics-about-long-term-consequences-of-covid-19.html" class="no-external">
 <p>Authorities must acknowledge that long-term consequences of COVID-19 exist and constitute a societal problem.</p>
@@ -927,10 +782,10 @@ May 3, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1709420400000" data-listing-file-modified-sort="1752514113343" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="135">
+<div class="quarto-post image-right" data-index="23" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1709420400000" data-listing-file-modified-sort="1752516868446" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="135">
 <div class="thumbnail"><a href="./post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/reagerer-pa-hoye-dodstall-blant-unge.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -938,14 +793,7 @@ May 3, 2024
 <a href="./post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/reagerer-pa-hoye-dodstall-blant-unge.html" class="no-external">Reagerer på høye dødstall blant unge</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/reagerer-pa-hoye-dodstall-blant-unge.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/reagerer-pa-hoye-dodstall-blant-unge.html" class="no-external"><i>In the media • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/reagerer-pa-hoye-dodstall-blant-unge.html" class="no-external">
 <p>For første gang på minst 20 år er det registrert overdødelighet blant unge i Norge. Det viser beregninger forskere har utført. – Jeg har aldri sett noe lignende, sier FHI-statistiker Richard Aubrey White.</p>
@@ -959,10 +807,10 @@ Mar 3, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1752513566546" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117">
+<div class="quarto-post image-right" data-index="24" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1752516874815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117">
 <div class="thumbnail"><a href="./post/2024-01-04-rekordmange-til-lege-med-utmattelse/rekordmange-til-lege-med-utmattelse.html" class="no-external">
 
-<p class="card-img-top"><img src="post/2024-01-04-rekordmange-til-lege-med-utmattelse/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="post/2024-01-04-rekordmange-til-lege-med-utmattelse/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -970,14 +818,7 @@ Mar 3, 2024
 <a href="./post/2024-01-04-rekordmange-til-lege-med-utmattelse/rekordmange-til-lege-med-utmattelse.html" class="no-external">Slår alarm: Rekordmange til lege med utmattelse</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-01-04-rekordmange-til-lege-med-utmattelse/rekordmange-til-lege-med-utmattelse.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2024-01-04-rekordmange-til-lege-med-utmattelse/rekordmange-til-lege-med-utmattelse.html" class="no-external"><i>In the media • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-01-04-rekordmange-til-lege-med-utmattelse/rekordmange-til-lege-med-utmattelse.html" class="no-external">
 <p>Tallet på pasienter som oppsøker lege med utmattelse, har eksplodert under pandemien. Nå slår en FHI-forsker alarm.</p>
@@ -991,10 +832,10 @@ Jan 4, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1752513559049" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="147">
+<div class="quarto-post image-right" data-index="25" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1752516880765" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="147">
 <div class="thumbnail"><a href="./post/2024-01-04-record-numbers-to-doctor-with-exhaustion/record-numbers-to-doctor-with-exhaustion.html" class="no-external">
 
-<p class="card-img-top"><img data-src="post/2024-01-04-record-numbers-to-doctor-with-exhaustion/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img data-src="post/2024-01-04-record-numbers-to-doctor-with-exhaustion/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1002,14 +843,7 @@ Jan 4, 2024
 <a href="./post/2024-01-04-record-numbers-to-doctor-with-exhaustion/record-numbers-to-doctor-with-exhaustion.html" class="no-external">Sounding alarm: Record numbers to doctor with exhaustion</a>
 </h3>
 <div class="listing-subtitle">
-<a href="./post/2024-01-04-record-numbers-to-doctor-with-exhaustion/record-numbers-to-doctor-with-exhaustion.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
-
+<a href="./post/2024-01-04-record-numbers-to-doctor-with-exhaustion/record-numbers-to-doctor-with-exhaustion.html" class="no-external"><i>In the media • NRK</i></a>
 </div>
 <div class="delink listing-description"><a href="./post/2024-01-04-record-numbers-to-doctor-with-exhaustion/record-numbers-to-doctor-with-exhaustion.html" class="no-external">
 <p>The number of patients seeking medical attention for exhaustion has exploded during the pandemic. Now an FHI researcher sounds the alarm.</p>
@@ -1026,7 +860,7 @@ Jan 4, 2024
 <div class="quarto-post image-right" data-index="26" data-listing-date-sort="1693000800000" data-listing-file-modified-sort="1752492521892" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="729">
 <div class="thumbnail"><a href="./post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
 
-<p class="card-img-top"><img data-src="post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-6-1.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img data-src="post/2023-08-26-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-6-1.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1051,7 +885,7 @@ Aug 26, 2023
 <div class="quarto-post image-right" data-index="27" data-listing-date-sort="1681941600000" data-listing-file-modified-sort="1752492521889" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="417">
 <div class="thumbnail"><a href="./post/2023-04-20-mice-with-interaction-terms/mice-with-interaction-terms.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<div class="listing-item-img-placeholder card-img-top" style="height: 350px;">&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1076,7 +910,7 @@ Apr 20, 2023
 <div class="quarto-post image-right" data-index="28" data-listing-date-sort="1681423200000" data-listing-file-modified-sort="1752492521885" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
 <div class="thumbnail"><a href="./post/2023-04-14-sparse-inference/sparse-inference.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<div class="listing-item-img-placeholder card-img-top" style="height: 350px;">&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1101,7 +935,7 @@ Apr 14, 2023
 <div class="quarto-post image-right" data-index="29" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1752492521882" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="738">
 <div class="thumbnail"><a href="./post/2023-02-23-sampling-bias/sampling-bias.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<div class="listing-item-img-placeholder card-img-top" style="height: 350px;">&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1126,7 +960,7 @@ Feb 23, 2023
 <div class="quarto-post image-right" data-index="30" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1752492521879" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="704">
 <div class="thumbnail"><a href="./post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway.html" class="no-external">
 
-<p class="card-img-top"><img data-src="post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-5-1.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img data-src="post/2022-12-13-all-cause-mortality-in-norway/all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-5-1.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1151,7 +985,7 @@ Dec 13, 2022
 <div class="quarto-post image-right" data-index="31" data-listing-date-sort="1658095200000" data-listing-file-modified-sort="1752492521875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="630">
 <div class="thumbnail"><a href="./post/2022-07-18-custom-airflow-docker-operator/custom-airflow-docker-operator.html" class="no-external">
 
-<p class="card-img-top"><img data-src="post/2022-07-18-custom-airflow-docker-operator/airflow.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img data-src="post/2022-07-18-custom-airflow-docker-operator/airflow.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1176,7 +1010,7 @@ Jul 18, 2022
 <div class="quarto-post image-right" data-index="32" data-listing-date-sort="1637190000000" data-listing-file-modified-sort="1752492521872" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
 <div class="thumbnail"><a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/poster-prize-for-sykdomspulsen.html" class="no-external">
 
-<p class="card-img-top"><img data-src="post/2021-11-18-poster-prize-for-sykdomspulsen/screenshot.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img data-src="post/2021-11-18-poster-prize-for-sykdomspulsen/screenshot.png" style="height: 350px;"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
