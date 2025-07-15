@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Richard Aubrey White">
-<meta name="dcterms.date" content="2025-07-14">
-<meta name="description" content="A common misconception in epidemiology is that random intercepts can fix confounding. This post demonstrates through simulation that this is not the case, and provides guidance on when random intercepts should be used.">
+<meta name="dcterms.date" content="2022-07-18">
+<meta name="description" content="Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”.">
 
-<title>Random intercepts do not fix confounding – White, Ph.D.</title>
+<title>Custom Airflow Docker operator (poor-man’s Kubernetes) – White, Ph.D.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,35 +124,6 @@ background: #e2ebf0;
       }
 </style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -211,10 +182,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Random intercepts do not fix confounding</h1>
+      <h1 class="title">Custom Airflow Docker operator (poor-man’s Kubernetes)</h1>
                   <div>
         <div class="description">
-          <p>A common misconception in epidemiology is that random intercepts can fix confounding. This post demonstrates through simulation that this is not the case, and provides guidance on when random intercepts should be used.</p>
+          <p>Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work. We have created a custom Airflow operator that 1) checks a remote YAML file and 2) then takes a decision to do one of two actions. This allows us to create a “poor-man’s Kubernetes”.</p>
         </div>
       </div>
                 </div>
@@ -233,7 +204,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 14, 2025</p>
+        <p class="date">July 18, 2022</p>
       </div>
     </div>
     
@@ -252,178 +223,106 @@ window.Quarto = {
 
 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Mixed effects models are a crucial tool in the modern epidemiologist’s toolbox. They allow for the estimation of both fixed and random effects, which can help to account for the correlation structure in the data. However, it is a common misconception that random intercepts can fix epidemiological confounding.</p>
-<p>This post will use <code>lme4</code> and <code>rstanarm</code> to demonstrate that this is not the case, and then provide some guidance on how to properly adjust for confounding and when random intercepts should be used.</p>
-<p>A common aim in the field of epidemiology is to precisely measure the association between two variables, typically referred to as the outcome and exposure. The estimation of this association is typically biased due to confounders. A confounder is defined as an independent variable that is associated with both the outcome and the exposure. The presence of a confounder can lead to biased estimates of the exposure-outcome association, unless it is appropriately taken into account.</p>
-<section id="mathematical-framework" class="level2">
-<h2 class="anchored" data-anchor-id="mathematical-framework">Mathematical framework</h2>
-<p>Consider the following simple linear regression model:</p>
-<p><span class="math display">\[
-\text{Formula 1: } Y_i = \beta_0 + \beta_1 X_i + \epsilon_i,\ i=1 \dots n
-\]</span></p>
-<p>where <span class="math inline">\(Y_i\)</span> is the outcome, <span class="math inline">\(X_i\)</span> is the exposure, and <span class="math inline">\(\epsilon_i\)</span> is the error term. The parameter of interest is <span class="math inline">\(\beta_1\)</span>, which represents the association between the exposure and the outcome.</p>
-<p>Now, if there is a confounder <span class="math inline">\(C_i\)</span> that is associated with both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, then the estimate of <span class="math inline">\(\beta_1\)</span> in Formula 1 will be biased. An unbiased estimate of <span class="math inline">\(\beta_1\)</span> can be obtained by adjusting for the confounder:</p>
-<p><span class="math display">\[
-\text{Formula 2: } Y_i = \beta_0 + \beta_1 X_i + \beta_2 C_i + \epsilon_i,\ i=1 \dots n
-\]</span></p>
-<p>When there are no unmeasured confounders, <span class="math inline">\(\beta_1\)</span> can be considered to be the conditional causal effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> given <span class="math inline">\(C\)</span>.</p>
-<p><span class="math display">\[
-\text{Formula 3: } \beta_1 = E[Y|X, C=1] - E[Y|X, C=0]
-\]</span></p>
-<p>A more complex situation occurs when there are multiple clusters in the data, such as patients within hospitals, or students within schools. In this case, a random intercept can be added to the model to account for the correlation within clusters:</p>
-<p><span class="math display">\[
-\text{Formula 4: } Y_{ij} = \beta_0 + u_{0j} + \beta_1 X_{ij} + \epsilon_{ij}
-\]</span></p>
-<p>where <span class="math inline">\(u_{0j} \sim N(0, \sigma_u^2)\)</span> represents the random intercept for cluster <span class="math inline">\(j\)</span>, and <span class="math inline">\(\epsilon_{ij} \sim N(0, \sigma_e^2)\)</span> represents the individual-level error term.</p>
-<p>The key question is: <strong>Does the random intercept <span class="math inline">\(u_{0j}\)</span> adequately control for cluster-level confounding?</strong></p>
-</section>
-</section>
-<section id="simulation-study" class="level1">
-<h1>Simulation study</h1>
-<p>Let’s demonstrate through simulation that random intercepts do not fix confounding when the confounder varies at the cluster level.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>n_clusters <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>cluster_size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> n_clusters <span class="sc">*</span> cluster_size</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Cluster IDs</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>cluster_id <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_clusters, <span class="at">each =</span> cluster_size)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll run multiple simulations to get stable results</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>, <span class="at">length =</span> <span class="dv">20</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(raw)){</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Simulation"</span>, i, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Strong cluster-level confounder</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  U_cluster <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_clusters, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  U <span class="ot">&lt;-</span> U_cluster[cluster_id]</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate exposure with strong effect from U</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Weak individual-level noise</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fl">0.8</span> <span class="sc">*</span> U <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate outcome with strong U effect and weak X effect</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># TRUE causal effect of X on Y is 0.2</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="sc">*</span> U <span class="sc">+</span> <span class="fl">0.2</span> <span class="sc">*</span> X <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Put in a data frame</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(cluster_id, U, X, Y)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compare different modeling approaches</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  fit_lm <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">lm</span>(Y <span class="sc">~</span> X <span class="sc">+</span> <span class="fu">factor</span>(cluster_id), <span class="at">data =</span> dat))[<span class="dv">2</span>]  <span class="co"># Fixed effects</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  fit_lmer <span class="ot">&lt;-</span> <span class="fu">coef</span>(lme4<span class="sc">::</span><span class="fu">lmer</span>(Y <span class="sc">~</span> X <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> cluster_id), <span class="at">data =</span> dat))<span class="sc">$</span>cluster_id[<span class="dv">1</span>,<span class="dv">2</span>]  <span class="co"># Random intercepts</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  fit_fixest <span class="ot">&lt;-</span> fixest<span class="sc">::</span><span class="fu">feols</span>(Y <span class="sc">~</span> X <span class="sc">|</span> cluster_id, <span class="at">data =</span> dat)<span class="sc">$</span>coefficients[[<span class="st">"X"</span>]]  <span class="co"># Fixed effects (alternative)</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  raw[[i]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">real_value =</span> <span class="fl">0.2</span>,</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">fixed_effects =</span> fit_lm,</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">random_intercepts =</span> fit_lmer,</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">fixed_effects_alt =</span> fit_fixest</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simulation 1 
-Simulation 2 
-Simulation 3 
-Simulation 4 
-Simulation 5 
-Simulation 6 
-Simulation 7 
-Simulation 8 
-Simulation 9 
-Simulation 10 
-Simulation 11 
-Simulation 12 
-Simulation 13 
-Simulation 14 
-Simulation 15 
-Simulation 16 
-Simulation 17 
-Simulation 18 
-Simulation 19 
-Simulation 20 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine results</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(raw)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>results[, id <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>results_long <span class="ot">&lt;-</span> <span class="fu">melt.data.table</span>(results, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"real_value"</span>))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>results_long[, deviance <span class="sc">:</span><span class="er">=</span> value <span class="sc">-</span> real_value]</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate mean bias for each method</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>bias_summary <span class="ot">&lt;-</span> results_long[, .(<span class="at">mean_bias =</span> <span class="fu">mean</span>(deviance)), by <span class="ot">=</span> .(variable)]</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bias_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>            variable    mean_bias
-              &lt;fctr&gt;        &lt;num&gt;
-1:     fixed_effects 0.0003475138
-2: random_intercepts 0.1177147529
-3: fixed_effects_alt 0.0003475138</code></pre>
-</div>
-</div>
-<section id="results-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="results-interpretation">Results interpretation</h2>
-<p>The simulation results show:</p>
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This blog post has also been posted <a href="https://docs.sykdomspulsen.no/posts/2022-07-18-custom-airflow-docker-operator/">here</a>.</em></p>
+<section id="what-do-we-want" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-we-want">What do we want?</h2>
+<p>Sykdomspulsen Analytics uses <a href="https://airflow.apache.org/">Airflow</a> to schedule its tasks.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="random-intercepts-do-not-fix-confounding_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="airflow.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The key findings are:</p>
+<p>Airflow and Sykdomspulsen Analytics’ tasks can be run on Kubernetes. This can be seen in the below graph, where one Airflow implementation dispatches tasks to both Server 1 and Server 2. However, with such a small team there is always the risk of something going wrong with a complicated Kubernetes setup. It is therefore preferable to have a failback solution that is independent of Kubernetes. We have achieved this by installing a duplicate Airflow system on each of the servers using Docker-compose. Each Docker-compose Airflow instance can dispatch tasks to its own server.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="kubernetes.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>However, this means that we have anywhere between 1 to 3 duplicate Airflow DAGs running at any time. All of these will be reading and writing to the same databases. This is obviously not desirable. <strong>We must have only one Airflow instance operative at any time.</strong></p>
+</section>
+<section id="how-do-we-get-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-we-get-it">How do we get it?</h2>
+<p>It is not easy to seamlessly turn on and turn off multiple Airflow instances. We can, however, alter the operators inside each Airflow instance to be functional or non-functional.</p>
+<p>It is for this reason that we developed a <a href="https://airflow.apache.org/docs/apache-airflow/stable/howto/custom-operator.html">custom Airflow Docker operator</a>. This custom Airflow Docker operator:</p>
 <ol type="1">
-<li><strong>Fixed effects models</strong> (both <code>lm</code> with cluster dummies and <code>fixest</code>) correctly estimate the causal effect with minimal bias</li>
-<li><strong>Random intercepts models</strong> show substantial bias, failing to adequately control for the cluster-level confounder</li>
+<li>Checks an external YAML config file (<code>https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml</code>) to see which server each DAG should be run on.</li>
+<li>Checks to see if this server is the correct one.</li>
+<li>If this is not the correct server, change the command to be excecuted to: <code>echo NOT CORRECT SERVER</code>.</li>
+<li>Executes the command inside the Docker container.</li>
 </ol>
-<p>This demonstrates that when confounding occurs at the cluster level, random intercepts do not provide adequate control for confounding, while fixed effects do.</p>
 </section>
+<section id="details" class="level2">
+<h2 class="anchored" data-anchor-id="details">Details</h2>
+<p><a href="https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml" class="uri"><strong>https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml</strong></a></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dag_1</span><span class="kw">:</span><span class="at"> </span><span class="st">"server-1.tld"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>docker-compose.yml</strong> (If using <a href="https://podman.io/">Podman</a>)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">volumes</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> /var/run/podman/podman.sock:/var/run/docker.sock</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">environment</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">HOST_HOSTNAME</span><span class="kw">:</span><span class="at"> $HOSTNAME</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>/opt/airflow/plugins/operators/sc_operators.py</strong> accesses the environmental variable <code>HOST_HOSTNAME</code> that is passed through from <code>docker-compose.yml</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">import os</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">import requests</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">import time</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">import yaml</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">from airflow.operators.docker_operator import DockerOperator</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class SCDockerOperator(DockerOperator)</span><span class="kw">:</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">def __init__(self, **kwargs) -&gt; None</span><span class="kw">:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">        super().__init__(**kwargs)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">def execute(self, context)</span><span class="kw">:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">        response = requests.get(</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="st">"https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml"</span><span class="at">,</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="fu">headers = {"Cache-Control"</span><span class="kw">:</span><span class="at"> </span><span class="st">"no-cache"</span><span class="er">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">        )</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="at">        unparsed_data = response.text</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="at">        data = yaml.safe_load(unparsed_data)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="at">        print(data)</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="at">        print(self.dag.dag_id)</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">if self.dag.dag_id not in data</span><span class="kw">:</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="at">            self.command = '''bash -c "echo NOT CORRECT SERVER"'''</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">elif data[self.dag.dag_id] != os.getenv("HOST_HOSTNAME")</span><span class="kw">:</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="at">            self.command = '''bash -c "echo NOT CORRECT SERVER"'''</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">else</span><span class="kw">:</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="at">            print("OK")</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="at">        </span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="at">        time.sleep(5)</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">        retval = super().execute(context)</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="at">        return retval</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>/opt/airflow/dags/dag_1.py</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">import random</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">from operators.sc_operators import SCDockerOperator</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">task = SCDockerOperator(</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">    task_id='my_task',</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    image='localhost/splanalytics:latest',</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">    container_name= 'my_task_' + str(random.randint(10,100000)),</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="at">    api_version='auto',</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="at">    auto_remove=True,</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="at">    command=cmd,</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="at">    docker_url='unix://var/run/docker.sock',</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="at">    network_mode='bridge',</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="at">    privileged = True,</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="at">    dag=dag</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="at">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="when-to-use-random-vs-fixed-rffects" class="level1">
-<h1>When to use random vs fixed rffects</h1>
-<section id="use-random-intercepts-when" class="level2">
-<h2 class="anchored" data-anchor-id="use-random-intercepts-when">Use random intercepts when:</h2>
-<ul>
-<li>You want to make inferences about the population of clusters (not just the observed clusters).</li>
-<li>The clusters are a random sample from a larger population.</li>
-<li>You’re primarily interested in individual-level effects.</li>
-<li>The cluster-level variables are not confounders.</li>
-</ul>
-</section>
-<section id="use-fixed-effects-when" class="level2">
-<h2 class="anchored" data-anchor-id="use-fixed-effects-when">Use fixed effects when:</h2>
-<ul>
-<li>You want to control for all time-invariant cluster-level confounders.</li>
-<li>You’re making inferences about the specific clusters in your data.</li>
-<li>The cluster-level variables are potential confounders.</li>
-<li>You want the most robust estimate of the exposure effect.</li>
-</ul>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>Random intercepts are a powerful tool for accounting for correlation within clusters, but they do not fix confounding when the confounder varies at the cluster level. When cluster-level confounding is a concern, fixed effects models provide more robust estimates of causal effects.</p>
-<p>The choice between random and fixed effects should be guided by:</p>
-<ol type="1">
-<li>The causal structure of your data</li>
-<li>Whether cluster-level variables are confounders</li>
-<li>Your inferential goals (population vs.&nbsp;sample-specific inferences)</li>
-</ol>
-<p>Understanding this distinction is crucial for proper epidemiological analysis and avoiding biased estimates of causal effects.</p>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>By editing <code>https://raw.githubusercontent.com/USERNAME/REPO/main/airflow-dag-on-server.yaml</code> we can quickly choose which server will execute the desired task. This is an easy way to manually control identical installations of Airflow as a failback system.</p>
 
 
 </section>

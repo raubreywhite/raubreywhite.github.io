@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Richard Aubrey White">
-<meta name="dcterms.date" content="2022-12-13">
-<meta name="description" content="Examining all-cause mortality in Norway using publically available mortality data from SSB.">
+<meta name="dcterms.date" content="2023-04-20">
+<meta name="description" content="Examining how MICE works with interaction terms.">
 
-<title>All-Cause Mortality in Norway – White, Ph.D.</title>
+<title>Multivariate imputation by chained equations (MICE) with interaction terms – White, Ph.D.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -182,10 +182,10 @@ background: #e2ebf0;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">All-Cause Mortality in Norway</h1>
+      <h1 class="title">Multivariate imputation by chained equations (MICE) with interaction terms</h1>
                   <div>
         <div class="description">
-          <p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+          <p>Examining how MICE works with interaction terms.</p>
         </div>
       </div>
                 </div>
@@ -204,7 +204,7 @@ background: #e2ebf0;
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 13, 2022</p>
+        <p class="date">April 20, 2023</p>
       </div>
     </div>
     
@@ -223,149 +223,91 @@ background: #e2ebf0;
 
 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="cell">
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p>We simulate a dataset where it is not harmful to be male nor a smoker (coefficient = 0), but the interaction of the two is very harmful (coefficient = 5).</p>
+<p>We then set the outcome to missing for 70% of the males and 70% of the smokers, and run the following analyses:</p>
+<ul>
+<li>Complete case analysis</li>
+<li>Blindly imputed analysis (using MICE)</li>
+<li>Imputed analysis (using MICE) where males and females were imputed separately.</li>
+</ul>
+<p>We repeat this for multiple datasets with various sample sizes, to see how the imputation strategies are affected by the size of the dataset.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  folder_location <span class="ot">&lt;-</span> <span class="st">"post/2022-12-13-all-cause-mortality-in-norway/"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  folder_location <span class="ot">&lt;-</span> <span class="st">""</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downloading data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> PxWebApiData<span class="sc">::</span><span class="fu">ApiData</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://data.ssb.no/api/v0/en/table/07995"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Kjonn =</span> <span class="st">"0"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Alder =</span> <span class="st">"999A"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tid =</span> <span class="fu">as.character</span>(<span class="dv">2000</span><span class="sc">:</span><span class="dv">2022</span>),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Uke =</span> <span class="fu">paste0</span>(<span class="st">"U"</span>, <span class="fu">formatC</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">52</span>, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">flag =</span> <span class="st">"0"</span>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Cleaning</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>d_deaths <span class="ot">&lt;-</span> data<span class="sc">$</span>dataset[, <span class="fu">c</span>(<span class="st">"Uke"</span>, <span class="st">"Tid"</span>, <span class="st">"value"</span>)]</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">setDT</span>(d_deaths)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(d_deaths, <span class="fu">c</span>(<span class="st">"week"</span>, <span class="st">"isoyear"</span>, <span class="st">"deaths_n"</span>))</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>d_deaths[, isoweek <span class="sc">:</span><span class="er">=</span> stringr<span class="sc">::</span><span class="fu">str_remove</span>(week, <span class="st">"U"</span>)]</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>d_deaths[, isoyearweek <span class="sc">:</span><span class="er">=</span> <span class="fu">paste0</span>(isoyear, <span class="st">"-"</span>, isoweek)]</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>d_deaths[, isoweek <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(isoweek)]</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>d_deaths[, isoyear <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(isoyear)]</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>d_deaths[, week <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">setcolorder</span>(d_deaths, <span class="fu">c</span>(<span class="st">"isoyear"</span>, <span class="st">"isoweek"</span>, <span class="st">"isoyearweek"</span>, <span class="st">"deaths_n"</span>))</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing the latest 3 weeks of data (due to registration delay)</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>max_isoweek <span class="ot">&lt;-</span> d_deaths[isoyear <span class="sc">==</span> <span class="dv">2022</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(deaths_n)]<span class="sc">$</span>isoweek <span class="sc">%&gt;%</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">max</span>() <span class="sc">-</span> <span class="dv">3</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>d_deaths <span class="ot">&lt;-</span> d_deaths[isoweek <span class="sc">&lt;=</span> max_isoweek]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregating</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> d_deaths[, .(<span class="at">deaths_n =</span> <span class="fu">sum</span>(deaths_n)), keyby <span class="ot">=</span> .(isoyear)]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pd, <span class="fu">aes</span>(<span class="at">x =</span> isoyear, <span class="at">y =</span> deaths_n))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Isoyear"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2000</span>, <span class="dv">2022</span>, <span class="dv">2</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Number of deaths"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> csstyle<span class="sc">::</span>format_nor_num_0,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">33000</span>, <span class="dv">38000</span>, <span class="dv">1000</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">33000</span>, <span class="dv">38000</span>))</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> glue<span class="sc">::</span><span class="fu">glue</span>(</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)"</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Data extracted 2022-12-13 from SSB table 07995."</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimating the baseline</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setorder</span>(d_deaths, isoyearweek)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(isoyear_pred <span class="cf">in</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2022</span>) <span class="cf">for</span>(isoweek_model <span class="cf">in</span> <span class="fu">unique</span>(d_deaths<span class="sc">$</span>isoweek)){</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Determining the training data</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(isoyear_pred <span class="sc">&lt;=</span> <span class="dv">2019</span>){</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    isoyear_train <span class="ot">&lt;-</span> (isoyear_pred<span class="dv">-10</span>)<span class="sc">:</span>(isoyear_pred<span class="dv">-1</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    isoyear_train <span class="ot">&lt;-</span> <span class="dv">2010</span><span class="sc">:</span><span class="dv">2019</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fitting the model</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    deaths_n <span class="sc">~</span> isoyear, </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> d_deaths[isoweek <span class="sc">%in%</span> isoweek_model <span class="sc">&amp;</span> isoyear <span class="sc">%in%</span> isoyear_train],</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> <span class="st">"poisson"</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Predicting the baseline</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>      fit, </span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      d_deaths[isoweek <span class="sc">%in%</span> isoweek_model <span class="sc">&amp;</span> isoyear <span class="sc">%in%</span> isoyear_pred]</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">exp</span>()</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  d_deaths[</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    isoweek <span class="sc">%in%</span> isoweek_model <span class="sc">&amp;</span> isoyear <span class="sc">%in%</span> isoyear_pred, </span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    deaths_baseline_n <span class="sc">:</span><span class="er">=</span> pred</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating the excess mortality</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>d_deaths[, deaths_excess_n <span class="sc">:</span><span class="er">=</span> deaths_n <span class="sc">-</span> deaths_baseline_n]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregating</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> d_deaths[</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span><span class="fu">is.na</span>(deaths_excess_n),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  .(<span class="at">deaths_excess_n =</span> <span class="fu">sum</span>(deaths_excess_n)), </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  keyby <span class="ot">=</span> .(isoyear)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(pd, <span class="fu">aes</span>(<span class="at">x =</span> isoyear, <span class="at">y =</span> deaths_excess_n))</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_col</span>()</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Isoyear"</span>,</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2011</span>, <span class="dv">2022</span>, <span class="dv">1</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Number of excess deaths"</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">labels =</span> csstyle<span class="sc">::</span>format_nor_num_0,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1000</span>, <span class="dv">4000</span>, <span class="dv">500</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> glue<span class="sc">::</span><span class="fu">glue</span>(</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Excess deaths in Norway, occurring between isoweeks 1 and {max_isoweek} (inclusive)"</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> q <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Weekly baseline calculated from a poisson regression of the previous 10 years of data.</span><span class="sc">\n</span><span class="st">Baselines for 2020, 2021, and 2022 calculated using data for 2010-2019.</span><span class="sc">\n</span><span class="st">Data extracted 2022-12-13 from SSB table 07995."</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="all-cause-mortality-in-norway_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sim_function <span class="ot">&lt;-</span> <span class="cf">function</span>(data, argset){</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>argset<span class="sc">$</span>n)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  data[, is_male <span class="sc">:</span><span class="er">=</span> <span class="fu">rbinom</span>(.N, <span class="dv">1</span>, <span class="fl">0.5</span>)]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  data[, is_smoker <span class="sc">:</span><span class="er">=</span> <span class="fu">rbinom</span>(.N, <span class="dv">1</span>, <span class="fl">0.5</span>)]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  data[, lung_function <span class="sc">:</span><span class="er">=</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">+</span> <span class="dv">0</span> <span class="sc">*</span> is_male <span class="sc">+</span> <span class="dv">0</span> <span class="sc">*</span> is_smoker <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> is_male <span class="sc">*</span> is_smoker <span class="sc">+</span> <span class="fu">rnorm</span>(.N, <span class="at">sd =</span> <span class="dv">2</span>)]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  data_missing <span class="ot">&lt;-</span> <span class="fu">copy</span>(data)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  data_missing[is_male<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">runif</span>(.N)<span class="sc">&lt;</span><span class="fl">0.7</span>, lung_function <span class="sc">:</span><span class="er">=</span> <span class="cn">NA</span>]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  data_missing[is_smoker<span class="sc">==</span><span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">runif</span>(.N)<span class="sc">&lt;</span><span class="fl">0.7</span>, lung_function <span class="sc">:</span><span class="er">=</span> <span class="cn">NA</span>]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># complete case analysis</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  coef_complete_case <span class="ot">&lt;-</span> <span class="fu">coef</span>(<span class="fu">summary</span>(<span class="fu">lm</span>(lung_function <span class="sc">~</span> is_male<span class="sc">*</span>is_smoker, <span class="at">data =</span> data_missing)))[,<span class="dv">1</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we impute the data blindly</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  data_imputed <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">mice</span>(data_missing, <span class="at">print=</span>F, <span class="at">m =</span> <span class="dv">20</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  fit_imputed <span class="ot">&lt;-</span> <span class="fu">with</span>(data_imputed, <span class="fu">lm</span>(lung_function <span class="sc">~</span> is_male<span class="sc">*</span>is_smoker))</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  coef_imputed_blindly <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">pool</span>(fit_imputed)<span class="sc">$</span>pooled<span class="sc">$</span>estimate</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># we impute the data separately for males and females</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  data_imputed_male <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">mice</span>(data_missing[is_male<span class="sc">==</span><span class="dv">1</span>], <span class="at">print=</span>F, <span class="at">m =</span> <span class="dv">20</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  data_imputed_female <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">mice</span>(data_missing[is_male<span class="sc">==</span><span class="dv">0</span>], <span class="at">print=</span>F, <span class="at">m =</span> <span class="dv">20</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  data_imputed_sex_specific <span class="ot">&lt;-</span> mice<span class="sc">:::</span><span class="fu">rbind.mids</span>(data_imputed_male, data_imputed_female)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  fit_imputed <span class="ot">&lt;-</span> <span class="fu">with</span>(data_imputed_sex_specific, <span class="fu">lm</span>(lung_function <span class="sc">~</span> is_male<span class="sc">*</span>is_smoker))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  coef_imputed_separately <span class="ot">&lt;-</span> mice<span class="sc">::</span><span class="fu">pool</span>(fit_imputed)<span class="sc">$</span>pooled<span class="sc">$</span>estimate</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  retval <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">var =</span> <span class="fu">names</span>(coef_complete_case),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    coef_complete_case,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    coef_imputed_blindly,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    coef_imputed_separately,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> argset<span class="sc">$</span>n</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(retval)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> plnr<span class="sc">::</span>Plan<span class="sc">$</span><span class="fu">new</span>()</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(n <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">2000</span>, <span class="dv">4000</span>)) <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  p<span class="sc">$</span><span class="fu">add_argset</span>(</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> uuid<span class="sc">::</span><span class="fu">UUIDgenerate</span>(),</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">n=</span>n,</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">i=</span>i</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>p<span class="sc">$</span><span class="fu">apply_action_fn_to_all_argsets</span>(sim_function)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> p<span class="sc">$</span><span class="fu">run_all</span>()</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(results)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>results[var <span class="sc">==</span> <span class="st">"is_male:is_smoker"</span>, .(</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_complete_case =</span> <span class="fu">round</span>(<span class="fu">mean</span>(coef_complete_case), <span class="dv">2</span>),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_imputed_blindly =</span> <span class="fu">round</span>(<span class="fu">mean</span>(coef_imputed_blindly), <span class="dv">2</span>),</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">coef_imputed_separately =</span> <span class="fu">round</span>(<span class="fu">mean</span>(coef_imputed_separately), <span class="dv">2</span>)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>), keyby<span class="ot">=</span>.(n)] <span class="sc">%&gt;%</span> </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;n&gt;
+       n coef_complete_case coef_imputed_blindly coef_imputed_separately
+   &lt;num&gt;              &lt;num&gt;                &lt;num&gt;                   &lt;num&gt;
+1:   100               5.06                 1.33                    2.60
+2:   500               4.97                 3.56                    4.89
+3:  1000               5.10                 4.49                    5.12
+4:  2000               5.03                 4.97                    5.09
+5:  4000               5.05                 5.09                    5.09</code></pre>
 </div>
 </div>
-</div>
+<p>We can see that (in this simple example) complete case analysis correctly captured the interaction’s coefficient of 5.</p>
+<p>More interesting is that with lower sample sizes, imputing males/females separately performed better than imputing blindly, however, once the sample size became sufficient then there was little difference between the two methods.</p>
+<p>The code used to impute the data separately for males and females:</p>
+<pre><code>data_imputed_male &lt;- mice::mice(data_missing[is_male==1], print=F, m = 20)
+data_imputed_female &lt;- mice::mice(data_missing[is_male==0], print=F, m = 20)
+data_imputed_sex_specific &lt;- mice:::rbind.mids(data_imputed_male, data_imputed_female)</code></pre>
 
 
 
