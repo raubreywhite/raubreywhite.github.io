@@ -11,14 +11,14 @@
     "href": "index.html",
     "title": "Richard Aubrey White, Ph.D.",
     "section": "",
-    "text": "Richard is an applied statistician specializing in infectious diseases, based in Oslo, Norway.\nHe leads the Norwegian Syndromic Surveillance System (NorSySS) at the Norwegian Institute of Public Health, developing real-time systems to monitor population health and detect outbreaks. NorSySS conducts over one million automated analyses daily, tracking more than 100 disease syndromes across Norway’s five million residents.\nHis work focuses on syndromic surveillance, signal detection algorithms, and the design of real-time reporting systems for public health operations. Combining statistical modeling with operational epidemiology, he builds infrastructure that supports health authorities nationwide.\nHis international field experience includes performing needs assessments in Sri Lanka and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in Palestine.\nContact: hello@rwhite.no"
+    "text": "Richard is an applied statistician specializing in infectious diseases, based in Oslo, Norway.\nHe leads the Norwegian Syndromic Surveillance System (NorSySS) at the Norwegian Institute of Public Health, developing real-time systems to monitor population health and detect outbreaks. NorSySS conducts over one million automated analyses daily, tracking more than 100 disease syndromes across Norway’s five million residents.\nHis work focuses on syndromic surveillance, signal detection algorithms, and the design of real-time reporting systems for public health operations. Combining statistical modeling with operational epidemiology, he builds infrastructure that supports health authorities nationwide.\nFrom 2015 to 2022, he served as statistical lead for the Norwegian Mortality Monitoring System, conducting weekly analyses of all-cause mortality data for Norway and contributing to the European monitoring system for total mortality, EuroMOMO.\nHis international field experience includes performing needs assessments in Sri Lanka and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in Mozambique, and maternal health in Palestine.\nContact: hello@rwhite.no"
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Richard Aubrey White, Ph.D.",
     "section": "Education",
-    "text": "Education\nHarvard University, USA\n\n2011–2012 / Ph.D. in Biostatistics\n\n2009–2011 / M.A. in Biostatistics (Frank Knox fellowship)\n\nUniversity of Wollongong, Australia\n\n2005–2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours)\n\nUniversity of Bergen, Norway\n\n2022–2023 / One year program (årsstudium) in Nordic languages and literature"
+    "text": "Education\nHarvard University, USA\n\n2011–2012 / Ph.D. in Biostatistics\n\n2009–2011 / M.A. in Biostatistics (Frank Knox fellowship)\n\nUniversity of Wollongong, Australia\n\n2005–2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours)\n\nUniversity of Bergen, Norway\n\n2022–2023 / One year program (årsstudium) in Nordic languages and literature\n## Key Publications\n\n\nWhite, R. A. et al. (2024). “Aberrations in medically certified sick leave and primary healthcare consultations in Norway in 2023 compared to pre-COVID-19-pandemic trends”. In: Archives of Public Health 82.1, p. 187. ISSN: 2049-3258. DOI: 10.1186/s13690-024-01411-4. URL: https://www.rwhite.no/articles/2024-white.pdf.\n\n\nNørgaard, S. K. et al. (2021). “Real-time monitoring shows substantial excess all-cause mortality during second wave of COVID-19 in Europe, October to December 2020”. In: Eurosurveillance 26.2, p. 2002023. URL: https://www.rwhite.no/articles/2021-norgaard.pdf."
   },
   {
     "objectID": "index.html#key-projects",
@@ -39,7 +39,7 @@
     "href": "index.html#scientific-production",
     "title": "Richard Aubrey White, Ph.D.",
     "section": "Scientific Production",
-    "text": "Scientific Production\nScientific articles\n92 publications • 65 302 citations • 45 h-index\nR packages on CRAN\n                \nR packages on GitHub\ncsdb • csstyle • cs9 • MOMO • nowcast"
+    "text": "Scientific Production\nScientific articles\n92 publications • 64 680 citations • 45 h-index\nR packages on CRAN\n                \nR packages on GitHub\ncsdb • csstyle • cs9 • MOMO • nowcast"
   },
   {
     "objectID": "index.html#norwegian-institute-of-public-health-niphfhi",
@@ -88,7 +88,7 @@
     "href": "publications.html",
     "title": "White, Ph.D.",
     "section": "",
-    "text": "92 scientific articles (65 302 citations, 45 h-index)."
+    "text": "92 scientific articles (64 680 citations, 45 h-index)."
   },
   {
     "objectID": "publications.html#section",
