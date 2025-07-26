@@ -1,0 +1,2107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>White, Ph.D.</title>
+<link>https://www.rwhite.no/writing.html</link>
+<atom:link href="https://www.rwhite.no/writing.xml" rel="self" type="application/rss+xml"/>
+<description>A collection of thoughts.
+</description>
+<generator>quarto-1.7.32</generator>
+<lastBuildDate>Sun, 13 Jul 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Random intercepts do not fix confounding</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-07-14-random-intercepts-do-not-fix-confounding/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Mixed effects models are a crucial tool in the modern epidemiologist’s toolbox. They allow for the estimation of both fixed and random effects, which can help to account for the correlation structure in the data. However, it is a common misconception that random intercepts can fix epidemiological confounding.</p>
+<p>This post will use <code>lme4</code> and <code>rstanarm</code> to demonstrate that this is not the case, and then provide some guidance on how to properly adjust for confounding and when random intercepts should be used.</p>
+<p>A common aim in the field of epidemiology is to precisely measure the association between two variables, typically referred to as the outcome and exposure. The estimation of this association is typically biased due to confounders. A confounder is defined as an independent variable that is associated with both the outcome and the exposure. The presence of a confounder can lead to biased estimates of the exposure-outcome association, unless it is appropriately taken into account.</p>
+<section id="mathematical-framework" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-framework">Mathematical framework</h2>
+<p>Consider the following simple linear regression model:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BFormula%201:%20%7D%20Y_i%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20X_i%20+%20%5Cepsilon_i,%5C%20i=1%20%5Cdots%20n%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?Y_i"> is the outcome, <img src="https://latex.codecogs.com/png.latex?X_i"> is the exposure, and <img src="https://latex.codecogs.com/png.latex?%5Cepsilon_i"> is the error term. The parameter of interest is <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1">, which represents the association between the exposure and the outcome.</p>
+<p>Now, if there is a confounder <img src="https://latex.codecogs.com/png.latex?C_i"> that is associated with both <img src="https://latex.codecogs.com/png.latex?X"> and <img src="https://latex.codecogs.com/png.latex?Y">, then the estimate of <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> in Formula 1 will be biased. An unbiased estimate of <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> can be obtained by adjusting for the confounder:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BFormula%202:%20%7D%20Y_i%20=%20%5Cbeta_0%20+%20%5Cbeta_1%20X_i%20+%20%5Cbeta_2%20C_i%20+%20%5Cepsilon_i,%5C%20i=1%20%5Cdots%20n%0A"></p>
+<p>When there are no unmeasured confounders, <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> can be considered to be the conditional causal effect of <img src="https://latex.codecogs.com/png.latex?X"> on <img src="https://latex.codecogs.com/png.latex?Y"> given <img src="https://latex.codecogs.com/png.latex?C">.</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BFormula%203:%20%7D%20%5Cbeta_1%20=%20E%5BY%7CX,%20C=1%5D%20-%20E%5BY%7CX,%20C=0%5D%0A"></p>
+<p>A more complex situation occurs when there are multiple clusters in the data, such as patients within hospitals, or students within schools. In this case, a random intercept can be added to the model to account for the correlation within clusters:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctext%7BFormula%204:%20%7D%20Y_%7Bij%7D%20=%20%5Cbeta_0%20+%20u_%7B0j%7D%20+%20%5Cbeta_1%20X_%7Bij%7D%20+%20%5Cepsilon_%7Bij%7D%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?u_%7B0j%7D%20%5Csim%20N(0,%20%5Csigma_u%5E2)"> represents the random intercept for cluster <img src="https://latex.codecogs.com/png.latex?j">, and <img src="https://latex.codecogs.com/png.latex?%5Cepsilon_%7Bij%7D%20%5Csim%20N(0,%20%5Csigma_e%5E2)"> represents the individual-level error term.</p>
+<p>The key question is: <strong>Does the random intercept <img src="https://latex.codecogs.com/png.latex?u_%7B0j%7D"> adequately control for cluster-level confounding?</strong></p>
+</section>
+</section>
+<section id="simulation-study" class="level1">
+<h1>Simulation study</h1>
+<p>Let’s demonstrate through simulation that random intercepts do not fix confounding when the confounder varies at the cluster level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Load required libraries</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(data.table)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(magrittr)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(lme4)</span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(fixest)</span>
+<span id="cb1-7"></span>
+<span id="cb1-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">123</span>)</span>
+<span id="cb1-9"></span>
+<span id="cb1-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Parameters</span></span>
+<span id="cb1-11">n_clusters <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span></span>
+<span id="cb1-12">cluster_size <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span></span>
+<span id="cb1-13">n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> n_clusters <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> cluster_size</span>
+<span id="cb1-14"></span>
+<span id="cb1-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cluster IDs</span></span>
+<span id="cb1-16">cluster_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>n_clusters, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> cluster_size)</span>
+<span id="cb1-17"></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># We'll run multiple simulations to get stable results</span></span>
+<span id="cb1-19">raw <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vector</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"list"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">length =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>)</span>
+<span id="cb1-20"></span>
+<span id="cb1-21"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq_along</span>(raw)){</span>
+<span id="cb1-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Simulation"</span>, i, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb1-23">  </span>
+<span id="cb1-24">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Strong cluster-level confounder</span></span>
+<span id="cb1-25">  U_cluster <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n_clusters, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-26">  U <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> U_cluster[cluster_id]</span>
+<span id="cb1-27"></span>
+<span id="cb1-28">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Simulate exposure with strong effect from U</span></span>
+<span id="cb1-29">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Weak individual-level noise</span></span>
+<span id="cb1-30">  X <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> U <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span>
+<span id="cb1-31"></span>
+<span id="cb1-32">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Simulate outcome with strong U effect and weak X effect</span></span>
+<span id="cb1-33">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># TRUE causal effect of X on Y is 0.2</span></span>
+<span id="cb1-34">  Y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.5</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> U <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-35"></span>
+<span id="cb1-36">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Put in a data frame</span></span>
+<span id="cb1-37">  dat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(cluster_id, U, X, Y)</span>
+<span id="cb1-38"></span>
+<span id="cb1-39">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Compare different modeling approaches</span></span>
+<span id="cb1-40">  fit_lm <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lm</span>(Y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(cluster_id), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat))[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Fixed effects</span></span>
+<span id="cb1-41">  fit_lmer <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(lme4<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lmer</span>(Y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> cluster_id), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat))<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>cluster_id[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Random intercepts</span></span>
+<span id="cb1-42">  fit_fixest <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> fixest<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">feols</span>(Y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> cluster_id, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> dat)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>coefficients[[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"X"</span>]]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Fixed effects (alternative)</span></span>
+<span id="cb1-43"></span>
+<span id="cb1-44">  raw[[i]] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb1-45">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">real_value =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>,</span>
+<span id="cb1-46">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fixed_effects_lm =</span> fit_lm,</span>
+<span id="cb1-47">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">random_intercepts_lmer =</span> fit_lmer,</span>
+<span id="cb1-48">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fixed_effects_fixest =</span> fit_fixest</span>
+<span id="cb1-49">  )</span>
+<span id="cb1-50">}</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simulation 1 
+Simulation 2 
+Simulation 3 
+Simulation 4 
+Simulation 5 
+Simulation 6 
+Simulation 7 
+Simulation 8 
+Simulation 9 
+Simulation 10 
+Simulation 11 
+Simulation 12 
+Simulation 13 
+Simulation 14 
+Simulation 15 
+Simulation 16 
+Simulation 17 
+Simulation 18 
+Simulation 19 
+Simulation 20 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Combine results</span></span>
+<span id="cb3-2">results <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbindlist</span>(raw)</span>
+<span id="cb3-3">results[, id <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>.N]</span>
+<span id="cb3-4">results_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">melt.data.table</span>(results, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">id.vars =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"real_value"</span>))</span>
+<span id="cb3-5">results_long[, deviance <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> value <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> real_value]</span>
+<span id="cb3-6"></span>
+<span id="cb3-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate mean bias for each method</span></span>
+<span id="cb3-8">bias_summary <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> results_long[, .(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean_bias =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(deviance)), by <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(variable)]</span>
+<span id="cb3-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(bias_summary)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 variable    mean_bias
+                   &lt;fctr&gt;        &lt;num&gt;
+1:       fixed_effects_lm 0.0003475138
+2: random_intercepts_lmer 0.1177147529
+3:   fixed_effects_fixest 0.0003475138</code></pre>
+</div>
+</div>
+<section id="results-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="results-interpretation">Results interpretation</h2>
+<p>The simulation results show:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-07-14-random-intercepts-do-not-fix-confounding/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The key findings are:</p>
+<ol type="1">
+<li><strong>Fixed effects models</strong> (both <code>lm</code> with cluster dummies and <code>fixest</code>) correctly estimate the causal effect with minimal bias</li>
+<li><strong>Random intercepts models</strong> show substantial bias, failing to adequately control for the cluster-level confounder</li>
+</ol>
+<p>This demonstrates that when confounding occurs at the cluster level, random intercepts do not provide adequate control for confounding, while fixed effects do.</p>
+</section>
+</section>
+<section id="when-to-use-random-vs-fixed-rffects" class="level1">
+<h1>When to use random vs fixed rffects</h1>
+<section id="use-random-intercepts-when" class="level2">
+<h2 class="anchored" data-anchor-id="use-random-intercepts-when">Use random intercepts when:</h2>
+<ul>
+<li>You want to make inferences about the population of clusters (not just the observed clusters).</li>
+<li>The clusters are a random sample from a larger population.</li>
+<li>You’re primarily interested in individual-level effects.</li>
+<li>The cluster-level variables are not confounders.</li>
+</ul>
+</section>
+<section id="use-fixed-effects-when" class="level2">
+<h2 class="anchored" data-anchor-id="use-fixed-effects-when">Use fixed effects when:</h2>
+<ul>
+<li>You want to control for all time-invariant cluster-level confounders.</li>
+<li>You’re making inferences about the specific clusters in your data.</li>
+<li>The cluster-level variables are potential confounders.</li>
+<li>You want the most robust estimate of the exposure effect.</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Random intercepts are a powerful tool for accounting for correlation within clusters, but they do not fix confounding when the confounder varies at the cluster level. When cluster-level confounding is a concern, fixed effects models provide more robust estimates of causal effects.</p>
+<p>The choice between random and fixed effects should be guided by:</p>
+<ol type="1">
+<li>The causal structure of your data</li>
+<li>Whether cluster-level variables are confounders</li>
+<li>Your inferential goals (population vs.&nbsp;sample-specific inferences)</li>
+</ol>
+<p>Understanding this distinction is crucial for proper epidemiological analysis and avoiding biased estimates of causal effects.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://www.rwhite.no/post/2025-07-14-random-intercepts-do-not-fix-confounding/</guid>
+  <pubDate>Sun, 13 Jul 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Eksplosiv økning: Barn sliter med hukommelsen</title>
+  <link>https://www.rwhite.no/post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/screenshot.png" class="img-fluid"></p>
+<p><a href="https://www.nrk.no/buskerud/eksplosiv-okning_-barn-sliter-med-hukommelsen-1.17448953">Publisert på nrk.no den 13. juni 2025</a>.</p>
+<p>Saken oppsummert:</p>
+<ul>
+<li>Antall legebesøk for hukommelsesforstyrrelser har økt kraftig, også blant barn i alderen 5–14 år.</li>
+<li>Forsker Richard Aubrey White mener senfølger av covid-19 kan være en vesentlig årsak til økningen, basert på data som viser økning i hukommelsesproblemer etter pandemibølger.</li>
+<li>Hjerneforsker Marte Roa Syvertsen peker på skjermbruk og sosiale medier som mulige årsaker, og understreker viktigheten av søvn, fysisk aktivitet og sosial kontakt.</li>
+<li>FHI er forsiktige i sine tolkninger og peker på at økt bruk av diagnosekoder og flere fastleger kan bidra til økningen, men etterlyser mer forskning.</li>
+<li>Toppforskeren David Putrino advarer om at gjentatte koronainfeksjoner kan føre til kognitive problemer hos barn.</li>
+</ul>
+
+
+
+ ]]></description>
+  <category>In the media</category>
+  <category>NRK</category>
+  <guid>https://www.rwhite.no/post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/</guid>
+  <pubDate>Thu, 12 Jun 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Løfterik behandling av long covid uten bevis</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/top.png" class="img-fluid figure-img"></p>
+<figcaption>Publisert på <a href="https://www.forskersonen.no/covid19-kronikk-long-covid/lofterik-behandling-av-long-covid-uten-bevis/2503503">Forskersonen den 10. mai 2025</a>.</figcaption>
+</figure>
+</div>
+<p>Omtrent <a href="https://www.sciencedirect.com/science/article/pii/S0264410X2401346X">3–6 prosent av koronainfeksjoner</a> fører til <a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">langvarige helseplager</a>, kjent som «long covid». Med millioner av koronainfeksjoner hvert år i Norge, står vi overfor en alvorlig folkehelsekrise synliggjort gjennom <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">økt sykefravær</a>, flere dødsfall enn forventet <a href="https://www.nrk.no/buskerud/flere-unge-dode-av-sykdom_-forskere-slar-alarm-1.16926584">blant yngre voksne</a> og en betydelig økning i legekonsultasjoner på <a href="https://www.nrk.no/buskerud/rekordmange-til-lege-med-utmattelse.-fhi-forsker-slar-alarm-om-senfolger-av-covid-19.-1.16678355">grunn av utmattelse</a>.</p>
+<p><strong>Håpefull studie med alvorlige svakheter</strong></p>
+<p><a href="https://www.nrk.no/buskerud/erna-solberg-vil-at-norge-skal-ta-et-nytt-koronagrep-for-a-takle-_long-covid_-1.17336151">Erna Solberg og Høyre</a> har anerkjent at long covid kan være en viktig årsak til økningen i sykefraværet og kommet med et valgløfte om å forbedre behandlingen.</p>
+<p>Til tross for situasjonens alvor og Høyres valgløfte, finnes det <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01136-X/fulltext">ingen dokumentert effektiv behandling</a> mot long covid.</p>
+<p>Enkelte forskere, hvorav noen har bakgrunn i kontroversielle <a href="https://www.psykologtidsskriftet.no/artikkel/2024as12ae-Feilaktig-fremstilling-av-kunnskapsgrunnlaget-for-post-covid-condition-long-covid-">psykososiale teorier om postvirale lidelser</a>, har foreslått eksperimentelle psykososiale behandlinger som løsningen.</p>
+<p><a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2828267">En nylig studie</a> av Tom Farmen Nerli med flere, foreslår behandling «basert på en kognitiv og atferdsmessig tilnærming.» Studien har skapt håp, men en nærmere undersøkelse avslører alvorlige metodiske svakheter.</p>
+<p><strong>Misvisende resultater og tvilsomme målemetoder</strong></p>
+<p>«Klinisk signifikant» er et avgjørende begrep når man vurderer behandlingseffekt. Det betyr at behandlingen gir en reell, merkbar forbedring i pasientens helse—ikke bare en forskjell som lar seg måle statistisk. Det holder altså ikke å påvise en endring; den må være stor nok til å ha praktisk betydning for livskvalitet og funksjon.</p>
+<p>Studien fra Nerli bruker en skala for fysisk funksjon (SF-36-PF) der deltakerne selv vurderer i hvilken grad helsen begrenser dem i hverdagsaktiviteter som å gå trapper, bære varer eller støvsuge.</p>
+<p>I analyseplanen, skrevet før resultatene var kjent, oppgir forfatterne at en forbedring på minst 10 poeng på denne skalaen er nødvendig for at en behandling skal anses som klinisk signifikant.</p>
+<p><strong>Misvisende fremstilling av funn</strong></p>
+<p>I denne studien oppnådde behandlingsgruppen i gjennomsnitt bare 9,2 poengs forbedring - altså under terskelverdien. De har riktignok målt en effekt, men ifølge forfatternes egne kriterier er den ikke stor nok til å ha praktisk betydning.</p>
+<p>Likevel fremstiller forfatterne behandlingen som klinisk signifikant og effektiv i artikkelen. Dette er klart misvisende.</p>
+<p>Videre bruker forfatterne en problematisk definisjon av «frisk». De anser pasienter som friske dersom de scorer 85 eller høyere på SF-36-PF-skalaen, uten hensyn til alder og kjønn. En score på 85 er typisk for en frisk 60-årig kvinne, men deltakerne i studien hadde en gjennomsnittsalder på 42 år. Dermed fører bruken av en score på 85 som «frisk»-terskel til en kunstig høy andel «friske».</p>
+<p><strong>Manglende datadeling hindrer etterprøving</strong></p>
+<p>Sterke konklusjoner krever åpenhet og uavhengig kontroll. Forfatterne lovet i sin dataerklæring at anonymiserte data skulle gjøres tilgjengelig for vitenskapelig bruk. Jeg ba om et anonymisert og begrenset datasett for å kunne beregne reelle, alders- og kjønnsjusterte tilfriskningsrater.</p>
+<p>Datasettet ville inneholde kun få variabler: Hvorvidt deltakeren fikk intervensjonen, om vedkommende var frisk etter forfatternes definisjon og om vedkommende var frisk etter en alders- og kjønnsjustert definisjon ved tre tidspunkt. Forespørselen ble avslått etter halvannen måned. Akershus universitetssykehus HF mente dataene var «personsensitive og underlagt taushetsplikt», til tross for at ingen identifiserende informasjon ble etterspurt. En annen begrunnelse var at «uttrekk av relevante variabler og etterfølgende anonymisering vil dessuten kreve en viss arbeidsinnsats fra forskerne tilknyttet prosjektet.» Dette reiser spørsmålet: Hvorfor ble det da lovet datadeling?</p>
+<p>Forskere må ikke love åpenhet de ikke kan innfri. Slike løftebrudd svekker forskningens troverdighet og undergraver prinsippet om uavhengig etterprøvbarhet.</p>
+<p><strong>Hvor mange ble egentlig friske?</strong></p>
+<p>Det var først etter at jeg klaget til tidsskriftet JAMA Network Open at forfatterne offentliggjorde de alders- og kjønnsjusterte tilfriskningsratene. Disse viste at bare 8 prosent av deltakerne i kontrollgruppen ble friske etter tolv måneder—en oppsiktsvekkende lav andel som burde vekke alvorlig bekymring hos klinikere og helsemyndigheter.</p>
+<p>I intervensjonsgruppen var andelen 29 prosentpoeng høyere. Men siden deltakerne selv vurderte utfallene (for eksempel «Er helsen din slik at den begrenser deg i moderate aktiviteter som å støvsuge?»), og visste om de fikk intervensjonen eller ikke, er det uklart hvor mye av intervensjonens beskjedne effekt som skyldes placeboeffekten og svarskjevhet.</p>
+<p>Det vil si at deltakerne kan ha overvurdert bedring fordi de forventet effekt, eller ønsket å bekrefte forskernes antakelser. Objektive mål, som antall skritt per dag, ville trolig ha vist enda svakere resultater.</p>
+<p>En ublindet psykososial behandling med tilfriskningsrate på kun 29 prosent på et subjektivt mål under ideelle forsøksforhold, bør ikke presenteres som en løsning for en kompleks, multisystemisk tilstand som long covid.</p>
+<p>Tvert imot understreker dette behovet for <a href="https://www.cell.com/cell/fulltext/S0092-8674(24)00886-9">biomedisinske behandlingsstrategier</a> rettet mot blant annet viral persistens, postakutt inflammasjon, autoimmunitet, trombose, reaktivering av latente virus, dysbiose, tarmtranslokasjon og mitokondriell dysfunksjon.</p>
+<p><strong>Behov for større åpenhet og bedre metodebruk</strong></p>
+<p>Misvisende fremstilling, svake metoder og hemmelighold av data er ikke bare tekniske detaljer, men alvorlige feil med store konsekvenser for de som sliter med long covid. Bare ærlig og åpen vitenskap kan danne grunnlaget for informerte valg hos pasienter, helsepersonell og politikere.</p>
+<p>Inntil resultater kan bekreftes gjennom robust og uavhengig forskning, må vi være varsomme med å spre forhåpninger om eksperimentelle behandlinger.</p>
+<p>Føre-var-prinsippet tilsier også at vi må prioritere forebygging av long covid, akkurat som vi gjør med alle andre sykdommer, samtidig som vi utvikler bedre behandling. Siden long covid skyldes et <a href="https://www.nature.com/articles/s41598-023-47829-8">luftbårent virus</a>, må forebygging skje gjennom bedre <a href="https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378">ventilasjon, luftrensing</a> og bruk av <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2-munnbind</a>.</p>
+<p>Vi skylder både pasientene og samfunnet å kreve åpenhet og vitenskapelig redelighet. Bare slik kan vi finne løsningene som trengs.</p>
+<p><em>Om forfatteren: Richard Aubrey White har doktorgrad i biostatistikk fra Harvard University. Han er forsker ved Folkehelseinstituttet, men skriver ikke på vegne av instituttet.</em></p>
+
+
+
+ ]]></description>
+  <category>Op-ed</category>
+  <category>Forskersonen</category>
+  <guid>https://www.rwhite.no/post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/</guid>
+  <pubDate>Fri, 09 May 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Promising long COVID treatment without evidence</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-05-10-promising-long-covid-treatment-without-evidence/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-05-10-promising-long-covid-treatment-without-evidence/top.png" class="img-fluid figure-img"></p>
+<figcaption>Published on <a href="https://www.forskersonen.no/covid19-kronikk-long-covid/lofterik-behandling-av-long-covid-uten-bevis/2503503">Forskersonen on May 10, 2025</a>.</figcaption>
+</figure>
+</div>
+<p>Approximately <a href="https://www.sciencedirect.com/science/article/pii/S0264410X2401346X">3–6 percent of coronavirus infections</a> lead to <a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">long-lasting health problems</a>, known as “long COVID.” With millions of coronavirus infections each year in Norway, we face a serious public health crisis manifested through <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">increased sick leave</a>, more deaths than expected <a href="https://www.nrk.no/buskerud/flere-unge-dode-av-sykdom_-forskere-slar-alarm-1.16926584">among younger adults</a>, and a significant increase in medical consultations due to <a href="https://www.nrk.no/buskerud/rekordmange-til-lege-med-utmattelse.-fhi-forsker-slar-alarm-om-senfolger-av-covid-19.-1.16678355">exhaustion</a>.</p>
+<p><strong>Hopeful study with serious weaknesses</strong></p>
+<p><a href="https://www.nrk.no/buskerud/erna-solberg-vil-at-norge-skal-ta-et-nytt-koronagrep-for-a-takle-_long-covid_-1.17336151">Erna Solberg and the Conservative Party</a> have acknowledged that long COVID may be an important cause of increased sick leave and made an election promise to improve treatment.</p>
+<p>Despite the severity of the situation and the Conservative Party’s election promise, there is <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01136-X/fulltext">no documented effective treatment</a> for long COVID.</p>
+<p>Some researchers, some of whom have a background in controversial <a href="https://www.psykologtidsskriftet.no/artikkel/2024as12ae-Feilaktig-fremstilling-av-kunnskapsgrunnlaget-for-post-covid-condition-long-covid-">psychosocial theories about post-viral conditions</a>, have proposed experimental psychosocial treatments as the solution.</p>
+<p><a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2828267">A recent study</a> by Tom Farmen Nerli and colleagues proposes treatment “based on a cognitive and behavioral approach.” The study has created hope, but a closer examination reveals serious methodological weaknesses.</p>
+<p><strong>Misleading results and questionable measurement methods</strong></p>
+<p>“Clinically significant” is a crucial concept when assessing treatment effect. It means that the treatment provides real, noticeable improvement in the patient’s health—not just a difference that can be measured statistically. It is therefore not enough to demonstrate a change; it must be large enough to have practical significance for quality of life and function.</p>
+<p>The study by Nerli uses a scale for physical function (SF-36-PF) where participants themselves assess the extent to which their health limits them in daily activities such as climbing stairs, carrying groceries, or vacuuming.</p>
+<p>In the analysis plan, written before the results were known, the authors state that an improvement of at least 10 points on this scale is necessary for a treatment to be considered clinically significant.</p>
+<p><strong>Misleading presentation of findings</strong></p>
+<p>In this study, the treatment group achieved on average only 9.2 points improvement—thus below the threshold value. They have indeed measured an effect, but according to the authors’ own criteria, it is not large enough to have practical significance.</p>
+<p>Nevertheless, the authors present the treatment as clinically significant and effective in the article. This is clearly misleading.</p>
+<p>Furthermore, the authors use a problematic definition of “healthy.” They consider patients healthy if they score 85 or higher on the SF-36-PF scale, regardless of age and gender. A score of 85 is typical for a healthy 60-year-old woman, but the participants in the study had an average age of 42 years. Thus, using a score of 85 as the “healthy” threshold leads to an artificially high proportion of “healthy” individuals.</p>
+<p><strong>Lack of data sharing prevents verification</strong></p>
+<p>Strong conclusions require openness and independent control. The authors promised in their data statement that anonymized data would be made available for scientific use. I requested an anonymized and limited dataset to be able to calculate real, age- and gender-adjusted recovery rates.</p>
+<p>The dataset would contain only a few variables: Whether the participant received the intervention, whether they were healthy according to the authors’ definition, and whether they were healthy according to an age- and gender-adjusted definition at three time points.</p>
+<p>The request was denied after six weeks. Akershus University Hospital HF believed the data were “sensitive personal information and subject to confidentiality,” despite no identifying information being requested.</p>
+<p>Another justification was that “extraction of relevant variables and subsequent anonymization will also require some work effort from the researchers associated with the project.” This raises the question: Why was data sharing promised then?</p>
+<p>Researchers must not promise openness they cannot deliver. Such broken promises weaken research credibility and undermine the principle of independent reproducibility.</p>
+<p><strong>How many actually recovered?</strong></p>
+<p>It was only after I complained to the journal JAMA Network Open that the authors published the age- and gender-adjusted recovery rates. These showed that only 8 percent of participants in the control group recovered after twelve months—a strikingly low proportion that should cause serious concern among clinicians and health authorities.</p>
+<p>In the intervention group, the proportion was 29 percentage points higher. But since the participants themselves assessed the outcomes (for example, “Is your health such that it limits you in moderate activities such as vacuuming?”), and knew whether they received the intervention or not, it is unclear how much of the intervention’s modest effect is due to placebo effect and response bias.</p>
+<p>This means that participants may have overestimated improvement because they expected an effect, or wanted to confirm the researchers’ assumptions. Objective measures, such as number of steps per day, would likely have shown even weaker results.</p>
+<p>An unblinded psychosocial treatment with a recovery rate of only 29 percent on a subjective measure under ideal trial conditions should not be presented as a solution for a complex, multisystemic condition like long COVID.</p>
+<p>On the contrary, this underscores the need for <a href="https://www.cell.com/cell/fulltext/S0092-8674(24)00886-9">biomedical treatment strategies</a> targeting, among other things, viral persistence, post-acute inflammation, autoimmunity, thrombosis, reactivation of latent viruses, dysbiosis, gut translocation, and mitochondrial dysfunction.</p>
+<p><strong>Need for greater openness and better methodology</strong></p>
+<p>Misleading presentation, weak methods, and secrecy of data are not just technical details, but serious errors with major consequences for those struggling with long COVID. Only honest and open science can form the basis for informed choices by patients, healthcare personnel, and politicians.</p>
+<p>Until results can be confirmed through robust and independent research, we must be cautious about spreading hopes about experimental treatments.</p>
+<p>The precautionary principle also suggests that we must prioritize prevention of long COVID, just as we do with all other diseases, while developing better treatment. Since long COVID is caused by an <a href="https://www.nature.com/articles/s41598-023-47829-8">airborne virus</a>, prevention must occur through better <a href="https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378">ventilation, air purification</a> and use of <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2 masks</a>.</p>
+<p>We owe both patients and society to demand openness and scientific integrity. Only in this way can we find the solutions that are needed.</p>
+<p><em>About the author: Richard Aubrey White has a PhD in biostatistics from Harvard University. He is a researcher at the Norwegian Institute of Public Health, but does not write on behalf of the institute.</em></p>
+
+
+
+ ]]></description>
+  <category>Op-ed</category>
+  <category>Forskersonen</category>
+  <guid>https://www.rwhite.no/post/2025-05-10-promising-long-covid-treatment-without-evidence/</guid>
+  <pubDate>Fri, 09 May 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Vi må beskytte lærerne mot long covid</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/top.png" class="img-fluid figure-img"></p>
+<figcaption>Publisert på <a href="https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378">Utdanningsnytt den 22. april 2025</a>.</figcaption>
+</figure>
+</div>
+<p>Den 12. mars 2025 markerte et <a href="https://www.nrk.no/buskerud/erna-solberg-vil-at-norge-skal-ta-et-nytt-koronagrep-for-a-takle-_long-covid_-1.17336151">historisk øyeblikk</a> for norsk folkehelse. Erna Solberg anerkjente at long covid kan være en viktig årsak til <a href="https://frifagbevegelse.no/debatt/debatten-om-sykefravar-er-fort-pa-feil-premisser-6.490.1106983.a33706873a">økningen i sykefraværet</a> og kom med et valgløfte om å forbedre behandlingen.</p>
+<p>Men behandling er bare halve løsningen. Vi må også forebygge.</p>
+<p><a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">Long covid skyldes koronainfeksjoner</a>. Jo oftere folk blir smittet, desto flere vil utvikle long covid. Hvis vi reduserer smitten, vil færre bli kronisk syke.</p>
+<p>Tidlig i pandemien trodde man feilaktig at koronaviruset spredte seg via dråper. Nå vet vi at <a href="https://www.nature.com/articles/s41598-023-47829-8">koronaviruset er luftbårent</a> – det sprer seg i luften som røyk. Heldigvis kan luftbårne virus forebygges ved å rense inneluften.</p>
+<p>Florence Nightingale skrev i 1859: «Den aller første regelen for sykepleie: Hold luften han puster så ren som uteluften.» Dette prinsippet bør vi strebe etter også i dag. Ved å rense luften kan vi forebygge luftveisinfeksjoner, allergiplager og annet ubehag.</p>
+<p>Vi har tre effektive metoder for å rense inneluften: ventilasjon, filtrering og UVC-lys.</p>
+<ul>
+<li>Ventilasjon tilfører frisk luft, ideelt gjennom balansert ventilasjon.</li>
+<li>Luftfiltrering fjerner luftbårne virus ved hjelp av luftrensere. Finland har med suksess brukt dette i <a href="https://yle.fi/a/74-20062381">barnehager for å redusere sykefravær</a>. FHI og SINTEF <a href="https://www.fhi.no/sm/luftrenserstudien/">forsker på om luftfiltrering kan forebygge infeksjoner med det nye koronaviruset</a>, men forskningen <a href="https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-024-08547-2">tar tid</a>.</li>
+<li>UVC-lys har i flere tiår vært brukt i skoler og sykehus for å hindre spredning av <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2789813/">meslinger, tuberkulose og influensa</a>. Nyere «<a href="https://www.nature.com/articles/s41598-022-08462-z">far UVC</a>»-teknologi er enda tryggere og lettere å installere i høyt trafikkerte områder som kollektivtransport og korridorer. <a href="https://uvmedico.com/news/uv-medico-falck-elevating-ambulance-safety-with-uv222-technology">Danske ambulanser</a> og <a href="https://www.defense.gov/News/Feature-Stories/Story/Article/2309289/air-guard-wing-receives-dods-first-uv-light-disinfectant-system/">det amerikanske forsvaret</a> bruker allerede denne teknologien.</li>
+</ul>
+<p><strong>En «inneklima»-revolusjon skjer nå over hele verden – men Norge henger etter</strong></p>
+<p>Biden-administrasjonen utviklet, som en konsekvens av pandemien, nye <a href="https://www.ashrae.org/about/news/2023/ashrae-approves-groundbreaking-standard-to-reduce-the-risk-of-disease-transmission-in-indoor-spaces">inneklimastandarder for å beskytte folkehelsen</a>. Japanske restauranter viser målinger av <a href="https://x.com/ToshiAkima/status/1488150477993025542">luftkvalitet i sanntid</a>. <a href="https://www.parliament.nsw.gov.au/Hansard/Pages/HansardResult.aspx#/docid/HANSARD-1820781676-98120/link/2300">Australia har nylig vedtatt en lov</a> som slår fast at «elever og ansatte i offentlige skoler fortjener et trygt læringsmiljø, inkludert god luftkvalitet … Dårlig ventilerte innendørsrom øker spredningen av luftbårne sykdommer og utgjør en risiko for unge mennesker, ansatte og hele samfunnet.»</p>
+<p>Mens andre land handler, henger Norge etter. Folkehelseinstituttets <a href="https://www.dagensmedisin.no/fhi-folkehelseinstituttet-inneklima/fhi-kutter-inneklima-fagmiljo/531987">fagmiljø for inneklima</a> ble lagt ned, i en periode hvor antallet koronainfeksjoner økte betydelig. I tiden etter, har fastlegekonsultasjoner for utmattelse og <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">sykefravær knyttet til long covid</a> økt kraftig. Disse plagene rammer ikke bare voksne, men <a href="https://publications.aap.org/pediatrics/article/153/3/e2023062570/196606/Postacute-Sequelae-of-SARS-CoV-2-in-Children?autologincheck=redirected">også barn</a>, som stadig smittes i <a href="https://www.nrk.no/vestland/230.000-norske-elevar-i-klasserom-med-darleg-luft-1.15993604">skoler med dårlig inneklima</a> og risikerer langvarige helseplager.</p>
+<p><img src="https://www.rwhite.no/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/figure_1.webp" class="img-fluid"> <strong>Lærere er utsatt — long covid kan være en yrkesskade</strong></p>
+<p>Barna smitter ikke bare hverandre — de kan også smitte familiene sine, og lærerne sine, selv når barna <a href="https://academic.oup.com/cid/article/78/6/1522/7634443">selv ikke har symptomer</a>. Noen av dem får også long covid. 36 % av <a href="https://www.nav.no/no/nav-og-samfunn/statistikk/flere-statistikkomrader/relatert-informasjon/mottatte-skademeldinger-knyttet-til-covid-19">skademeldinger knyttet til covid-19</a> har kommet fra lærere, barnehageansatte og andre skoleansatte. <a href="https://www.utdanningsnytt.no/corona-inneklima-korona/sykdommen-som-ikke-gikk-over/434365">Long covid kan være en yrkesskade</a>. Fagforeningene må ta grep for å sikre at skolene blir trygge arbeidsplasser. Denne typen smitte kan i noen grad forebygges ved bedret luftrensing eller ventilasjon i skoler og barnehage.</p>
+<p><strong>Godt inneklima er avgjørende for Norges beredskap</strong></p>
+<p>Forbedret inneklima handler ikke bare om trivsel, helse, luftkvalitet eller å forebygge long covid i dag. Det er også viktig for Norges beredskap. Vi vet at det vil komme nye pandemier. Dersom vi nå tar et løft for å få sikrere inneklima i norske skoler, barnehager og andre offentlige bygg, vil vi være bedre beskyttet neste gang. Det vil fungere som et smittereduserende tiltak, men det vil også bidra til å begrense behovet for nedstengninger. Et bedre inneklima beskytter oss mot den stadig mer sannsynlige <a href="https://www.vg.no/nyheter/i/nybJrB/fugleinfluensa-norge-har-sikret-seg-vaksineavtale">fugleinfluensa-pandemien</a> – og andre fremtidige luftbårne pandemier.</p>
+<p>Norge har mye å vinne på å handle nå. Vil norske politikere bidra til å sikre Norges folkehelse, arbeidskraft og beredskap – eller la Norge bli hengende etter?</p>
+<p><em>Richard Aubrey White skriver ikke på vegne av FHI.</em></p>
+
+
+
+ ]]></description>
+  <category>Op-ed</category>
+  <category>Utdanningsnytt</category>
+  <guid>https://www.rwhite.no/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/</guid>
+  <pubDate>Mon, 21 Apr 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>We must protect teachers from long COVID</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-04-22-we-must-protect-teachers-from-long-covid/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-04-22-we-must-protect-teachers-from-long-covid/top.png" class="img-fluid figure-img"></p>
+<figcaption>Published on <a href="https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378">Utdanningsnytt on April 22, 2025</a>.</figcaption>
+</figure>
+</div>
+<p>March 12, 2025, marked a <a href="https://www.nrk.no/buskerud/erna-solberg-vil-at-norge-skal-ta-et-nytt-koronagrep-for-a-takle-_long-covid_-1.17336151">historic moment</a> for Norwegian public health. Erna Solberg acknowledged that long COVID may be an important cause of <a href="https://frifagbevegelse.no/debatt/debatten-om-sykefravar-er-fort-pa-feil-premisser-6.490.1106983.a33706873a">increased sick leave</a> and made an election promise to improve treatment.</p>
+<p>But treatment is only half the solution. We must also prevent.</p>
+<p><a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">Long COVID is caused by coronavirus infections</a>. The more often people get infected, the more will develop long COVID. If we reduce transmission, fewer will become chronically ill.</p>
+<p>Early in the pandemic, it was mistakenly believed that the coronavirus spread via droplets. Now we know that <a href="https://www.nature.com/articles/s41598-023-47829-8">the coronavirus is airborne</a> – it spreads in the air like smoke. Fortunately, airborne viruses can be prevented by purifying indoor air.</p>
+<p>Florence Nightingale wrote in 1859: “The very first rule of nursing: Keep the air he breathes as pure as outdoor air.” This principle should be something we strive for today as well. By purifying the air, we can prevent respiratory infections, allergic problems, and other discomfort.</p>
+<p>We have three effective methods for purifying indoor air: ventilation, filtration, and UVC light.</p>
+<ul>
+<li>Ventilation supplies fresh air, ideally through balanced ventilation.</li>
+<li>Air filtration removes airborne viruses using air purifiers. Finland has successfully used this in <a href="https://yle.fi/a/74-20062381">kindergartens to reduce sick leave</a>. FHI and SINTEF <a href="https://www.fhi.no/sm/luftrenserstudien/">are researching whether air filtration can prevent infections with the new coronavirus</a>, but research <a href="https://trialsjournal.biomedcentral.com/articles/10.1186/s13063-024-08547-2">takes time</a>.</li>
+<li>UVC light has for decades been used in schools and hospitals to prevent the spread of <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2789813/">measles, tuberculosis, and influenza</a>. Newer “<a href="https://www.nature.com/articles/s41598-022-08462-z">far UVC</a>” technology is even safer and easier to install in high-traffic areas such as public transport and corridors. <a href="https://uvmedico.com/news/uv-medico-falck-elevating-ambulance-safety-with-uv222-technology">Danish ambulances</a> and <a href="https://www.defense.gov/News/Feature-Stories/Story/Article/2309289/air-guard-wing-receives-dods-first-uv-light-disinfectant-system/">the U.S. military</a> already use this technology.</li>
+</ul>
+<p><strong>An “indoor climate” revolution is happening around the world – but Norway is lagging behind</strong></p>
+<p>The Biden administration developed, as a consequence of the pandemic, new <a href="https://www.ashrae.org/about/news/2023/ashrae-approves-groundbreaking-standard-to-reduce-the-risk-of-disease-transmission-in-indoor-spaces">indoor climate standards to protect public health</a>. Japanese restaurants display real-time measurements of <a href="https://x.com/ToshiAkima/status/1488150477993025542">air quality</a>. <a href="https://www.parliament.nsw.gov.au/Hansard/Pages/HansardResult.aspx#/docid/HANSARD-1820781676-98120/link/2300">Australia has recently passed a law</a> stating that “students and staff in public schools deserve a safe learning environment, including good air quality … Poorly ventilated indoor spaces increase the spread of airborne diseases and pose a risk to young people, staff, and the entire community.”</p>
+<p>While other countries are taking action, Norway is lagging behind. The Norwegian Institute of Public Health’s <a href="https://www.dagensmedisin.no/fhi-folkehelseinstituttet-inneklima/fhi-kutter-inneklima-fagmiljo/531987">indoor climate expert group</a> was disbanded, during a period when the number of coronavirus infections increased significantly. In the time since, general practitioner consultations for exhaustion and <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">sick leave related to long COVID</a> have increased sharply. These problems affect not only adults but <a href="https://publications.aap.org/pediatrics/article/153/3/e2023062570/196606/Postacute-Sequelae-of-SARS-CoV-2-in-Children?autologincheck=redirected">also children</a>, who are constantly infected in <a href="https://www.nrk.no/vestland/230.000-norske-elevar-i-klasserom-med-darleg-luft-1.15993604">schools with poor indoor climate</a> and risk long-term health problems.</p>
+<p><img src="https://www.rwhite.no/post/2025-04-22-we-must-protect-teachers-from-long-covid/figure_1.webp" class="img-fluid"></p>
+<p><strong>Teachers are exposed – long COVID can be an occupational injury</strong></p>
+<p>Children don’t just infect each other – they can also infect their families and their teachers, even when children <a href="https://academic.oup.com/cid/article/78/6/1522/7634443">themselves have no symptoms</a>. Some of them also get long COVID. 36% of <a href="https://www.nav.no/no/nav-og-samfunn/statistikk/flere-statistikkomrader/relatert-informasjon/mottatte-skademeldinger-knyttet-til-covid-19">injury reports related to COVID-19</a> have come from teachers, kindergarten employees, and other school staff. <a href="https://www.utdanningsnytt.no/corona-inneklima-korona/sykdommen-som-ikke-gikk-over/434365">Long COVID can be an occupational injury</a>. Trade unions must take action to ensure that schools become safe workplaces. This type of transmission can to some extent be prevented by improved air purification or ventilation in schools and kindergartens.</p>
+<p><strong>Good indoor climate is crucial for Norway’s preparedness</strong></p>
+<p>Improved indoor climate is not just about comfort, health, air quality, or preventing long COVID today. It is also important for Norway’s preparedness. We know that new pandemics will come. If we now make an effort to achieve safer indoor climate in Norwegian schools, kindergartens, and other public buildings, we will be better protected next time. It will function as a transmission-reducing measure, but it will also help limit the need for shutdowns. A better indoor climate protects us against the increasingly likely <a href="https://www.vg.no/nyheter/i/nybJrB/fugleinfluensa-norge-har-sikret-seg-vaksineavtale">bird flu pandemic</a> – and other future airborne pandemias.</p>
+<p>Norway has much to gain by acting now. Will Norwegian politicians help ensure Norway’s public health, workforce, and preparedness – or let Norway fall behind?</p>
+<p><em>Richard Aubrey White does not write on behalf of FHI.</em></p>
+
+
+
+ ]]></description>
+  <category>Op-ed</category>
+  <category>Utdanningsnytt</category>
+  <guid>https://www.rwhite.no/post/2025-04-22-we-must-protect-teachers-from-long-covid/</guid>
+  <pubDate>Mon, 21 Apr 2025 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>All-cause mortality in Norway</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-03-25-all-cause-mortality-in-norway/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p>Today the Norwegian Institute of Public Health published its <a href="https://www.fhi.no/nyheter/2025/dodeligheten-tilbake-til-nivaet-for-pandemien">report on all-cause mortality in Norway for 2024</a>.</p>
+<p>There are two points that are of interest:</p>
+<p>Firstly, the press release starts with:</p>
+<blockquote class="blockquote">
+<p>After periods with high mortality during the COVID-19 pandemic, mortality in Norway in 2024 was within expected levels.</p>
+</blockquote>
+<p><img src="https://www.rwhite.no/post/2025-03-25-all-cause-mortality-in-norway/top.png" class="img-fluid"></p>
+<p>This is interesting, because the press release then states “In 2024 mortality was within expected ranges based on the development in the period 2011-2019 and 2023.”</p>
+<p>So it appears as though 2023 (a year with a large amount of excess mortality) is now included in the baseline. This is concerning because it means that the baseline is now higher than it was before.</p>
+<p>Secondly, the press release states that:</p>
+<blockquote class="blockquote">
+<p>No excess mortality in any age groups.</p>
+</blockquote>
+<p><img src="https://www.rwhite.no/post/2025-03-25-all-cause-mortality-in-norway/middle.png" class="img-fluid"></p>
+<p>So how much of this is due to the fact that the baseline has been shifted upwards? Lets find out.</p>
+<p>Here, I fit a Poisson regression with a baseline comprising of 2010, 2012-2019. I remove 2011 because of the terror attacks on the 22nd of July 2011. The regression includes an offset for population size. I then calculate the 5th, 50th and 95th percentiles of the posterior predictive distribution of the number of deaths in different age groups. I then plot the results as rates of death per 100 000 population.</p>
+<p>I have chosen a linear extrapolation out to 2023 and then set the 2024 baseline to be the same as 2023. I believe that this is reasonable because in last year’s report, the NIPH used a linear extrapolation out to 2023.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(data.table)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(magrittr)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">interactive</span>()) {</span>
+<span id="cb1-6">  folder_location <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"post/2025-03-25-all-cause-mortality-in-norway/"</span></span>
+<span id="cb1-7">} <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> {</span>
+<span id="cb1-8">  folder_location <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span></span>
+<span id="cb1-9">}</span>
+<span id="cb1-10"></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Loading the cleaned data</span></span>
+<span id="cb1-12">d_deaths <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> readxl<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_excel</span>(glue<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glue</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"{folder_location}10325_20250325-102517.xlsx"</span>))</span>
+<span id="cb1-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">setDT</span>(d_deaths)</span>
+<span id="cb1-14">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">melt.data.table</span>(</span>
+<span id="cb1-15">  d_deaths, </span>
+<span id="cb1-16">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">id.vars =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"age"</span>,</span>
+<span id="cb1-17">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">variable.factor =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>,</span>
+<span id="cb1-18">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">value.name =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"deaths_n"</span></span>
+<span id="cb1-19">  )</span>
+<span id="cb1-20">d[, year <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(variable)]</span>
+<span id="cb1-21">d[, variable <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>]</span>
+<span id="cb1-22">d[, age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> stringr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_extract</span>(age, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">d+"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>()]</span>
+<span id="cb1-23">d[, age_cat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fcase</span>(</span>
+<span id="cb1-24">  age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"000_000"</span>,</span>
+<span id="cb1-25">  age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"001_019"</span>,</span>
+<span id="cb1-26">  age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">39</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"020_039"</span>,</span>
+<span id="cb1-27">  age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">64</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"040_064"</span>,</span>
+<span id="cb1-28">  age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">79</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"065_079"</span>,</span>
+<span id="cb1-29">  age_numeric <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"080p"</span></span>
+<span id="cb1-30">)]</span>
+<span id="cb1-31">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> d[, .(</span>
+<span id="cb1-32">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">deaths_n =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(deaths_n)</span>
+<span id="cb1-33">), keyby <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> .(year, age_cat)]</span>
+<span id="cb1-34"></span>
+<span id="cb1-35"></span>
+<span id="cb1-36">p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> csdata<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nor_population_by_age_cats</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cats =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(</span>
+<span id="cb1-37">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"000_000"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,</span>
+<span id="cb1-38">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"001_019"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19</span>,</span>
+<span id="cb1-39">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"020_039"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">39</span>,</span>
+<span id="cb1-40">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"040_064"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">40</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">64</span>,</span>
+<span id="cb1-41">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"065_079"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">65</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">79</span>,</span>
+<span id="cb1-42">  <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"080p"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">80</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span></span>
+<span id="cb1-43">))[location_code<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"nation_nor"</span>]</span>
+<span id="cb1-44"></span>
+<span id="cb1-45">d[p, on <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year==calyear"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"age_cat==age"</span>), pop_jan1_n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> pop_jan1_n]</span>
+<span id="cb1-46">d[,deaths_vs_pop_pr100000 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100000</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>deaths_n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pop_jan1_n]</span>
+<span id="cb1-47"></span>
+<span id="cb1-48">d[, year_frozen_at_2023 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> year]</span>
+<span id="cb1-49">d[year <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2023</span>, year_frozen_at_2023 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2023</span>]</span>
+<span id="cb1-50"></span>
+<span id="cb1-51">p <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> plnr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span>Plan<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">new</span>()</span>
+<span id="cb1-52">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_data</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">direct =</span> d)</span>
+<span id="cb1-53"></span>
+<span id="cb1-54">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_argset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">age =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"000_000"</span>)</span>
+<span id="cb1-55">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_argset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">age =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"001_019"</span>)</span>
+<span id="cb1-56">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_argset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">age =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"020_039"</span>)</span>
+<span id="cb1-57">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_argset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">age =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"040_064"</span>)</span>
+<span id="cb1-58">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_argset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">age =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"065_079"</span>)</span>
+<span id="cb1-59">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_argset</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">age =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"080p"</span>)</span>
+<span id="cb1-60"></span>
+<span id="cb1-61">analysis_1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(argset, data){</span>
+<span id="cb1-62">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span>(plnr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is_run_directly</span>()){</span>
+<span id="cb1-63">    data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_data</span>()</span>
+<span id="cb1-64">    argset <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_argset</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-65">  }</span>
+<span id="cb1-66">  pd <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>data[age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span>argset<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>age <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2010</span>]</span>
+<span id="cb1-67"></span>
+<span id="cb1-68">  fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> rstanarm<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stan_glm</span>(</span>
+<span id="cb1-69">    deaths_n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> year_frozen_at_2023, </span>
+<span id="cb1-70">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> pd[year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2011</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019</span>], </span>
+<span id="cb1-71">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">offset=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(pop_jan1_n),</span>
+<span id="cb1-72">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> poisson,</span>
+<span id="cb1-73">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">refresh =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-74">  )</span>
+<span id="cb1-75"></span>
+<span id="cb1-76">  pred <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> rstanarm<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">posterior_predict</span>(fit, pd, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">offset=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(pd<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>pop_jan1_n))</span>
+<span id="cb1-77">  retval <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">apply</span>(pred, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, quantile, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">probs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.95</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-78">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-79">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>()</span>
+<span id="cb1-80">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(retval) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p5"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p50"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p95"</span>)</span>
+<span id="cb1-81"></span>
+<span id="cb1-82">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(pd, retval))</span>
+<span id="cb1-83">}</span>
+<span id="cb1-84"></span>
+<span id="cb1-85">p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">apply_action_fn_to_all_argsets</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fn =</span> analysis_1)</span>
+<span id="cb1-86"></span>
+<span id="cb1-87">raw <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> p<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">run_all</span>()</span>
+<span id="cb1-88">r <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbindlist</span>(raw)</span>
+<span id="cb1-89"></span>
+<span id="cb1-90">r[deaths_n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> p95]</span>
+<span id="cb1-91"></span>
+<span id="cb1-92">r[deaths_n <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> p95 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2024</span>]</span>
+<span id="cb1-93"></span>
+<span id="cb1-94">r[, age_pretty <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fcase</span>(</span>
+<span id="cb1-95">  age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"000_000"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0 years old"</span>,</span>
+<span id="cb1-96">  age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"001_019"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1-19 years old"</span>,</span>
+<span id="cb1-97">  age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"020_039"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"20-39 years old"</span>,</span>
+<span id="cb1-98">  age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"040_064"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"40-64 years old"</span>,</span>
+<span id="cb1-99">  age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"065_079"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"65-79 years old"</span>,</span>
+<span id="cb1-100">  age_cat<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"080p"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"80+ years old"</span></span>
+<span id="cb1-101">)]</span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(r[year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2024</span>], <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> year))</span>
+<span id="cb2-2">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_ribbon</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100000</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>p5<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pop_jan1_n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100000</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>p95<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pop_jan1_n), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fill =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"black"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span>
+<span id="cb2-3">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100000</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>p50<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pop_jan1_n))</span>
+<span id="cb2-4">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100000</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>deaths_n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>pop_jan1_n))</span>
+<span id="cb2-5">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xintercept =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2019.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>)</span>
+<span id="cb2-6">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span>age_pretty, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">scales =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"free"</span>)</span>
+<span id="cb2-7">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_y_continuous</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Deaths per 100 000 population"</span>)</span>
+<span id="cb2-8">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_x_continuous</span>(<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">breaks =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2010</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2024</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">minor_breaks =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span>)</span>
+<span id="cb2-9">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> csstyle<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set_x_axis_vertical</span>()</span>
+<span id="cb2-10">q <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> q <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb2-11">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weekly baseline calculated from a poisson regression of 2010, 2012-2019.</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Data extracted from SSB table 10325"</span></span>
+<span id="cb2-12">)</span>
+<span id="cb2-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(q)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-03-25-all-cause-mortality-in-norway/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Unfortunately, it appears as though there is still significant excess mortality in 2024, including in the younger age groups.</p>
+<p>The Norwegian Institute of Public Health’s positive press release seems to be based primarily upon a shift in the baseline, rather than a true reduction in mortality. This is concerning, as it may lead to a false sense of security.</p>
+
+
+
+ ]]></description>
+  <guid>https://www.rwhite.no/post/2025-03-25-all-cause-mortality-in-norway/</guid>
+  <pubDate>Mon, 24 Mar 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>De fleste tenker ikke på covid lenger - men for Gro-Rita har viruset endret alt</title>
+  <link>https://www.rwhite.no/post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/screenshot.png" class="img-fluid"></p>
+<p><a href="https://www.blv.no/de-fleste-tenker-ikke-pa-covid-lenger-men-for-gro-rita-har-viruset-endret-alt/f/5-9-826540">Publisert på Bladet Vesterålen den 23. mars 2025</a>.</p>
+
+
+
+ ]]></description>
+  <category>Bladet Vesterålen</category>
+  <category>In the media</category>
+  <guid>https://www.rwhite.no/post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/</guid>
+  <pubDate>Sat, 22 Mar 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Stadig flere barn til legen med utmattelse etter pandemien</title>
+  <link>https://www.rwhite.no/post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/screenshot.png" class="img-fluid"></p>
+<p><a href="https://www.utdanningsnytt.no/covid-helsesykepleier-korona/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/434924">Publisert på Utdanningsnytt den 12. mars 2025</a>.</p>
+
+
+
+ ]]></description>
+  <category>Utdanningsnytt</category>
+  <category>In the media</category>
+  <guid>https://www.rwhite.no/post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/</guid>
+  <pubDate>Tue, 11 Mar 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Dramatiske korona-funn: – Store mørketall</title>
+  <link>https://www.rwhite.no/post/2025-01-21-dramatiske-korona-funn-store-morketall/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-01-21-dramatiske-korona-funn-store-morketall/screenshot.png" class="img-fluid"></p>
+<p><a href="https://www.nettavisen.no/nyheter/dramatiske-korona-funn-fem-ganger-mer-sannsynlig-a-fa-me/s/5-95-2234239">Publisert på Nettavisen den 21. januar 2025</a>.</p>
+
+
+
+ ]]></description>
+  <category>Nettavisen</category>
+  <category>In the media</category>
+  <guid>https://www.rwhite.no/post/2025-01-21-dramatiske-korona-funn-store-morketall/</guid>
+  <pubDate>Mon, 20 Jan 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Debatten om sykefravær er ført på feil premisser</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/top.png" class="img-fluid figure-img"></p>
+<figcaption>Publisert på <a href="https://frifagbevegelse.no/debatt/debatten-om-sykefravar-er-fort-pa-feil-premisser-6.490.1106983.a33706873a">Fri Fagbevegelse den 18. januar 2025</a>.</figcaption>
+</figure>
+</div>
+<p>På Debatten 7. januar spurte Erna Solberg «Det er ikke bare i Norge [sykefraværet] økte, … men i de fleste andre land har sykefraværet gått ned igjen nå, men ikke her. Hvorfor?»</p>
+<p><strong>Dette spørsmålet har preget Norge i flere måneder, men dessverre, er debatten ført på feil premisser.</strong></p>
+<p>Det er tre tidsperioder som er relevante i diskusjonen om sykefravær: 2019 («før pandemien»), 2020–2022 («pandemiårene») og 2023 («etter pandemien»).</p>
+<p>Under årene med pandemi hadde hvert land ulike tiltak, men i etterkant har alle europeiske land valgt samme strategi: Ignorere covid og dens senfølger.</p>
+<p>Dette betyr at Solbergs <a href="https://www.ssb.no/arbeid-og-lonn/arbeidsmiljo-sykefravaer-og-arbeidskonflikter/artikler/norge-skiller-seg-ut-med-hoyt-sykefravaer-etter-pandemien">sammenligning</a> i praksis er en skjult sammenligning av pandemitiltak, siden disse varierte betydelig mellom landene. I 2023 er det ingen forskjeller mellom landenes strategier for tiden etter pandemien.</p>
+<p><strong>Dette gir inntrykk av at Norge gjør det «dårlig» sammenlignet med andre land, men dette er en feilaktig konklusjon. Grunnen er enkel: Norge gjorde en eksepsjonelt god jobb under pandemien.</strong></p>
+<p>Dermed fremstår andre land som om de har «forbedret» seg etter pandemien, når sannheten er at deres pandemi-strategier var svake.</p>
+<p>I tillegg, når vi sammenligner sykefraværet i 2023 med 2022, ser vi at Norge faktisk ligger midt på treet i Europa.</p>
+<p><strong>Dette viser at hysteriet rundt norsk sykefravær er sterkt overdrevet.</strong></p>
+<p><img src="https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/figure_1.png" class="img-fluid"></p>
+<p>For å få en nøytral vurdering av dagens sykefravær, bør vi sammenligne 2023 med 2019, da 2019 representerer et referanseår som ikke er påvirket av pandemien.</p>
+<p><strong>Denne analysen avdekker to viktige funn:</strong></p>
+<p>De fleste europeiske land har høyere sykefravær i 2023 enn i 2019, og Norge er helt gjennomsnittlig i denne sammenligningen.</p>
+<p>Med dette perspektivet blir det klart at oppstyret rundt norsk sykefravær er ubegrunnet. Norge står seg godt i et europeisk perspektiv etter pandemien.</p>
+<p><img src="https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/figure_2.png" class="img-fluid"></p>
+<section id="hvorfor-er-sykefraværet-høyere-nå-enn-i-2019" class="level2">
+<h2 class="anchored" data-anchor-id="hvorfor-er-sykefraværet-høyere-nå-enn-i-2019">Hvorfor er sykefraværet høyere nå enn i 2019?</h2>
+<p>Fra 2023 har de fleste europeiske land hatt en la det skure-strategi med fri smitte, der mange blir smittet av covid-19 minst én gang i året.</p>
+<p>Den 10. januar 2025 publiserte forskere fra FHI <a href="https://www.sciencedirect.com/science/article/pii/S0264410X2401346X">en studie</a> som viser at blant nordmenn med tre vaksinedoser hadde omikronsmitte en risiko på 6 prosent for langvarige symptomer, kjent som «long covid» eller «senfølger av covid-19».</p>
+<p><strong>Dette innebærer at <a href="https://archive.ph/Cm30Y">opptil 250.000 nordmenn</a> kan få long covid hvert år. Det er tydelig at dette vil øke sykefraværet – noe vi allerede ser i tallene.</strong></p>
+<p>To <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">vitenskapelige</a> <a href="https://arbeidogvelferd.nav.no/journal/2024/2/m-1546/Hvorfor_er_sykefraværet_fortsatt_høyt_3–4_år_etter_starten_av_pandemien">artikler</a> fra to norske forskergrupper kom uavhengig av hverandre til samme konklusjon: En betydelig del av økningen i det norske sykefraværet skyldes sykdommer knyttet til akutt covid-19 og senfølger av covid-19. En studie fant til og med en tidsmessig sammenheng med koronabølger.</p>
+</section>
+<section id="men-hva-med-resten-av-verden-de-har-også-covid" class="level2">
+<h2 class="anchored" data-anchor-id="men-hva-med-resten-av-verden-de-har-også-covid">«Men hva med resten av verden? De har også covid!»</h2>
+<p>Ja, og vi ser lignende trender der.</p>
+<p>Fra <a href="https://www.cis.es/en/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14085">2012</a> til <a href="https://www.cis.es/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14477">2019</a> var andelen voksne i Spania som rapporterte om en kronisk helsetilstand stabil på rundt 30 prosent. Da undersøkelsen startet opp igjen tidlig i <a href="https://www.cis.es/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14619">2022</a>, hadde denne andelen hoppet til 42,3 prosent. I den siste rapporten fra <a href="https://www.cis.es/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14857">oktober 2024</a> var andelen oppe i 49,5.</p>
+<p>I <a href="https://fred.stlouisfed.org/series/LNU00074597">USA</a> var det fra 2015 til 2019 omtrent 30 millioner voksne med en funksjonsnedsettelse. Tidlig i 2022 var tallet cirka 32 millioner, og nå, i november 2024, er det 34,8 millioner.</p>
+<p>I <a href="https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/economicinactivity/datasets/economicinactivitybyreasonseasonallyadjustedinac01sa">Storbritannia</a> var antallet voksne som var ute av arbeid på grunn av langvarig sykdom stabilt på rundt to millioner fra 2013 til 2019. Sent i 2021 nådde det 2,4 millioner, og nå ligger det på 2,8 millioner.</p>
+<p><strong>Dette er selvfølgelig kun indisier, men det er også akkurat hva vi forventer å se fra millioner av gjentatte koronainfeksjoner hvert år.</strong></p>
+</section>
+<section id="som-å-spille-russisk-rulett-med-kronisk-sykdom" class="level2">
+<h2 class="anchored" data-anchor-id="som-å-spille-russisk-rulett-med-kronisk-sykdom">Som å spille russisk rulett med kronisk sykdom</h2>
+<p><a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">Covid er farligere enn du tror</a>. Hver reinfeksjon er som å spille russisk rulett med kronisk sykdom. Sykefravær er bare toppen av isfjellet.</p>
+<p>Mange med long covid er fortsatt i full jobb, bare med betydelig redusert livskvalitet. I tillegg finnes det ulike grader av long covid – for de med mild long covid kan reinfeksjon forverre tilstanden. Forebygging er derfor avgjørende.</p>
+<p><strong>Med målrettede tiltak mot det luftbårne koronaviruset kan vi redusere covid-19 betydelig med lavterskeltiltak:</strong></p>
+<ul>
+<li>Informasjonskampanjer om risikoen for long covid (<a href="https://youtu.be/FlBfq22nxt8?feature=shared">som i Australia</a>) for å informere befolkningen om hvorfor det er så viktig å fortsette å bekjempe covid-19.</li>
+<li><a href="https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf">Forbedre ventilasjon</a> og luftfiltrering, spesielt i skoler og på sykehus. Dette gjøres i mange land, som Australia og USA, men ikke i Norge.</li>
+<li>UV-C-desinfisering av luft, som brukes for å <a href="https://www.cdc.gov/niosh/docs/2009-105/default.html">beskytte mot tuberkulose</a>.</li>
+<li>Anbefalinger om å bruke <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2-munnbind</a> innendørs og på kollektivtransport når det er mye smitte.</li>
+<li>Bevare dagens sykefraværsordning, slik at folk har råd til å bli hjemme mens de er syke og/eller smittsomme. En <a href="https://bmjopen.bmj.com/content/9/4/e027832">studie fra FHI</a> viser at rask sykemelding ved nye oppståtte luftveissymptomer er kostnadseffektivt fordi det hindrer videre smitte til kollegaer.</li>
+</ul>
+<p><em>Richard Aubrey White er forsker ved Folkehelseinstituttet, men skriver ikke på vegne av arbeidsgiveren.</em></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Fri Fagbevegelse</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/</guid>
+  <pubDate>Fri, 17 Jan 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The sick leave debate is based on wrong premises</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/top.png" class="img-fluid figure-img"></p>
+<figcaption>Published on <a href="https://frifagbevegelse.no/debatt/debatten-om-sykefravar-er-fort-pa-feil-premisser-6.490.1106983.a33706873a">Fri Fagbevegelse on January 18, 2025</a>.</figcaption>
+</figure>
+</div>
+<p>On “The Debate” on January 7, Erna Solberg asked: “It’s not just in Norway that [sick leave] increased, … but in most other countries, sick leave has gone down again now, but not here. Why?”</p>
+<p><strong>This question has dominated Norway for several months, but unfortunately, the debate is based on wrong premises.</strong></p>
+<p>There are three time periods relevant to the discussion about sick leave: 2019 (“before the pandemic”), 2020–2022 (“the pandemic years”), and 2023 (“after the pandemic”).</p>
+<p>During the pandemic years, each country had different measures, but afterwards, all European countries chose the same strategy: Ignore COVID and its long-term consequences.</p>
+<p>This means that Solberg’s <a href="https://www.ssb.no/arbeid-og-lonn/arbeidsmiljo-sykefravaer-og-arbeidskonflikter/artikler/norge-skiller-seg-ut-med-hoyt-sykefravaer-etter-pandemien">comparison</a> is in practice a hidden comparison of pandemic measures, since these varied significantly between countries. In 2023, there are no differences between countries’ strategies for the post-pandemic period.</p>
+<p><strong>This gives the impression that Norway is doing “poorly” compared to other countries, but this is a false conclusion. The reason is simple: Norway did an exceptionally good job during the pandemic.</strong></p>
+<p>Thus, other countries appear to have “improved” after the pandemic, when the truth is that their pandemic strategies were weak.</p>
+<p>In addition, when we compare sick leave in 2023 with 2022, we see that Norway is actually in the middle of the pack in Europe.</p>
+<p><strong>This shows that the hysteria around Norwegian sick leave is greatly exaggerated.</strong></p>
+<p><img src="https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/figure_1.png" class="img-fluid"></p>
+<p>To get a neutral assessment of today’s sick leave, we should compare 2023 with 2019, as 2019 represents a reference year that is not affected by the pandemic.</p>
+<p><strong>This analysis reveals two important findings:</strong></p>
+<p>Most European countries have higher sick leave in 2023 than in 2019, and Norway is completely average in this comparison.</p>
+<p>With this perspective, it becomes clear that the uproar around Norwegian sick leave is unfounded. Norway is doing well in a European perspective after the pandemic.</p>
+<p><img src="https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/figure_2.png" class="img-fluid"></p>
+<section id="why-is-sick-leave-higher-now-than-in-2019" class="level2">
+<h2 class="anchored" data-anchor-id="why-is-sick-leave-higher-now-than-in-2019">Why is sick leave higher now than in 2019?</h2>
+<p>From 2023, most European countries have had a “let it rip” strategy with free transmission, where many get infected with COVID-19 at least once a year.</p>
+<p>On January 10, 2025, researchers from the Norwegian Institute of Public Health (FHI) published <a href="https://www.sciencedirect.com/science/article/pii/S0264410X2401346X">a study</a> showing that among Norwegians with three vaccine doses, omicron infection had a 6 percent risk of long-lasting symptoms, known as “long COVID” or “long-term consequences of COVID-19.”</p>
+<p><strong>This means that <a href="https://archive.ph/Cm30Y">up to 250,000 Norwegians</a> can get long COVID each year. It is clear that this will increase sick leave – something we already see in the numbers.</strong></p>
+<p>Two <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">scientific</a> <a href="https://arbeidogvelferd.nav.no/journal/2024/2/m-1546/Hvorfor_er_sykefraværet_fortsatt_høyt_3–4_år_etter_starten_av_pandemien">articles</a> from two Norwegian research groups independently reached the same conclusion: A significant portion of the increase in Norwegian sick leave is due to diseases related to acute COVID-19 and long-term consequences of COVID-19. One study even found a temporal connection with coronavirus waves.</p>
+</section>
+<section id="but-what-about-the-rest-of-the-world-they-also-have-covid" class="level2">
+<h2 class="anchored" data-anchor-id="but-what-about-the-rest-of-the-world-they-also-have-covid">“But what about the rest of the world? They also have COVID!”</h2>
+<p>Yes, and we see similar trends there.</p>
+<p>From <a href="https://www.cis.es/en/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14085">2012</a> to <a href="https://www.cis.es/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14477">2019</a>, the proportion of adults in Spain who reported having a chronic health condition was stable at around 30 percent. When the survey resumed in early <a href="https://www.cis.es/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14619">2022</a>, this proportion had jumped to 42.3 percent. In the latest report from <a href="https://www.cis.es/detalle-ficha-estudio?origen=estudio&amp;idEstudio=14857">October 2024</a>, the proportion was up to 49.5 percent.</p>
+<p>In the <a href="https://fred.stlouisfed.org/series/LNU00074597">USA</a>, from 2015 to 2019, there were approximately 30 million adults with a disability. Early in 2022, the number was about 32 million, and now, in November 2024, it is 34.8 million.</p>
+<p>In the <a href="https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/economicinactivity/datasets/economicinactivitybyreasonseasonallyadjustedinac01sa">UK</a>, the number of adults who were out of work due to long-term illness was stable at around two million from 2013 to 2019. Late in 2021, it reached 2.4 million, and now it stands at 2.8 million.</p>
+<p><strong>This is of course only circumstantial evidence, but it is also exactly what we expect to see from millions of repeated coronavirus infections each year.</strong></p>
+</section>
+<section id="like-playing-russian-roulette-with-chronic-disease" class="level2">
+<h2 class="anchored" data-anchor-id="like-playing-russian-roulette-with-chronic-disease">Like playing Russian roulette with chronic disease</h2>
+<p><a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">COVID is more dangerous than you think</a>. Each reinfection is like playing Russian roulette with chronic disease. Sick leave is just the tip of the iceberg.</p>
+<p>Many with long COVID are still in full-time work, just with significantly reduced quality of life. In addition, there are different degrees of long COVID – for those with mild long COVID, reinfection can worsen the condition. Prevention is therefore crucial.</p>
+<p><strong>With targeted measures against the airborne coronavirus, we can significantly reduce COVID-19 with low-threshold measures:</strong></p>
+<ul>
+<li>Information campaigns about the risk of long COVID (<a href="https://youtu.be/FlBfq22nxt8?feature=shared">as in Australia</a>) to inform the population about why it is so important to continue fighting COVID-19.</li>
+<li><a href="https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf">Improve ventilation</a> and air filtration, especially in schools and hospitals. This is done in many countries, such as Australia and the USA, but not in Norway.</li>
+<li>UV-C air disinfection, which is used to <a href="https://www.cdc.gov/niosh/docs/2009-105/default.html">protect against tuberculosis</a>.</li>
+<li>Recommendations to use <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2 masks</a> indoors and on public transport when there is high transmission.</li>
+<li>Preserve today’s sick leave system, so people can afford to stay home while they are sick and/or infectious. A <a href="https://bmjopen.bmj.com/content/9/4/e027832">study from FHI</a> shows that rapid sick leave for newly emerging respiratory symptoms is cost-effective because it prevents further transmission to colleagues.</li>
+</ul>
+<p><em>Richard Aubrey White is a researcher at the Norwegian Institute of Public Health, but does not write on behalf of his employer.</em></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Fri Fagbevegelse</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/</guid>
+  <pubDate>Fri, 17 Jan 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Covid er farligere enn du tror</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-11-11-covid-er-farligere-enn-du-tror/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2024-11-11-covid-er-farligere-enn-du-tror/top.png" class="img-fluid figure-img"></p>
+<figcaption>Publisert på <a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">NRK den 11. november 2024</a>.</figcaption>
+</figure>
+</div>
+<p>Da pandemien traff oss i 2020 visste vi lite om covid-19 og viruset som forårsaker denne helt nye sykdommen. Nå vet vi mye mer.</p>
+<p>Det har vist seg at koronaviruset nesten utelukkende smitter <a href="https://www.thelancet.com/article/S0140-6736(21)00869-2/fulltext">gjennom luften</a>. Hvis du ikke puster inn viruset, blir du ikke smittet. Derfor merker mange covid som forkjølelse og hoste. Men etter at viruset er kommet inn gjennom luftveiene, sprer det seg videre til hele kroppen.</p>
+<p><strong>Hva koronaviruset gjør med kroppen</strong></p>
+<p>Et virus består nesten bare av innpakket arvemateriale. For at viruset skal kunne formere seg, må det komme seg inn i kroppens celler. Viruset «snylter» på cellene våre for å lage mange nye kopier av seg selv.</p>
+<blockquote class="blockquote">
+<p>«Skader kan ses på hjernen, også etter mild sykdom»</p>
+</blockquote>
+<p>Koronaviruset har en ganske unik evne til å komme seg inn i mange ulike celletyper, inkludert cellene som danner <a href="https://www.nature.com/articles/s41401-022-00998-0">innsiden av blodårene</a> og <a href="https://www.nature.com/articles/s41392-022-00919-x">immunceller</a>, og skade dem. Derfor anses ikke covid å være en luftveisinfeksjon, men en såkalt systemisk, multiorgan infeksjonssykdom</p>
+<p>Samtidig som vaksiner og tidligere smitte har gjort akutt covid mindre farlig, har bekymringene for virusets mange senskader økt.</p>
+<p>Forskning viser at risikoen for senskader øker <a href="https://www.cdc.gov/covid/long-term-effects/index.html">jo mer alvorlig</a> den akutte sykdommen er, men det er likevel flest tilfeller av senskader etter mild sykdom, fordi dette er så vanlig.</p>
+<p>Hos noen pasienter med long covid er det vist at viruset kan <a href="https://www.ncbi.nlm.nih.gov/pubmed/38663423">forbli inne i kroppens celler</a> og organer i lang tid. De klarer ikke helt å bli kvitt det. Da er det ikke overraskende at ny forskning finner at gener som <a href="https://www.medrxiv.org/content/10.1101/2024.10.07.24315052v1">styrer kroppens evne</a> til å bekjempe virus er knyttet til økt risiko for long covid.</p>
+<blockquote class="blockquote">
+<p>«Plagene rammer mange, og er ofte vedvarende»</p>
+</blockquote>
+<p>Det er også sett at mus som får injisert antistoffer fra folk med long covid, <a href="https://www.biorxiv.org/content/10.1101/2024.05.30.596590v1">får de symptomene</a> som pasientene har. Det er derfor på høy tid at vi slutter å psykologisere disse plagene.</p>
+<p><strong>Øker risikoen for mange helseplager</strong></p>
+<p>Det er rapportert skade på <a href="https://journals.sagepub.com/doi/full/10.1177/01410768231154703">ti ulike organsystemer</a> etter covid. Senskader etter covid er altså mer enn slitenhet og tung pust. Kognitive plager som «hjernetåke», nedsatt hukommelse, <a href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00013-0/fulltext">tempo</a> og konsentrasjonsevne, og redusert evne til <a href="https://www.sciencedirect.com/science/article/pii/S2666354624001352?via%3Dihub">sammensatte handlinger</a> er de symptomene som oftest rapporteres etter covid, og skader kan <a href="http://www.pnas.org/doi/10.1073/pnas.2217232120">ses på hjernen</a> ved MR, også etter mild sykdom.</p>
+<p>Det er bekymringsfullt at store studier, inkludert den norske Koronastudien, finner at disse plagene rammer mange, og er <a href="http://www.sciencedirect.com/science/article/pii/S1201971224003345">ofte vedvarende</a>.</p>
+<p>Risikoen for å få en ny, helt annen sykdom, som <a href="https://www.cdc.gov/mmwr/volumes/71/wr/mm7102e2.htm">diabetes type 1</a> og type 2 eller en <a href="http://fmch.bmj.com/content/11/4/e002456">infeksjonssykdom</a>, og <a href="https://www.nature.com/articles/s41591-024-02987-8">risikoen for å dø</a> av alle årsaker, er også økt i flere år etter covid. Covid er funnet å være en egen risikofaktor for <a href="https://www.nature.com/articles/s41467-024-46497-0">hjerte- og karsykdom</a>, også hos <a href="https://www.ahajournals.org/doi/10.1161/ATVBAHA.124.321001">tidligere friske</a>. Disse sykdommene er også forbundet med økt behov for helsetjenester.</p>
+<blockquote class="blockquote">
+<p>«Det er flest tilfeller av senskader etter mild sykdom»</p>
+</blockquote>
+<p><strong>Økt press på helsevesenet og trygdevesenet</strong></p>
+<p>Selv om risikoen for senskader ble noe lavere etter at omikron kom og folk ble vaksinert, ser man fortsatt i studier med kontrollgrupper at <a href="https://www.nejm.org/doi/full/10.1056/NEJMe2407575">3 prosent eller mer</a> får helseplager av varierende grad etter gjennomgått covid. Hver infeksjon innebærer en <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm#a8">økt risiko</a>.</p>
+<p>Så lenge vi ikke har mer effektive vaksiner eller medisinske behandlinger, kan vi derfor anta at antall nordmenn som har problemer med hukommelse, konsentrasjonsevne og evnen til å utføre komplekse oppgaver, vil øke i årene fremover. Med noen millioner koronainfeksjoner hvert år i Norge, utgjør dette et samfunnsproblem.</p>
+<p>Når så få tester seg, vet folk ofte ikke at de har hatt covid. Samtidig kan altså senskader dukke opp i form av annen sykdom, lenge etter at vi føler oss friske.</p>
+<p>I tillegg bruker allmennlegene i Norge et kodesystem for diagnoser som mangler en egen kode for senskader etter covid. Derfor vil mye av den økte syke- og dødeligheten som følger etter covid, bli registrert under helt andre diagnoser, som A04 (utmattelse) eller P29 (som inkluderer slitenhet). P29 sorterer under «lettere psykiske lidelser».</p>
+<p>Long covid er trolig årsak til et stort antall sykmeldinger med disse diagnosene, som vi vet er <a href="http://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">økt mye</a> de siste to år.</p>
+<blockquote class="blockquote">
+<p>«Det er rapportert skade på ti ulike organsystemer»</p>
+</blockquote>
+<p>Vi må forvente flere <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">sykmeldte</a>, et mer belastet helsevesen og kanskje høyere <a href="https://www.fhi.no/publ/2024/dodelighet-i-norge-under-koronapandemien-2020-2023/">overdødelighet</a> også i tiden fremover, slik vi har sett siden myndighetene sluttet å begrense smittespredningen i begynnelsen av 2022.</p>
+<p>Selv om antallet som blir alvorlig syke og dør av akutt covid synker, er altså sykdommen en driver bak denne utviklingen.</p>
+<p><strong>Hvordan forebygge?</strong></p>
+<p>For det første bør alle som kan ha covid, teste seg og unngå å smitte andre ved å holde seg hjemme hvis testen er positiv.</p>
+<p>Det er vist at <a href="https://www.nature.com/articles/s41467-024-45953-1">vaksinene beskytter</a> mot senskader, inkludert <a href="https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729">skader på hjerte-karsystemet</a>, og den økte risikoen for sykdom og død. Senskader kan ramme alle aldersgrupper.</p>
+<p>Vaksinene beskytter <a href="https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729">alle aldersgrupper</a>, har få <a href="https://www.sciencedirect.com/science/article/pii/S0264410X24001270">bivirkninger</a>, og er godkjent for alle over seks måneder. Derfor bør alle tilbys grunnvaksinasjon og boostere hver gang det kommer nye, oppdaterte covid-vaksiner etter tilpassede opplegg for ulike grupper, slik <a href="https://www.cdc.gov/vaccines/covid-19/downloads/COVID-19-immunization-schedule-ages-6months-older.pdf">amerikanske helsemyndigheter anbefaler</a>.</p>
+<blockquote class="blockquote">
+<p>«Det er på høy tid at vi slutter å psykologisere disse plagene»</p>
+</blockquote>
+<p>Men beskyttelsen fra vaksinasjon er ikke fullgod, og <a href="https://www.nejm.org/doi/full/10.1056/NEJMc2402779">effekten faller raskt</a> etter et halvt års tid. Den eneste sikre måten å forebygge senskader etter covid er per i dag å unngå å bli smittet.</p>
+<p>Siden covid smitter gjennom luftveiene, blir vi ikke smittet hvis det ikke er viruspartikler i luften vi puster inn. Et munnbind som effektivt hindrer partiklene å nå frem til nese og munn, gir derfor <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">god beskyttelse</a>.</p>
+<p>Det er lurt å bruke munnbind ved høy smitterisiko, som når det er mye smitte i omløp og man er innendørs med mange andre, eller om noen er forkjølet.</p>
+<p><a href="https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf">Bedring av inneklima</a> kan også redusere antall syke. Norge bør satse på å bedre ventilasjonen innendørs og installere luftrensere i <a href="https://www.epa.gov/indoor-air-quality-iaq/preventing-spread-respiratory-viruses-public-indoor-spaces">skoler, offentlige bygg og arbeidsplasser</a>, slik andre <a href="https://www2.education.vic.gov.au/pal/ventilation-air-purification/policy">land</a> gjør. Dette er vist å gi <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000043">færre infeksjoner</a> hos barnehage- og <a href="https://www.newscientist.com/article/2398713-schools-cut-covid-19-sick-days-by-20-per-cent-using-hepa-air-filters/">skolebarn</a>, redusert <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000043">sykefravær hos foreldre</a> og ansatte, og det kan <a href="https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-022-00356-1">spare penger</a> og øke livskvaliteten.</p>
+<p>Å få covid annethvert år er bedre for helsen din enn å få covid to ganger hvert år. For hvert smittetilfelle vi forebygger, er det også færre som smitter videre. Derfor er slike forebyggende, enkle smitteverntiltak mer effektive enn mange tror, selv om de ikke er perfekte. De kan trolig spare samfunnet for store summer.</p>
+<p><em>Richard Aubrey White er forsker ved Folkehelseinstituttet, men skriver ikke på vegne av arbeidsgiveren.</em></p>
+
+
+
+ ]]></description>
+  <category>Op-ed</category>
+  <category>NRK</category>
+  <guid>https://www.rwhite.no/post/2024-11-11-covid-er-farligere-enn-du-tror/</guid>
+  <pubDate>Sun, 10 Nov 2024 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>COVID is more dangerous than you think</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-11-11-covid-is-more-dangerous-than-you-think/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2024-11-11-covid-is-more-dangerous-than-you-think/top.png" class="img-fluid figure-img"></p>
+<figcaption>Published on <a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">NRK on November 11, 2024</a>.</figcaption>
+</figure>
+</div>
+<p>When the pandemic hit us in 2020, we knew little about COVID-19 and the virus that causes this entirely new disease. Now we know much more.</p>
+<p>It has been shown that the coronavirus spreads almost exclusively <a href="https://www.thelancet.com/article/S0140-6736(21)00869-2/fulltext">through the air</a>. If you don’t breathe in the virus, you won’t get infected. That’s why many people experience COVID as a cold and cough. But after the virus enters through the airways, it spreads throughout the entire body.</p>
+<p><strong>What the coronavirus does to the body</strong></p>
+<p>A virus consists of almost nothing but packaged genetic material. For the virus to reproduce, it must get inside the body’s cells. The virus “parasitizes” our cells to make many new copies of itself.</p>
+<blockquote class="blockquote">
+<p>“Damage can be seen in the brain, even after mild illness”</p>
+</blockquote>
+<p>The coronavirus has a rather unique ability to get into many different cell types, including cells that form the <a href="https://www.nature.com/articles/s41401-022-00998-0">lining of blood vessels</a> and <a href="https://www.nature.com/articles/s41392-022-00919-x">immune cells</a>, and damage them. Therefore, COVID is not considered a respiratory infection, but a so-called systemic, multi-organ infectious disease.</p>
+<p>While vaccines and previous infections have made acute COVID less dangerous, concerns about the virus’s many long-term consequences have increased.</p>
+<p>Research shows that the risk of long-term consequences increases <a href="https://www.cdc.gov/covid/long-term-effects/index.html">the more severe</a> the acute illness is, but there are still most cases of long-term consequences after mild illness, because this is so common.</p>
+<p>In some patients with long COVID, it has been shown that the virus can <a href="https://www.ncbi.nlm.nih.gov/pubmed/38663423">remain inside the body’s cells</a> and organs for a long time. They cannot completely get rid of it. It is therefore not surprising that new research finds that genes that <a href="https://www.medrxiv.org/content/10.1101/2024.10.07.24315052v1">control the body’s ability</a> to fight viruses are linked to increased risk of long COVID.</p>
+<blockquote class="blockquote">
+<p>“The problems affect many and are often persistent”</p>
+</blockquote>
+<p>It has also been seen that mice injected with antibodies from people with long COVID <a href="https://www.biorxiv.org/content/10.1101/2024.05.30.596590v1">develop the symptoms</a> that the patients have. It is therefore high time that we stop psychologizing these problems.</p>
+<p><strong>Increases the risk of many health problems</strong></p>
+<p>Damage to <a href="https://journals.sagepub.com/doi/full/10.1177/01410768231154703">ten different organ systems</a> has been reported after COVID. Long-term consequences after COVID are therefore more than fatigue and shortness of breath. Cognitive problems such as “brain fog,” reduced memory, <a href="https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(24)00013-0/fulltext">processing speed</a> and concentration ability, and reduced ability for <a href="https://www.sciencedirect.com/science/article/pii/S2666354624001352?via%3Dihub">complex actions</a> are the symptoms most commonly reported after COVID, and damage can <a href="http://www.pnas.org/doi/10.1073/pnas.2217232120">be seen in the brain</a> on MRI, even after mild illness.</p>
+<p>It is concerning that large studies, including the Norwegian Corona Study, find that these problems affect many and are <a href="http://www.sciencedirect.com/science/article/pii/S1201971224003345">often persistent</a>.</p>
+<p>The risk of getting a new, completely different disease, such as <a href="https://www.cdc.gov/mmwr/volumes/71/wr/mm7102e2.htm">type 1</a> and type 2 diabetes or an <a href="http://fmch.bmj.com/content/11/4/e002456">infectious disease</a>, and <a href="https://www.nature.com/articles/s41591-024-02987-8">the risk of dying</a> from all causes, is also increased for several years after COVID. COVID has been found to be an independent risk factor for <a href="https://www.nature.com/articles/s41467-024-46497-0">cardiovascular disease</a>, even in <a href="https://www.ahajournals.org/doi/10.1161/ATVBAHA.124.321001">previously healthy people</a>. These diseases are also associated with increased need for health services.</p>
+<blockquote class="blockquote">
+<p>“There are most cases of long-term consequences after mild illness”</p>
+</blockquote>
+<p><strong>Increased pressure on the healthcare system and social security system</strong></p>
+<p>Even though the risk of long-term consequences became somewhat lower after omicron arrived and people got vaccinated, studies with control groups still show that <a href="https://www.nejm.org/doi/full/10.1056/NEJMe2407575">3 percent or more</a> develop health problems of varying degrees after having COVID. Each infection involves an <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm#a8">increased risk</a>.</p>
+<p>As long as we don’t have more effective vaccines or medical treatments, we can therefore assume that the number of Norwegians who have problems with memory, concentration ability, and the ability to perform complex tasks will increase in the years ahead. With several million coronavirus infections each year in Norway, this constitutes a societal problem.</p>
+<p>When so few test themselves, people often don’t know they have had COVID. At the same time, long-term consequences can appear in the form of other diseases, long after we feel healthy.</p>
+<p>In addition, general practitioners in Norway use a diagnostic coding system that lacks a specific code for long-term consequences after COVID. Therefore, much of the increased illness and mortality that follows after COVID will be registered under completely different diagnoses, such as A04 (exhaustion) or P29 (which includes fatigue). P29 is classified under “minor mental disorders.”</p>
+<p>Long COVID is likely the cause of a large number of sick leave cases with these diagnoses, which we know have <a href="http://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">increased significantly</a> in the last two years.</p>
+<blockquote class="blockquote">
+<p>“Damage to ten different organ systems has been reported”</p>
+</blockquote>
+<p>We must expect more <a href="https://archpublichealth.biomedcentral.com/articles/10.1186/s13690-024-01411-4">sick leave</a>, a more burdened healthcare system, and perhaps higher <a href="https://www.fhi.no/publ/2024/dodelighet-i-norge-under-koronapandemien-2020-2023/">excess mortality</a> also in the time ahead, as we have seen since the authorities stopped limiting the spread of infection in early 2022.</p>
+<p>Even though the number of people who become seriously ill and die from acute COVID is declining, the disease is thus a driver behind this development.</p>
+<p><strong>How to prevent?</strong></p>
+<p>First, everyone who might have COVID should test themselves and avoid infecting others by staying home if the test is positive.</p>
+<p>It has been shown that <a href="https://www.nature.com/articles/s41467-024-45953-1">vaccines protect</a> against long-term consequences, including <a href="https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729">damage to the cardiovascular system</a>, and the increased risk of disease and death. Long-term consequences can affect all age groups.</p>
+<p>Vaccines protect <a href="https://academic.oup.com/eurheartjsupp/article/25/Supplement_A/A42/7036729">all age groups</a>, have few <a href="https://www.sciencedirect.com/science/article/pii/S0264410X24001270">side effects</a>, and are approved for everyone over six months. Therefore, everyone should be offered basic vaccination and boosters each time new, updated COVID vaccines become available through adapted programs for different groups, as <a href="https://www.cdc.gov/vaccines/covid-19/downloads/COVID-19-immunization-schedule-ages-6months-older.pdf">American health authorities recommend</a>.</p>
+<blockquote class="blockquote">
+<p>“It is high time that we stop psychologizing these problems”</p>
+</blockquote>
+<p>But protection from vaccination is not complete, and <a href="https://www.nejm.org/doi/full/10.1056/NEJMc2402779">the effect drops rapidly</a> after six months. The only sure way to prevent long-term consequences after COVID is currently to avoid getting infected.</p>
+<p>Since COVID spreads through the airways, we won’t get infected if there are no virus particles in the air we breathe. A face mask that effectively prevents particles from reaching the nose and mouth therefore provides <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">good protection</a>.</p>
+<p>It is smart to use face masks at high infection risk, such as when there is a lot of infection in circulation and you are indoors with many others, or if someone has a cold.</p>
+<p><a href="https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf">Improving indoor air quality</a> can also reduce the number of sick people. Norway should invest in improving indoor ventilation and installing air purifiers in <a href="https://www.epa.gov/indoor-air-quality-iaq/preventing-spread-respiratory-viruses-public-indoor-spaces">schools, public buildings, and workplaces</a>, as other <a href="https://www2.education.vic.gov.au/pal/ventilation-air-purification/policy">countries</a> do. This has been shown to result in <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000043">fewer infections</a> among kindergarten and <a href="https://www.newscientist.com/article/2398713-schools-cut-covid-19-sick-days-by-20-per-cent-using-hepa-air-filters/">school children</a>, reduced <a href="https://www.sciencedirect.com/science/article/pii/S2950362024000043">sick leave among parents</a> and employees, and it can <a href="https://resource-allocation.biomedcentral.com/articles/10.1186/s12962-022-00356-1">save money</a> and increase quality of life.</p>
+<p>Getting COVID every other year is better for your health than getting COVID twice every year. For every infection case we prevent, there are also fewer who spread it further. Therefore, such preventive, simple infection control measures are more effective than many think, even though they are not perfect. They can probably save society large sums.</p>
+<p><em>Richard Aubrey White is a researcher at the Norwegian Institute of Public Health, but does not write on behalf of his employer.</em></p>
+
+
+
+ ]]></description>
+  <category>Op-ed</category>
+  <category>NRK</category>
+  <guid>https://www.rwhite.no/post/2024-11-11-covid-is-more-dangerous-than-you-think/</guid>
+  <pubDate>Sun, 10 Nov 2024 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Senfølger av covid-19 er vanlige og ofte vedvarende</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.png" class="img-fluid figure-img"></p>
+<figcaption>Publisert i <a href="https://www.aftenposten.no/meninger/debatt/i/63X530/fhi-tar-feil-senfoelger-av-covid-19-er-vanlige-og-ofte-vedvarende">Aftenposten den 2. oktober 2024</a>.</figcaption>
+</figure>
+</div>
+<p>I en artikkel i <em>Aftenposten</em> 27. september hevder professor og direktør Preben Aavitsland ved Folkehelseinstituttet (FHI) at senfølger av covid-19 er «<a href="https://www.aftenposten.no/norge/i/3MmpAL/trenger-vi-aa-teste-oss-for-korona">sjeldne og går ofte over etter hvert</a>».</p>
+<p>Dette er feil — senfølger av covid-19 er vanlige og ofte vedvarende.</p>
+<p>Aavitslands påstand om varigheten kommer trolig fra <a href="https://www.nature.com/articles/s41467-022-35240-2">FHIs studie</a>, som kun analyserer antall fastlegebesøk etter koronasmitte. Hans tolkning av at færre besøk betyr at senfølgene har gått over, <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00744-X/fulltext">er feilaktig</a>. Folk slutter å gå til legen når legen ikke kan hjelpe dem, selv om senfølgene vedvarer.</p>
+<p><strong>Øker den samlede risikoen</strong></p>
+<p>Koronastudien, som ser på helse i stedet for fastlegebesøk, viste nylig at covid-19 førte til 6 prosent <a href="https://www.sciencedirect.com/science/article/pii/S2666354624001352">risiko for hukommelsesproblemer</a> mer enn ett år senere hos nordmenn uten immunitet. Vaksiner og immunitet er cirka <a href="https://www.nature.com/articles/s41591-024-03173-6">50 prosent effektive</a> mot senfølger, så risikoen kan reduseres til 3 prosent for de fleste. Dette gjelder pr. infeksjon.</p>
+<p>Den samlede risikoen etter to infeksjoner er da 5,9 prosent, etter fire infeksjoner 11,5 prosent, etter seks infeksjoner 16,7 prosent.</p>
+<p>Dette er ett eksempel, men flere studier viser det samme resultatet — <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm">gjentatte infeksjoner øker den samlede risikoen</a> til et uakseptabelt nivå. Dette må ses i konteksten av dagens «fri smitte»-strategi, der folk i gjennomsnitt blir smittet én gang i året.</p>
+<p>Det er ikke overraskende at økningen i sykefravær er drevet av tre diagnosekoder (A04, P02 og P29), som alle er <a href="https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982">forbundet med senfølger</a>.</p>
+<p><strong>Bagatelliserer byrden</strong></p>
+<p><a href="https://www.regjeringen.no/no/dokumentarkiv/regjeringen-stoere/andre-dokumenter/hod/2023/regjeringens-strategi-og-beredskapsplan-for-handteringen-av-covid-19-pandemien/id2987438/">«Fri smitte»-strategien</a> var støttet av <a href="https://www.fhi.no/publ/statusrapporter/risikovurdering-for-luftveisinfeksjoner/">FHIs risikovurdering</a>, som kun så på akutt covid-19. FHI har aldri publisert en risikovurdering av strategien som nevner senfølger.</p>
+<p>I lys av det høye sykefraværet, <a href="https://www.dagogtid.no/samfunn/kan-det-tenkast-at-sjukefravaret-aukar-fordi-flei-6.129.36438.ae444a490a">trolig på grunn av senfølger</a>, har de som var ansvarlige for strategien og de manglende risikovurderingene, gode insentiver til å bagatellisere byrden senfølger utgjør for samfunnet.</p>
+<p>Vi må forebygge covid-19-smitte og senfølger. Dette kan vi gjøre ved <a href="https://www.science.org/doi/full/10.1126/science.adp2241">å forbedre ventilasjonen</a>, <a href="https://www.science.org/doi/full/10.1126/science.adp2241">bruke luftrensere</a> og anbefale bruk av <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2-åndedrettsvern</a> når smitten er høy.</p>
+<p><em>Richard Aubrey White har en doktorgrad i biostatistikk fra Harvard University. White er forsker ved Folkehelseinstituttet, men uttaler seg ikke på vegne av FHI.</em></p>
+
+
+
+ ]]></description>
+  <category>Aftenposten</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/</guid>
+  <pubDate>Tue, 01 Oct 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Long Covid is common and often permanent</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-10-02-long-covid-is-common-and-often-permanent/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2024-10-02-long-covid-is-common-and-often-permanent/2024-10-02-long-covid-is-common-and-often-permanent.png" class="img-fluid figure-img"></p>
+<figcaption>Published in <a href="https://www.aftenposten.no/meninger/debatt/i/63X530/fhi-tar-feil-senfoelger-av-covid-19-er-vanlige-og-ofte-vedvarende">Aftenposten the 2nd of October 2024</a>.</figcaption>
+</figure>
+</div>
+<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<p>In an article in <em>Aftenposten</em> on September 27, Professor and Director Preben Aavitsland at the Norwegian Institute of Public Health (NIPH) claims that long covid is “<a href="https://www.aftenposten.no/norge/i/3MmpAL/trenger-vi-aa-teste-oss-for-korona">rare and often resolves over time</a>.”</p>
+<p>This is incorrect — long covid is common and often permanent.</p>
+<p>Aavitsland’s claim about duration likely stems from <a href="https://www.nature.com/articles/s41467-022-35240-2">NIPH’s study</a>, which only analyzes the number of general practitioner visits after COVID-19 infection. His interpretation — that fewer visits means the long covid is cured — is <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00744-X/fulltext">incorrect</a>. People stop going to the doctor when the doctor can’t help them, even if the symptoms persist.</p>
+<p><strong>Cumulative Risk Increases</strong></p>
+<p>A health-based COVID-19 study — which looked at health status rather than doctor visits — recently showed that COVID-19 led to a 6 percent <a href="https://www.sciencedirect.com/science/article/pii/S2666354624001352">risk of memory problems</a> more than a year later in Norwegians without prior immunity. Vaccination and prior immunity are about <a href="https://www.nature.com/articles/s41591-024-03173-6">50 percent effective</a> at preventing long covid, so the risk can be reduced to around 3 percent per infection for most people.</p>
+<p>The cumulative risk after two infections is then 5.9 percent; after four infections, 11.5 percent; after six infections, 16.7 percent.</p>
+<p>This is one example, but several studies show the same result — <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2023001/article/00015-eng.htm">repeated infections increase cumulative risk</a> to an unacceptable level. This must be seen in the context of today’s mass-infection strategy, where people are infected on average once a year.</p>
+<p>It is no surprise that the rise in sick leave is driven by three diagnostic codes (A04, P02, and P29), all of which are <a href="https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982">associated with long covid</a>.</p>
+<p><strong>Downplaying the Burden</strong></p>
+<p>The <a href="https://www.regjeringen.no/no/dokumentarkiv/regjeringen-stoere/andre-dokumenter/hod/2023/regjeringens-strategi-og-beredskapsplan-for-handteringen-av-covid-19-pandemien/id2987438/">mass-infection strategy</a> was supported by <a href="https://www.fhi.no/publ/statusrapporter/risikovurdering-for-luftveisinfeksjoner/">NIPH’s risk assessments</a>, which only considered acute COVID-19. The NIPH has never published a risk assessment of the strategy that includes long covid.</p>
+<p>In light of the high rates of sick leave, <a href="https://www.dagogtid.no/samfunn/kan-det-tenkast-at-sjukefravaret-aukar-fordi-flei-6.129.36438.ae444a490a">likely due to long-term effects</a>, those responsible for the strategy — and for the missing risk assessments — have strong incentives to downplay the burden long covid places on society.</p>
+<p>We must prevent COVID-19 infections and long covid. This can be done by <a href="https://www.science.org/doi/full/10.1126/science.adp2241">improving ventilation</a>, <a href="https://www.science.org/doi/full/10.1126/science.adp2241">using air purifiers</a>, and recommending the use of <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2 respirators</a> when transmission is high.</p>
+<p><em>Richard Aubrey White holds a Ph.D.&nbsp;in biostatistics from Harvard University. White is a researcher at the Norwegian Institute of Public Health, but does not speak on behalf of the NIPH.</em></p>
+
+
+
+ ]]></description>
+  <category>Aftenposten</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2024-10-02-long-covid-is-common-and-often-permanent/</guid>
+  <pubDate>Tue, 01 Oct 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Forebygg covid-19, forebygg sykefravær</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg" class="img-fluid figure-img"></p>
+<figcaption>Publisert i <a href="https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982&amp;utm_medium=sharing">Dag of Tid den 27. september 2024</a>.</figcaption>
+</figure>
+</div>
+<p>I innlegget «<a href="https://www.dagogtid.no/ordskifte/ikke-et-sporsmal-om-moral-men-om-god-behandling-6.130.36585.05be45aa98">Ikke et spørsmål om moral, men om god behandling</a>» i <em>Dag og Tid</em> 20. september hevder Marit Hermansen, sjeflege i Nav, at «det spiller ikke så stor rolle hva som er årsaken til at man opplever lettere psykiske lidelser. Enten årsaken er korona eller noe annet, vil svært mange tjene helsemessig på å være i tilpasset aktivitet og arbeid.»</p>
+<p>Dette er feil.</p>
+<p>Litt bakgrunn: Sykefraværet har økt i flere diagnosekoder sammenlignet med 2019. Navs sykefraværsregister har ingen kode for senfølger av covid-19, dermed er personer med senfølger spredt over flere koder basert på symptomer. Senfølger av covid-19 kan påvirke <a href="https://www.nature.com/articles/s41591-024-03173-6">nesten alle organsystemer</a>, inkludert hjernen. De største <a href="https://www.nav.no/no/nav-og-samfunn/statistikk/sykefravar-statistikk/sykefravar">økningene</a> tilhører kodene A04 (utmattelse), P02 (psykisk ubalanse situasjonsbetinget) og P29 (psykiske symptomer/plager). Utmattelse har en tydelig tilknytning til senfølger av covid-19, likevel fokuserer narrativet kun på «lettere psykiske lidelser» (P02 og P29). Nav-forskerne <a href="https://www.nav.no/no/nav-og-samfunn/kunnskap/analyser-fra-nav/arbeid-og-velferd/arbeid-og-velferd/arbeid-og-velferd-nr.2-2023/sykefravaer-etter-covid-19.sammenheng-mellom-covid-19-og-trotthet-og-slapphet">Moberg og Kabashi</a> har funnet at sykefravær på grunn av akutt covid-19 var assosiert med 25 % og 18 % høyere sykefravær for henholdsvis P02 og P29 i løpet av de påfølgende 12 ukene.</p>
+<p>Ifølge WHO gir <a href="https://www.who.int/europe/news-room/fact-sheets/item/post-covid-19-condition">1 av 10 koronainfeksjoner senfølger</a>, og studier anslår at vaksiner kun er ca. <a href="https://www.nature.com/articles/s41591-024-03173-6">50 % effektive</a> i å forebygge disse. Med dagens «fri smitte»-strategi har Norge hatt 5 millioner infeksjoner hvert år siden 2022. Ut fra dette kan vi forvente ca. 250 000 nye tilfeller med senfølger hvert år – også i 2024 og 2025. Den tyske helseministeren prof. Lauterbach uttalte <a href="https://x.com/BMG_Bund/status/1836054517273477631">den 17. september 2024</a>: «Senfølger av covid-19 er ikke borte, og de vil ikke forsvinne. Det finnes ofte ingen kur for de som er rammet – og antallet rammede vokser.»</p>
+<p>Det er gode bevis for at en stor del av økningen i sykefraværet skyldes senfølger av covid-19.</p>
+<p>Nå til Hermansens sak: God behandling må tilpasses sykdommens årsak. Dersom en person er utbrent på grunn av livs- eller arbeidsforhold, kan aktivitet hjelpe. Men hvis noen feildiagnostiseres som utbrent, mens de faktisk lider av senfølger av covid-19, kan aktivitet uten tilstrekkelig hensyn til anstrengelsesutløst sykdomsfølelse/symptomforverring (PEM) <a href="https://www.nature.com/articles/s41467-023-44432-3">potensielt være skadelig</a>.</p>
+<p>Vi bør forebygge sykdom, ikke bare behandle den. Dersom økningen i sykefravær skyldes senfølger av covid-19, må vi forebygge covid-19. Dette kan gjøres ved å <a href="https://www.science.org/doi/full/10.1126/science.adp2241">forbedre ventilasjon, øke luftrensing</a> og anbefale bruk av <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2-åndedrettsvern</a> i offentlige rom når det er mye smitte. Disse tiltakene er effektive og påvirker ikke dagliglivet nevneverdig. Vi kan redusere selve problemet, og folk kan slippe å bli syke – det vi mangler, er vilje.</p>
+<p>Til slutt handler det om ansvar. Siden 2022 har landet, under Arbeiderpartiet og Senterpartiets regjering, ført en «fri smitte»-politikk uten en risikovurdering av senfølger av covid-19. Rundt 250 000 nye nordmenn er rammet av senfølger hvert år. Helseminister Vestre har videreført denne linjen, uten å ha evaluert konsekvensene med hensyn til senfølger, og har i stedet lagt skylden for det økte sykefraværet på at «pandemien har ført til at vi har litt annen atferd» (God morgen Norge, 17. september).</p>
+<p>Samtidig har regjeringens <a href="https://www.aftenposten.no/meninger/debatt/i/y6z1Xr/budsjettkutt-truer-folkehelsen">store kutt i FHIs budsjett i 2023</a>, som førte til <a href="https://www.dagensmedisin.no/fhi-folkehelseinstituttet-inneklima/fhi-kutter-inneklima-fagmiljo/531987">nedleggelsen</a> av FHIs fagmiljø for inneklima, svekket Norges evne til å lage lover om tekniske krav til inneklima/byggverk <a href="https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf">som kan beskytte oss mot luftbårne virus som korona</a>. Dette er et svik mot folkehelsa og en interessekonflikt for regjeringen – å anerkjenne senfølger som et samfunnsproblem ville rette oppmerksomheten mot «fri smitte»-politikken og de ressursene som regjeringen har fjernet.</p>
+<p>Dersom økningen i sykefravær skyldes senfølger av covid-19, må dette tvinge regjeringen til å stå til ansvar for sin post-pandemiske håndtering og de påfølgende helsemessige og økonomiske konsekvensene.</p>
+<p>Så ja, årsaken spiller en stor rolle.</p>
+<p><em>Richard Aubrey White har ein doktorgrad i biostatistikk frå Harvard University. Han er forskar ved FHI, men uttalar seg ikkje på vegner av instituttet.</em></p>
+
+
+
+ ]]></description>
+  <category>Dag og Tid</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/</guid>
+  <pubDate>Thu, 26 Sep 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Prevent COVID-19, prevent sick leave</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-09-27-prevent-covid-19-prevent-sick-leave/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.rwhite.no/post/2024-09-27-prevent-covid-19-prevent-sick-leave/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg" class="img-fluid figure-img"></p>
+<figcaption>Published in <a href="https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982&amp;utm_medium=sharing">Dag of Tid the 27th of September 2024</a>.</figcaption>
+</figure>
+</div>
+<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<p>In the article “<a href="https://www.dagogtid.no/ordskifte/ikke-et-sporsmal-om-moral-men-om-god-behandling-6.130.36585.05be45aa98">Not a Question of Morality, but of Good Treatment</a>” in <em>Dag og Tid</em> on September 20, Marit Hermansen, Chief Medical Officer at NAV, claims that “the cause of mild mental health issues doesn’t play a large role. Whether the cause is COVID-19 or something else, many will benefit health-wise from being in adapted activity and work.”</p>
+<p>This is incorrect.</p>
+<p>A bit of background: Sick leave has increased in several diagnostic codes compared to 2019. NAV’s sick leave registry has no code for Long COVID, meaning that people with Long COVID are spread across several codes based on symptoms. Long COVID can affect <a href="https://www.nature.com/articles/s41591-024-03173-6">nearly all organ systems</a>, including the brain. The largest <a href="https://www.nav.no/no/nav-og-samfunn/statistikk/sykefravar-statistikk/sykefravar">increases</a> are in the codes A04 (fatigue), P02 (acute stress reaction), and P29 (psychological symptom/complaint other). Fatigue is clearly linked to Long COVID, yet the narrative focuses only on “mild mental health issues” (P02 and P29). NAV researchers <a href="https://www.nav.no/no/nav-og-samfunn/kunnskap/analyser-fra-nav/arbeid-og-velferd/arbeid-og-velferd/arbeid-og-velferd-nr.2-2023/sykefravaer-etter-covid-19.sammenheng-mellom-covid-19-og-trotthet-og-slapphet">Moberg and Kabashi</a> found that sick leave due to acute COVID-19 was associated with 25% and 18% higher sick leave for P02 and P29, respectively, in the following 12 weeks.</p>
+<p>According to the WHO, <a href="https://www.who.int/europe/news-room/fact-sheets/item/post-covid-19-condition">1 in 10 COVID-19 infections lead to Long COVID</a>, and studies estimate that vaccines are only about <a href="https://www.nature.com/articles/s41591-024-03173-6">50 % effective</a> in preventing it. With the current “mass infection” strategy, Norway has had 5 million COVID-19 infections every year since 2022. Based on this, we can expect around 250,000 new cases of Long COVID each year — including in 2024 and 2025. The German Health Minister, Professor Lauterbach stated on <a href="https://x.com/BMG_Bund/status/1836054517273477631">September 17, 2024</a>: “Long COVID is not gone, and it will not disappear. There is often no cure for those affected — and the number of those affected is growing.”</p>
+<p>There is strong evidence that a large part of the increase in sick leave is due to Long COVID.</p>
+<p>Now, to Hermansen’s point: Good treatment must be adapted to the cause of the illness. If a person is burned out due to life or work circumstances, activity can help. But if someone is misdiagnosed as burned out, when they are actually suffering from Long COVID, then activity without adequate consideration of post-exertional malaise (PEM) can <a href="https://www.nature.com/articles/s41467-023-44432-3">potentially be harmful</a>.</p>
+<p>We should prevent illness, not just treatment. If the increase in sick leave is due to Long COVID, then we must prevent COVID-19. This can be done by <a href="https://www.science.org/doi/full/10.1126/science.adp2241">improving ventilation, using air purifiers</a>, and recommending the use of <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">FFP2 respirators</a> in public spaces when there is high transmission. These protective measures are effective and do not significantly affect daily life. We can reduce the problem itself, and people can avoid getting sick — what we lack is the will to do so.</p>
+<p>In the end, it’s about culpability. Since 2022, the country, under the Labour Party and Centre Party government, has pursed a “mass infection” strategy, without a risk assessment of Long COVID. Around 250,000 new Norwegians are affected by Long COVID every year. Health Minister Vestre has continued this policy, without evaluating the consequences regarding Long COVID, and has instead blamed the increased sick leave on “the pandemic [causing] us to behave a little differently” (Good Morning Norway, September 17).</p>
+<p>At the same time, the government’s <a href="https://www.aftenposten.no/meninger/debatt/i/y6z1Xr/budsjettkutt-truer-folkehelsen">significant cuts to the Norwegian Insitute of Public Health’s budget in 2023</a>, which led to the <a href="https://www.dagensmedisin.no/fhi-folkehelseinstituttet-inneklima/fhi-kutter-inneklima-fagmiljo/531987">closure</a> of the center for indoor air quality, have weakened Norway’s ability to legislate technical requirements for indoor air quality <a href="https://eprints.qut.edu.au/247686/1/MORAWSKA_Mandating_IAQ_for_public_buildings.pdf">that can protect us against airborne viruses like SARS-CoV-2 (the virus that causes COVID-19)</a>. This is a betrayal of public health and a conflict of interest for the government — acknowledging Long COVID as a societal problem would draw attention to the “mass infection” strategy and the resources the government has removed.</p>
+<p>If the increase in sick leave is due to Long COVID, then the government must be forced to take responsibility for its post-pandemic management and the subsequent health and economic consequences.</p>
+<p>So yes, the cause does play a large role.</p>
+<p><em>Richard Aubrey White holds a PhD in biostatistics from Harvard University. He is a researcher at the Norwegian Institute of Public Health, but does not speak on behalf of the institute.</em></p>
+
+
+
+ ]]></description>
+  <category>Dag og Tid</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2024-09-27-prevent-covid-19-prevent-sick-leave/</guid>
+  <pubDate>Thu, 26 Sep 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Angrepet mot folkehelsa fortsetter</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.fvn.no/mening/debattinnlegg/i/kwv8Ok/angrepet-mot-folkehelsa-fortsetter"><img src="https://www.rwhite.no/post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg" class="img-fluid figure-img"></a></p>
+<figcaption>Publisert i Fædrelandsvennen den 13. august 2024.</figcaption>
+</figure>
+</div>
+<p><em>Richard Aubrey White har doktorgrad i biostatistikk fra Harvard University og er forsker ved FHI, men uttaler seg ikke på vegne av arbeidsgiveren.</em></p>
+<p>Preben Aavitsland begynte sine angrep på bruk av munnbind den 30. januar 2020, hvor han kalte bruken «en kulturell greie.» Den 2. august i år fortsatte han i Fædrelandsvennen, ved å hevde at munnbind er en «<a href="https://www.fvn.no/mening/ukeslutt/i/wgr4X1/en-lykkeamulett-mot-korona">lykkeamulett mot korona</a>.» Selv om <a href="https://www.bmj.com/content/386/bmj-2023-078918">FHIs nye studie</a> viser at munnbind reduserer luftveisinfeksjoner med 29 pst., er det ikke nok til å tilfredsstille Aavitsland om at de virker.</p>
+<p>FHI-studien har tre feil som undergraver Aavitslands argumenter.</p>
+<p>For det første ble deltakerne bedt om å bruke munnbind i det offentlige rom i to uker, og så rapportere symptomene sine. Anta at perioden varte fra 14. til 27. februar: For en som har blitt smittet med covid-19 tar det mellom <a href="https://assets.publishing.service.gov.uk/media/641c7a9b32a8e0000cfa9327/COVID-19-infectiousness-_asymptomatic-transmission.pdf">to og seks dager</a> før man viser symptomer, som betyr at en person som ble smittet 13. februar trolig ikke vil vise symptomer før 18. februar (godt inne i studieperioden). Denne feilen påvirker den første halvdelen av studieperioden, noe som gjør at munnbind fremstår som mindre effektive enn de faktisk er. De fleste studiene ignorerer den første perioden for å unngå slike skjeve data, men ikke FHI-studien.</p>
+<p>Det blir som å utføre en graviditetstest den 28. februar for et par som har ubeskyttet sex hver dag fra 8. til 13. februar, og deretter blir bedt om å bruke kondom fra 14. til 27. februar. Da vil kondomer heller ikke virke særlig effektive.</p>
+<p>For det andre ble ikke deltakerne bedt om å bruke munnbind på jobb. Munnbind, som kondomer og sikkerhetsbelter, er bare effektive mens de brukes.</p>
+<p>For det tredje <a href="https://www.betterhealth.vic.gov.au/covid-19/improving-ventilation-stop-spread-covid-19?utm_source=social&amp;utm_medium=facebookinstagram&amp;utm_campaign=COVID&amp;utm_content=Ventilation">spres korona som røyk gjennom luften</a>. Kirurgiske munnbind er ikke egnet for å beskytte mot luftbåren smitte, som er grunnen til at mange helsemyndigheter <a href="https://www.betterhealth.vic.gov.au/covid-19/face-masks-covid-19">anbefaler FFP2-åndedrettsvern eller bedre</a>.</p>
+<p>Med disse feilene er det overraskende at FHI fant at kirurgiske munnbind allikevel reduserte risikoen med 29 pst. Fjern den første uken med skjev data og be deltakerne bruke FFP2-åndedrettsvern (også på jobb), så vil man stå igjen med enda sterkere resultater. Noe en <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">nylig gjennomgang</a> konkluderte med.</p>
+<p>Aavitsland nevner hudirritasjon og hodepine som ulempene ved munnbind, men ikke <a href="https://covidforeningen.no/Om-Long-Covid">ulempene</a> ved senfølger av covid-19, som kardiovaskulære komplikasjoner, kognitive problemer, hjernetåke og utmattelse. Senfølger er vanlige (men <a href="https://www.nrk.no/buskerud/norsk-covidforening-om-mulige-senfolger-av-korona_-_-folk-taler-a-hore-sannheten-1.16703052">ignorert av norske helsemyndigheter</a>); blant 20-64 åringene er legebesøk for utmattelse <a href="https://www.nrk.no/buskerud/flere-unge-dode-av-sykdom_-forskere-slar-alarm-1.16926584">75 pst. høyere i 2024 enn i 2019</a>.</p>
+<p>Det er ironisk at Aavitsland frykter at munnbind vil oppmuntre syke mennesker til å gå på jobb og smitte andre. En av de beste metodene for å holde folk hjemme mens de er smittsomme, er å bruke hurtigtester for å identifisere riktig isolasjonsperiode (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9981266/">noen er smittsomme etter at symptomene har sluttet</a>), noe han <a href="https://www.vg.no/nyheter/innenriks/i/8JK78r/fhi-om-coronatesting-jeg-gidder-ikke">i VG</a> har hevdet er unødvendig.</p>
+<p>Hvorfor jobber Aavitsland så hardt for å undergrave folkehelsestrategier som er vanlige utenfor Norge? Er det fordi Norge har vært på villspor så lenge at det er vanskelig å snu uten å miste ansikt?</p>
+
+
+
+ ]]></description>
+  <category>Fædrelandsvennen</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/</guid>
+  <pubDate>Mon, 12 Aug 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The attack on public health continues</title>
+  <dc:creator>Richard Aubrey White</dc:creator>
+  <link>https://www.rwhite.no/post/2024-08-13-the-attack-on-public-health-continues/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.fvn.no/mening/debattinnlegg/i/kwv8Ok/angrepet-mot-folkehelsa-fortsetter"><img src="https://www.rwhite.no/post/2024-08-13-the-attack-on-public-health-continues/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg" class="img-fluid figure-img"></a></p>
+<figcaption>Published in Fædrelandsvennen on August 13, 2024.</figcaption>
+</figure>
+</div>
+<p><em>Richard Aubrey White has a PhD in biostatistics from Harvard University and is a researcher at FHI, but does not speak on behalf of his employer.</em></p>
+<p>Preben Aavitsland began his attacks on the use of face masks on January 30, 2020, where he called the use “a cultural thing.” On August 2 this year, he continued in Fædrelandsvennen, by claiming that face masks are a “<a href="https://www.fvn.no/mening/ukeslutt/i/wgr4X1/en-lykkeamulett-mot-korona">lucky charm against corona</a>.” Even though <a href="https://www.bmj.com/content/386/bmj-2023-078918">FHI’s new study</a> shows that face masks reduce respiratory infections by 29 percent, it is not enough to satisfy Aavitsland that they work.</p>
+<p>The FHI study has three flaws that undermine Aavitsland’s arguments.</p>
+<p>First, participants were asked to use face masks in public spaces for two weeks, and then report their symptoms. Assume that the period lasted from February 14 to 27: For someone who has been infected with COVID-19, it takes between <a href="https://assets.publishing.service.gov.uk/media/641c7a9b32a8e0000cfa9327/COVID-19-infectiousness-_asymptomatic-transmission.pdf">two and six days</a> before they show symptoms, which means that a person who was infected on February 13 probably won’t show symptoms until February 18 (well into the study period). This error affects the first half of the study period, making face masks appear less effective than they actually are. Most studies ignore the first period to avoid such biased data, but not the FHI study.</p>
+<p>It’s like performing a pregnancy test on February 28 for a couple who has unprotected sex every day from February 8 to 13, and then is asked to use condoms from February 14 to 27. Then condoms won’t appear particularly effective either.</p>
+<p>Second, participants were not asked to use face masks at work. Face masks, like condoms and seat belts, are only effective while being used.</p>
+<p>Third, <a href="https://www.betterhealth.vic.gov.au/covid-19/improving-ventilation-stop-spread-covid-19?utm_source=social&amp;utm_medium=facebookinstagram&amp;utm_campaign=COVID&amp;utm_content=Ventilation">corona spreads like smoke through the air</a>. Surgical masks are not suitable for protecting against airborne transmission, which is why many health authorities <a href="https://www.betterhealth.vic.gov.au/covid-19/face-masks-covid-19">recommend FFP2 respirators or better</a>.</p>
+<p>With these flaws, it is surprising that FHI found that surgical masks still reduced risk by 29 percent. Remove the first week with biased data and ask participants to use FFP2 respirators (also at work), and you will be left with even stronger results. Something a <a href="https://journals.asm.org/doi/10.1128/cmr.00124-23">recent review</a> concluded.</p>
+<p>Aavitsland mentions skin irritation and headache as the disadvantages of face masks, but not the <a href="https://covidforeningen.no/Om-Long-Covid">disadvantages</a> of long-term consequences of COVID-19, such as cardiovascular complications, cognitive problems, brain fog, and fatigue. Long-term consequences are common (but <a href="https://www.nrk.no/buskerud/norsk-covidforening-om-mulige-senfolger-av-korona_-_-folk-taler-a-hore-sannheten-1.16703052">ignored by Norwegian health authorities</a>); among 20-64 year-olds, doctor visits for exhaustion are <a href="https://www.nrk.no/buskerud/flere-unge-dode-av-sykdom_-forskere-slar-alarm-1.16926584">75 percent higher in 2024 than in 2019</a>.</p>
+<p>It is ironic that Aavitsland fears that face masks will encourage sick people to go to work and infect others. One of the best methods for keeping people home while they are infectious is to use rapid tests to identify the correct isolation period (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9981266/">some are infectious after symptoms have ended</a>), which he <a href="https://www.vg.no/nyheter/innenriks/i/8JK78r/fhi-om-coronatesting-jeg-gidder-ikke">in VG</a> has claimed is unnecessary.</p>
+<p>Why does Aavitsland work so hard to undermine public health strategies that are common outside Norway? Is it because Norway has been on the wrong track for so long that it is difficult to turn around without losing face?</p>
+
+
+
+ ]]></description>
+  <category>Fædrelandsvennen</category>
+  <category>Op-ed</category>
+  <guid>https://www.rwhite.no/post/2024-08-13-the-attack-on-public-health-continues/</guid>
+  <pubDate>Mon, 12 Aug 2024 22:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
