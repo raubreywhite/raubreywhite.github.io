@@ -10,7 +10,7 @@
 <atom:link href="https://www.rwhite.no/writing.xml" rel="self" type="application/rss+xml"/>
 <description>A collection of thoughts.
 </description>
-<generator>quarto-1.7.32</generator>
+<generator>quarto-1.7.33</generator>
 <lastBuildDate>Sun, 13 Jul 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Random intercepts do not fix confounding</title>
