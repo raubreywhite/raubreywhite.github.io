@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.rwhite.no/writing.html</loc>
-    <lastmod>2025-07-26T21:12:12.211Z</lastmod>
+    <loc>https://www.rwhite.no/index.html</loc>
+    <lastmod>2025-11-22T19:31:44.893Z</lastmod>
   </url>
   <url>
-    <loc>https://www.rwhite.no/index.html</loc>
-    <lastmod>2025-11-22T19:13:53.076Z</lastmod>
+    <loc>https://www.rwhite.no/CLAUDE.html</loc>
+    <lastmod>2025-07-14T16:15:26.604Z</lastmod>
   </url>
   <url>
     <loc>https://www.rwhite.no/publications.html</loc>
@@ -149,7 +149,7 @@
     <lastmod>2025-07-14T13:15:20.377Z</lastmod>
   </url>
   <url>
-    <loc>https://www.rwhite.no/CLAUDE.html</loc>
-    <lastmod>2025-07-14T16:15:26.604Z</lastmod>
+    <loc>https://www.rwhite.no/writing.html</loc>
+    <lastmod>2025-07-26T21:12:12.211Z</lastmod>
   </url>
 </urlset>
