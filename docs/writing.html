@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A collection of thoughts.">
+
+<title>Writing &amp; Media – White, Ph.D.</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c683f82f87b16d4ed8c622f86d71d682.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="White, Ph.D." href="writing.xml" data-external="1"></head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">White, Ph.D.</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./presentations.html"> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-packages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">R packages</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r-packages">    
+        <li>
+    <a class="dropdown-item" href="./org/">
+ <span class="dropdown-text">org</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./plnr/">
+ <span class="dropdown-text">plnr</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./writing.html" aria-current="page"> 
+<span class="menu-text">Writing &amp; Media</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/raubreywhite"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.x.com/raubreywhite"> <i class="bi bi-twitter-x" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(33)</span></div><div class="category" data-category="QWZ0ZW5wb3N0ZW4=">Aftenposten <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVu">Bladet Vesterålen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGFnJTIwb2clMjBUaWQ=">Dag og Tid <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RiVDMyVBNmRyZWxhbmRzdmVubmVu">Fædrelandsvennen <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Rm9yc2tlcnNvbmVu">Forskersonen <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RnJpJTIwRmFnYmV2ZWdlbHNl">Fri Fagbevegelse <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SW4lMjB0aGUlMjBtZWRpYQ==">In the media <span class="quarto-category-count">(8)</span></div><div class="category" data-category="TmV0dGF2aXNlbg==">Nettavisen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TlJL">NRK <span class="quarto-category-count">(7)</span></div><div class="category" data-category="T3AtZWQ=">Op-ed <span class="quarto-category-count">(16)</span></div><div class="category" data-category="VXRkYW5uaW5nc255dHQ=">Utdanningsnytt <span class="quarto-category-count">(3)</span></div></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Writing &amp; Media</h1></header>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
+
+
+</header>
+
+
+<div id="listing-sample-listings" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-2">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1752444000000" data-listing-file-modified-sort="1766555768180" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964">
+<a href="./post/2025-07-14-random-intercepts-do-not-fix-confounding/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Random intercepts do not fix confounding
+</h5>
+<div class="card-text listing-description delink">
+<p>A common misconception in epidemiology is that random intercepts can fix confounding. This post demonstrates through simulation that this is not the case, and provides…</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jul 14, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="SW4lMjB0aGUlMjBtZWRpYSUyQ05SSw==" data-listing-date-sort="1749765600000" data-listing-file-modified-sort="1766555768376" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="110">
+<a href="./post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Eksplosiv økning: Barn sliter med hukommelsen
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Nordmenn går stadig oftere til legen fordi de sliter med hukommelsen. Blant barn i alderen 5–14 år har det vært nær en tredobling i antall legebesøk de siste årene.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jun 13, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="T3AtZWQlMkNGb3Jza2Vyc29uZW4=" data-listing-date-sort="1746828000000" data-listing-file-modified-sort="1766555768011" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="863">
+<a href="./post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Løfterik behandling av long covid uten bevis
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Forskersonen</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Vi må prioritere forebygging av long covid, akkurat som vi gjør med alle andre sykdommer, samtidig som vi utvikler bedre behandling.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 10, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="T3AtZWQlMkNGb3Jza2Vyc29uZW4=" data-listing-date-sort="1746828000000" data-listing-file-modified-sort="1766555768093" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="973">
+<a href="./post/2025-05-10-promising-long-covid-treatment-without-evidence/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Promising long COVID treatment without evidence
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Forskersonen</i>
+</div>
+<div class="card-text listing-description delink">
+<p>We must prioritize prevention of long COVID, just as we do with all other diseases, while developing better treatment.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 10, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="T3AtZWQlMkNVdGRhbm5pbmdzbnl0dA==" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1766555767978" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="603">
+<a href="./post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Vi må beskytte lærerne mot long covid
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Utdanningsnytt</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Heldigvis kan luftbårne virus forebygges ved å rense inneluften.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Apr 22, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="T3AtZWQlMkNVdGRhbm5pbmdzbnl0dA==" data-listing-date-sort="1745272800000" data-listing-file-modified-sort="1766555768157" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
+<a href="./post/2025-04-22-we-must-protect-teachers-from-long-covid/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+We must protect teachers from long COVID
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Utdanningsnytt</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Fortunately, airborne viruses can be prevented by purifying indoor air.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Apr 22, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-date-sort="1742857200000" data-listing-file-modified-sort="1766555767839" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="715">
+<a href="./post/2025-03-25-all-cause-mortality-in-norway/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+All-cause mortality in Norway
+</h5>
+<div class="card-text listing-description delink">
+<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 25, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVuJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1742684400000" data-listing-file-modified-sort="1766555768317" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="8">
+<a href="./post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+De fleste tenker ikke på covid lenger - men for Gro-Rita har viruset endret alt
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • Bladet Vesterålen</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Pandemien roet seg. Bort med munnbind, én meter-avstand og covid-tester. Men for noen tok det aldri slutt. Noen ble ikke friske.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 23, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="VXRkYW5uaW5nc255dHQlMkNJbiUyMHRoZSUyMG1lZGlh" data-listing-date-sort="1741734000000" data-listing-file-modified-sort="1766555768257" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<a href="./post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Stadig flere barn til legen med utmattelse etter pandemien
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • Utdanningsnytt</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Vi ser at barn i aldersgruppen 5 til 14 år stadig oftere kontakter fastlegen på grunn av utmattelse. Etter 2022 har tallet steget med 31 prosent, sier forsker Richard Aubrey…</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 12, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="TmV0dGF2aXNlbiUyQ0luJTIwdGhlJTIwbWVkaWE=" data-listing-date-sort="1737414000000" data-listing-file-modified-sort="1766555768357" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
+<a href="./post/2025-01-21-dramatiske-korona-funn-store-morketall/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Dramatiske korona-funn: – Store mørketall
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • Nettavisen</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Ifølge den nye studien er forekomsten av ME og utmattelsessyndrom 15 ganger høyere enn før pandemien.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 21, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="10" data-categories="RnJpJTIwRmFnYmV2ZWdlbHNlJTJDT3AtZWQ=" data-listing-date-sort="1737154800000" data-listing-file-modified-sort="1766555767949" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="758">
+<a href="./post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Debatten om sykefravær er ført på feil premisser
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Fri Fagbevegelse</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Covid er farligere enn du tror. Hver reinfeksjon er som å spille russisk rulett med kronisk sykdom. Sykefravær er bare toppen av isfjellet.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 18, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="11" data-categories="RnJpJTIwRmFnYmV2ZWdlbHNlJTJDT3AtZWQ=" data-listing-date-sort="1737154800000" data-listing-file-modified-sort="1766555768068" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="839">
+<a href="./post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The sick leave debate is based on wrong premises
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Fri Fagbevegelse</i>
+</div>
+<div class="card-text listing-description delink">
+<p>COVID is more dangerous than you think. Each reinfection is like playing Russian roulette with chronic disease. Sick leave is just the tip of the iceberg.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 18, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="12" data-categories="T3AtZWQlMkNOUks=" data-listing-date-sort="1731279600000" data-listing-file-modified-sort="1766555767808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1023">
+<a href="./post/2024-11-11-covid-er-farligere-enn-du-tror/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Covid er farligere enn du tror
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Det er stor grunn til å være bekymret for senskadene av covid.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 11, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="T3AtZWQlMkNOUks=" data-listing-date-sort="1731279600000" data-listing-file-modified-sort="1766555768029" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1133">
+<a href="./post/2024-11-11-covid-is-more-dangerous-than-you-think/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+COVID is more dangerous than you think
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>There is good reason to be concerned about the long-term consequences of COVID.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 11, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="14" data-categories="QWZ0ZW5wb3N0ZW4lMkNPcC1lZA==" data-listing-date-sort="1727820000000" data-listing-file-modified-sort="1766555767724" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="328">
+<a href="./post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Senfølger av covid-19 er vanlige og ofte vedvarende
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Aftenposten</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Det er ikke overraskende at økningen i sykefravær drives av diagnoser som alle er forbundet med senfølger etter koronasmitte.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Oct 2, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="15" data-categories="QWZ0ZW5wb3N0ZW4lMkNPcC1lZA==" data-listing-date-sort="1727820000000" data-listing-file-modified-sort="1766555767790" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="392">
+<a href="./post/2024-10-02-long-covid-is-common-and-often-permanent/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Long Covid is common and often permanent
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Aftenposten</i>
+</div>
+<div class="card-text listing-description delink">
+<p>It is not surprising that the increase in sick leave is driven by diagnoses that are all associated with long covid.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Oct 2, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="16" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1727388000000" data-listing-file-modified-sort="1766555767692" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="614">
+<a href="./post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Forebygg covid-19, forebygg sykefravær
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Dag og Tid</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Det er gode bevis for at en stor del av økningen i sykefraværet skyldes senfølger av covid-19.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Sep 27, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="17" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1727388000000" data-listing-file-modified-sort="1766555767838" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="700">
+<a href="./post/2024-09-27-prevent-covid-19-prevent-sick-leave/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Prevent COVID-19, prevent sick leave
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Dag og Tid</i>
+</div>
+<div class="card-text listing-description delink">
+<p>There is good evidence that a large proportion of the increase in sick leave is due to long covid.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Sep 27, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="18" data-categories="RiVDMyVBNmRyZWxhbmRzdmVubmVuJTJDT3AtZWQ=" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1766555767628" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="488">
+<a href="./post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Angrepet mot folkehelsa fortsetter
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Fædrelandsvennen</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Preben Aavitsland begynte sine angrep på bruk av munnbind den 30. januar 2020, hvor han kalte bruken «en kulturell greie.»</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 13, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="19" data-categories="RiVDMyVBNmRyZWxhbmRzdmVubmVuJTJDT3AtZWQ=" data-listing-date-sort="1723500000000" data-listing-file-modified-sort="1766555768134" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="518">
+<a href="./post/2024-08-13-the-attack-on-public-health-continues/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+The attack on public health continues
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Fædrelandsvennen</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Preben Aavitsland began his attacks on the use of face masks on January 30, 2020, where he called the use “a cultural thing.”</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 13, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="20" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1719525600000" data-listing-file-modified-sort="1766555768208" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="116">
+<a href="./post/2024-06-28-flere-unge-dode-av-sykdom/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Flere unge døde av sykdom: Forskere slår alarm
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Sykdom tok uvanlig mange unge menneskeliv i fjor. Forskere frykter at senfølger av covid-19 er årsaken.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jun 28, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="21" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1766555767596" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="609">
+<a href="./post/2024-05-03-tendensios-statistikk-om-senfolger/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tendensiøs statistikk om senfølger
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Dag og tid</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Myndighetene må anerkjenne at senfølger eksisterer og utgjør et samfunnsproblem.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 3, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="22" data-categories="RGFnJTIwb2clMjBUaWQlMkNPcC1lZA==" data-listing-date-sort="1714687200000" data-listing-file-modified-sort="1766555768111" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="670">
+<a href="./post/2024-05-03-biased-statistics-about-long-term-consequences-of-covid-19/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Biased statistics about long-term consequences of COVID-19
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>Op-ed • Dag og Tid</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Authorities must acknowledge that long-term consequences of COVID-19 exist and constitute a societal problem.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+May 3, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="23" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1709420400000" data-listing-file-modified-sort="1766555768230" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="135">
+<a href="./post/2024-03-03-reagerer-pa-hoye-dodstall-blant-unge/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Reagerer på høye dødstall blant unge
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>For første gang på minst 20 år er det registrert overdødelighet blant unge i Norge. Det viser beregninger forskere har utført. – Jeg har aldri sett noe lignende, sier…</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Mar 3, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="24" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1766555767651" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="117">
+<a href="./post/2024-01-04-rekordmange-til-lege-med-utmattelse/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Slår alarm: Rekordmange til lege med utmattelse
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>Tallet på pasienter som oppsøker lege med utmattelse, har eksplodert under pandemien. Nå slår en FHI-forsker alarm.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="25" data-categories="TlJLJTJDSW4lMjB0aGUlMjBtZWRpYQ==" data-listing-date-sort="1704322800000" data-listing-file-modified-sort="1766555768172" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="147">
+<a href="./post/2024-01-04-record-numbers-to-doctor-with-exhaustion/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sounding alarm: Record numbers to doctor with exhaustion
+</h5>
+<div class="card-subtitle listing-subtitle">
+<i>In the media • NRK</i>
+</div>
+<div class="card-text listing-description delink">
+<p>The number of patients seeking medical attention for exhaustion has exploded during the pandemic. Now an FHI researcher sounds the alarm.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 4, 2024
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="26" data-listing-date-sort="1693000800000" data-listing-file-modified-sort="1766555767506" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="729">
+<a href="./post/2023-08-26-all-cause-mortality-in-norway/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+All-cause mortality in Norway
+</h5>
+<div class="card-text listing-description delink">
+<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 26, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="27" data-listing-date-sort="1681941600000" data-listing-file-modified-sort="1766555767504" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="417">
+<a href="./post/2023-04-20-mice-with-interaction-terms/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Multivariate imputation by chained equations (MICE) with interaction terms
+</h5>
+<div class="card-text listing-description delink">
+<p>Examining how MICE works with interaction terms.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Apr 20, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="28" data-listing-date-sort="1681423200000" data-listing-file-modified-sort="1766555767474" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
+<a href="./post/2023-04-14-sparse-inference/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sparse inference
+</h5>
+<div class="card-text listing-description delink">
+<p>Examining sparse inference using both frequentist and bayesian methodology.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Apr 14, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="29" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1766555767464" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="738">
+<a href="./post/2023-02-23-sampling-bias/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sampling bias
+</h5>
+<div class="card-text listing-description delink">
+<p>Examining sampling bias in simulated data.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Feb 23, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="30" data-listing-date-sort="1670886000000" data-listing-file-modified-sort="1766555767454" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="704">
+<a href="./post/2022-12-13-all-cause-mortality-in-norway/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+All-Cause Mortality in Norway
+</h5>
+<div class="card-text listing-description delink">
+<p>Examining all-cause mortality in Norway using publically available mortality data from SSB.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Dec 13, 2022
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="31" data-listing-date-sort="1658095200000" data-listing-file-modified-sort="1766555767448" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="630">
+<a href="./post/2022-07-18-custom-airflow-docker-operator/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Custom Airflow Docker operator (poor-man’s Kubernetes)
+</h5>
+<div class="card-text listing-description delink">
+<p>Airflow is a platform to programmatically author, schedule, and monitor workflows data. Operators are the main building blocks that encapsulate logic to do a unit of work.…</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jul 18, 2022
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="32" data-listing-date-sort="1637190000000" data-listing-file-modified-sort="1766555767406" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
+<a href="./post/2021-11-18-poster-prize-for-sykdomspulsen/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sykdomspulsen receives prize for best poster
+</h5>
+<div class="card-text listing-description delink">
+<p>Sykdomspulsen received the prize for best poster at Helse- og Kvalitetsregisterkonferansen 2021.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 18, 2021
+</div>
+</div>
+</div>
+</div></a>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<p><a href="writing.xml" class="btn btn-outline-primary btn-sm">RSS Feed</a></p>
+
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.rwhite\.no");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
