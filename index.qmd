@@ -18,49 +18,76 @@ title-block-banner: false
 
 :::{#hero-heading}
 
-Richard is an applied infectious diseases statistician based in Oslo, Norway. He is currently employed as the project manager for the Norwegian Syndromic Surveillance System ([NorSySS](https://www.github.com/norsyss/)), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities, based in the Norwegian Institute of Public Health (Folkehelseinstituttet). 
+**Richard is an applied statistician with a Ph.D. in biostatistics from Harvard University.**
+
+As a senior researcher, he leads the Norwegian Syndromic Surveillance System ([NorSySS](https://www.github.com/norsyss)) at the Norwegian Institute of Public Health, developing real-time systems to monitor population health and detect outbreaks. NorSySS conducts over one million automated analyses daily, tracking more than 100 disease syndromes across Norway’s five million residents.
+
+His work focuses on syndromic surveillance, signal detection algorithms, and the design of real-time reporting systems for public health operations. Combining statistical modeling with operational epidemiology, he builds infrastructure that supports health authorities nationwide.
+
+From 2015 to 2022, he served as statistical lead for the Norwegian Mortality Monitoring System ([NorMOMO](https://www.fhi.no/en/archive/covid-19-archive/koronaviruset---arkiverte-meldinger/normomo-put-on-hold/)), conducting weekly analyses of all-cause mortality data for Norway and [contributing](https://github.com/EuroMOMOnetwork/MOMO/blob/dbb3632827e037fb469223fec3fa2aa079d5d0b6/DESCRIPTION#L6) to the European monitoring system for total mortality ([EuroMOMO](https://www.euromomo.eu)).
 
 His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in [Mozambique](resources/mozambique.webm), and maternal health in [Palestine](articles/2021-isbeih.pdf).
 
+*Contact: hello@rwhite.no*
+
 :::
 
-## Contact
+## Education
 
-hello@rwhite.no
+**Harvard University, USA**  
 
-## Education / Statistics
+- 2011--2012 / Ph.D. in Biostatistics  
+- 2009--2011 / M.A. in Biostatistics (Frank Knox fellowship)  
 
-**Harvard University, USA**
+**University of Wollongong, Australia**  
 
-2011--2012 / Ph.D. in Biostatistics
+- 2005--2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours)  
 
-2009--2011 / M.A. in Biostatistics (Frank Knox fellowship)
+**University of Bergen, Norway**  
 
-**University of Wollongong, Australia**
+- 2022--2023 / One year program (årsstudium) in Nordic languages and literature
 
-2005--2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours) 
+## Key Publications
 
-## Education / Humanities
+```{r echo=FALSE, warning=FALSE, results = "asis"}
+d <- knitcitations::read.bibtex("publications.bib")
+# d <- d[[c("White2024", "norgaard2021real")]]
+d <- d[[c("white2026mortality", "white2025mortality", "White2024", "wickremesekera2022srilanka")]]
+print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
+```
 
-**University of Bergen, Norway**
+## Key Projects
 
-2022--2023 / One year program (Årsstudium) in Nordic languages and literature
+### Norwegian Syndromic Surveillance System (NorSySS)
+*Senior Researcher/Project Manager, 2023--now*
 
-## Skills
+Leading Norway's national syndromic surveillance system that monitors 100+ disease syndromes through automated analysis of GP consultations. The system processes over 1 million analyses daily, providing real-time disease monitoring across all Norwegian municipalities and alerting health authorities to potential outbreaks. Promoted from Researcher to Senior Researcher in May 2025.
 
--   R (20+ years)
--   STATA (15+ years)
--   Docker (10+ years)
--   CI/CD (10+ years)
--   Python (1 year)
--   Kubernetes (1 year)
+### Sykdomspulsen: Real-Time Disease Surveillance  
+*Researcher/Technical Lead, 2019--2023*
 
-## Languages
+Built and led an 8-person team developing Norway's [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) comprehensive disease surveillance platform. Created automated statistical analyses for mortality monitoring (as part of [EuroMOMO](https://euromomo.eu)), COVID-19 surveillance, and 80+ infectious disease syndromes, generating 1000+ daily reports for health authorities.
 
--   English (Fluent)
--   Norwegian (B2)
+### Core Surveillance 9 (cs9) Framework
+*Senior Researcher/Lead Developer, 2014--now*
 
-## Scientific production
+Developing [cs9](https://www.csids.no/cs9/), an open-source R framework that serves as the foundational infrastructure for large-scale disease surveillance systems. This comprehensive platform enables rapid deployment of automated surveillance capabilities and serves as the technical backbone powering both NorSySS and [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) Sykdomspulsen as independent surveillance implementations. Promoted from Researcher to Senior Researcher in May 2025.
+
+## Technical Skills
+
+**Programming & Analysis**
+
+R (20+ years) • STATA (15+ years) • Python (1 year)
+
+**Infrastructure & DevOps**
+
+Docker (10+ years) • CI/CD (10+ years) • Kubernetes (1 year)
+
+**Languages**
+
+English (Fluent) • Norwegian (B2)
+
+## Scientific Production
 
 ```{r echo=FALSE, warning=FALSE, include=FALSE}
 library(data.table)
@@ -70,130 +97,85 @@ d <- knitcitations::read.bibtex("publications.bib")
 prof <- scholar::get_profile("75oKEWoAAAAJ")
 citations <- formatC(prof$total_cites, big.mark = " ", format = "f", digits = 0)
 h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
-
-downloads <- dlstats::cran_stats(
-  c(
-    "attrib",
-    "covidnor",
-    "csalert",
-    "csdata",
-    "csmaps",
-    "cstidy",
-    "cstime",
-    "csutil",
-    "org",
-    "plnr",
-    "spread"
-  )
-)
-setDT(downloads)
-setorder(downloads, package, -start)
-downloads[, n := 1:.N, by=.(package)]
-total_downloads <- downloads[,.(downloads = sum(downloads)), by=.(package)]
-downloads[, N := .N, by=.(package)] # for new packages
-downloads[N==1, n := 2] # for new packages
-downloads <- downloads[
-  n %in% 2:7,
-  .(
-    downloads_monthly = round(mean(downloads))
-  ),
-  keyby=.(package)
-  ]
-downloads[total_downloads, on="package", downloads_total := downloads]
-downloads[, formatted := glue::glue(
-  "{a} downloads/month from", 
-  a = csstyle::format_num_as_nor_num_0(signif(downloads_monthly, 1))
-  )]
 ```
 
--   `r length(d)` [scientific articles](publications.html):
-    -   `r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
-    -   `r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
--   12 R packages as first author/maintainer:
-    -   [attrib](https://www.csids.no/attrib/) (`r downloads[package=="attrib"]$formatted` [cran](https://cloud.r-project.org/web/packages/attrib/index.html))
-    -   [csalert](https://www.csids.no/csalert/) (`r downloads[package=="csalert"]$formatted` [cran](https://cloud.r-project.org/web/packages/csalert/index.html))
-    -   [csdata](https://www.csids.no/csdata/) (`r downloads[package=="csdata"]$formatted` [cran](https://cloud.r-project.org/web/packages/csdata/index.html))
-    -   [csdb](https://www.csids.no/csdb/)
-    -   [csmaps](https://www.csids.no/csmaps/) (`r downloads[package=="csmaps"]$formatted` [cran](https://cloud.r-project.org/web/packages/csmaps/index.html))
-    -   [csstyle](https://www.csids.no/csstyle/)
-    -   [cstidy](https://www.csids.no/cstidy/) (`r downloads[package=="cstidy"]$formatted` [cran](https://cloud.r-project.org/web/packages/cstidy/index.html))
-    -   [csutil](https://www.csids.no/csutil/) (`r downloads[package=="csutil"]$formatted` [cran](https://cloud.r-project.org/web/packages/csutil/index.html))
-    -   [org](https://www.csids.no/org/) (`r downloads[package=="org"]$formatted` [cran](https://cloud.r-project.org/web/packages/org/index.html))
-    -   [plnr](https://www.csids.no/plnr/) (`r downloads[package=="plnr"]$formatted` [cran](https://cloud.r-project.org/web/packages/plnr/index.html)) 
-    -   [spread](https://docs.sykdomspulsen.no/spread/) (`r downloads[package=="spread"]$formatted` [cran](https://cloud.r-project.org/web/packages/spread/index.html))
-    -   [cs9](https://www.csids.no/cs9/)
--   3 R packages as co-author:
-    -   [cstime](https://www.csids.no/cstime/) (`r downloads[package=="cstime"]$formatted` [cran](https://cloud.r-project.org/web/packages/cstime/index.html))
-    -   [MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
-    -   [nowcast](https://www.csids.no/nowcast/)
+**Scientific articles**
+
+`r length(d)` [publications](publications.html) • 
+`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao) • 
+`r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
+
+**R packages on CRAN**
+
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/attrib&query=%24%5B0%5D.downloads&label=attrib&suffix=%20downloads&color=blue)](https://www.csids.no/attrib/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csalert&query=%24%5B0%5D.downloads&label=csalert&suffix=%20downloads&color=blue)](https://www.csids.no/csalert/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csdata&query=%24%5B0%5D.downloads&label=csdata&suffix=%20downloads&color=blue)](https://www.csids.no/csdata/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csdb&query=%24%5B0%5D.downloads&label=csdb&suffix=%20downloads&color=blue)](https://www.csids.no/csdb/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csmaps&query=%24%5B0%5D.downloads&label=csmaps&suffix=%20downloads&color=blue)](https://www.csids.no/csmaps/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csstyle&query=%24%5B0%5D.downloads&label=csstyle&suffix=%20downloads&color=blue)](https://www.csids.no/csstyle/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/cstidy&query=%24%5B0%5D.downloads&label=cstidy&suffix=%20downloads&color=blue)](https://www.csids.no/cstidy/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-02-07:2054-02-14/cstime&query=%24%5B0%5D.downloads&label=cstime&suffix=%20downloads&color=blue)](https://www.csids.no/cstime/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csutil&query=%24%5B0%5D.downloads&label=csutil&suffix=%20downloads&color=blue)](https://www.csids.no/csutil/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/org&query=%24%5B0%5D.downloads&label=org&suffix=%20downloads&color=blue)](https://www.rwhite.no/org/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/plnr&query=%24%5B0%5D.downloads&label=plnr&suffix=%20downloads&color=blue)](https://www.rwhite.no/plnr/)
+
+**R packages on GitHub**
+
+[cs9](https://www.csids.no/cs9/) • 
+[MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
+
+<hr style="border: none; border-top: 5px solid #dc3545; width: 60%; margin: 4rem auto 1.5rem auto;">
+
+# Professional Experience
 
 ## Norwegian Institute of Public Health (NIPH/FHI)
 
-### Project Manager --- Norwegian Syndromic Surveillance System (NorSySS)
-
+### Senior Researcher/Project Manager --- Norwegian Syndromic Surveillance System (NorSySS)
 *02.2023--now / Oslo, Norway*
 
--   Project manager for [NorSySS](https://www.github.com/norsyss/), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities. Complex statistical analyses are automatically run for all locations in Norway, producing reports and alerting various stakeholders.
--   Technology in use includes:
-    -   Kubernetes.
-    -   Docker/Podman.
-    -   CI/CD (Jenkins/GoCD/ArgoCD).
-    -   Apache Airflow.
-    -   [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/)
--   Surveils 100+ syndromes.
+- Promoted from Researcher to Senior Researcher in May 2025.
+- Project manager for [NorSySS](https://www.github.com/norsyss/), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities.
+- Complex statistical analyses automatically run for all locations in Norway, producing reports and alerting various stakeholders.
+- **Technology stack**: R, Kubernetes, Docker/Podman, CI/CD (Jenkins/GoCD/ArgoCD), Apache Airflow, [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/).
+- **Scale**: Surveils 100+ syndromes across all Norwegian municipalities.
 - Organized the 2023 Northern European Symposium on Automated Surveillance.
 
-### Technical Lead --- Sykdomspulsen: Real-Time Surveillance
-
+### Researcher/Technical Lead --- Sykdomspulsen: Real-Time Surveillance
 *07.2019--01.2023 / Oslo, Norway*
 
--   Tech lead for Sykdomspulsen (8-person team), a real-time analysis and disease surveillance system. Complex statistical analyses were automatically run for all locations in Norway, producing reports and alerting various stakeholders.
--   Responsible for training, mentoring, supervision, and quality assurance of statistical methods and code.
--   Technology in use included:
-    -   Kubernetes.
-    -   Docker/Podman.
-    -   CI/CD (Jenkins/GoCD/ArgoCD).
-    -   Apache Airflow.
-    -   R/Python.
--   Surveilled:
-    -   All cause/cause-specific/attributable mortality (part of the [EuroMOMO](https://euromomo.eu) network).
-    -   Vaccine associated mortality.
-    -   Covid-19.
-    -   Influenza.
-    -   Tuberculosis.
-    -   IPD.
-    -   Meningococcal disease.
-    -   Pertussis.
-    -   Antibiotic use and healthcare associated infection (NOIS-PIAH).
-    -   Gastritis.
-    -   80+ syndromes via the Norwegian Syndromic Surveillance System (NorSySS).
--   Interactive website for municipal health authorities (Sykdomspulsen for kommunehelsetjenesten).
--   APIs for internal/external use.
--   1 000 000+ analyses per day.
--   1 000+ automatic reports (pdf/excel/email/sms) per day.
+- Tech lead for [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) Sykdomspulsen (8-person team), a real-time analysis and disease surveillance system.
+- Complex statistical analyses automatically run for all locations in Norway, producing reports and alerting various stakeholders.
+- Responsible for training, mentoring, supervision, and quality assurance of statistical methods and code.
+- **Technology stack**: R, Kubernetes, Docker/Podman, CI/CD (Jenkins/GoCD/ArgoCD), Apache Airflow, [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/).
+- **Surveillance areas**: 
+  - Mortality monitoring: All cause/cause-specific/attributable mortality (part of [EuroMOMO](https://euromomo.eu) network), vaccine associated mortality.
+  - Infectious diseases: COVID-19, influenza, tuberculosis, IPD, meningococcal disease, pertussis.
+  - Additional monitoring: Antibiotic use, gastritis, 80+ syndromes via NorSySS.
+- **Scale**: 1,000,000+ analyses per day, 1,000+ automatic reports (PDF/Excel/email/SMS) per day.
+- Interactive website for municipal health authorities and APIs for internal/external use.
 
-### Infectious Diseases Statistician --- Infectious Disease Epidemiology
-
+### Researcher --- Infectious Disease Epidemiology
 *06.2014--06.2019 / Oslo, Norway*
 
--   Advised outbreak teams and researchers in statistical concepts, methods, and programming.
--   Statistical supervisor for five fellows of the European Programme for Intervention Epidemiology Training ([EPIET](https://www.ecdc.europa.eu/en/epiet-euphem)) and nine PhD students:
-    -   Answered statistical questions.
-    -   Ensured that the statistical methods chosen by them in their projects were correct.
-    -   Mentoring and supervising them in statistics.
-    -   Quality assurance of statistical analyses in peer-reviewed publications.
--   Developed statistical protocol for a 60 000-person longitudinal study regarding Norwegian water usage.
--   [Modelled](articles/2015-white-ebola.pdf) the 2014 Ebola outbreak to estimate the likelihood of a case flying to Norway and the subsequent usefulness of entry screening in Oslo airport.
--   [Modelled](articles/2017-meijerink.pdf) the burden of HCV in Norwegian people who inject drugs.
--   Head statistician on the data monitoring committee (DMC) for the:
-    -   PEEP RCT in Haydom, Tanzania.
-    -   Safer Births Moyo RCT in Muhimbili, Tanzania.
--   Developed surveillance reports (and all relevant infrastructure and code for signal processing) in the format of interactive websites for:
-    -   Gastritis and upper-respiratory outbreaks using the Norwegian Syndromic Surveillance System (NorSySS).
-    -   Outbreaks using the notifiable disease registry (MSIS).
-    -   All cause/cause-specific/attributable mortality (part of the [EuroMOMO](https://euromomo.eu) network).
+- Advised outbreak teams and researchers in statistical concepts, methods, and programming.
+- **Statistical supervision**: 
+  - Five [EPIET](https://www.ecdc.europa.eu/en/epiet-euphem) fellows.
+  - Nine Ph.D. students.
+  - Focus: Mentoring, quality assurance of statistical methods and peer-reviewed publications.
+- **Key research projects**:
+  - Statistical protocol for 60,000-person longitudinal study on Norwegian water usage.
+  - [Modeled](articles/2015-white-ebola.pdf) 2014 Ebola outbreak likelihood of cases reaching Norway and entry screening effectiveness.
+  - [Modeled](articles/2017-meijerink.pdf) HCV burden in Norwegian people who inject drugs.
+- **Data monitoring committees**: 
+  - Head statistician for PEEP RCT (Haydom, Tanzania).
+  - Head statistician for Safer Births Moyo RCT (Muhimbili, Tanzania).
+- **Surveillance systems**: 
+  - Gastritis/respiratory outbreaks (NorSySS).
+  - Notifiable disease outbreaks (MSIS).
+  - Mortality monitoring ([EuroMOMO](https://euromomo.eu)).
+  - Developed interactive websites and signal processing infrastructure.
 
-### Statistician/Postdoc --- Genes and Environment
+### Postdoctoral Researcher --- Genes and Environment
 
 *01.2012--05.2014 / Oslo, Norway*
 
@@ -205,7 +187,7 @@ downloads[, formatted := glue::glue(
 
 ### Chairperson
 
-*01.2023--now / Oslo, Norway*
+*01.2023--12.2025 / Oslo, Norway*
 
 -   Overseeing the collaboration between statisticians, epidemiologists, and researchers, working on the development of [R packages](https://csids.no/packages.html) used for disease surveillance.
 
@@ -229,8 +211,8 @@ downloads[, formatted := glue::glue(
 
 *04.2019--05.2019 / Beira, Mozambique*
 
--   Responded to a cholera outbreak.
--   Managed a real-time surveillance system for people with diarrhea visiting Red Cross oral rehydration points as a part of the response to the [cholera outbreak](https://reliefweb.int/disaster/ep-2019-000026-moz) in Beira caused by [Cyclone Idai](https://en.wikipedia.org/wiki/Cyclone_Idai).
+- Responded to the [cholera outbreak](https://reliefweb.int/disaster/ep-2019-000026-moz) in Beira caused by [Cyclone Idai](https://en.wikipedia.org/wiki/Cyclone_Idai).
+-   Managed a [real-time surveillance system](resources/mozambique.webm) for people with diarrhea visiting Red Cross oral rehydration points.
 -   Liaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea.
 
 ## Norwegian Scientific Committee for Food and Environment (VKM)
@@ -239,7 +221,7 @@ downloads[, formatted := glue::glue(
 
 *01.2023--12/2023 / Oslo, Norway*
 
--   Developed statistical protocol for the evaluation of INVITES-IN, a tool for assessing the internal validity of in vitro studies.
+-   Developed [statistical protocol](articles/2023-mathisen.pdf) for the evaluation of INVITES-IN, a tool for assessing the internal validity of in vitro studies.
 
 ## Palestinian National Institute of Public Health (PNIPH)
 

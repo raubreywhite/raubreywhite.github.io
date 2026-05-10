@@ -85,3 +85,30 @@ The blog follows a specific bilingual pattern:
 - Computational freeze prevents expensive re-computation of R code
 - Static site generation for fast loading
 - PDF assets stored directly in repository for reliable access
+
+## Current Project Status
+
+### Random Intercepts Blog Post Project (2025-07-14)
+
+**Status**: In progress - converting R Journal article to blog post
+
+**Location**: `post/2025-07-14-random-intercepts-do-not-fix-confounding/`
+
+**Source Files**:
+- `Random intercepts do not fix confounding.Rmd` - Incomplete R Journal article with theoretical content
+- `Run.R` - Complete simulation code demonstrating the concept
+
+**Target**: Create `random-intercepts-do-not-fix-confounding.qmd` blog post
+
+**Progress**:
+- [x] Project setup and planning
+- [x] CLAUDE.md updated with project status
+- [x] Create .qmd file structure with proper frontmatter
+- [x] Integrate theoretical content from .rmd to .qmd
+- [x] Integrate simulation code from Run.R into .qmd
+- [x] Complete the incomplete Formula 4 section and add results interpretation
+- [x] Add conclusion with practical guidance and test code execution
+
+**Status**: COMPLETED - Blog post created at `random-intercepts-do-not-fix-confounding.qmd`
+
+**Final Output**: Complete blog post combining theoretical content from .rmd file and simulation code from Run.R, with proper conclusions and practical guidance.

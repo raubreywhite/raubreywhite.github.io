@@ -2,3 +2,5 @@
 .Rproj.user
 .Rhistory
 @eaDir
+
+**/*.quarto_ipynb
