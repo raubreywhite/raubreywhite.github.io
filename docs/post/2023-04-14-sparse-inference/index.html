@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Sparse inference – White, Ph.D.</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -62,7 +65,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -91,15 +93,14 @@ div.csl-indent {
 <link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-30d366c948864018b987267d1c15378a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d0cc560b6bd7c3cfa18ceed4be28a841.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -183,6 +184,10 @@ background: #e2ebf0;
  <span class="menu-text">R packages</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-r-packages">    
+        <li>
+    <a class="dropdown-item" href="../../cohort/">
+ <span class="dropdown-text">cohort</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../org/">
  <span class="dropdown-text">org</span></a>
@@ -512,7 +517,7 @@ x50         .          </code></pre>
 </div>
 <section id="p-value-equivalent" class="level2 callout-info">
 <h2 class="anchored" data-anchor-id="p-value-equivalent">P-value equivalent</h2>
-<p>Probability of Direction (PoD) and p-values are both statistical measures used in hypothesis testing <span class="citation" data-cites="Makowski2019bayestestR">Makowski et al. (<a href="#ref-Makowski2019Indices" role="doc-biblioref">2019</a>)</span>. They are similar in that they both provide evidence for or against a null hypothesis. PoD measures the proportion of posterior draws from a Bayesian model that are in the direction of the alternative hypothesis. It provides a measure of the strength of evidence for the alternative hypothesis relative to the null hypothesis. A high PoD value indicates strong evidence in favor of the alternative hypothesis, while a low PoD value indicates weak evidence in favor of the alternative hypothesis.</p>
+<p>Probability of Direction (PoD) and p-values are both statistical measures used in hypothesis testing <span class="citation" data-cites="Makowski2019bayestestR">Makowski, Ben-Shachar, Chen, et al. (<a href="#ref-Makowski2019Indices" role="doc-biblioref">2019</a>)</span>. They are similar in that they both provide evidence for or against a null hypothesis. PoD measures the proportion of posterior draws from a Bayesian model that are in the direction of the alternative hypothesis. It provides a measure of the strength of evidence for the alternative hypothesis relative to the null hypothesis. A high PoD value indicates strong evidence in favor of the alternative hypothesis, while a low PoD value indicates weak evidence in favor of the alternative hypothesis.</p>
 <p>Similarly, a p-value measures the probability of obtaining a test statistic as extreme as or more extreme than the observed value, assuming that the null hypothesis is true. A low p-value indicates that the observed result is unlikely to have occurred by chance alone, providing evidence against the null hypothesis.</p>
 <p>To convert PoD to a p-value equivalent, one approach is to use the following formula:</p>
 <p>p-value = 2 * min(PoD, 1-PoD)</p>
@@ -529,7 +534,7 @@ x50         .          </code></pre>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Makowski2019Indices" class="csl-entry" role="listitem">
 Makowski, Dominique, Matthew S Ben-Shachar, Simon H A Chen, and Daniel Lüdecke. 2019. <span>“Indices of Effect Existence and Significance in the Bayesian Framework.”</span> <em>Frontiers in Psychology</em> 10: 2767. <a href="https://doi.org/10.3389/fpsyg.2019.02767">https://doi.org/10.3389/fpsyg.2019.02767</a>.
 </div>
