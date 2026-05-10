@@ -1,0 +1,17 @@
+---
+title: "Dramatiske korona-funn: – Store mørketall"
+subtitle: <i>In the media • Nettavisen</i>
+description: |
+  Ifølge den nye studien er forekomsten av ME og utmattelsessyndrom 15 ganger høyere enn før pandemien.
+date: 2025-01-21
+categories:
+  - Nettavisen
+  - In the media
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+![](screenshot.png)
+
+[Publisert på Nettavisen den 21. januar 2025](https://www.nettavisen.no/nyheter/dramatiske-korona-funn-fem-ganger-mer-sannsynlig-a-fa-me/s/5-95-2234239).

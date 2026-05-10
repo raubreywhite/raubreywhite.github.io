@@ -1,0 +1,17 @@
+---
+title: "De fleste tenker ikke på covid lenger - men for Gro-Rita har viruset endret alt"
+subtitle: <i>In the media • Bladet Vesterålen</i>
+description: |
+  Pandemien roet seg. Bort med munnbind, én meter-avstand og covid-tester. Men for noen tok det aldri slutt. Noen ble ikke friske.
+date: 2025-03-23
+categories:
+  - Bladet Vesterålen
+  - In the media
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+![](screenshot.png)
+
+[Publisert på Bladet Vesterålen den 23. mars 2025](https://www.blv.no/de-fleste-tenker-ikke-pa-covid-lenger-men-for-gro-rita-har-viruset-endret-alt/f/5-9-826540).

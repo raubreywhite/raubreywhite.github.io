@@ -1,0 +1,17 @@
+---
+title: "Stadig flere barn til legen med utmattelse etter pandemien"
+subtitle: <i>In the media • Utdanningsnytt</i>
+description: |
+  Vi ser at barn i aldersgruppen 5 til 14 år stadig oftere kontakter fastlegen på grunn av utmattelse. Etter 2022 har tallet steget med 31 prosent, sier forsker Richard Aubrey White.
+date: 2025-03-12
+categories:
+  - Utdanningsnytt
+  - In the media
+title-block-banner: "#e2ebf0"
+editor_options: 
+  chunk_output_type: console
+---
+
+![](screenshot.png)
+
+[Publisert på Utdanningsnytt den 12. mars 2025](https://www.utdanningsnytt.no/covid-helsesykepleier-korona/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/434924).
