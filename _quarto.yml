@@ -10,7 +10,8 @@ resources:
   - "presentations/*"
 
 website:
-  title: "Richard Aubrey White, Ph.D."
+  title: "White, Ph.D."
+  site-url: "https://www.rwhite.no"
   body-header: |
     <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script>
@@ -32,7 +33,15 @@ website:
         href: publications.qmd
       - text: "Presentations"
         href: presentations.qmd
-      - blog.qmd
+      - text: "R packages"
+        menu:
+          - text: "cohort"
+            href: /cohort/
+          - text: "org"
+            href: /org/
+          - text: "plnr"
+            href: /plnr/
+      - writing.qmd
       - icon: github
         href: https://github.com/raubreywhite
       - icon: twitter-x
