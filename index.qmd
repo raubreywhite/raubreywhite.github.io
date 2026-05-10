@@ -190,7 +190,7 @@ h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
 
 *01.2023--12.2025 / Oslo, Norway*
 
--   Overseeing the collaboration between statisticians, epidemiologists, and researchers, working on the development of [R packages](https://csids.no/packages.html) used for disease surveillance.
+-   Overseeing the collaboration between statisticians, epidemiologists, and researchers, working on the development of [R packages](https://www.github.com/niphr) used for disease surveillance.
 
 ## Norwegian Red Cross (NorCross)
 
