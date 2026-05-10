@@ -108,6 +108,7 @@ h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
 **R packages on CRAN**
 
 [![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/attrib&query=%24%5B0%5D.downloads&label=attrib&suffix=%20downloads&color=blue)](https://www.csids.no/attrib/)&nbsp;
+[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/cohort&query=%24%5B0%5D.downloads&label=cohort&suffix=%20downloads&color=blue)](https://www.rwhite.no/cohort/)&nbsp;
 [![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csalert&query=%24%5B0%5D.downloads&label=csalert&suffix=%20downloads&color=blue)](https://www.csids.no/csalert/)&nbsp;
 [![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csdata&query=%24%5B0%5D.downloads&label=csdata&suffix=%20downloads&color=blue)](https://www.csids.no/csdata/)&nbsp;
 [![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csdb&query=%24%5B0%5D.downloads&label=csdb&suffix=%20downloads&color=blue)](https://www.csids.no/csdb/)&nbsp;
