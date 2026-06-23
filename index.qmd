@@ -58,9 +58,9 @@ print(d[[c("white2026mortalityb", "white2026mortalitya", "White2026consultations
 ## Key Projects
 
 ### Norwegian Syndromic Surveillance System (NorSySS)
-*Senior Researcher/Project Manager, 2023--now*
+*Researcher/Project Manager, 2023--now*
 
-Leading Norway's national syndromic surveillance system that monitors 100+ disease syndromes through automated analysis of GP consultations. The system processes over 1 million analyses daily, providing real-time disease monitoring across all Norwegian municipalities and alerting health authorities to potential outbreaks. Promoted from Researcher to Senior Researcher in May 2025.
+Leading Norway's national syndromic surveillance system that monitors 100+ disease syndromes through automated analysis of GP consultations. The system processes over 1 million analyses daily, providing real-time disease monitoring across all Norwegian municipalities and alerting health authorities to potential outbreaks.
 
 ### Sykdomspulsen: Real-Time Disease Surveillance  
 *Researcher/Technical Lead, 2019--2023*
@@ -68,9 +68,9 @@ Leading Norway's national syndromic surveillance system that monitors 100+ disea
 Built and led an 8-person team developing Norway's [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) comprehensive disease surveillance platform. Created automated statistical analyses for mortality monitoring (as part of [EuroMOMO](https://euromomo.eu)), COVID-19 surveillance, and 80+ infectious disease syndromes, generating 1000+ daily reports for health authorities.
 
 ### Core Surveillance 9 (cs9) Framework
-*Senior Researcher/Lead Developer, 2014--now*
+*Researcher/Lead Developer, 2014--now*
 
-Developing [cs9](https://www.csids.no/cs9/), an open-source R framework that serves as the foundational infrastructure for large-scale disease surveillance systems. This comprehensive platform enables rapid deployment of automated surveillance capabilities and serves as the technical backbone powering both NorSySS and [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) Sykdomspulsen as independent surveillance implementations. Promoted from Researcher to Senior Researcher in May 2025.
+Developing [cs9](https://www.csids.no/cs9/), an open-source R framework that serves as the foundational infrastructure for large-scale disease surveillance systems. This comprehensive platform enables rapid deployment of automated surveillance capabilities and serves as the technical backbone powering both NorSySS and [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) Sykdomspulsen as independent surveillance implementations.
 
 ## Technical Skills
 
@@ -130,10 +130,9 @@ h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
 
 ## Norwegian Institute of Public Health (NIPH/FHI)
 
-### Senior Researcher/Project Manager --- Norwegian Syndromic Surveillance System (NorSySS)
+### Researcher/Project Manager --- Norwegian Syndromic Surveillance System (NorSySS)
 *02.2023--now / Oslo, Norway*
 
-- Promoted from Researcher to Senior Researcher in May 2025.
 - Project manager for [NorSySS](https://www.github.com/norsyss/), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities.
 - Complex statistical analyses automatically run for all locations in Norway, producing reports and alerting various stakeholders.
 - **Technology stack**: R, Kubernetes, Docker/Podman, CI/CD (Jenkins/GoCD/ArgoCD), Apache Airflow, [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/).
