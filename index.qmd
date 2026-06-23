@@ -52,8 +52,7 @@ His international field experience includes performing needs assessments in [Sri
 ```{r echo=FALSE, warning=FALSE, results = "asis"}
 d <- knitcitations::read.bibtex("publications.bib")
 # d <- d[[c("White2024", "norgaard2021real")]]
-d <- d[[c("white2026mortality", "white2025mortality", "White2024", "wickremesekera2022srilanka")]]
-print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
+print(d[[c("white2026mortalityb", "white2026mortalitya", "White2026consultations", "White2024", "wickremesekera2022srilanka")]], .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
 ```
 
 ## Key Projects
