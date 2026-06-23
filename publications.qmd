@@ -28,7 +28,7 @@ h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
 ## Key Publications
 
 ```{r echo=FALSE, warning=FALSE, results = "asis"}
-print(d[[c("white2026mortality", "white2025mortality", "White2024", "wickremesekera2022srilanka")]], .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
+print(d[[c("white2026mortalityb", "white2026mortalitya", "White2026consultations", "White2024", "wickremesekera2022srilanka")]], .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
 ```
 
 ```{r echo=FALSE, warning=FALSE, results = "asis"}

@@ -1,0 +1,81 @@
+/* Custom styles for Richard Aubrey White's website */
+
+/* Make links in main content red */
+main.content a {
+  color: #b30000 !important;
+}
+
+main.content a:visited {
+  color: #b30000 !important;
+}
+
+main.content a:hover {
+  color: #990000 !important;
+}
+
+/* Override red color for blog listing links */
+main.content .quarto-listing a {
+  color: inherit !important;
+}
+
+main.content .quarto-listing a:visited {
+  color: inherit !important;
+}
+
+main.content .quarto-listing a:hover {
+  color: inherit !important;
+}
+
+/* Override red color for social media icons under "Richard Aubrey White, Ph.D." */
+main.content .about-links a {
+  color: inherit !important;
+}
+
+main.content .about-links a:visited {
+  color: inherit !important;
+}
+
+main.content .about-links a:hover {
+  color: inherit !important;
+}
+
+/* Make links in title banner red */
+.quarto-title-banner a {
+  color: #b30000 !important;
+}
+
+.quarto-title-banner a:visited {
+  color: #b30000 !important;
+}
+
+.quarto-title-banner a:hover {
+  color: #990000 !important;
+}
+
+/* Hide title blocks only on specific pages that should not have them */
+
+/* Hide title blocks on pages with blog listing */
+body:has(.quarto-listing) .quarto-title-block,
+body:has(.quarto-listing) #title-block-header {
+  display: none !important;
+}
+
+/* Hide title blocks when page title is exactly these values */
+body:has(h1.title:first-child) .quarto-title-block:has(h1.title:is([aria-label="Publications"], [aria-label="Presentations"])),
+body:has(h1.title:first-child) #title-block-header:has(h1.title:is([aria-label="Publications"], [aria-label="Presentations"])) {
+  display: none !important;
+}
+
+/* Alternative approach: hide based on page structure */
+.hide-title .quarto-title-block,
+.hide-title #title-block-header {
+  display: none !important;
+}
+
+/* JavaScript-based hiding for Publications and Presentations */
+.js-hide-publications .quarto-title-block,
+.js-hide-publications #title-block-header,
+.js-hide-presentations .quarto-title-block,
+.js-hide-presentations #title-block-header {
+  display: none !important;
+}
