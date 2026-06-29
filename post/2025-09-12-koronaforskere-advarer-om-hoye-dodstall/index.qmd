@@ -1,0 +1,22 @@
+---
+title: "Forskere: – En pågående folkehelsekrise av historiske dimensjoner"
+subtitle: <i>In the media • NRK</i>
+description: |
+  Forskere ved Oslo universitetssykehus hevder Norge har hatt betydelig overdødelighet siden 2022, mens Folkehelseinstituttet avviser påstandene.
+date: 2025-09-12
+categories:
+  - In the media
+  - NRK
+editor_options:
+  chunk_output_type: console
+---
+
+[Publisert på nrk.no den 12. september 2025](https://www.nrk.no/buskerud/koronaforskere_-advarer-om-hoye-dodstall-1.17551278).
+
+Saken oppsummert:
+
+- Forsker Richard Aubrey White og kolleger dokumenterer 11.588 flere dødsfall enn ventet i perioden 2022–2024, særlig blant barn, unge og voksne.
+- Forskerne peker på koronaviruset som sannsynlig årsak, ettersom overdødeligheten begynte da omikronvarianten spredte seg.
+- Fungerende smitteverndirektør Preben Aavitsland i FHI tilbakeviser påstandene og mener dødeligheten gikk ned fra 2023 til 2024.
+- Partene er uenige om metode: FHI inkluderte 2023 som referanseår, noe White mener «normaliserer» en høyere dødelighet.
+- White understreker at han uttaler seg som forsker, ikke på vegne av FHI.

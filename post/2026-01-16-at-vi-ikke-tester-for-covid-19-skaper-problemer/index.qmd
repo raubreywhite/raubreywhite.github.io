@@ -1,0 +1,22 @@
+---
+title: "At vi ikke tester for covid-19, skaper problemer, sier forskere"
+subtitle: <i>In the media • forskning.no</i>
+description: |
+  Norske forskere advarer om at manglende covid-19-testing gjør det vanskelig å forstå hvorfor befolkningen er blitt sykere etter pandemien.
+date: 2026-01-16
+categories:
+  - In the media
+  - forskning.no
+editor_options:
+  chunk_output_type: console
+---
+
+[Publisert på forskning.no den 16. januar 2026](https://www.forskning.no/covid19-helsepolitikk-long-covid/at-vi-ikke-tester-for-covid-19-skaper-problemer-sier-forskere/2600166).
+
+Saken oppsummert:
+
+- Fastleger og legevakt hadde over 7 prosent flere konsultasjoner i 2024 enn trenden før pandemien tilsa – særlig for luftveisinfeksjoner, utmattelse og kognitive problemer.
+- Forsker Richard Aubrey White påpeker at registerdataene ikke viser hvem som faktisk har hatt covid-19, slik at årsakssammenhenger ikke kan fastslås sikkert.
+- Studier fra Göteborg viser at koronasmittede har flere helsetjenestekontakter enn usmittede.
+- Uten systematisk testing blir det vanskelig å knytte symptomer til covid-19, og senfølger risikerer å bli feilregistrert som psykiske lidelser.
+- FHI forsvarer dagens strategi, mens flere forskere mener myndighetene bør gjøre mer for å begrense smitte.

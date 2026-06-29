@@ -15,7 +15,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-*Publisert i [Aftenposten den 27. april 2026](https://www.aftenposten.no/meninger/debatt/i/JOnbx4/richard-aubrey-white-ap-skylder-nordmenn-en-helsestrategi-og-huske-pandemien).*
+![Publisert i [Aftenposten den 27. april 2026](https://www.aftenposten.no/meninger/debatt/i/JOnbx4/richard-aubrey-white-ap-skylder-nordmenn-en-helsestrategi-og-huske-pandemien).](screenshot.png)
 
 Arbeidsminister Kjersti Stenseng og helseminister Jan Christian Vestre, begge fra Arbeiderpartiet, mener det er blitt for lett å få sykmelding. Stenseng minner oss om at «livet er kjipt innimellom». Men det de fremstiller som et kulturproblem, er en målbar konsekvens av deres egen koronastrategi.
 
