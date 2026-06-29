@@ -65,6 +65,12 @@ h1, h2, h3, h4, h5, h6 { border-bottom: none; }
 .xpDesc { font-size: 15px; line-height: 1.55; color: #4a4034; margin: 9px 0 0 }
 .xpDesc a, .pDesc a, .cvpubT a { color: #8a1c1c; text-decoration: none }
 .xpDesc a:hover, .pDesc a:hover, .cvpubT a:hover { text-decoration: underline }
+/* whole Selected Experience card is a link jumping to the full entry below */
+.xpCard { display: block }
+main.content a.xpCard { text-decoration: none }
+.xpCard .xpRole { color: #231c16 }
+.xpCard:hover .xpRole { color: #8a1c1c }
+.xpCard:hover .xpRole::after { content: " ↓"; font-size: 14px }
 
 /* --- projects --- */
 .projGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 38px; margin-top: 18px }
@@ -90,7 +96,7 @@ h1, h2, h3, h4, h5, h6 { border-bottom: none; }
 
 /* --- full CV chronological rows --- */
 .org { font-size: 21px; font-weight: 600; margin: 30px 0 6px }
-.row { display: grid; grid-template-columns: 158px 1fr; gap: 16px 30px; padding: 13px 0 }
+.row { display: grid; grid-template-columns: 158px 1fr; gap: 16px 30px; padding: 13px 0; scroll-margin-top: 85px }
 .meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8a1c1c; line-height: 1.55 }
 .metaLoc { color: #a08a6a }
 .role { font-size: 18px; font-weight: 500; margin: 0 }
