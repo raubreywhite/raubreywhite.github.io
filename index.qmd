@@ -1,260 +1,85 @@
 ---
-title: "Richard Aubrey White, Ph.D."
-image: resources/richard.jpeg
-about:
-  id: hero-heading
-  template: solana
-  image-width: 16em
-  image-shape: round
-  links:
-    - icon: github
-      href: https://github.com/raubreywhite
-    - icon: twitter-x
-      href: https://x.com/raubreywhite
-    - icon: linkedin
-      href: https://no.linkedin.com/in/richard-white4
-title-block-banner: false
+pagetitle: "Richard Aubrey White, Ph.D."
+page-layout: full
 ---
 
-:::{#hero-heading}
-
-**Richard is an applied statistician with a Ph.D. in biostatistics from Harvard University.**
-
-He leads the Norwegian Syndromic Surveillance System ([NorSySS](https://www.github.com/norsyss)) at the Norwegian Institute of Public Health, developing real-time systems to monitor population health and detect outbreaks. NorSySS conducts over one million automated analyses daily, tracking more than 100 disease syndromes across Norway’s five million residents.
-
-His work focuses on syndromic surveillance, signal detection algorithms, and the design of real-time reporting systems for public health operations. Combining statistical modeling with operational epidemiology, he builds infrastructure that supports health authorities nationwide.
-
-From 2015 to 2022, he served as statistical lead for the Norwegian Mortality Monitoring System ([NorMOMO](https://www.fhi.no/en/archive/covid-19-archive/koronaviruset---arkiverte-meldinger/normomo-put-on-hold/)), conducting weekly analyses of all-cause mortality data for Norway and [contributing](https://github.com/EuroMOMOnetwork/MOMO/blob/dbb3632827e037fb469223fec3fa2aa079d5d0b6/DESCRIPTION#L6) to the European monitoring system for total mortality ([EuroMOMO](https://www.euromomo.eu)).
-
-His international field experience includes performing needs assessments in [Sri Lanka](articles/2022-wickremesekera.pdf) and developing/managing surveillance systems for Ebola in Sierra Leone, acute watery diarrhea/cholera in [Mozambique](resources/mozambique.webm), and maternal health in [Palestine](articles/2021-isbeih.pdf).
-
-*Contact: hello@rwhite.no*
-
-:::
-
-## Education
-
-**Harvard University, USA**  
-
-- 2011--2012 / Ph.D. in Biostatistics  
-- 2009--2011 / M.A. in Biostatistics (Frank Knox fellowship)  
-
-**University of Wollongong, Australia**  
-
-- 2005--2009 / B. Advanced Mathematics in Applied Statistics (First Class Honours)  
-
-**University of Bergen, Norway**  
-
-- 2022--2023 / One year program (årsstudium) in Nordic languages and literature
-
-## Key Publications
-
-```{r echo=FALSE, warning=FALSE, results = "asis"}
-d <- knitcitations::read.bibtex("publications.bib")
-# d <- d[[c("White2024", "norgaard2021real")]]
-print(d[[c("white2026mortalityb", "white2026mortalitya", "White2026consultations", "White2024", "wickremesekera2022srilanka")]], .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
-```
-
-## Key Projects
-
-### Norwegian Syndromic Surveillance System (NorSySS)
-*Researcher/Project Manager, 2023--now*
-
-Leading Norway's national syndromic surveillance system that monitors 100+ disease syndromes through automated analysis of GP consultations. The system processes over 1 million analyses daily, providing real-time disease monitoring across all Norwegian municipalities and alerting health authorities to potential outbreaks.
-
-### Sykdomspulsen: Real-Time Disease Surveillance  
-*Researcher/Technical Lead, 2019--2023*
-
-Built and led an 8-person team developing Norway's [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) comprehensive disease surveillance platform. Created automated statistical analyses for mortality monitoring (as part of [EuroMOMO](https://euromomo.eu)), COVID-19 surveillance, and 80+ infectious disease syndromes, generating 1000+ daily reports for health authorities.
-
-### Core Surveillance 9 (cs9) Framework
-*Researcher/Lead Developer, 2014--now*
-
-Developing [cs9](https://www.csids.no/cs9/), an open-source R framework that serves as the foundational infrastructure for large-scale disease surveillance systems. This comprehensive platform enables rapid deployment of automated surveillance capabilities and serves as the technical backbone powering both NorSySS and [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) Sykdomspulsen as independent surveillance implementations.
-
-## Technical Skills
-
-**Programming & Analysis**
-
-R (20+ years) • STATA (15+ years) • Python (1 year)
-
-**Infrastructure & DevOps**
-
-Docker (10+ years) • CI/CD (10+ years) • Kubernetes (1 year)
-
-**Languages**
-
-English (Fluent) • Norwegian (B2)
-
-## Scientific Production
-
-```{r echo=FALSE, warning=FALSE, include=FALSE}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
 library(data.table)
 library(magrittr)
-
 d <- knitcitations::read.bibtex("publications.bib")
+n_pub <- length(d)
 prof <- scholar::get_profile("75oKEWoAAAAJ")
-citations <- formatC(prof$total_cites, big.mark = " ", format = "f", digits = 0)
-h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
+citations <- formatC(prof$total_cites, big.mark = ",", format = "f", digits = 0)
+h_index <- formatC(prof$h_index, format = "f", digits = 0)
+n_cran <- 12
 ```
 
-**Scientific articles**
+```{=html}
+<div class="page">
+<div class="masthead">
+<p class="kick">Applied Statistician · Public Health Surveillance</p>
+<h1 class="name">Richard Aubrey White</h1>
+<p class="sub">Ph.D. in Biostatistics, Harvard University</p>
+</div>
+<div class="heroGrid">
+<div>
+<p class="lead">He leads the Norwegian Syndromic Surveillance System (<a href="https://www.github.com/norsyss">NorSySS</a>) at the Norwegian Institute of Public Health, developing real-time systems to monitor population health and detect outbreaks across Norway's five million residents.</p>
+<p class="bodyp">His work focuses on syndromic surveillance, signal-detection algorithms, and the design of real-time reporting systems for public-health operations. Combining statistical modeling with operational epidemiology, he builds the infrastructure that supports health authorities nationwide.</p>
+<p class="bodyp">From 2015 to 2022 he was statistical lead for the Norwegian Mortality Monitoring System (NorMOMO), running weekly all-cause mortality analyses for Norway and <a href="https://github.com/EuroMOMOnetwork/MOMO/blob/dbb3632827e037fb469223fec3fa2aa079d5d0b6/DESCRIPTION#L6">contributing</a> to the European monitoring system for total mortality (<a href="https://www.euromomo.eu">EuroMOMO</a>).</p>
+<h2 class="H">Scientific Production</h2>
+<div class="stats">
+<div><div class="statN"><a href="publications.html">`r n_pub`</a></div><div class="statL">Publications</div></div>
+<div><div class="statN"><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao">`r citations`</a></div><div class="statL">Citations</div></div>
+<div><div class="statN"><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao">`r h_index`</a></div><div class="statL">h-index</div></div>
+<div><div class="statN"><a href="publications.html#software-r-packages">`r n_cran`</a></div><div class="statL">R packages on CRAN</div></div>
+</div>
+</div>
+<aside><img class="heroPhoto" src="resources/richard.jpeg" alt="Richard Aubrey White"></aside>
+</div>
 
-`r length(d)` [publications](publications.html) • 
-`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao) • 
-`r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
+<h2 class="H">Selected Projects</h2>
+<div class="projGrid">
+<div><p class="pName">NorSySS</p><p class="pMeta">Project Manager · 2023–now</p><p class="pDesc"><a href="https://www.github.com/norsyss">Norway's national syndromic surveillance system</a> — 100+ syndromes from GP and out-of-hours consultations, with 1,000,000+ automated analyses daily across every municipality.</p></div>
+<div><p class="pName">Sykdomspulsen</p><p class="pMeta">Technical Lead · 2019–2023</p><p class="pDesc"><a href="post/2021-11-18-poster-prize-for-sykdomspulsen/">Award-winning</a> national platform built with an 8-person team; 1,000+ daily reports spanning mortality (<a href="https://euromomo.eu">EuroMOMO</a>), COVID-19 and 80+ infectious-disease syndromes.</p></div>
+<div><p class="pName">Core Surveillance 9 (cs9)</p><p class="pMeta">Lead Developer · 2014–now</p><p class="pDesc"><a href="https://www.csids.no/cs9/">Open-source R framework</a> for building real-time surveillance systems — scheduled analysis, automated reporting and alerting, reproducible by design. The backbone of both systems above.</p></div>
+</div>
 
-**R packages on CRAN**
+<h2 class="H">Selected Experience</h2>
+<div class="xpGrid">
+<div><p class="xpRole">Researcher / Project Manager</p><p class="xpOrg">Norwegian Institute of Public Health</p><p class="xpMeta">2023–NOW · OSLO, NORWAY</p><p class="xpDesc">Leads Norway's national syndromic surveillance; sets statistical methodology and alerts health authorities to outbreaks in real time.</p></div>
+<div><p class="xpRole">Health Officer</p><p class="xpOrg">Norwegian Red Cross (IFRC)</p><p class="xpMeta">2022 · COLOMBO, SRI LANKA</p><p class="xpDesc">Head statistician for a 3,100-household nationwide <a href="articles/2022-wickremesekera.pdf">needs assessment</a> during the country's humanitarian emergency.</p></div>
+<div><p class="xpRole">Community-Based Surveillance Delegate</p><p class="xpOrg">Norwegian Red Cross (IFRC)</p><p class="xpMeta">2019 · BEIRA, MOZAMBIQUE</p><p class="xpDesc">Responded to the cholera outbreak after Cyclone Idai; ran a <a href="resources/mozambique.webm">real-time surveillance system</a> across Red Cross oral-rehydration points.</p></div>
+<div><p class="xpRole">Statistician</p><p class="xpOrg">Palestinian National Institute of Public Health</p><p class="xpMeta">2017–2019 · RAMALLAH, PALESTINE</p><p class="xpDesc">Spent two years training local staff in data management and statistical programming for the national maternal- and child-health <a href="articles/2021-isbeih.pdf">registry</a>.</p></div>
+<div><p class="xpRole">GIS Expert / Data Manager</p><p class="xpOrg">World Health Organization — GOARN</p><p class="xpMeta">2015 · KAMBIA, SIERRA LEONE</p><p class="xpDesc">Responded to the Ebola epidemic — built and ran a real-time surveillance system linking treatment centers, care centers and burials.</p></div>
+<div><p class="xpRole">Biostatistician</p><p class="xpOrg">World Health Organization</p><p class="xpMeta">2011 · GENEVA, SWITZERLAND</p><p class="xpDesc">Produced Global Burden of Disease (GBD 2010) prevalence estimates — <a href="articles/2013-stevens.pdf">vision loss</a>, <a href="articles/2015-stevens.pdf">micronutrient deficiency</a> and <a href="articles/2012-stevens.pdf">stunting</a> — across all UN member states.</p></div>
+</div>
 
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/attrib&query=%24%5B0%5D.downloads&label=attrib&suffix=%20downloads&color=blue)](https://www.csids.no/attrib/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/cohort&query=%24%5B0%5D.downloads&label=cohort&suffix=%20downloads&color=blue)](https://www.rwhite.no/cohort/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csalert&query=%24%5B0%5D.downloads&label=csalert&suffix=%20downloads&color=blue)](https://www.csids.no/csalert/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csdata&query=%24%5B0%5D.downloads&label=csdata&suffix=%20downloads&color=blue)](https://www.csids.no/csdata/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csdb&query=%24%5B0%5D.downloads&label=csdb&suffix=%20downloads&color=blue)](https://www.csids.no/csdb/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csmaps&query=%24%5B0%5D.downloads&label=csmaps&suffix=%20downloads&color=blue)](https://www.csids.no/csmaps/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csstyle&query=%24%5B0%5D.downloads&label=csstyle&suffix=%20downloads&color=blue)](https://www.csids.no/csstyle/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/cstidy&query=%24%5B0%5D.downloads&label=cstidy&suffix=%20downloads&color=blue)](https://www.csids.no/cstidy/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-02-07:2054-02-14/cstime&query=%24%5B0%5D.downloads&label=cstime&suffix=%20downloads&color=blue)](https://www.csids.no/cstime/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/csutil&query=%24%5B0%5D.downloads&label=csutil&suffix=%20downloads&color=blue)](https://www.csids.no/csutil/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/org&query=%24%5B0%5D.downloads&label=org&suffix=%20downloads&color=blue)](https://www.rwhite.no/org/)&nbsp;
-[![](https://img.shields.io/badge/dynamic/json?url=https://cranlogs.r-pkg.org/downloads/total/2014-01-01:2054-02-14/plnr&query=%24%5B0%5D.downloads&label=plnr&suffix=%20downloads&color=blue)](https://www.rwhite.no/plnr/)
+<h2 class="H">Key Publications</h2>
+<div class="cvpub"><div class="cvpubYr">2026</div><div><p class="cvpubT"><a href="articles/2026-white-mortality.pdf">Excess all-cause mortality in Norway in 2024</a></p><p class="cvpubJ">White, Nygaard, Søraas &amp; Nyborg · Scandinavian Journal of Public Health</p></div></div>
+<div class="cvpub"><div class="cvpubYr">2026</div><div><p class="cvpubT"><a href="articles/2026-white-consultations.pdf">Excess primary healthcare consultations in Norway in 2024 compared to pre-COVID-19-pandemic baseline trends</a></p><p class="cvpubJ">White et al. · Archives of Public Health, 84(1)</p></div></div>
+<div class="cvpub"><div class="cvpubYr">2024</div><div><p class="cvpubT"><a href="articles/2024-white.pdf">Aberrations in medically certified sick leave and primary healthcare consultations in Norway in 2023</a></p><p class="cvpubJ">White et al. · Archives of Public Health</p></div></div>
+<a class="morelink" href="publications.html">View all `r n_pub` publications →</a>
 
-**R packages on GitHub**
+<h2 class="H">Education</h2>
+<div class="grid2">
+<div>
+<p class="edu"><span class="school">Harvard University</span><br>Ph.D. in Biostatistics <i>· 2011–2012</i><br>M.A. in Biostatistics <i>· 2009–2011, Frank Knox Fellowship</i></p>
+<p class="edu"><span class="school">University of Wollongong</span><br>B. Adv. Mathematics, Applied Statistics <i>· 2005–2009, First Class Honours</i></p>
+</div>
+<div>
+<p class="edu"><span class="school">University of Bergen</span><br>Nordic languages &amp; literature <i>· 2022–2023, one-year program</i></p>
+</div>
+</div>
 
-[cs9](https://www.csids.no/cs9/) • 
-[MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
+<h2 class="H">Technical Skills &amp; Languages</h2>
+<div class="grid2">
+<div class="skill"><b>Programming &amp; Analysis</b>R (20+ yrs) · STATA (15+ yrs) · Python<b>Infrastructure &amp; DevOps</b>Docker (10+ yrs) · CI/CD (10+ yrs) · Kubernetes</div>
+<div class="skill"><b>Languages</b>English (Fluent) · Norwegian (B2)<b>Methods</b>Syndromic surveillance · Signal detection · Real-time reporting · Mortality monitoring</div>
+</div>
 
-<hr style="border: none; border-top: 5px solid #dc3545; width: 60%; margin: 4rem auto 1.5rem auto;">
-
-# Professional Experience
-
-## Norwegian Institute of Public Health (NIPH/FHI)
-
-### Researcher/Project Manager --- Norwegian Syndromic Surveillance System (NorSySS)
-*02.2023--now / Oslo, Norway*
-
-- Project manager for [NorSySS](https://www.github.com/norsyss/), a surveillance system of infectious diseases based on consultations with general practitioners and out-of-hours primary care facilities.
-- Complex statistical analyses automatically run for all locations in Norway, producing reports and alerting various stakeholders.
-- **Technology stack**: R, Kubernetes, Docker/Podman, CI/CD (Jenkins/GoCD/ArgoCD), Apache Airflow, [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/).
-- **Scale**: Surveils 100+ syndromes across all Norwegian municipalities.
-- Organized the 2023 Northern European Symposium on Automated Surveillance.
-
-### Researcher/Technical Lead --- Sykdomspulsen: Real-Time Surveillance
-*07.2019--01.2023 / Oslo, Norway*
-
-- Tech lead for [award winning](post/2021-11-18-poster-prize-for-sykdomspulsen/) Sykdomspulsen (8-person team), a real-time analysis and disease surveillance system.
-- Complex statistical analyses automatically run for all locations in Norway, producing reports and alerting various stakeholders.
-- Responsible for training, mentoring, supervision, and quality assurance of statistical methods and code.
-- **Technology stack**: R, Kubernetes, Docker/Podman, CI/CD (Jenkins/GoCD/ArgoCD), Apache Airflow, [Core Surveillance 9 (cs9)](https://www.csids.no/cs9/).
-- **Surveillance areas**: 
-  - Mortality monitoring: All cause/cause-specific/attributable mortality (part of [EuroMOMO](https://euromomo.eu) network), vaccine associated mortality.
-  - Infectious diseases: COVID-19, influenza, tuberculosis, IPD, meningococcal disease, pertussis.
-  - Additional monitoring: Antibiotic use, gastritis, 80+ syndromes via NorSySS.
-- **Scale**: 1,000,000+ analyses per day, 1,000+ automatic reports (PDF/Excel/email/SMS) per day.
-- Interactive website for municipal health authorities and APIs for internal/external use.
-
-### Researcher --- Infectious Disease Epidemiology
-*06.2014--06.2019 / Oslo, Norway*
-
-- Advised outbreak teams and researchers in statistical concepts, methods, and programming.
-- **Statistical supervision**: 
-  - Five [EPIET](https://www.ecdc.europa.eu/en/epiet-euphem) fellows.
-  - Nine Ph.D. students.
-  - Focus: Mentoring, quality assurance of statistical methods and peer-reviewed publications.
-- **Key research projects**:
-  - Statistical protocol for 60,000-person longitudinal study on Norwegian water usage.
-  - [Modeled](articles/2015-white-ebola.pdf) 2014 Ebola outbreak likelihood of cases reaching Norway and entry screening effectiveness.
-  - [Modeled](articles/2017-meijerink.pdf) HCV burden in Norwegian people who inject drugs.
-- **Data monitoring committees**: 
-  - Head statistician for PEEP RCT (Haydom, Tanzania).
-  - Head statistician for Safer Births Moyo RCT (Muhimbili, Tanzania).
-- **Surveillance systems**: 
-  - Gastritis/respiratory outbreaks (NorSySS).
-  - Notifiable disease outbreaks (MSIS).
-  - Mortality monitoring ([EuroMOMO](https://euromomo.eu)).
-  - Developed interactive websites and signal processing infrastructure.
-
-### Postdoctoral Researcher --- Genes and Environment
-
-*01.2012--05.2014 / Oslo, Norway*
-
--   Developed database management structures to allow for the construction of analysis datasets from multiple disparate sources (e.g. written questionnaires, lab toxicant concentrations, Illumina microbial data).
--   [Investigated](articles/2015-white-suicide.pdf) the relationship between seasonality, sunlight, and suicide.
--   [Investigated](articles/2013-miller.pdf) the relationship between gun ownership and completed suicide in the US, highlighting the lack of method substitution where gun ownership is less prevalent.
-
-## Consortium for Statistics in Disease Surveillance (CSIDS)
-
-### Chairperson
-
-*01.2023--12.2025 / Oslo, Norway*
-
--   Overseeing the collaboration between statisticians, epidemiologists, and researchers, working on the development of [R packages](https://www.github.com/niphr) used for disease surveillance.
-
-## Norwegian Red Cross (NorCross)
-
-### Head Statistician (IFRC)
-
-*04.2024--05.2024 / Oslo, Norway*
-
--   Head statistician (remote) for a 1800-household multi-sector nationwide needs assessment, in response to the [complex humanitarian emergency](https://en.wikipedia.org/wiki/2019–present_Sri_Lankan_economic_crisis) in Sri Lanka.
--   Developed statistical protocol for all sectors, and analyzed most of the data
-
-### Health Officer (IFRC)
-
-*08.2022--09.2022 / Colombo, Sri Lanka*
-
--   Head statistician for a 3100-household multi-sector nationwide [needs assessment](articles/2022-wickremesekera.pdf) ([annex](articles/2022-wickremesekera-annex.pdf)), in response to the [complex humanitarian emergency](https://en.wikipedia.org/wiki/2019–present_Sri_Lankan_economic_crisis) in Sri Lanka.
--   Developed statistical protocol for all sectors, questions for the health sector, and analyzed most of the data.
-
-### Community Based Surveillance Delegate (IFRC)
-
-*04.2019--05.2019 / Beira, Mozambique*
-
-- Responded to the [cholera outbreak](https://reliefweb.int/disaster/ep-2019-000026-moz) in Beira caused by [Cyclone Idai](https://en.wikipedia.org/wiki/Cyclone_Idai).
--   Managed a [real-time surveillance system](resources/mozambique.webm) for people with diarrhea visiting Red Cross oral rehydration points.
--   Liaised with the MOH on issues of interest, such as serious cases of diarrhea and self-reported bloody diarrhea.
-
-## Norwegian Scientific Committee for Food and Environment (VKM)
-
-### External Expert --- Next Generation Risk Assessment in Practice
-
-*01.2023--12/2023 / Oslo, Norway*
-
--   Developed [statistical protocol](articles/2023-mathisen.pdf) for the evaluation of INVITES-IN, a tool for assessing the internal validity of in vitro studies.
-
-## Palestinian National Institute of Public Health (PNIPH)
-
-### Statistician
-
-*09.2017--09.2019 / Ramallah, Palestine*
-
--   Trained local staff in data management and statistical programming for the national maternal and child health [registry](articles/2021-isbeih.pdf).
--   Used raw survey data to validate indicators from the newly formed national healthcare worker registry.
-
-## World Health Organization (WHO)
-
-### GIS Expert/Data Manager --- Global Outbreak Alert and Response Network (GOARN)
-
-*01.2015---02.2015 / Kambia, Sierra Leone*
-
--   Responded to the [2013--2016 Western African Ebola virus epidemic](https://en.wikipedia.org/wiki/Western_African_Ebola_virus_epidemic).
--   Developed and managed a real-time surveillance system for the Ebola outbreak in Kambia, linking the national emergency number, Ebola holding centers, Ebola community care centers, Ebola treatment centers, and burials.
--   Geocoded and mapped relevant outbreak data (alerts, cases, border crossings).
--   Generated daily sitreps using GIS data and epidemiological information from the surveillance database.
--   Trained and supervised international and national staff in the use of the Kambian Ebola surveillance system.
-
-### Biostatistician --- Mortality and Burden of Disease
-
-*04.2011--11.2011 / Geneva, Switzerland*
-
--   Collected [cause of death](articles/2015-mathers.pdf) data from multiple national cause of death registries into a database and calculated avoidable mortality estimates for disease groups over time, comparing trends in high income versus developing countries.
--   Produced disease prevalence estimates for the Global Burden of Disease project (GBD 2010), most notably for [vision loss](articles/2013-stevens.pdf), [micronutrient deficiency](articles/2015-stevens.pdf), and [stunting](articles/2012-stevens.pdf) for all UN member nations, in all sex/age combinations, from 1990 to 2010.
-
-### Biostatistician --- Stop TB Department
-
-*06.2010--11.2010 / Boston, USA*
-
--   Liaised with NGOs from South Africa, Uzbekistan, Bangladesh, and Peru to gain access to MDR-TB datasets, then managed, cleaned, and analysed the datasets.
--   Provided [recommendations](articles/2016-mitnick.pdf) for the WHO Guidelines for the Programmatic Management of Drug Resistant Tuberculosis (3rd edition) via multi-cohort survival analyses to determine factors affecting detection of MDR-TB and survival in a programmatic context.
-
-
+<div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="https://github.com/raubreywhite">GitHub</a><a href="https://x.com/raubreywhite">X</a><a href="https://no.linkedin.com/in/richard-white4">LinkedIn</a></div></div>
+</div>
+```

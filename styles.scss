@@ -1,0 +1,199 @@
+/*-- scss:defaults --*/
+/* Bootstrap/bslib variables so the Quarto base layer adopts the palette + type.
+   These also style the shared Quarto chrome (navbar, blog posts, listings). */
+$body-bg: #f5f0e7;
+$body-color: #231c16;
+$link-color: #8a1c1c;
+$link-hover-color: #6f1414;
+$font-family-serif: 'Newsreader', Georgia, serif;
+$font-family-monospace: 'IBM Plex Mono', ui-monospace, monospace;
+$font-family-base: $font-family-serif;
+$headings-font-family: $font-family-serif;
+
+/* dark "ink" navbar to match the editorial mastheads */
+$navbar-bg: #231c16;
+$navbar-dark-color: rgba(245, 240, 231, .82);
+$navbar-dark-hover-color: #ffffff;
+$navbar-dark-active-color: #ffffff;
+
+/*-- scss:rules --*/
+/* ============================================================
+   Editorial theme for rwhite.no — shared across all pages.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box }
+body { margin: 0; background: #f5f0e7; color: #231c16; font-family: 'Newsreader', Georgia, serif; -webkit-font-smoothing: antialiased }
+
+/* The custom-HTML landing pages (index/cv/publications/presentations) wrap
+   their content in `.page` to control width under the Quarto full layout. */
+.page { max-width: 960px; margin: 0 auto; padding: 30px 44px 90px }
+
+/* --- page masthead (custom HTML pages) --- */
+.mast { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-top: 24px; padding-bottom: 26px; border-bottom: 2px solid #231c16 }
+.masthead { margin-top: 24px; padding-bottom: 26px; border-bottom: 2px solid #231c16 }
+.kick { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #8a1c1c; margin: 0 0 16px }
+.name { font-size: 56px; font-weight: 400; line-height: .98; letter-spacing: -.018em; margin: 0 }
+.sub { font-style: italic; font-size: 21px; color: #54483b; margin: 12px 0 0 }
+.photo { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex-shrink: 0; filter: sepia(.12) contrast(1.02) }
+.lead { font-size: 19px; line-height: 1.55; max-width: 70ch; margin: 26px 0 0; text-wrap: pretty; color: #3a3128 }
+.bodyp { font-size: 18px; line-height: 1.58; color: #3a3128; margin: 14px 0 0 }
+
+/* --- section heading --- */
+.H { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #a08a6a; margin: 52px 0 6px; display: flex; align-items: baseline; gap: 12px }
+.H::after { content: ""; flex: 1; height: 1px; background: #dcceb8 }
+
+/* --- scientific-production stats --- */
+.stats { display: flex; flex-wrap: wrap; gap: 44px; margin-top: 24px }
+.statN { font-size: 32px; font-weight: 500; line-height: 1; letter-spacing: -.01em }
+.statL { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: #8a7a64; margin-top: 9px }
+.statN a, .statL a { color: inherit; text-decoration: none }
+.statN a:hover, .statL a:hover { color: #8a1c1c }
+
+/* --- homepage hero --- */
+.heroGrid { display: grid; grid-template-columns: 1.55fr .82fr; gap: 54px; margin-top: 36px; align-items: start }
+.heroPhoto { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 18%; border-radius: 4px; filter: sepia(.12) contrast(1.02) }
+
+/* --- selected experience (homepage) --- */
+.xpGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 56px; margin-top: 6px }
+.xpRole { font-size: 21px; font-weight: 500; line-height: 1.18; margin: 0 }
+.xpOrg { font-size: 15.5px; color: #6f6253; margin: 4px 0 0 }
+.xpMeta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .03em; color: #8a1c1c; margin: 6px 0 0 }
+.xpDesc { font-size: 15px; line-height: 1.55; color: #4a4034; margin: 9px 0 0 }
+.xpDesc a, .pDesc a, .cvpubT a { color: #8a1c1c; text-decoration: none }
+.xpDesc a:hover, .pDesc a:hover, .cvpubT a:hover { text-decoration: underline }
+
+/* --- projects --- */
+.projGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 38px; margin-top: 18px }
+.pName { font-size: 20px; font-weight: 500; line-height: 1.18; margin: 0 }
+.pMeta { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: #8a1c1c; margin: 9px 0 0 }
+.pDesc { font-size: 14.5px; line-height: 1.56; color: #463c30; margin: 11px 0 0 }
+
+/* --- key-publications list (custom HTML pages) --- */
+.cvpub { display: grid; grid-template-columns: 52px 1fr; gap: 20px; padding: 15px 0; border-top: 1px solid #e3d9c8 }
+.cvpub:first-of-type { border-top: 0 }
+.cvpubYr { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8a1c1c; padding-top: 3px }
+.cvpubT { font-size: 17px; line-height: 1.34; margin: 0 }
+.cvpubJ { font-style: italic; font-size: 14px; color: #8a7a64; margin: 5px 0 0 }
+.morelink { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #8a1c1c; text-decoration: none; display: inline-block; margin-top: 18px }
+.morelink:hover { text-decoration: underline }
+
+/* --- education / skills two-column --- */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 18px }
+.edu { font-size: 16px; line-height: 1.45; margin: 0 0 16px }
+.school { font-weight: 600 }
+.edu i { color: #8a1c1c; font-size: 14px; font-style: normal }
+.skill { font-size: 15.5px; line-height: 1.8; color: #3f362c }
+.skill b { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #a08a6a; display: block; font-weight: 500; margin-top: 14px }
+
+/* --- full CV chronological rows --- */
+.org { font-size: 21px; font-weight: 600; margin: 30px 0 6px }
+.row { display: grid; grid-template-columns: 158px 1fr; gap: 16px 30px; padding: 13px 0 }
+.meta { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8a1c1c; line-height: 1.55 }
+.metaLoc { color: #a08a6a }
+.role { font-size: 18px; font-weight: 500; margin: 0 }
+.ul { margin: 9px 0 0; padding-left: 17px; font-size: 14.5px; line-height: 1.6; color: #463c30 }
+.ul li { margin: 0 0 5px }
+.ul a { color: #8a1c1c; text-decoration: none }
+.ul a:hover { text-decoration: underline }
+.stack { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8a7a64; margin: 9px 0 0 }
+
+/* --- year grouping (publications / presentations) --- */
+.yearLabel { font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; color: #8a1c1c; letter-spacing: .05em; margin: 42px 0 2px }
+
+/* --- presentations --- */
+.preItem { padding: 18px 0; border-top: 1px solid #e3d9c8 }
+.preVenue { font-size: 14px; color: #8a7a64; margin: 0; font-style: italic }
+.preTitle { font-size: 19px; font-weight: 500; line-height: 1.32; margin: 6px 0 0 }
+.preNote { font-size: 14.5px; color: #463c30; margin: 7px 0 0; line-height: 1.5 }
+.preLink { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: .04em; color: #8a1c1c; text-decoration: none; margin-left: 8px; white-space: nowrap }
+.preLink:hover { text-decoration: underline }
+.preVid { margin: 12px 0 0; max-width: 560px; aspect-ratio: 16/9; width: 100%; border: 0 }
+
+/* --- software / R packages --- */
+.pkgwrap { margin-top: 24px }
+.pkglab { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #a08a6a; margin: 0 0 10px }
+.pkgs { display: flex; flex-wrap: wrap; gap: 8px }
+.pkg { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #3a3128; border: 1px solid #cdbfa9; border-radius: 2px; padding: 5px 10px; text-decoration: none }
+.pkg:hover { border-color: #8a1c1c; color: #8a1c1c }
+
+/* --- footer --- */
+.foot { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #231c16; margin-top: 60px; padding-top: 24px; flex-wrap: wrap; gap: 16px }
+.mail { font-size: 23px; font-style: italic }
+.mail a { color: inherit; text-decoration: none }
+.links { font-family: 'IBM Plex Mono', monospace; font-size: 13px; display: flex; gap: 20px }
+.links a { color: #8a1c1c; text-decoration: none }
+
+/* ============================================================
+   Shared Quarto chrome — navbar, blog posts, listing cards.
+   Makes /post and /recipe pages part of the same design.
+   ============================================================ */
+.navbar { border-bottom: 2px solid #000; }
+.navbar-brand, .navbar .nav-link, .navbar .dropdown-item {
+  font-family: 'IBM Plex Mono', monospace; letter-spacing: .06em;
+  text-transform: uppercase; font-size: 12px;
+}
+.navbar .dropdown-menu { background: #231c16; }
+.navbar .dropdown-item { color: rgba(245, 240, 231, .82); }
+.navbar .dropdown-item:hover { background: #2f261d; color: #fff; }
+
+/* blog-post body: keep the Quarto title banner on-brand */
+.quarto-title-banner { background: #231c16; }
+.quarto-title-banner, .quarto-title-banner .quarto-title .title,
+.quarto-title-banner a { color: #f5f0e7; }
+#title-block-header.quarto-title-block .description, .quarto-title .subtitle { color: #d8ccb8; }
+
+/* keep links red inside article content, but not on listing cards/social icons */
+main.content a { color: #8a1c1c; }
+main.content a:hover { color: #6f1414; }
+main.content .quarto-listing a, main.content .about-links a { color: inherit; }
+
+/* blog listing (writing page) — editorial card treatment */
+.quarto-listing .card, .quarto-grid-item.card {
+  background: transparent; border: 0; border-radius: 0;
+}
+.quarto-grid-item .card-img-top, .quarto-grid-item img.thumbnail-image {
+  border: 1px solid #cdbfa9; border-radius: 2px;
+}
+.quarto-grid-item .card-title, .quarto-listing .card-title {
+  font-family: 'Newsreader', Georgia, serif; font-weight: 500;
+  font-size: 22px; line-height: 1.2; color: #231c16;
+}
+.quarto-grid-item:hover .card-title { color: #8a1c1c; }
+.quarto-grid-item .listing-date, .quarto-listing .listing-date {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  color: #8a1c1c; letter-spacing: .05em;
+}
+.quarto-grid-item .listing-category, .quarto-category {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+  letter-spacing: .06em; text-transform: uppercase;
+  border-color: #cdbfa9; color: #8a7a64;
+}
+
+/* ===== responsive ===== */
+@media (max-width: 760px) {
+  .page { padding: 22px 22px 70px }
+  .mast { flex-direction: column; align-items: flex-start; gap: 18px }
+  .name { font-size: 38px }
+  .heroGrid { grid-template-columns: 1fr; gap: 30px }
+  .xpGrid { grid-template-columns: 1fr }
+  .projGrid { grid-template-columns: 1fr; gap: 26px }
+  .grid2 { grid-template-columns: 1fr; gap: 26px }
+  .row { grid-template-columns: 1fr; gap: 4px }
+}
+
+/* ===== knitcitations output on the publications page ===== */
+.cite-list p {
+  font-size: 16px; line-height: 1.5; color: #231c16;
+  padding: 14px 0; border-top: 1px solid #e3d9c8; margin: 0;
+}
+.cite-list a { color: #8a1c1c; text-decoration: none }
+.cite-list a:hover { text-decoration: underline }
+
+/* ===== print (browser Save-as-PDF fallback for the CV) ===== */
+@media print {
+  .navbar, .foot { display: none }
+  body { background: #fff }
+  .page { max-width: none; padding: 0 }
+  .cvpub, .pubItem, .row, .xpGrid > div { break-inside: avoid }
+}

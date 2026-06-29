@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A collection of thoughts.">
 
-<title>Writing &amp; Media – White, Ph.D.</title>
+<title>Writing &amp; Media — Richard Aubrey White – Richard Aubrey White, Ph.D.</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -41,12 +40,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c11abc8cc2b203d8167704c6b3f98431.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-117071df5a1e9a228eab1f14774b109a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f0273a218e7e4bf6f831990a3cf7241b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,20 +75,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    const listingTargetEl = window.document.querySelector('#listing-writing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-subtitle','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+    window['quarto-listings']['listing-writing-listing'] = new List('listing-writing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -134,8 +132,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="White, Ph.D." href="writing.xml" data-external="1"></head>
+<link rel="alternate" type="application/rss+xml" title="Richard Aubrey White, Ph.D." href="writing.xml" data-external="1"></head>
 
 <body class="nav-fixed quarto-light">
 
@@ -145,7 +142,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">White, Ph.D.</span>
+    <span class="navbar-title">Richard Aubrey White, Ph.D.</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -153,10 +150,10 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">CV</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./publications.html"> 
@@ -166,6 +163,16 @@ window.Quarto = {
     <a class="nav-link" href="./presentations.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./writing.html" aria-current="page"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-packages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">R packages</span>
@@ -185,10 +192,6 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="./writing.html" aria-current="page"> 
-<span class="menu-text">Writing &amp; Media</span></a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/raubreywhite"> <i class="bi bi-github" role="img">
 </i> 
@@ -207,22 +210,21 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(33)</span></div><div class="category" data-category="QWZ0ZW5wb3N0ZW4=">Aftenposten <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVu">Bladet Vesterålen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGFnJTIwb2clMjBUaWQ=">Dag og Tid <span class="quarto-category-count">(4)</span></div><div class="category" data-category="RiVDMyVBNmRyZWxhbmRzdmVubmVu">Fædrelandsvennen <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Rm9yc2tlcnNvbmVu">Forskersonen <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RnJpJTIwRmFnYmV2ZWdlbHNl">Fri Fagbevegelse <span class="quarto-category-count">(2)</span></div><div class="category" data-category="SW4lMjB0aGUlMjBtZWRpYQ==">In the media <span class="quarto-category-count">(8)</span></div><div class="category" data-category="TmV0dGF2aXNlbg==">Nettavisen <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TlJL">NRK <span class="quarto-category-count">(7)</span></div><div class="category" data-category="T3AtZWQ=">Op-ed <span class="quarto-category-count">(16)</span></div><div class="category" data-category="VXRkYW5uaW5nc255dHQ=">Utdanningsnytt <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Writing &amp; Media</h1></header>
-
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
+<main class="content column-page-left" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-</header>
 
 
-<div id="listing-sample-listings" class="quarto-listing quarto-listing-container-grid">
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="page">
+<div class="mast"><div><p class="kick">Essays, Commentary &amp; Press</p><h1 class="name">Writing &amp; Media</h1></div></div>
+<div id="listing-writing-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-2">
 <div class="g-col-1" data-index="0" data-listing-date-sort="1752444000000" data-listing-file-modified-sort="1766555768180" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964">
 <a href="./post/2025-07-14-random-intercepts-do-not-fix-confounding/index.html" class="quarto-grid-link">
@@ -252,6 +254,13 @@ Eksplosiv økning: Barn sliter med hukommelsen
 <div class="card-subtitle listing-subtitle">
 <i>In the media • NRK</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Nordmenn går stadig oftere til legen fordi de sliter med hukommelsen. Blant barn i alderen 5–14 år har det vært nær en tredobling i antall legebesøk de siste årene.</p>
 </div>
@@ -272,6 +281,13 @@ Promising long COVID treatment without evidence
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Forskersonen</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yc2tlcnNvbmVu'); return false;">Forskersonen</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>We must prioritize prevention of long COVID, just as we do with all other diseases, while developing better treatment.</p>
@@ -294,6 +310,13 @@ Løfterik behandling av long covid uten bevis
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Forskersonen</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Rm9yc2tlcnNvbmVu'); return false;">Forskersonen</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Vi må prioritere forebygging av long covid, akkurat som vi gjør med alle andre sykdommer, samtidig som vi utvikler bedre behandling.</p>
 </div>
@@ -315,6 +338,13 @@ We must protect teachers from long COVID
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Utdanningsnytt</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VXRkYW5uaW5nc255dHQ='); return false;">Utdanningsnytt</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Fortunately, airborne viruses can be prevented by purifying indoor air.</p>
 </div>
@@ -335,6 +365,13 @@ Vi må beskytte lærerne mot long covid
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Utdanningsnytt</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VXRkYW5uaW5nc255dHQ='); return false;">Utdanningsnytt</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Heldigvis kan luftbårne virus forebygges ved å rense inneluften.</p>
@@ -375,6 +412,13 @@ De fleste tenker ikke på covid lenger - men for Gro-Rita har viruset endret alt
 <div class="card-subtitle listing-subtitle">
 <i>In the media • Bladet Vesterålen</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QmxhZGV0JTIwVmVzdGVyJUMzJUE1bGVu'); return false;">Bladet Vesterålen</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Pandemien roet seg. Bort med munnbind, én meter-avstand og covid-tester. Men for noen tok det aldri slutt. Noen ble ikke friske.</p>
 </div>
@@ -395,6 +439,13 @@ Stadig flere barn til legen med utmattelse etter pandemien
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>In the media • Utdanningsnytt</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('VXRkYW5uaW5nc255dHQ='); return false;">Utdanningsnytt</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Vi ser at barn i aldersgruppen 5 til 14 år stadig oftere kontakter fastlegen på grunn av utmattelse. Etter 2022 har tallet steget med 31 prosent, sier forsker Richard Aubrey…</p>
@@ -417,6 +468,13 @@ Dramatiske korona-funn: – Store mørketall
 <div class="card-subtitle listing-subtitle">
 <i>In the media • Nettavisen</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TmV0dGF2aXNlbg=='); return false;">Nettavisen</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Ifølge den nye studien er forekomsten av ME og utmattelsessyndrom 15 ganger høyere enn før pandemien.</p>
 </div>
@@ -437,6 +495,13 @@ The sick leave debate is based on wrong premises
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Fri Fagbevegelse</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RnJpJTIwRmFnYmV2ZWdlbHNl'); return false;">Fri Fagbevegelse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>COVID is more dangerous than you think. Each reinfection is like playing Russian roulette with chronic disease. Sick leave is just the tip of the iceberg.</p>
@@ -459,6 +524,13 @@ Debatten om sykefravær er ført på feil premisser
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Fri Fagbevegelse</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RnJpJTIwRmFnYmV2ZWdlbHNl'); return false;">Fri Fagbevegelse</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Covid er farligere enn du tror. Hver reinfeksjon er som å spille russisk rulett med kronisk sykdom. Sykefravær er bare toppen av isfjellet.</p>
 </div>
@@ -479,6 +551,13 @@ COVID is more dangerous than you think
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • NRK</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>There is good reason to be concerned about the long-term consequences of COVID.</p>
@@ -501,6 +580,13 @@ Covid er farligere enn du tror
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • NRK</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Det er stor grunn til å være bekymret for senskadene av covid.</p>
 </div>
@@ -521,6 +607,13 @@ Long Covid is common and often permanent
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Aftenposten</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QWZ0ZW5wb3N0ZW4='); return false;">Aftenposten</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>It is not surprising that the increase in sick leave is driven by diagnoses that are all associated with long covid.</p>
@@ -543,6 +636,13 @@ Senfølger av covid-19 er vanlige og ofte vedvarende
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Aftenposten</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QWZ0ZW5wb3N0ZW4='); return false;">Aftenposten</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Det er ikke overraskende at økningen i sykefravær drives av diagnoser som alle er forbundet med senfølger etter koronasmitte.</p>
 </div>
@@ -563,6 +663,13 @@ Forebygg covid-19, forebygg sykefravær
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Dag og Tid</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Det er gode bevis for at en stor del av økningen i sykefraværet skyldes senfølger av covid-19.</p>
@@ -585,6 +692,13 @@ Prevent COVID-19, prevent sick leave
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Dag og Tid</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>There is good evidence that a large proportion of the increase in sick leave is due to long covid.</p>
 </div>
@@ -605,6 +719,13 @@ Angrepet mot folkehelsa fortsetter
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Fædrelandsvennen</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RiVDMyVBNmRyZWxhbmRzdmVubmVu'); return false;">Fædrelandsvennen</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Preben Aavitsland begynte sine angrep på bruk av munnbind den 30. januar 2020, hvor han kalte bruken «en kulturell greie.»</p>
@@ -627,6 +748,13 @@ The attack on public health continues
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Fædrelandsvennen</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RiVDMyVBNmRyZWxhbmRzdmVubmVu'); return false;">Fædrelandsvennen</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Preben Aavitsland began his attacks on the use of face masks on January 30, 2020, where he called the use “a cultural thing.”</p>
 </div>
@@ -647,6 +775,13 @@ Flere unge døde av sykdom: Forskere slår alarm
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>In the media • NRK</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Sykdom tok uvanlig mange unge menneskeliv i fjor. Forskere frykter at senfølger av covid-19 er årsaken.</p>
@@ -669,6 +804,13 @@ Tendensiøs statistikk om senfølger
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Dag og tid</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Myndighetene må anerkjenne at senfølger eksisterer og utgjør et samfunnsproblem.</p>
 </div>
@@ -689,6 +831,13 @@ Biased statistics about long-term consequences of COVID-19
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>Op-ed • Dag og Tid</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGFnJTIwb2clMjBUaWQ='); return false;">Dag og Tid</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3AtZWQ='); return false;">Op-ed</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>Authorities must acknowledge that long-term consequences of COVID-19 exist and constitute a societal problem.</p>
@@ -711,6 +860,13 @@ Reagerer på høye dødstall blant unge
 <div class="card-subtitle listing-subtitle">
 <i>In the media • NRK</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>For første gang på minst 20 år er det registrert overdødelighet blant unge i Norge. Det viser beregninger forskere har utført. – Jeg har aldri sett noe lignende, sier…</p>
 </div>
@@ -732,6 +888,13 @@ Slår alarm: Rekordmange til lege med utmattelse
 <div class="card-subtitle listing-subtitle">
 <i>In the media • NRK</i>
 </div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
+</div>
 <div class="card-text listing-description delink">
 <p>Tallet på pasienter som oppsøker lege med utmattelse, har eksplodert under pandemien. Nå slår en FHI-forsker alarm.</p>
 </div>
@@ -752,6 +915,13 @@ Sounding alarm: Record numbers to doctor with exhaustion
 </h5>
 <div class="card-subtitle listing-subtitle">
 <i>In the media • NRK</i>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJL'); return false;">NRK</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW4lMjB0aGUlMjBtZWRpYQ=='); return false;">In the media</div>
+
 </div>
 <div class="card-text listing-description delink">
 <p>The number of patients seeking medical attention for exhaustion has exploded during the pandemic. Now an FHI researcher sounds the alarm.</p>
@@ -893,7 +1063,8 @@ Nov 18, 2021
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-<p><a href="writing.xml" class="btn btn-outline-primary btn-sm">RSS Feed</a></p>
+<div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="writing.xml">RSS</a><a href="https://github.com/raubreywhite">GitHub</a><a href="https://x.com/raubreywhite">X</a></div></div>
+</div>
 
 
 
@@ -901,13 +1072,6 @@ Nov 18, 2021
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -986,6 +1150,11 @@ Nov 18, 2021
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

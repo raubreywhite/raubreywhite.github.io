@@ -1,73 +1,30 @@
 ---
-title: ""
-description: |
-  Presentations at scientific conferences.
-title-block-banner: false
-title-block-style: none
-format:
-  html:
-    page-layout: article
-    title-prefix: "Richard Aubrey White, Ph.D."
-editor_options: 
-  chunk_output_type: console
+pagetitle: "Presentations — Richard Aubrey White"
+page-layout: full
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(data.table)
+```{=html}
+<div class="page">
+<div class="mast"><div>
+<p class="kick">Talks &amp; Symposia</p>
+<h1 class="name">Presentations</h1>
+<p class="sub">Invited talks at scientific conferences and symposia</p>
+</div></div>
+
+<div class="yearLabel">2025</div>
+<div class="preItem"><p class="preVenue">Norwegian Covid Association (Norsk Covidforening)</p><p class="preTitle">The Consequences of COVID-19 and Long Covid<a class="preLink" href="https://covidforeningen.no/Nordisk_Webinar2025_uten_teksting/Nordisk_Webinar2025_Engelsk">[ Webinar ]</a></p><p class="preNote">Richard's session: "Healthcare usage and sick leave in 2023" — part of a Nordic webinar with Lisa Norén, Arne Søraas and Gunhild A. Nyborg.</p></div>
+
+<div class="yearLabel">2024</div>
+<div class="preItem"><p class="preVenue">Leve med ME — podcast</p><p class="preTitle">Long covid: the invisible health crisis few talk about<a class="preLink" href="https://shows.acast.com/leve-med-me/episodes/leve-med-me-long-covid">[ Podcast ]</a></p><p class="preNote">Conversation on what long covid means for individuals and society, and why healthcare workers, teachers and families are especially exposed.</p></div>
+<div class="preItem"><p class="preVenue">Norges Myalgisk Encefalopati Forening</p><p class="preTitle">Helsetjenestebruk og sykefravær i 2023 sammenlignet med trender før pandemien i Norge</p><iframe class="preVid" src="https://www.youtube-nocookie.com/embed/Bbg9hd5q2XY" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="preItem"><p class="preVenue">Nasjonal kompetansetjeneste for CFS/ME</p><p class="preTitle">Traces of COVID-19 on primary healthcare consultations and medically certified sick leave in 2023<a class="preLink" href="presentations/2024-11-traces-of-covid-19-on-primary-healthcare-consultations-and-medically-certified-sick-leave-in-2023.pdf">[ PDF ]</a></p></div>
+<div class="preItem"><p class="preVenue">Uppsala University</p><p class="preTitle">Practical data management for modern open science<a class="preLink" href="presentations/2024-10-practical-data-management-for-modern-open-science.pdf">[ PDF ]</a></p></div>
+<div class="preItem"><p class="preVenue">R/Medicine</p><p class="preTitle">org + plnr: Packages for organized project material and effective analysis<a class="preLink" href="presentations/2024-06-org-plnr-packages-for-organized-project-material-and-effective-analysis.pdf">[ PDF ]</a></p></div>
+
+<div class="yearLabel">2023</div>
+<div class="preItem"><p class="preVenue">Northern European Symposium on Automated Surveillance</p><p class="preTitle">Core Surveillance 9 as a framework for real-time analysis and disease surveillance, using NorSySS as an example<a class="preLink" href="presentations/2023-12-core-surveillance-9-as-a-framework-for-real-time-analysis-and-disease-surveillance.pdf">[ PDF ]</a></p></div>
+<div class="preItem"><p class="preVenue">Ukrainian Symposium on Syndromic Surveillance</p><p class="preTitle">The role of statistics in syndromic surveillance<a class="preLink" href="presentations/2023-07-the-role-of-statistics-in-syndromic-surveillance.pdf">[ PDF ]</a></p></div>
+
+<div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="https://github.com/raubreywhite">GitHub</a><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ">Scholar</a><a href="https://no.linkedin.com/in/richard-white4">LinkedIn</a></div></div>
+</div>
 ```
-
-## 2025
-
-### Norwegian Covid Association (Norsk Covidforening)
-
-The Consequences of COVID-19 and Long Covid. [\[Webinar in English\]](https://covidforeningen.no/Nordisk_Webinar2025_uten_teksting/Nordisk_Webinar2025_Engelsk)
-
--   **Introduction and Welcome**
-    -   Time: 00:00 - 00:06
-    -   Lisa Norén, GP and spokesperson
--   **The Norwegian Corona Study and Long Covid (in Norwegian)**
-    -   Time: 00:06 - 00:38
-    -   Arne Søraas, M.D., PhD.
--   **PASC --- more than fatigue. Increased risk of disease and death after COVID-19 and the effect of COVID vaccines**
-    -   Time: 00:38 - 01:10
-    -   Gunhild A. Nyborg, M.D., PhD, Exam. Oecon
--   **Healthcare usage and sick leave in 2023**
-    -   Time: 01:10 - 01:39
-    -   Richard Aubrey White, PhD
--   **Q&A Session with Lisa Norén**
-    -   Time: 01:39 - 02:02
-
-## 2024
-
-### Leve med ME podcast
-
-Covid er ikke over --- long covid er den usynlige helsekrisen som få snakker om. I denne episoden møter vi Richard Aubrey White, statistiker og smittevernforsker, som deler sine erfaringer og innsikt i hva long covid betyr for enkeltmennesker og samfunnet. Hvorfor er helsefagarbeidere, lærere og familier spesielt utsatt? Hva kan vi gjøre for å redusere risikoen? Og hvordan vil helsevesenet se ut om 10 år dersom vi ikke handler nå? Bli med på en viktig samtale om en sykdom som påvirker langt flere enn du tror. [\[Podcast\]](https://shows.acast.com/leve-med-me/episodes/leve-med-me-long-covid)
-
-### Norges Myalgisk Encefalopati Forening
-
-Helsetjenestebruk og sykefravær i 2023 sammenlignet med trender før pandemien i Norge
-
-{{< video https://www.youtube.com/watch?v=Bbg9hd5q2XY >}}
-
-### Nasjonal kompetansetjeneste for CFS/ME
-
-Traces of COVID-19 on primary healthcare consultations and medically certified sick leave in 2023. [\[pdf\]](presentations/2024-11-traces-of-covid-19-on-primary-healthcare-consultations-and-medically-certified-sick-leave-in-2023.pdf)
-
-### Uppsala University
-
-Practical data management for modern open science. [\[pdf\]](presentations/2024-10-practical-data-management-for-modern-open-science.pdf)
-
-### R/Medicine
-
-[org](https://www.csids.no/org/) + [plnr](https://www.csids.no/plnr/): Packages for Organized Project Material and Effective Analysis. [\[pdf\]](presentations/2024-06-org-plnr-packages-for-organized-project-material-and-effective-analysis.pdf)
-
-## 2023
-
-### Northern European Symposium on Automated Surveillance
-
-Core Surveillance 9 as a framework for real-time analysis and disease surveillance, using NorSySS as an example. [\[pdf\]](presentations/2023-12-core-surveillance-9-as-a-framework-for-real-time-analysis-and-disease-surveillance.pdf)
-
-### Ukrainian Symposium on Syndromic Surveillance
-
-The Role of Statistics in Syndromic Surveillance. [\[pdf\]](presentations/2023-07-the-role-of-statistics-in-syndromic-surveillance.pdf)

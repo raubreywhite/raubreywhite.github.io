@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2023-04-14">
 <meta name="description" content="Examining sparse inference using both frequentist and bayesian methodology.">
 
-<title>Sparse inference – White, Ph.D.</title>
+<title>Sparse inference – Richard Aubrey White, Ph.D.</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -95,12 +95,11 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c11abc8cc2b203d8167704c6b3f98431.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d0619ffa90b7e1ccbaca1025cf022b8c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-f0273a218e7e4bf6f831990a3cf7241b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -130,24 +129,12 @@ div.csl-indent {
 }</script>
 <style>
 
-      .quarto-title-block .quarto-title-banner h1,
-      .quarto-title-block .quarto-title-banner h2,
-      .quarto-title-block .quarto-title-banner h3,
-      .quarto-title-block .quarto-title-banner h4,
-      .quarto-title-block .quarto-title-banner h5,
-      .quarto-title-block .quarto-title-banner h6
-      {
-        color: #000000;
-      }
-
       .quarto-title-block .quarto-title-banner {
-        color: #000000;
-background: #e2ebf0;
+        background: #e2ebf0;
       }
 </style>
 
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -158,7 +145,7 @@ background: #e2ebf0;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">White, Ph.D.</span>
+    <span class="navbar-title">Richard Aubrey White, Ph.D.</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -166,10 +153,10 @@ background: #e2ebf0;
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">CV</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../publications.html"> 
@@ -179,6 +166,16 @@ background: #e2ebf0;
     <a class="nav-link" href="../../presentations.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../writing.html"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-packages" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">R packages</span>
@@ -198,10 +195,6 @@ background: #e2ebf0;
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../writing.html"> 
-<span class="menu-text">Writing &amp; Media</span></a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/raubreywhite"> <i class="bi bi-github" role="img">
 </i> 
@@ -220,58 +213,29 @@ background: #e2ebf0;
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Sparse inference</h1>
-                  <div>
-        <div class="description">
-          <p>Examining sparse inference using both frequentist and bayesian methodology.</p>
-        </div>
-      </div>
-                </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p><a href="https://www.rwhite.no">Richard Aubrey White</a> <a href="https://orcid.org/0000-0002-6747-1726" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">April 14, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Sparse inference</h1></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
+
+<p class="author">Richard Aubrey White</p>
+
+<p class="date">2023-04-14</p>
+</header>
 
 
-
-
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction" class="level2">
+<h2 data-anchor-id="introduction">Introduction</h2>
 <p>Machine learning and statistical modeling are two important tools in data science that are used to make predictions and infer relationships between variables, respectively. Models for prediction aim to estimate the relationship between inputs and outputs in order to make accurate predictions about new, unseen data. In contrast, models for inference aim to understand the underlying relationships between variables in the data, often in the form of identifying causal relationships.</p>
 <p>In this blog post, we will explore using models for inference using a simulated dataset, and we will apply penalized regression to perform feature selection on a binary outcome. Penalized regression is particularly useful in situations where the number of predictors (i.e.&nbsp;independent variables) is much larger than the sample size.</p>
 <p>We will investigate the frequentist solution of using a two-stage solution with LASSO regression via <code>glmnet</code> and then using the <code>selectiveInference</code> package to perform post inference and adjust for the bias introduced by the selection process. We will also investigate a Bayesian solution that approximates a LASSO regression via a Laplace prior.</p>
 </section>
 <section id="simulating-a-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="simulating-a-dataset">Simulating a Dataset</h2>
+<h2 data-anchor-id="simulating-a-dataset">Simulating a Dataset</h2>
 <p>We will simulate a dataset with <code>n = 5000</code> people and <code>p = 50</code> variables, where only three of the 50 variables will have an association with the binary outcome, and they will have odds ratios of 4, 3, and 2. The remaining variables will have no association with the outcome.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
@@ -294,7 +258,7 @@ background: #e2ebf0;
 </div>
 </section>
 <section id="lasso-regression" class="level2">
-<h2 class="anchored" data-anchor-id="lasso-regression">LASSO Regression</h2>
+<h2 data-anchor-id="lasso-regression">LASSO Regression</h2>
 <p>We will now fit a LASSO regression model using the <code>glmnet</code> package in R. LASSO is a popular method for feature selection in high-dimensional data, where the number of predictors <code>p</code> is much larger than the number of observations <code>n</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get standard deviation of X, because we will need to standardize/scale it outside of glmnet</span></span>
@@ -364,11 +328,11 @@ x50         .          </code></pre>
 </div>
 </section>
 <section id="no-confidence-intervals" class="level2 callout-info">
-<h2 class="anchored" data-anchor-id="no-confidence-intervals">No confidence intervals</h2>
+<h2 data-anchor-id="no-confidence-intervals">No confidence intervals</h2>
 <p>Note that LASSO regression does not provide any confidence intervals or p-values, only coeficient estimates.</p>
 </section>
 <section id="inference" class="level3">
-<h3 class="anchored" data-anchor-id="inference">Inference</h3>
+<h3 data-anchor-id="inference">Inference</h3>
 <p>LASSO regression is a popular method for variable selection in high-dimensional datasets. It shrinks some coefficients to zero, allowing us to select only a subset of variables that have the strongest association with the outcome. However, LASSO does not provide confidence intervals or p-values for the selected variables.</p>
 <p>The reason for this is that LASSO performs variable selection by penalizing the likelihood function, not by explicitly testing the significance of each variable. Therefore, we cannot use traditional methods to compute confidence intervals or p-values. Instead, we need to use methods that are specifically designed for post-selection inference.</p>
 <p>One such method is provided in the R package <code>selectiveInference.</code> The function <code>fixedLassoInf</code> provides confidence intervals and p-values for LASSO selected variables by accounting for the fact that variable selection was performed. It does this by using a two-stage procedure. In the first stage, LASSO selects a subset of variables. In the second stage, selectiveInference performs inference on the selected variables, adjusting for the selection procedure.</p>
@@ -424,11 +388,11 @@ x50         .          </code></pre>
 </div>
 </section>
 <section id="bayesian-logistic-regression-using-rstanarm" class="level2">
-<h2 class="anchored" data-anchor-id="bayesian-logistic-regression-using-rstanarm">Bayesian Logistic Regression using <code>rstanarm</code></h2>
+<h2 data-anchor-id="bayesian-logistic-regression-using-rstanarm">Bayesian Logistic Regression using <code>rstanarm</code></h2>
 <p>Another way to perform inference on a logistic regression model with feature selection is through Bayesian methods. In particular, we can use the <code>rstanarm</code> R package to fit a Bayesian logistic regression model with a Laplace prior.</p>
 </section>
 <section id="laplace-prior" class="level2 callout-info">
-<h2 class="anchored" data-anchor-id="laplace-prior">Laplace prior</h2>
+<h2 data-anchor-id="laplace-prior">Laplace prior</h2>
 <p>The Laplace prior is used to promote sparsity by assigning a probability distribution to the coefficients that puts more probability mass around zero. It is equivalent to LASSO regression <span class="citation" data-cites="Tibshirani1996">(<a href="#ref-Tibshirani1996" role="doc-biblioref">Tibshirani 1996</a>)</span>.</p>
 </section>
 <div class="cell">
@@ -516,7 +480,7 @@ x50         .          </code></pre>
 </div>
 </div>
 <section id="p-value-equivalent" class="level2 callout-info">
-<h2 class="anchored" data-anchor-id="p-value-equivalent">P-value equivalent</h2>
+<h2 data-anchor-id="p-value-equivalent">P-value equivalent</h2>
 <p>Probability of Direction (PoD) and p-values are both statistical measures used in hypothesis testing <span class="citation" data-cites="Makowski2019bayestestR">Makowski, Ben-Shachar, Chen, et al. (<a href="#ref-Makowski2019Indices" role="doc-biblioref">2019</a>)</span>. They are similar in that they both provide evidence for or against a null hypothesis. PoD measures the proportion of posterior draws from a Bayesian model that are in the direction of the alternative hypothesis. It provides a measure of the strength of evidence for the alternative hypothesis relative to the null hypothesis. A high PoD value indicates strong evidence in favor of the alternative hypothesis, while a low PoD value indicates weak evidence in favor of the alternative hypothesis.</p>
 <p>Similarly, a p-value measures the probability of obtaining a test statistic as extreme as or more extreme than the observed value, assuming that the null hypothesis is true. A low p-value indicates that the observed result is unlikely to have occurred by chance alone, providing evidence against the null hypothesis.</p>
 <p>To convert PoD to a p-value equivalent, one approach is to use the following formula:</p>
@@ -524,7 +488,7 @@ x50         .          </code></pre>
 <p>This formula assumes a two-tailed test and converts the PoD to a p-value for a test of the null hypothesis that the effect size is equal to zero. The resulting p-value can be interpreted as the probability of obtaining the observed result or a more extreme result under the null hypothesis.</p>
 </section>
 <section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<h2 data-anchor-id="conclusion">Conclusion</h2>
 <p>The blog article discusses the limitations of using LASSO (Least Absolute Shrinkage and Selection Operator) models for statistical inference, particularly in situations where the number of predictors (i.e.&nbsp;independent variables) is much larger than the sample size. In these cases, LASSO models can suffer from high variability in the estimated coefficients, which can lead to incorrect or unreliable conclusions.</p>
 <p>One proposed solution to this problem is to use a two-stage inference approach, where LASSO is first used to select a subset of predictors, and then a separate statistical method (such as ordinary least squares) is used to estimate the coefficients for the selected predictors. However, this two-stage approach can also have limitations, such as a loss of power in the second stage and increased computational complexity.</p>
 <p>In contrast, Bayesian statistics offer a one-stage inference approach that can provide more reliable and interpretable results in complex modeling situations. Bayesian statistics allow for the incorporation of prior knowledge and uncertainty in the model, which can help to reduce variability and improve accuracy. Bayesian methods also provide a framework for model comparison and selection, which can help to identify the most appropriate model for a given dataset.</p>
@@ -547,13 +511,6 @@ Tibshirani, Robert. 1996. <span>“Regression Shrinkage and Selection via the La
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -632,6 +589,11 @@ Tibshirani, Robert. 1996. <span>“Regression Shrinkage and Selection via the La
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {

@@ -1,60 +1,60 @@
 ---
-title: ""
-description: |
-  Publications of scientific articles.
-title-block-banner: false
-title-block-style: none
-format:
-  html:
-    page-layout: article
-editor_options: 
-  chunk_output_type: console
+pagetitle: "Publications — Richard Aubrey White"
+page-layout: full
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(data.table)
-```
-
-```{r echo=FALSE, warning=FALSE, include=FALSE}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(knitcitations)
 d <- knitcitations::read.bibtex("publications.bib")
+n_pub <- length(d)
 prof <- scholar::get_profile("75oKEWoAAAAJ")
-citations <- formatC(prof$total_cites, big.mark = " ", format = "f", digits = 0)
-h_index <- formatC(prof$h_index, big.mark = " ", format = "f", digits = 0)
+citations <- formatC(prof$total_cites, big.mark = ",", format = "f", digits = 0)
+h_index <- formatC(prof$h_index, format = "f", digits = 0)
 ```
 
-`r length(d)` scientific articles (`r citations` [citations](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao), `r h_index` [h-index](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)).
-
-## Key Publications
-
-```{r echo=FALSE, warning=FALSE, results = "asis"}
-print(d[[c("white2026mortalityb", "white2026mortalitya", "White2026consultations", "White2024", "wickremesekera2022srilanka")]], .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html"))
+```{=html}
+<div class="page">
+<div class="mast"><div><p class="kick">Peer-Reviewed Research</p><h1 class="name">Publications</h1><p class="sub">`r n_pub` publications · `r citations` citations · h-index `r h_index`</p></div></div>
+<div class="cite-list">
 ```
 
-```{r echo=FALSE, warning=FALSE, results = "asis"}
-q <- capture.output(print(d, .opts = list(sorting="ydnt", bib.style = "authoryear", max.names = 1, dashed = F, style = "html")))
-
+```{r}
+#| echo: false
+#| warning: false
+#| results: asis
+# Generated automatically from publications.bib — same logic as before
+# (year groupings + numbering), only the styling (styles.scss) changes.
+q <- capture.output(print(d, .opts = list(sorting = "ydnt", bib.style = "authoryear",
+                                           max.names = 1, dashed = FALSE, style = "html")))
 index <- length(d)
 current_year <- 9999
-for(i in seq_along(q)){
+for (i in seq_along(q)) {
   to_print <- q[i]
-  
-  # year headings
-  if(i < length(q)-1) if(stringr::str_detect(q[i+1], "\\(20[0-9][0-9]\\)\\.")){
-    new_year <- stringr::str_extract(q[i+1], "[0-9][0-9][0-9][0-9]")
-    if(new_year != current_year){
+  if (i < length(q) - 1) if (stringr::str_detect(q[i + 1], "\\(20[0-9][0-9]\\)\\.")) {
+    new_year <- stringr::str_extract(q[i + 1], "[0-9][0-9][0-9][0-9]")
+    if (new_year != current_year) {
       current_year <- new_year
-      cat("##", current_year, "\n\n")
+      cat(glue::glue('<div class="yearLabel">{current_year}</div>'), "\n\n")
     }
   }
-  
-  # numbering publications
-  if(stringr::str_detect(to_print, "<p><cite>")){
+  if (stringr::str_detect(to_print, "<p><cite>")) {
     to_print <- stringr::str_replace(to_print, "<p><cite>", glue::glue("<p><cite>[{index}] "))
     index <- index - 1
   }
-  
-  # outputting
   cat(to_print, "\n")
 }
+```
+
+```{=html}
+</div>
+
+<h2 class="H" id="software-r-packages">Software &amp; R packages</h2>
+<div class="pkgwrap"><p class="pkglab">CRAN</p><div class="pkgs"><a class="pkg" href="https://www.csids.no/attrib/">attrib</a><a class="pkg" href="https://www.rwhite.no/cohort/">cohort</a><a class="pkg" href="https://www.csids.no/csalert/">csalert</a><a class="pkg" href="https://www.csids.no/csdata/">csdata</a><a class="pkg" href="https://www.csids.no/csdb/">csdb</a><a class="pkg" href="https://www.csids.no/csmaps/">csmaps</a><a class="pkg" href="https://www.csids.no/csstyle/">csstyle</a><a class="pkg" href="https://www.csids.no/cstidy/">cstidy</a><a class="pkg" href="https://www.csids.no/cstime/">cstime</a><a class="pkg" href="https://www.csids.no/csutil/">csutil</a><a class="pkg" href="https://www.rwhite.no/org/">org</a><a class="pkg" href="https://www.rwhite.no/plnr/">plnr</a></div></div>
+<div class="pkgwrap"><p class="pkglab">GitHub</p><div class="pkgs"><a class="pkg" href="https://www.csids.no/cs9/">cs9</a><a class="pkg" href="https://github.com/EuroMOMOnetwork/MOMO/">MOMO</a></div></div>
+
+<div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="https://github.com/raubreywhite">GitHub</a><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ">Scholar</a><a href="writing.xml">RSS</a></div></div>
+</div>
 ```

@@ -10,29 +10,26 @@ resources:
   - "presentations/*"
 
 website:
-  title: "White, Ph.D."
+  title: "Richard Aubrey White, Ph.D."
   site-url: "https://www.rwhite.no"
+  favicon: favicon.png
   body-header: |
     <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var path = window.location.pathname;
-      if (path.includes('publications.html') || path.endsWith('/publications')) {
-        document.body.classList.add('js-hide-publications');
-      } else if (path.includes('presentations.html') || path.endsWith('/presentations')) {
-        document.body.classList.add('js-hide-presentations');
-      }
-    });
-    </script>
-  favicon: favicon.png
   navbar:
-    right:
-      - text: "CV"
-        href: index.html
+    background: "#231c16"
+    pinned: false
+    left:
+      - text: "Home"
+        href: index.qmd
       - text: "Publications"
         href: publications.qmd
       - text: "Presentations"
         href: presentations.qmd
+      - text: "Writing"
+        href: writing.qmd
+      - text: "CV"
+        href: cv.qmd
+    right:
       - text: "R packages"
         menu:
           - text: "cohort"
@@ -41,17 +38,14 @@ website:
             href: /org/
           - text: "plnr"
             href: /plnr/
-      - writing.qmd
       - icon: github
         href: https://github.com/raubreywhite
       - icon: twitter-x
         href: https://www.x.com/raubreywhite
+
 format:
   html:
-    theme: flatly
-    css: styles.css
-    title-block-banner: "#e2ebf0"
-    title-block-banner-color: "#000000"
-
-
-
+    theme: styles.scss
+    title-block-style: none
+    anchor-sections: false
+    link-external-newwindow: true

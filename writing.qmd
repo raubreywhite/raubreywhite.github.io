@@ -1,17 +1,13 @@
 ---
-title: "Writing & Media"
-description: |
-  A collection of thoughts.
-title-block-banner: false
-title-block-style: none
-body-class: hide-title
+pagetitle: "Writing & Media — Richard Aubrey White"
+page-layout: full
 listing:
-  id: sample-listings
+  id: writing-listing
   contents: post
   sort: "date desc"
   type: grid
-  fields: [date, title, subtitle, description]
-  image-height: 350px
+  fields: [date, title, subtitle, description, categories]
+  image-height: 220px
   grid-columns: 2
   page-size: 1000
   categories: true
@@ -20,7 +16,15 @@ listing:
   feed: true
 ---
 
-::: {#sample-listings}
+```{=html}
+<div class="page">
+<div class="mast"><div><p class="kick">Essays, Commentary &amp; Press</p><h1 class="name">Writing &amp; Media</h1></div></div>
+```
+
+::: {#writing-listing}
 :::
 
-[RSS Feed](writing.xml){.btn .btn-outline-primary .btn-sm}
+```{=html}
+<div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="writing.xml">RSS</a><a href="https://github.com/raubreywhite">GitHub</a><a href="https://x.com/raubreywhite">X</a></div></div>
+</div>
+```
