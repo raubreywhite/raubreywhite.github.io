@@ -12,7 +12,7 @@ page-layout: full
 </div></div>
 
 <div class="yearLabel">2026</div>
-<div class="preItem"><p class="preVenue">NordicEpi/NorPEN Conference 2026 (Tromsø)</p><p class="preTitle">The long shadow of COVID-19 on sick leave and primary healthcare consultations in Norway<a class="preLink" href="presentations/2026-06-long-shadow-of-covid-19-on-sick-leave-and-primary-healthcare-consultations-in-norway.pdf">[ PDF ]</a></p></div>
+<div class="preItem"><p class="preVenue">NordicEpi/NorPEN Conference (Tromsø)</p><p class="preTitle">The long shadow of COVID-19 on sick leave and primary healthcare consultations in Norway<a class="preLink" href="presentations/2026-06-long-shadow-of-covid-19-on-sick-leave-and-primary-healthcare-consultations-in-norway.pdf">[ PDF ]</a></p></div>
 
 <div class="yearLabel">2025</div>
 <div class="preItem"><p class="preVenue">Norwegian Covid Association (Norsk Covidforening)</p><p class="preTitle">The Consequences of COVID-19 and Long Covid<a class="preLink" href="https://covidforeningen.no/Nordisk_Webinar2025_uten_teksting/Nordisk_Webinar2025_Engelsk">[ Webinar ]</a></p><p class="preNote">Richard's session: "Healthcare usage and sick leave in 2023" — part of a Nordic webinar with Lisa Norén, Arne Søraas and Gunhild A. Nyborg.</p></div>
