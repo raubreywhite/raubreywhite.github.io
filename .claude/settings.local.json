@@ -4,7 +4,13 @@
       "Bash(rm:*)",
       "Bash(grep:*)",
       "Bash(mkdir:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "WebFetch(domain:shields.io)",
+      "WebFetch(domain:www.csids.no)",
+      "Bash(sed:*)",
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }
