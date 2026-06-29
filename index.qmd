@@ -38,8 +38,8 @@ n_cran <- 12
 <a class="xpCard" target="_self" href="#exp-norsyss"><p class="xpRole">Researcher / Project Manager</p><p class="xpOrg">Norwegian Institute of Public Health</p><p class="xpMeta">2023–NOW · OSLO, NORWAY</p><p class="xpDesc">Leads Norway's national syndromic surveillance; sets statistical methodology and alerts health authorities to outbreaks in real time.</p></a>
 <a class="xpCard" target="_self" href="#exp-srilanka"><p class="xpRole">Health Officer</p><p class="xpOrg">Norwegian Red Cross (IFRC)</p><p class="xpMeta">2022 · COLOMBO, SRI LANKA</p><p class="xpDesc">Head statistician for a 3,100-household nationwide needs assessment during the country's humanitarian emergency.</p></a>
 <a class="xpCard" target="_self" href="#exp-mozambique"><p class="xpRole">Community-Based Surveillance Delegate</p><p class="xpOrg">Norwegian Red Cross (IFRC)</p><p class="xpMeta">2019 · BEIRA, MOZAMBIQUE</p><p class="xpDesc">Responded to the cholera outbreak after Cyclone Idai; ran a real-time surveillance system across Red Cross oral-rehydration points.</p></a>
-<a class="xpCard" target="_self" href="#exp-palestine"><p class="xpRole">Statistician</p><p class="xpOrg">Palestinian National Institute of Public Health</p><p class="xpMeta">2017–2019 · RAMALLAH, PALESTINE</p><p class="xpDesc">Spent two years training local staff in data management and statistical programming for the national maternal- and child-health registry.</p></a>
-<a class="xpCard" target="_self" href="#exp-ebola"><p class="xpRole">GIS Expert / Data Manager</p><p class="xpOrg">World Health Organization — GOARN</p><p class="xpMeta">2015 · KAMBIA, SIERRA LEONE</p><p class="xpDesc">Responded to the Ebola epidemic — built and ran a real-time surveillance system linking treatment centers, care centers and burials.</p></a>
+<a class="xpCard" target="_self" href="#exp-palestine"><p class="xpRole">Statistician</p><p class="xpOrg">Palestinian National Institute of Public Health</p><p class="xpMeta">2017–2019 · RAMALLAH, PALESTINE</p><p class="xpDesc">Trained local staff in data management and statistical programming for the national maternal- and child-health registry.</p></a>
+<a class="xpCard" target="_self" href="#exp-ebola"><p class="xpRole">GIS Expert / Data Manager</p><p class="xpOrg">World Health Organization</p><p class="xpMeta">2015 · KAMBIA, SIERRA LEONE</p><p class="xpDesc">Responded to the Ebola epidemic — built and ran a real-time surveillance system linking treatment centers, care centers and burials.</p></a>
 <a class="xpCard" target="_self" href="#exp-gbd"><p class="xpRole">Biostatistician</p><p class="xpOrg">World Health Organization</p><p class="xpMeta">2011 · GENEVA, SWITZERLAND</p><p class="xpDesc">Produced Global Burden of Disease (GBD 2010) prevalence estimates — vision loss, micronutrient deficiency and stunting — across all UN member states.</p></a>
 </div>
 
@@ -68,7 +68,7 @@ pub_cards(d, keys = c("white2026mortalitya", "White2026consultations", "White202
 <h2 class="H">Education</h2>
 <div class="grid2">
 <div>
-<p class="edu"><span class="school">Harvard University</span><br>Ph.D. in Biostatistics <i>· 2011–2012</i><br>M.A. in Biostatistics <i>· 2009–2011, Frank Knox Fellowship</i></p>
+<p class="edu"><span class="school">Harvard University</span><br><a href="articles/2012-white.pdf">Ph.D. in Biostatistics</a> <i>· 2011–2012</i><br>M.A. in Biostatistics <i>· 2009–2011, Frank Knox Fellowship</i></p>
 <p class="edu"><span class="school">University of Wollongong</span><br>B. Adv. Mathematics, Applied Statistics <i>· 2005–2009, First Class Honours</i></p>
 </div>
 <div>

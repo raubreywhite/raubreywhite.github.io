@@ -71,7 +71,11 @@ pub_cards <- function(d, keys = NULL, number = FALSE) {
     r <- rows[[i]]
     yr <- if (!identical(r$year, prev)) r$year else ""
     prev <- r$year
-    num <- if (number) sprintf('<span class="cvpubNum">%d</span>', n - i + 1L) else ""
+    num <- if (number) {
+      sprintf('<span class="cvpubNum">%d</span>', n - i + 1L)
+    } else {
+      ""
+    }
     jline <- r$authors
     if (!is.na(r$journal)) {
       jline <- paste0(jline, " · <em>", r$journal, "</em>")
