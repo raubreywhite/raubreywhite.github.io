@@ -49,7 +49,7 @@ for (i in seq_along(q)) {
   to_print <- stringr::str_replace(to_print, 'DOI: <a href="([^"]*)">[^<]*</a>\\.?', '<a class="pubLink" href="\\1">[ DOI ]</a>')
   to_print <- stringr::str_replace(to_print, 'URL: <a href="([^"]*)">[^<]*</a>\\.?', '<a class="pubLink" href="\\1">[ PDF ]</a>')
   to_print <- stringr::str_replace(to_print, ' ?ISSN: [0-9Xx-]+\\.', '')
-  cat(to_print, "\n")
+  if (nzchar(trimws(to_print))) cat(to_print, "\n")  # skip blanks -> no empty <p> between entries
 }
 ```
 

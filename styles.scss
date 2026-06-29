@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 { border-bottom: none; }
 .sub { font-style: italic; font-size: 21px; color: #54483b; margin: 12px 0 0 }
 .photo { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex-shrink: 0; filter: sepia(.12) contrast(1.02) }
 .lead { font-size: 19px; font-weight: 400; line-height: 1.55; max-width: 70ch; margin: 26px 0 0; text-wrap: pretty; color: #3a3128 }
-.bodyp { font-size: 18px; line-height: 1.58; color: #3a3128; margin: 14px 0 0 }
+.bodyp { font-size: 18px; line-height: 1.58; color: #3a3128; margin: 14px 0 0; max-width: 70ch }
 
 /* --- section heading --- */
 .H { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #a08a6a; margin: 52px 0 6px; display: flex; align-items: baseline; gap: 12px }
@@ -187,8 +187,9 @@ main.content .quarto-listing a, main.content .about-links a { color: inherit; }
 /* ===== knitcitations output on the publications page ===== */
 .cite-list p {
   font-size: 16px; line-height: 1.5; color: #231c16;
-  padding: 14px 0; border-top: 1px solid #e3d9c8; margin: 0;
+  padding: 9px 0; margin: 0;
 }
+.cite-list p:empty { display: none; padding: 0 }
 .cite-list a { color: #8a1c1c; text-decoration: none }
 .cite-list a:hover { text-decoration: underline }
 .pubLink { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .03em; color: #8a1c1c; text-decoration: none; white-space: nowrap; margin-left: 4px }

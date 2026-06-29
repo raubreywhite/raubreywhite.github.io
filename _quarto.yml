@@ -28,8 +28,6 @@ website:
         href: presentations.qmd
       - text: "Writing"
         href: writing.qmd
-      - text: "CV"
-        href: cv.qmd
 
 format:
   html:
