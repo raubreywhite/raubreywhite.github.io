@@ -201,7 +201,7 @@ main.content .quarto-listing a, main.content .about-links a { color: inherit; }
 .cite-list p:empty { display: none; padding: 0 }
 .cite-list a { color: #8a1c1c; text-decoration: none }
 .cite-list a:hover { text-decoration: underline }
-.pubLink { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .03em; color: #8a1c1c; text-decoration: none; white-space: nowrap; margin-left: 4px }
+.pubLink { font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: 12px; letter-spacing: .03em; color: #8a1c1c; text-decoration: none; white-space: nowrap; margin-left: 4px }
 .pubLink:hover { text-decoration: underline }
 
 /* ===== print (browser Save-as-PDF fallback for the CV) ===== */

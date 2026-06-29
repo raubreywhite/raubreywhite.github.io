@@ -7,7 +7,6 @@ page-layout: full
 #| echo: false
 #| warning: false
 #| message: false
-library(knitcitations)
 d <- knitcitations::read.bibtex("publications.bib")
 n_pub <- length(d)
 prof <- scholar::get_profile("75oKEWoAAAAJ")
@@ -18,44 +17,55 @@ h_index <- formatC(prof$h_index, format = "f", digits = 0)
 ```{=html}
 <div class="page">
 <div class="mast"><div><p class="kick">Peer-Reviewed Research</p><h1 class="name">Publications</h1><p class="sub">`r n_pub` publications · `r citations` citations · h-index `r h_index`</p></div></div>
-<div class="cite-list">
 ```
 
 ```{r}
 #| echo: false
 #| warning: false
 #| results: asis
-# Generated automatically from publications.bib — same logic as before
-# (year groupings + numbering), only the styling (styles.scss) changes.
-q <- capture.output(print(d, .opts = list(sorting = "ydnt", bib.style = "authoryear",
-                                           max.names = 1, dashed = FALSE, style = "html")))
-index <- length(d)
-current_year <- 9999
-for (i in seq_along(q)) {
-  to_print <- q[i]
-  if (i < length(q) - 1) if (stringr::str_detect(q[i + 1], "\\(20[0-9][0-9]\\)\\.")) {
-    new_year <- stringr::str_extract(q[i + 1], "[0-9][0-9][0-9][0-9]")
-    if (new_year != current_year) {
-      current_year <- new_year
-      cat(glue::glue('<div class="yearLabel">{current_year}</div>'), "\n\n")
-    }
-  }
-  if (stringr::str_detect(to_print, "<p><cite>")) {
-    to_print <- stringr::str_replace(to_print, "<p><cite>", glue::glue("<p><cite>[{index}] "))
-    index <- index - 1
-  }
-  # Compact the trailing metadata: DOI: <long url> -> [ DOI ], URL: <long url> -> [ PDF ]
-  to_print <- stringr::str_replace(to_print, 'href="https://doi.org/https://doi.org/', 'href="https://doi.org/')
-  to_print <- stringr::str_replace(to_print, 'DOI: <a href="([^"]*)">[^<]*</a>\\.?', '<a class="pubLink" href="\\1">[ DOI ]</a>')
-  to_print <- stringr::str_replace(to_print, 'URL: <a href="([^"]*)">[^<]*</a>\\.?', '<a class="pubLink" href="\\1">[ PDF ]</a>')
-  to_print <- stringr::str_replace(to_print, ' ?ISSN: [0-9Xx-]+\\.', '')
-  if (nzchar(trimws(to_print))) cat(to_print, "\n")  # skip blanks -> no empty <p> between entries
+esc <- function(x) { x <- gsub("[{}]", "", x); x <- gsub("&", "&amp;", x, fixed = TRUE); x <- gsub("<", "&lt;", x, fixed = TRUE); gsub(">", "&gt;", x, fixed = TRUE) }
+norm_doi <- function(doi) {
+  if (is.null(doi) || is.na(doi) || !nzchar(doi)) return(NA_character_)
+  paste0("https://doi.org/", sub("^https?://doi.org/", "", doi))
+}
+fmt_authors <- function(au) {
+  fam <- vapply(au, function(a) paste(a$family, collapse = " "), character(1))
+  n <- length(fam)
+  if (n == 1) fam else if (n <= 3) paste(paste(fam[-n], collapse = ", "), "&", fam[n]) else paste0(fam[1], " et al.")
+}
+get1 <- function(v) { if (is.null(v)) return(NA_character_); v <- as.character(v); v <- v[nzchar(v)]; if (length(v)) v[1] else NA_character_ }
+
+rows <- lapply(seq_along(d), function(i) {
+  e <- d[i]
+  jr <- get1(e$journal)
+  if (is.na(jr)) jr <- get1(e$school)
+  if (is.na(jr)) jr <- get1(e$publisher)
+  if (is.na(jr)) jr <- get1(e$institution)
+  list(
+    year    = suppressWarnings(as.integer(get1(e$year))),
+    title   = esc(get1(e$title)),
+    authors = if (!is.null(e$author)) esc(fmt_authors(e$author)) else "",
+    journal = if (is.na(jr)) NA_character_ else esc(jr),
+    url     = get1(e$url),
+    doi     = norm_doi(get1(e$doi))
+  )
+})
+
+ord <- order(-vapply(rows, function(r) r$year, integer(1)), seq_along(rows))
+prev <- -1L
+for (r in rows[ord]) {
+  yr <- if (!identical(r$year, prev)) r$year else ""
+  prev <- r$year
+  jline <- r$authors
+  if (!is.na(r$journal)) jline <- paste0(jline, " · <em>", r$journal, "</em>")
+  if (!is.na(r$doi)) jline <- paste0(jline, sprintf(' <a class="pubLink" href="%s">[ DOI ]</a>', r$doi))
+  if (!is.na(r$url)) jline <- paste0(jline, sprintf(' <a class="pubLink" href="%s">[ PDF ]</a>', r$url))
+  cat(sprintf('<div class="cvpub"><div class="cvpubYr">%s</div><div><p class="cvpubT">%s</p><p class="cvpubJ">%s</p></div></div>\n',
+              yr, r$title, jline))
 }
 ```
 
 ```{=html}
-</div>
-
 <div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="https://github.com/raubreywhite">GitHub</a><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ">Scholar</a><a href="writing.xml">RSS</a></div></div>
 </div>
 ```
