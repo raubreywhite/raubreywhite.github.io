@@ -69,7 +69,7 @@ pub_cards(d, keys = c("white2026mortalitya", "White2026consultations", "White202
 <div class="grid2">
 <div>
 <p class="edu"><span class="school">Harvard University</span><br><a href="articles/2012-white.pdf">Ph.D.</a> in Biostatistics <i>· 2011–2012</i><br>M.A. in Biostatistics <i>· 2009–2011, Frank Knox Fellowship</i></p>
-<p class="edu"><span class="school">University of Wollongong</span><br>B. Adv. Mathematics, Applied Statistics <i>· 2005–2009, First Class Honours</i></p>
+<p class="edu"><span class="school">University of Wollongong</span><br>B. Adv. Mathematics <i>· 2005–2009, First Class Honours</i></p>
 </div>
 <div>
 <p class="edu"><span class="school">University of Bergen</span><br>Nordic languages &amp; literature <i>· 2022–2023, one-year program</i></p>
