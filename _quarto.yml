@@ -10,7 +10,7 @@ resources:
   - "presentations/*"
 
 website:
-  title: "Richard Aubrey White, Ph.D."
+  title: "White, Ph.D."
   site-url: "https://www.rwhite.no"
   favicon: favicon.png
   body-header: |
@@ -18,7 +18,8 @@ website:
   navbar:
     background: "#231c16"
     pinned: false
-    left:
+    left: []
+    right:
       - text: "Home"
         href: index.qmd
       - text: "Publications"
@@ -29,19 +30,6 @@ website:
         href: writing.qmd
       - text: "CV"
         href: cv.qmd
-    right:
-      - text: "R packages"
-        menu:
-          - text: "cohort"
-            href: /cohort/
-          - text: "org"
-            href: /org/
-          - text: "plnr"
-            href: /plnr/
-      - icon: github
-        href: https://github.com/raubreywhite
-      - icon: twitter-x
-        href: https://www.x.com/raubreywhite
 
 format:
   html:

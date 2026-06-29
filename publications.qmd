@@ -51,10 +51,6 @@ for (i in seq_along(q)) {
 ```{=html}
 </div>
 
-<h2 class="H" id="software-r-packages">Software &amp; R packages</h2>
-<div class="pkgwrap"><p class="pkglab">CRAN</p><div class="pkgs"><a class="pkg" href="https://www.csids.no/attrib/">attrib</a><a class="pkg" href="https://www.rwhite.no/cohort/">cohort</a><a class="pkg" href="https://www.csids.no/csalert/">csalert</a><a class="pkg" href="https://www.csids.no/csdata/">csdata</a><a class="pkg" href="https://www.csids.no/csdb/">csdb</a><a class="pkg" href="https://www.csids.no/csmaps/">csmaps</a><a class="pkg" href="https://www.csids.no/csstyle/">csstyle</a><a class="pkg" href="https://www.csids.no/cstidy/">cstidy</a><a class="pkg" href="https://www.csids.no/cstime/">cstime</a><a class="pkg" href="https://www.csids.no/csutil/">csutil</a><a class="pkg" href="https://www.rwhite.no/org/">org</a><a class="pkg" href="https://www.rwhite.no/plnr/">plnr</a></div></div>
-<div class="pkgwrap"><p class="pkglab">GitHub</p><div class="pkgs"><a class="pkg" href="https://www.csids.no/cs9/">cs9</a><a class="pkg" href="https://github.com/EuroMOMOnetwork/MOMO/">MOMO</a></div></div>
-
 <div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="https://github.com/raubreywhite">GitHub</a><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ">Scholar</a><a href="writing.xml">RSS</a></div></div>
 </div>
 ```

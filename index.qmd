@@ -34,7 +34,7 @@ n_cran <- 12
 <div><div class="statN"><a href="publications.html">`r n_pub`</a></div><div class="statL">Publications</div></div>
 <div><div class="statN"><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao">`r citations`</a></div><div class="statL">Citations</div></div>
 <div><div class="statN"><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao">`r h_index`</a></div><div class="statL">h-index</div></div>
-<div><div class="statN"><a href="publications.html#software-r-packages">`r n_cran`</a></div><div class="statL">R packages on CRAN</div></div>
+<div><div class="statN"><a href="cv.html">`r n_cran`</a></div><div class="statL">R packages on CRAN</div></div>
 </div>
 </div>
 <aside><img class="heroPhoto" src="resources/richard.jpeg" alt="Richard Aubrey White"></aside>

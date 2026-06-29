@@ -4,5 +4,5 @@
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
 freeze: true
 
-# Enable banner style title blocks
-title-block-banner: true
+# Plain in-column title (banner full-bleeds the title away from the body)
+title-block-banner: false

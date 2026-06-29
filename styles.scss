@@ -25,6 +25,9 @@ $navbar-dark-active-color: #ffffff;
 * { box-sizing: border-box }
 body { margin: 0; background: #f5f0e7; color: #231c16; font-family: 'Newsreader', Georgia, serif; -webkit-font-smoothing: antialiased }
 
+/* Quarto's base theme underlines every h2; we draw our own dividers, so reset. */
+h1, h2, h3, h4, h5, h6 { border-bottom: none; }
+
 /* The custom-HTML landing pages (index/cv/publications/presentations) wrap
    their content in `.page` to control width under the Quarto full layout. */
 .page { max-width: 960px; margin: 0 auto; padding: 30px 44px 90px }
@@ -119,8 +122,8 @@ body { margin: 0; background: #f5f0e7; color: #231c16; font-family: 'Newsreader'
 
 /* --- footer --- */
 .foot { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid #231c16; margin-top: 60px; padding-top: 24px; flex-wrap: wrap; gap: 16px }
-.mail { font-size: 23px; font-style: italic }
-.mail a { color: inherit; text-decoration: none }
+.mail { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-style: normal }
+.mail a { color: #8a1c1c; text-decoration: none }
 .links { font-family: 'IBM Plex Mono', monospace; font-size: 13px; display: flex; gap: 20px }
 .links a { color: #8a1c1c; text-decoration: none }
 
