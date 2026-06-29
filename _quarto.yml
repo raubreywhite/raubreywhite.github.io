@@ -10,12 +10,13 @@ resources:
   - "presentations/*"
 
 website:
-  title: "White, Ph.D."
+  title: "Richard Aubrey White, Ph.D."
   site-url: "https://www.rwhite.no"
   favicon: favicon.png
   body-header: |
     <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   navbar:
+    title: "White, Ph.D."
     background: "#231c16"
     pinned: false
     left: []

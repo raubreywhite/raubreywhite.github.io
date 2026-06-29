@@ -1,5 +1,5 @@
 ---
-pagetitle: "Presentations — Richard Aubrey White"
+pagetitle: "Presentations"
 page-layout: full
 ---
 

@@ -1,5 +1,4 @@
 ---
-pagetitle: "Richard Aubrey White, Ph.D."
 page-layout: full
 ---
 

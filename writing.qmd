@@ -1,5 +1,5 @@
 ---
-pagetitle: "Writing & Media — Richard Aubrey White"
+pagetitle: "Writing & Media"
 page-layout: full
 listing:
   id: writing-listing
