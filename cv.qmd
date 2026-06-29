@@ -46,14 +46,10 @@ n_cran <- 12
 <a class="morelink" href="publications.html">View all `r n_pub` publications →</a>
 
 <h2 class="H">Education</h2>
-<div class="grid2">
-<div>
+<div class="edu1">
 <p class="edu"><span class="school">Harvard University</span><br>Ph.D. in Biostatistics <i>· 2011–2012</i><br>M.A. in Biostatistics <i>· 2009–2011, Frank Knox Fellowship</i></p>
 <p class="edu"><span class="school">University of Wollongong</span><br>B. Adv. Mathematics, Applied Statistics <i>· 2005–2009, First Class Honours</i></p>
-</div>
-<div>
 <p class="edu"><span class="school">University of Bergen</span><br>Nordic languages &amp; literature <i>· 2022–2023, one-year program</i></p>
-</div>
 </div>
 
 <h2 class="H">Technical Skills &amp; Languages</h2>

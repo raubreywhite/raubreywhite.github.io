@@ -44,6 +44,11 @@ for (i in seq_along(q)) {
     to_print <- stringr::str_replace(to_print, "<p><cite>", glue::glue("<p><cite>[{index}] "))
     index <- index - 1
   }
+  # Compact the trailing metadata: DOI: <long url> -> [ DOI ], URL: <long url> -> [ PDF ]
+  to_print <- stringr::str_replace(to_print, 'href="https://doi.org/https://doi.org/', 'href="https://doi.org/')
+  to_print <- stringr::str_replace(to_print, 'DOI: <a href="([^"]*)">[^<]*</a>\\.?', '<a class="pubLink" href="\\1">[ DOI ]</a>')
+  to_print <- stringr::str_replace(to_print, 'URL: <a href="([^"]*)">[^<]*</a>\\.?', '<a class="pubLink" href="\\1">[ PDF ]</a>')
+  to_print <- stringr::str_replace(to_print, ' ?ISSN: [0-9Xx-]+\\.', '')
   cat(to_print, "\n")
 }
 ```
