@@ -23,46 +23,8 @@ h_index <- formatC(prof$h_index, format = "f", digits = 0)
 #| echo: false
 #| warning: false
 #| results: asis
-esc <- function(x) { x <- gsub("[{}]", "", x); x <- gsub("&", "&amp;", x, fixed = TRUE); x <- gsub("<", "&lt;", x, fixed = TRUE); gsub(">", "&gt;", x, fixed = TRUE) }
-norm_doi <- function(doi) {
-  if (is.null(doi) || is.na(doi) || !nzchar(doi)) return(NA_character_)
-  paste0("https://doi.org/", sub("^https?://doi.org/", "", doi))
-}
-fmt_authors <- function(au) {
-  fam <- vapply(au, function(a) paste(a$family, collapse = " "), character(1))
-  n <- length(fam)
-  if (n == 1) fam else if (n <= 3) paste(paste(fam[-n], collapse = ", "), "&", fam[n]) else paste0(fam[1], " et al.")
-}
-get1 <- function(v) { if (is.null(v)) return(NA_character_); v <- as.character(v); v <- v[nzchar(v)]; if (length(v)) v[1] else NA_character_ }
-
-rows <- lapply(seq_along(d), function(i) {
-  e <- d[i]
-  jr <- get1(e$journal)
-  if (is.na(jr)) jr <- get1(e$school)
-  if (is.na(jr)) jr <- get1(e$publisher)
-  if (is.na(jr)) jr <- get1(e$institution)
-  list(
-    year    = suppressWarnings(as.integer(get1(e$year))),
-    title   = esc(get1(e$title)),
-    authors = if (!is.null(e$author)) esc(fmt_authors(e$author)) else "",
-    journal = if (is.na(jr)) NA_character_ else esc(jr),
-    url     = get1(e$url),
-    doi     = norm_doi(get1(e$doi))
-  )
-})
-
-ord <- order(-vapply(rows, function(r) r$year, integer(1)), seq_along(rows))
-prev <- -1L
-for (r in rows[ord]) {
-  yr <- if (!identical(r$year, prev)) r$year else ""
-  prev <- r$year
-  jline <- r$authors
-  if (!is.na(r$journal)) jline <- paste0(jline, " · <em>", r$journal, "</em>")
-  if (!is.na(r$doi)) jline <- paste0(jline, sprintf(' <a class="pubLink" href="%s">[ DOI ]</a>', r$doi))
-  if (!is.na(r$url)) jline <- paste0(jline, sprintf(' <a class="pubLink" href="%s">[ PDF ]</a>', r$url))
-  cat(sprintf('<div class="cvpub"><div class="cvpubYr">%s</div><div><p class="cvpubT">%s</p><p class="cvpubJ">%s</p></div></div>\n',
-              yr, r$title, jline))
-}
+source("_pubs.R")
+pub_cards(d)
 ```
 
 ```{=html}

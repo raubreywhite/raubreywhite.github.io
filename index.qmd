@@ -8,6 +8,7 @@ page-layout: full
 #| warning: false
 #| message: false
 d <- knitcitations::read.bibtex("publications.bib")
+source("_pubs.R")
 n_pub <- length(d)
 prof <- scholar::get_profile("75oKEWoAAAAJ")
 citations <- formatC(prof$total_cites, big.mark = ",", format = "f", digits = 0)
@@ -52,9 +53,16 @@ n_cran <- 12
 <div class="pkgwrap"><p class="pkglab">R packages — GitHub</p><div class="pkgs"><a class="pkg" href="https://niphr.github.io/cs9">cs9</a><a class="pkg" href="https://github.com/EuroMOMOnetwork/MOMO/">MOMO</a></div></div>
 
 <h2 class="H">Key Publications</h2>
-<div class="cvpub"><div class="cvpubYr">2026</div><div><p class="cvpubT"><a href="articles/2026-white-mortality.pdf">Excess all-cause mortality in Norway in 2024</a></p><p class="cvpubJ">White, Nygaard, Søraas &amp; Nyborg · Scandinavian Journal of Public Health</p></div></div>
-<div class="cvpub"><div class="cvpubYr">2026</div><div><p class="cvpubT"><a href="articles/2026-white-consultations.pdf">Excess primary healthcare consultations in Norway in 2024 compared to pre-COVID-19-pandemic baseline trends</a></p><p class="cvpubJ">White et al. · Archives of Public Health, 84(1)</p></div></div>
-<div class="cvpub"><div class="cvpubYr">2024</div><div><p class="cvpubT"><a href="articles/2024-white.pdf">Aberrations in medically certified sick leave and primary healthcare consultations in Norway in 2023</a></p><p class="cvpubJ">White et al. · Archives of Public Health</p></div></div>
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| results: asis
+pub_cards(d, keys = c("white2026mortalitya", "White2026consultations", "White2024"))
+```
+
+```{=html}
 <a class="morelink" href="publications.html">View all `r n_pub` publications →</a>
 
 <h2 class="H">Education</h2>
