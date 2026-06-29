@@ -1,0 +1,40 @@
+---
+title: "Arbeiderpartiet skapte sykefraværet de nå vil bekjempe"
+subtitle: <i>Op-ed • Aftenposten</i>
+description: |
+  Det Ap fremstiller som et kulturproblem, er en målbar konsekvens av deres egen koronastrategi.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2026-04-27
+categories:
+  - Op-ed
+  - Aftenposten
+editor_options:
+  chunk_output_type: console
+---
+
+*Publisert i [Aftenposten den 27. april 2026](https://www.aftenposten.no/meninger/debatt/i/JOnbx4/richard-aubrey-white-ap-skylder-nordmenn-en-helsestrategi-og-huske-pandemien).*
+
+Arbeidsminister Kjersti Stenseng og helseminister Jan Christian Vestre, begge fra Arbeiderpartiet, mener det er blitt for lett å få sykmelding. Stenseng minner oss om at «livet er kjipt innimellom». Men det de fremstiller som et kulturproblem, er en målbar konsekvens av deres egen koronastrategi.
+
+Siden 2022 har Norge basert koronastrategien sin på at befolkningen skal opprettholde immunitet gjennom gjentatte reinfeksjoner. Folkehelseinstituttet har selv dokumentert 6 prosent risiko for senfølger av covid-19 ved første infeksjon, og risikoen går ikke ned ved reinfeksjon.
+
+Med en befolkning som er reinfisert gjentatte ganger, må vi vente at flere hundre tusen nordmenn er rammet. Likevel er senfølger ikke nevnt i policydokumentene. Vi tester ikke befolkningen, og det finnes ikke engang en diagnosekode for senfølger.
+
+I tre fagfellevurderte studier har jeg dokumentert konsekvensene. Fastlegekonsultasjoner og sykefravær har økt. De er drevet av diagnoser som er kjente symptomer på senfølger. Økningene følger koronabølgene. Og vi har hatt 11.500 flere dødsfall enn ventet siden koronastrategien ble innført.
+
+Dette er heller ikke et særnorsk fenomen. Sykefraværet i Europa ligger i 2024 fortsatt på nivå med 2020 – pandemiens første år. Å ignorere koronaviruset har ikke spart oss for konsekvensene. Vi topper europeisk sykefraværsstatistikk ikke fordi nordmenn er blitt late, men fordi systemet lar folk ta det sykefraværet de trenger – i en befolkning som målbart er sykere enn før pandemien.
+
+Hvordan en pasient kodes, avhenger av hva fastlegen vet. En pasient som har testet positivt for covid-19, kan få utmattelse (A04) som diagnose. Den samme pasienten uten test – fordi ingen tester lenger – havner typisk under «utbrenthet» eller andre «lettere psykiske plager». Det er nettopp den kategorien Stenseng nå mener folk bør kunne jobbe gjennom.
+
+Når covid-19 knapt nevnes lenger, er det sannsynlig at mange av de «utbrente» egentlig har senfølger – uten at hverken de eller legen deres vet det.
+
+Sykefraværet faller ikke fordi befolkningen er målbart sykere og fordi regjeringen har valgt en strategi som bidrar til den sykeligheten.
+
+Hvis Ap virkelig vil ha en friskere befolkning, må de først erkjenne at koronaviruset er luftbåret. De tiltakene som faktisk virker – ventilasjon, filtrering og inneluftkvalitet – er kraftig underinvestert. I 2023 publiserte den internasjonale fagorganisasjonen for varme, ventilasjon, aircondition, kjøling og bygningsmiljø, ASHRAE, standard 241 for luftskifte og filtrering under smitterisikoperioder. Norge har ingenting tilsvarende og bygger fortsatt etter en standard skrevet før koronaviruset fantes.
+
+Vi trenger vår egen ASHRAE 241, med start i skoler og helseinstitusjoner. I tillegg må regjeringen anerkjenne senfølger i policydokumenter, innføre en diagnosekode, gjeninnføre testanbefalinger og sikre oppdaterte vaksiner til alle som ønsker dem.
+
+Det er ikke fastlegene eller pasientene som må stå imot. Det er statsrådene som må slutte å sende regningen for egen politikk videre til dem som allerede betaler med helsen sin.
