@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 { border-bottom: none; }
 .name { font-size: 56px; font-weight: 400; line-height: .98; letter-spacing: -.018em; margin: 0 }
 .sub { font-style: italic; font-size: 21px; color: #54483b; margin: 12px 0 0 }
 .photo { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex-shrink: 0; filter: sepia(.12) contrast(1.02) }
-.lead { font-size: 19px; line-height: 1.55; max-width: 70ch; margin: 26px 0 0; text-wrap: pretty; color: #3a3128 }
+.lead { font-size: 19px; font-weight: 400; line-height: 1.55; max-width: 70ch; margin: 26px 0 0; text-wrap: pretty; color: #3a3128 }
 .bodyp { font-size: 18px; line-height: 1.58; color: #3a3128; margin: 14px 0 0 }
 
 /* --- section heading --- */
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 { border-bottom: none; }
 .statN a:hover, .statL a:hover { color: #8a1c1c }
 
 /* --- homepage hero --- */
-.heroGrid { display: grid; grid-template-columns: 1.55fr .82fr; gap: 54px; margin-top: 36px; align-items: start }
+.heroGrid { display: grid; grid-template-columns: 1fr 170px; gap: 44px; margin-top: 36px; align-items: start }
 .heroPhoto { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 18%; border-radius: 4px; filter: sepia(.12) contrast(1.02) }
 
 /* --- selected experience (homepage) --- */
@@ -82,7 +82,6 @@ h1, h2, h3, h4, h5, h6 { border-bottom: none; }
 
 /* --- education / skills two-column --- */
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; margin-top: 18px }
-.edu1 { margin-top: 18px }
 .edu { font-size: 16px; line-height: 1.45; margin: 0 0 16px }
 .school { font-weight: 600 }
 .edu i { color: #8a1c1c; font-size: 14px; font-style: normal }
