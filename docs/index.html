@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-c11abc8cc2b203d8167704c6b3f98431.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7552438c91d6f14590d3b4a2e9c4f28e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4d728e3d14ec603a8612eaeacad35281.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -213,6 +213,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="foot"><span class="mail"><a href="mailto:hello@rwhite.no">hello@rwhite.no</a></span><div class="links"><a href="https://github.com/raubreywhite">GitHub</a><a href="https://x.com/raubreywhite">X</a><a href="https://no.linkedin.com/in/richard-white4">LinkedIn</a></div></div>
 </div>
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  var id = a.getAttribute('href');
+  if (id.length < 2) return;
+  var el = document.querySelector(id);
+  if (!el) return;
+  e.preventDefault();
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  history.replaceState(null, '', id);
+});
+</script>
 
 
 
