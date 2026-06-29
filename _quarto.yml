@@ -5,6 +5,7 @@ project:
 resources:
   - "favicon.png"
   - "CNAME"
+  - ".nojekyll"
   - "resources/*"
   - "articles/*"
   - "presentations/*"

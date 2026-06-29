@@ -97,6 +97,7 @@ pub_cards(d, keys = c("white2026mortalitya", "White2026consultations", "White202
 <div class="row" id="exp-mozambique"><div class="meta">04.2019 – 05.2019<br><span class="metaLoc">Beira, Mozambique</span></div><div><p class="role">Community-Based Surveillance Delegate (IFRC)</p><ul class="ul"><li>Responded to the cholera outbreak caused by Cyclone Idai; ran a <a href="resources/mozambique.webm">real-time surveillance system</a> for people with diarrhea visiting Red Cross oral-rehydration points and liaised with the Ministry of Health.</li></ul></div></div>
 
 <h3 class="org">Norwegian Scientific Committee for Food and Environment (VKM)</h3>
+<div class="row"><div class="meta">01.2026 – now<br><span class="metaLoc">Oslo, Norway</span></div><div><p class="role">External Expert — Next-Generation Risk Assessment</p><ul class="ul"><li>Implementing the statistical protocol to evaluate INVITES-IN, a tool for assessing the internal validity of in-vitro studies.</li></ul></div></div>
 <div class="row"><div class="meta">2023<br><span class="metaLoc">Oslo, Norway</span></div><div><p class="role">External Expert — Next-Generation Risk Assessment</p><ul class="ul"><li>Developed the <a href="articles/2023-mathisen.pdf">statistical protocol</a> to evaluate INVITES-IN, a tool for assessing the internal validity of in-vitro studies.</li></ul></div></div>
 
 <h3 class="org">Palestinian National Institute of Public Health (PNIPH)</h3>
