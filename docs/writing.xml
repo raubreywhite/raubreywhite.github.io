@@ -17,15 +17,10 @@
   <link>https://www.rwhite.no/post/2025-07-14-random-intercepts-do-not-fix-confounding/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-07-14</p>
-</header>
 
 
-<section id="introduction" class="level1">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Mixed effects models are a crucial tool in the modern epidemiologist’s toolbox. They allow for the estimation of both fixed and random effects, which can help to account for the correlation structure in the data. However, it is a common misconception that random intercepts can fix epidemiological confounding.</p>
 <p>This post will use <code>lme4</code> and <code>rstanarm</code> to demonstrate that this is not the case, and then provide some guidance on how to properly adjust for confounding and when random intercepts should be used.</p>
@@ -468,15 +463,10 @@ font-style: inherit;">print</span>(bias_summary)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>In the media • NRK</i></p>
-
-<p class="date">2025-06-13</p>
-</header>
 
 
-<p><img src="https://www.rwhite.no/post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/screenshot.png" class="img-fluid"></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-06-13-eksplosiv-okning-barn-sliter-med-hukommelsen/screenshot.png" class="img-fluid"></p>
 <p><a href="https://www.nrk.no/buskerud/eksplosiv-okning_-barn-sliter-med-hukommelsen-1.17448953">Publisert på nrk.no den 13. juni 2025</a>.</p>
 <p>Saken oppsummert:</p>
 <ul>
@@ -501,16 +491,10 @@ font-style: inherit;">print</span>(bias_summary)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-05-10-promising-long-covid-treatment-without-evidence/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Forskersonen</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-05-10</p>
-</header>
 
 
-<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2025-05-10-promising-long-covid-treatment-without-evidence/top.png" class="img-fluid figure-img"></p>
@@ -564,16 +548,10 @@ font-style: inherit;">print</span>(bias_summary)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Forskersonen</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-05-10</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2025-05-10-lofterik-behandling-av-long-covid-uten-bevis/top.png" class="img-fluid figure-img"></p>
 <figcaption>Publisert på <a href="https://www.forskersonen.no/covid19-kronikk-long-covid/lofterik-behandling-av-long-covid-uten-bevis/2503503">Forskersonen den 10. mai 2025</a>.</figcaption>
@@ -624,16 +602,10 @@ font-style: inherit;">print</span>(bias_summary)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-04-22-we-must-protect-teachers-from-long-covid/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Utdanningsnytt</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-04-22</p>
-</header>
 
 
-<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2025-04-22-we-must-protect-teachers-from-long-covid/top.png" class="img-fluid figure-img"></p>
@@ -676,16 +648,10 @@ font-style: inherit;">print</span>(bias_summary)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Utdanningsnytt</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-04-22</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2025-04-22-vi-ma-beskytte-laererne-mot-long-covid/top.png" class="img-fluid figure-img"></p>
 <figcaption>Publisert på <a href="https://www.utdanningsnytt.no/covid-luftfiltrering-luftsmitte/vi-ma-beskytte-laererne-mot-long-covid/438378">Utdanningsnytt den 22. april 2025</a>.</figcaption>
@@ -726,15 +692,10 @@ font-style: inherit;">print</span>(bias_summary)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-03-25-all-cause-mortality-in-norway/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-03-25</p>
-</header>
 
 
-<p>Today the Norwegian Institute of Public Health published its <a href="https://www.fhi.no/nyheter/2025/dodeligheten-tilbake-til-nivaet-for-pandemien">report on all-cause mortality in Norway for 2024</a>.</p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p>Today the Norwegian Institute of Public Health published its <a href="https://www.fhi.no/nyheter/2025/dodeligheten-tilbake-til-nivaet-for-pandemien">report on all-cause mortality in Norway for 2024</a>.</p>
 <p>There are two points that are of interest:</p>
 <p>Firstly, the press release starts with:</p>
 <blockquote class="blockquote">
@@ -1572,15 +1533,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>In the media • Bladet Vesterålen</i></p>
-
-<p class="date">2025-03-23</p>
-</header>
 
 
-<p><img src="https://www.rwhite.no/post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/screenshot.png" class="img-fluid"></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-03-23-de-fleste-tenker-ikke-pa-covid-lenger/screenshot.png" class="img-fluid"></p>
 <p><a href="https://www.blv.no/de-fleste-tenker-ikke-pa-covid-lenger-men-for-gro-rita-har-viruset-endret-alt/f/5-9-826540">Publisert på Bladet Vesterålen den 23. mars 2025</a>.</p>
 
 
@@ -1596,15 +1552,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>In the media • Utdanningsnytt</i></p>
-
-<p class="date">2025-03-12</p>
-</header>
 
 
-<p><img src="https://www.rwhite.no/post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/screenshot.png" class="img-fluid"></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-03-13-stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/screenshot.png" class="img-fluid"></p>
 <p><a href="https://www.utdanningsnytt.no/covid-helsesykepleier-korona/stadig-flere-barn-til-legen-med-utmattelse-etter-pandemien/434924">Publisert på Utdanningsnytt den 12. mars 2025</a>.</p>
 
 
@@ -1620,15 +1571,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-01-21-dramatiske-korona-funn-store-morketall/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>In the media • Nettavisen</i></p>
-
-<p class="date">2025-01-21</p>
-</header>
 
 
-<p><img src="https://www.rwhite.no/post/2025-01-21-dramatiske-korona-funn-store-morketall/screenshot.png" class="img-fluid"></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><img src="https://www.rwhite.no/post/2025-01-21-dramatiske-korona-funn-store-morketall/screenshot.png" class="img-fluid"></p>
 <p><a href="https://www.nettavisen.no/nyheter/dramatiske-korona-funn-fem-ganger-mer-sannsynlig-a-fa-me/s/5-95-2234239">Publisert på Nettavisen den 21. januar 2025</a>.</p>
 
 
@@ -1645,16 +1591,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Fri Fagbevegelse</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-01-18</p>
-</header>
 
 
-<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2025-01-18-the-sick-leave-debate-is-based-on-wrong-premises/top.png" class="img-fluid figure-img"></p>
@@ -1720,16 +1660,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Fri Fagbevegelse</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2025-01-18</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2025-01-18-debatten-om-sykefravaer-er-fort-pa-feil-premisser/top.png" class="img-fluid figure-img"></p>
 <figcaption>Publisert på <a href="https://frifagbevegelse.no/debatt/debatten-om-sykefravar-er-fort-pa-feil-premisser-6.490.1106983.a33706873a">Fri Fagbevegelse den 18. januar 2025</a>.</figcaption>
@@ -1794,16 +1728,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-11-11-covid-is-more-dangerous-than-you-think/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • NRK</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-11-11</p>
-</header>
 
 
-<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2024-11-11-covid-is-more-dangerous-than-you-think/top.png" class="img-fluid figure-img"></p>
@@ -1871,16 +1799,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-11-11-covid-er-farligere-enn-du-tror/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • NRK</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-11-11</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2024-11-11-covid-er-farligere-enn-du-tror/top.png" class="img-fluid figure-img"></p>
 <figcaption>Publisert på <a href="https://www.nrk.no/ytring/covid-er-farligere-enn-du-tror-1.17116008">NRK den 11. november 2024</a>.</figcaption>
@@ -1947,16 +1869,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-10-02-long-covid-is-common-and-often-permanent/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Aftenposten</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-10-02</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2024-10-02-long-covid-is-common-and-often-permanent/2024-10-02-long-covid-is-common-and-often-permanent.png" class="img-fluid figure-img"></p>
 <figcaption>Published in <a href="https://www.aftenposten.no/meninger/debatt/i/63X530/fhi-tar-feil-senfoelger-av-covid-19-er-vanlige-og-ofte-vedvarende">Aftenposten the 2nd of October 2024</a>.</figcaption>
@@ -1991,16 +1907,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Aftenposten</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-10-02</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende/2024-10-02-senfolger-av-covid-19-er-vanlige-og-ofte-vedvarende.png" class="img-fluid figure-img"></p>
 <figcaption>Publisert i <a href="https://www.aftenposten.no/meninger/debatt/i/63X530/fhi-tar-feil-senfoelger-av-covid-19-er-vanlige-og-ofte-vedvarende">Aftenposten den 2. oktober 2024</a>.</figcaption>
@@ -2034,16 +1944,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Dag og Tid</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-09-27</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2024-09-27-forebygg-covid-19-forebygg-sykefravaer/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg" class="img-fluid figure-img"></p>
 <figcaption>Publisert i <a href="https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982&amp;utm_medium=sharing">Dag of Tid den 27. september 2024</a>.</figcaption>
@@ -2076,16 +1980,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-09-27-prevent-covid-19-prevent-sick-leave/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Dag og Tid</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-09-27</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.rwhite.no/post/2024-09-27-prevent-covid-19-prevent-sick-leave/2024-09-27-forebygg-covid-19-forebygg-sykefravær.jpg" class="img-fluid figure-img"></p>
 <figcaption>Published in <a href="https://www.dagogtid.no/ordskifte/det-er-gode-bevis-for-at-en-stor-del-av-okningen-6.130.36673.58a350ea7c?sharer_id=917982&amp;utm_medium=sharing">Dag of Tid the 27th of September 2024</a>.</figcaption>
@@ -2119,16 +2017,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Fædrelandsvennen</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-08-13</p>
-</header>
 
 
-<div class="quarto-figure quarto-figure-center">
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://www.fvn.no/mening/debattinnlegg/i/kwv8Ok/angrepet-mot-folkehelsa-fortsetter"><img src="https://www.rwhite.no/post/2024-08-13-angrepet-mot-folkehelsa-fortsetter/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg" class="img-fluid figure-img"></a></p>
 <figcaption>Publisert i Fædrelandsvennen den 13. august 2024.</figcaption>
@@ -2160,16 +2052,10 @@ font-style: inherit;">print</span>(q)</span></code></pre></div></div>
   <link>https://www.rwhite.no/post/2024-08-13-the-attack-on-public-health-continues/</link>
   <description><![CDATA[ 
 
-<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><header id="title-block-header">
-
-<p class="subtitle lead"><i>Op-ed • Fædrelandsvennen</i></p>
-<p class="author">Richard Aubrey White</p>
-
-<p class="date">2024-08-13</p>
-</header>
 
 
-<p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
+
+<script data-goatcounter="https://rwhiteno.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script><p><em>This is a translation of the original Norwegian op-ed, and discrepancies may exist.</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://www.fvn.no/mening/debattinnlegg/i/kwv8Ok/angrepet-mot-folkehelsa-fortsetter"><img src="https://www.rwhite.no/post/2024-08-13-the-attack-on-public-health-continues/2024-08-14-angrepet-mot-folkehelsa-fortsetter.jpg" class="img-fluid figure-img"></a></p>

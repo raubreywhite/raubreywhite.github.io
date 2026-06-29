@@ -136,6 +136,9 @@ main.content a.xpCard { text-decoration: none }
    Shared Quarto chrome — navbar, blog posts, listing cards.
    Makes /post and /recipe pages part of the same design.
    ============================================================ */
+/* custom-HTML pages use pagetitle (no title:), leaving an empty block — hide it */
+#title-block-header:empty { display: none; }
+
 .navbar { border-bottom: 2px solid #000; }
 .navbar-brand, .navbar .nav-link, .navbar .dropdown-item {
   font-family: 'IBM Plex Mono', monospace; letter-spacing: .06em;

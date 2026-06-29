@@ -18,7 +18,7 @@ n_cran <- 12
 ```{=html}
 <div class="page">
 <div class="mast"><div>
-<p class="kick">Applied Statistician · Public Health Surveillance</p>
+<p class="kick">Researcher · Applied Statistician</p>
 <h1 class="name">Richard Aubrey White</h1>
 <p class="sub">Ph.D. in Biostatistics, Harvard University</p>
 </div><img class="photo" src="resources/richard.jpeg" alt="Richard Aubrey White"></div>

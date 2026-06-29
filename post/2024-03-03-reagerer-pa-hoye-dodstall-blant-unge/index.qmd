@@ -7,7 +7,6 @@ date: 2024-03-03
 categories:
   - NRK
   - In the media
-title-block-banner: "#e2ebf0"
 editor_options: 
   chunk_output_type: console
 ---
