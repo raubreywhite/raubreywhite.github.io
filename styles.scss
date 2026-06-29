@@ -81,6 +81,7 @@ main.content a.xpCard { text-decoration: none }
 /* --- key-publications list (custom HTML pages) --- */
 .cvpub { display: grid; grid-template-columns: 52px 1fr; gap: 20px; padding: 11px 0 }
 .cvpubYr { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8a1c1c; padding-top: 3px }
+.cvpubNum { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #a08a6a; margin-right: 10px }
 .cvpubT { font-size: 17px; line-height: 1.34; margin: 0 }
 .cvpubJ { font-style: italic; font-size: 14px; color: #8a7a64; margin: 5px 0 0 }
 .morelink { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #8a1c1c; text-decoration: none; display: inline-block; margin-top: 18px }

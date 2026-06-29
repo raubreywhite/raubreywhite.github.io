@@ -24,7 +24,7 @@ h_index <- formatC(prof$h_index, format = "f", digits = 0)
 #| warning: false
 #| results: asis
 source("_pubs.R")
-pub_cards(d)
+pub_cards(d, number = TRUE)
 ```
 
 ```{=html}
