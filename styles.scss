@@ -150,10 +150,8 @@ main.content a.xpCard { text-decoration: none }
 .navbar .dropdown-item:hover { background: #2f261d; color: #fff; }
 
 /* blog-post body: keep the Quarto title banner on-brand */
-.quarto-title-banner { background: #231c16; }
-.quarto-title-banner, .quarto-title-banner .quarto-title .title,
-.quarto-title-banner a { color: #f5f0e7; }
-#title-block-header.quarto-title-block .description, .quarto-title .subtitle { color: #d8ccb8; }
+/* post title block (no banner) — readable muted description/subtitle on paper */
+.quarto-title-block .description, .quarto-title .subtitle { color: #54483b; }
 
 /* keep links red inside article content, but not on listing cards/social icons */
 main.content a { color: #8a1c1c; }
