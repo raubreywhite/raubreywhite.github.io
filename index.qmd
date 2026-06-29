@@ -25,6 +25,8 @@ n_cran <- 12
 <p class="lead">Richard leads the Norwegian Syndromic Surveillance System (<a href="https://www.github.com/norsyss">NorSySS</a>) at the Norwegian Institute of Public Health, developing real-time systems to monitor population health and detect outbreaks across Norway's five million residents.</p>
 <p class="bodyp">His work focuses on syndromic surveillance, signal-detection algorithms, and the design of real-time reporting systems for public-health operations. Combining statistical modeling with operational epidemiology, he builds the infrastructure that supports health authorities nationwide.</p>
 <p class="bodyp">From 2015 to 2022 he was statistical lead for the Norwegian Mortality Monitoring System (NorMOMO), running weekly all-cause mortality analyses for Norway and <a href="https://github.com/EuroMOMOnetwork/MOMO/blob/dbb3632827e037fb469223fec3fa2aa079d5d0b6/DESCRIPTION#L6">contributing</a> to the European monitoring system for total mortality (<a href="https://www.euromomo.eu">EuroMOMO</a>).</p>
+
+<h2 class="H">Scientific Production</h2>
 <div class="stats">
 <div><div class="statN"><a href="publications.html">`r n_pub`</a></div><div class="statL">Publications</div></div>
 <div><div class="statN"><a href="https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao">`r citations`</a></div><div class="statL">Citations</div></div>
