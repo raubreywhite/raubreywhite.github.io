@@ -17,7 +17,7 @@ editor_options:
 
 *This is a translation of the original Norwegian op-ed, and discrepancies may exist.*
 
-[Published in Dag og Tid on September 4, 2026](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193).
+![Published in [Dag og Tid on September 4, 2026](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193).](screenshot.png)
 
 When Dag og Tid asked the Norwegian Institute of Public Health (FHI) for the institute's view on Yale professor Akiko Iwasaki's statements about the coronavirus, professional director and former acting director of infection control Preben Aavitsland dismissed them as "wild speculation," perhaps useful "for staying relevant and getting research funding." In a later email he wrote that the warnings from professor Al-Aly about lasting damage after repeated coronavirus infection "turn out again and again not to hold." If they were true, we would by now have seen an "epidemic of neurological or psychiatric diseases, heart disease, cancer or kidney disease." We have not, he claims.
 

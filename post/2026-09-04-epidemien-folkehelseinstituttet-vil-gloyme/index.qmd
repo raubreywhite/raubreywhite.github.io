@@ -15,7 +15,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-[Publisert i Dag og Tid den 4. september 2026](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193).
+![Publisert i [Dag og Tid den 4. september 2026](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193).](screenshot.png)
 
 Da Dag og Tid ba Folkehelseinstituttet (FHI) om instituttets syn på uttalelsene til Yale-professor Akiko Iwasaki om koronaviruset, avfeide fagdirektør og tidligere fungerende smitteverndirektør Preben Aavitsland dem som «ville spekulasjonar», kanskje nyttige «for å vere relevante og få forskingspengar». I en senere e-post skrev han at advarslene fra professor Al-Aly om varig skade etter gjentatt koronasmitte «syner seg gong på gong ikkje å stemme». Var de sanne, ville vi nå ha sett en «epidemi av nevrologiske eller psykiatriske sjukdomar, hjartesjukdomar, kreft eller nyresjukdomar». Det har vi ikke, hevder han.
 
