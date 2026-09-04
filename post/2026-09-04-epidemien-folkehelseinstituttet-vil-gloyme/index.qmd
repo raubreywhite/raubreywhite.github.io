@@ -1,0 +1,38 @@
+---
+title: "Epidemien Folkehelseinstituttet vil gløyme"
+subtitle: <i>Op-ed • Dag og Tid</i>
+description: |
+  FHI avviser advarslene om varige skader etter gjentatt koronasmitte. FHIs egne overvåkingsdata peker i motsatt retning.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2026-09-04
+categories:
+  - Op-ed
+  - Dag og Tid
+editor_options:
+  chunk_output_type: console
+---
+
+[Publisert i Dag og Tid den 4. september 2026](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193).
+
+Da Dag og Tid ba Folkehelseinstituttet (FHI) om instituttets syn på uttalelsene til Yale-professor Akiko Iwasaki om koronaviruset, avfeide fagdirektør og tidligere fungerende smitteverndirektør Preben Aavitsland dem som «ville spekulasjonar», kanskje nyttige «for å vere relevante og få forskingspengar». I en senere e-post skrev han at advarslene fra professor Al-Aly om varig skade etter gjentatt koronasmitte «syner seg gong på gong ikkje å stemme». Var de sanne, ville vi nå ha sett en «epidemi av nevrologiske eller psykiatriske sjukdomar, hjartesjukdomar, kreft eller nyresjukdomar». Det har vi ikke, hevder han.
+
+La oss teste denne påstanden med data som FHI sitter på.
+
+Ta den nevrologiske og psykiatriske bølgen han hevder ikke finnes. I FHIs syndromovervåkingssystem ligger vi an til å ha 98 prosent flere fastlegekonsultasjoner for hukommelsesproblemer i år enn det man hadde forventet før pandemien. For konsentrasjonsproblemer er det samme tallet 150 prosent høyere (basert på tallene så langt i år). Disse diagnosekodene pleier å øke etter koronabølger.
+
+Ta økningen i hjertesykdommer han sier ikke eksisterer. Mot førpandemiske trender lå antallet brukere av hjerte- og karmedisiner i 2024 rundt 7 prosent over hva som var forventet i Norge, 10 prosent over i Danmark og 7 prosent over i Sverige. For blodtrykksmedisiner alene var de samme tallene 23, 58 og 38 prosent over. Tre land, samme retning, hundretusener flere enn ventet.
+
+En fersk Universitetet i Oslo-studie av nesten 20.000 trøndere fant at koronasmittede hadde høyere troponinnivåer enn andre – en markør for hjertebelastning. Slike studier forklarer biologisk hvorfor flere begynner på hjertemedisin.
+
+I 2025 slo European Society of Cardiology fast at koronainfeksjoner har «alvorlige effekter på hjertet og blodårene», med varig påvirkning på folkehelsen. Det som er viden akseptert i utlandet, benektes her hjemme.
+
+Jeg er åpen for andre forklaringer. Men de må forklare hele bildet – alle økningene, i alle landene – og jeg tviler på at noen samlet forklaring kan utelate korona fullstendig. At landets fremste smittevernmyndighet heller angriper budbringeren enn å se på egne tall, burde bekymre alle som bryr seg om folkehelsa.
+
+Mot alt dette forsvarer Aavitsland standpunktet sitt på sosiale medier ved å vise til én dansk studie som finner at korona beskytter mot hjerteinfarkt (innlegget inkluderer også Aavitslands tradisjonelle personangrep på kolleger ved Oslo universitetssykehus). Det er plausibelt at korona skader hjerte og kar, eller ikke har en effekt. Det er ikke plausibelt at korona beskytter hjertet. Når en studie finner at korona er «beskyttende», er det et tegn på alvorlige skjevheter i studien. Den samme danske gruppen har også publisert en studie som finner at korona beskytter mot autisme.
+
+Hvorfor ignorerer FHIs fagdirektør for overvåking FHIs egne overvåkingsdata? Kanskje har han ikke sett godt nok etter – eller kanskje er han ikke interessert i å se etter. Aavitsland har brukt en årrekke på å bagatellisere konsekvensene av koronainfeksjoner. Dersom han tar feil, har han deler av ansvaret for at nordmenn har blitt sykere, og at flere enn nødvendig lider av longcovid. Er ikke det en interessekonflikt, så vet ikke jeg.
+
+*Richard Aubrey White har doktorgrad i biostatistikk frå Harvard University. Han er forskar ved Folkehelseinstituttet (FHI), men uttalar seg ikkje på vegner av instituttet.*
