@@ -1,5 +1,5 @@
 ---
-title: "The Institute of Public Health misleads with statistics"
+title: "The Norwegian Institute of Public Health misleads with statistics"
 subtitle: <i>Op-ed • Dag og Tid</i>
 description: |
   FHI's scientific director replied by switching yardstick. Life expectancy has almost stopped rising, and the fall in cardiovascular mortality has almost stopped.
