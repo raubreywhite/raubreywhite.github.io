@@ -1,0 +1,32 @@
+---
+title: "Folkehelseinstituttet villeder med statistikk"
+subtitle: <i>Op-ed • Dag og Tid</i>
+description: |
+  FHIs fagdirektør svarte med å bytte målestokk. Forventet levealder har nesten sluttet å øke, og nedgangen i hjerte- og kardødeligheten har nesten stoppet opp.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2026-09-18
+categories:
+  - Op-ed
+  - Dag og Tid
+editor_options:
+  chunk_output_type: console
+---
+
+![Publisert i [Dag og Tid den 18. september 2026](https://www.dagogtid.no/ordskifte/folkehelseinstituttet-villeder-med-statistikk/694990).](screenshot.png)
+
+Folkehelseinstituttets (FHI) fagdirektør Preben Aavitsland mente at forskningen som viser at covid-19 gir varige helseskader, [ikke holder](https://www.dagogtid.no/pa-vent/meiner-at-iwasaki-er-uansvarleg/678209). Da ville vi sett det i overvåkingsdataene, og det gjør vi ikke, mente han. Jeg svarte [4. september](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193) at FHIs data viser store økninger. I svaret ([11. september](https://www.dagogtid.no/ordskifte/folkehelsa-i-noreg-etter-pandemien/694233)) gjør han to ting: bytter målestokk, og hevder at økningene jeg pekte på skyldes noe annet enn covid-19.
+
+Først bruker Aavitsland tre ulike målestokker: Hjerteinfarkt viser «ein fin nedgang», hjerneslag er «stabilt», og psykiske lidelser (som øker) følger «trendane frå før pandemien». Forskere stiller bare ett spørsmål: Er tallene høyere, lavere eller som forventet, gitt trenden før pandemien? At en kurve fortsatt peker nedover, sier ingenting om den går ned like raskt som før. Trender som endrer seg er et varsel som bør følges opp.
+
+Forventet levealder oppsummerer folkehelsen. Fra 2010 til 2019 økte den med 0,22 år årlig. Fra 2020 til 2025 økte den med 0,02 år årlig. Fremgangen har nesten stoppet opp.
+
+Aavitsland avfeide de store økningene i hjertemedisinbruk. La oss prøve en annen indikator, da. Fra 2010 til 2019 sank dødeligheten av hjerte- og karsykdom, justert for alder, med 13 dødsfall per 100 000 årlig. Fra 2020 til 2025 sank den kun med 3 årlig. Hadde nedgangen fortsatt, ville 3000 færre nordmenn ha dødd av det i 2025.
+
+Så «noe annet». Konsultasjoner for hukommelses- og konsentrasjonsproblemer, 98 og 150 prosent over forventet, skyldes ifølge Aavitsland endret atferd hos pasientene og fastlegene. Men [FHIs egen studie](https://www.sciencedirect.com/science/article/pii/S0264410X2401346X?via%3Dihub) (uavhengig av fastlegene) fant at 7 prosent av dobbeltvaksinerte fikk hukommelsesproblemer etter omikron, og 6 prosent konsentrasjonsproblemer. Aavitsland kaller dem «heldigvis få». Hvor mange hundre tusen nordmenn er 6 prosent?
+
+Aavitslands opprinnelige grunn til å avvise forskningen var at alt så bra ut i overvåkingsdataene. Nå har han byttet grunn og sier at forverrede trender ikke betyr forverret helse. Konklusjonen virker bestemt på forhånd.
+
+*Richard Aubrey White har doktorgrad i biostatistikk frå Harvard University. Han er forskar ved Folkehelseinstituttet (FHI), men uttalar seg ikkje på vegner av instituttet.*

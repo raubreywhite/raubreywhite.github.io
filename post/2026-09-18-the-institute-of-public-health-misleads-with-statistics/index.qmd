@@ -1,0 +1,34 @@
+---
+title: "The Institute of Public Health misleads with statistics"
+subtitle: <i>Op-ed • Dag og Tid</i>
+description: |
+  FHI's scientific director replied by switching yardstick. Life expectancy has almost stopped rising, and the fall in cardiovascular mortality has almost stopped.
+author:
+  - name: "Richard Aubrey White"
+    url: https://www.rwhite.no
+    orcid: 0000-0002-6747-1726
+date: 2026-09-18
+categories:
+  - Op-ed
+  - Dag og Tid
+editor_options:
+  chunk_output_type: console
+---
+
+*This is a translation of the original Norwegian op-ed, and discrepancies may exist.*
+
+![Published in [Dag og Tid on September 18, 2026](https://www.dagogtid.no/ordskifte/folkehelseinstituttet-villeder-med-statistikk/694990).](screenshot.png)
+
+Preben Aavitsland, scientific director at the Norwegian Institute of Public Health (FHI), argued that the research showing that covid-19 causes lasting health damage [does not hold up](https://www.dagogtid.no/pa-vent/meiner-at-iwasaki-er-uansvarleg/678209). If it did, we would see it in the surveillance data, and we do not, he said. I replied on [September 4](https://www.dagogtid.no/ordskifte/epidemien-folkehelseinstituttet-vil-gloyme/693193) that FHI's data show large increases. In his reply ([September 11](https://www.dagogtid.no/ordskifte/folkehelsa-i-noreg-etter-pandemien/694233)) he does two things: he switches yardstick, and he claims that the increases I pointed to are caused by something other than covid-19.
+
+First, Aavitsland uses three different yardsticks: heart attacks show "a fine decline," stroke is "stable," and mental disorders (which are rising) follow "the trends from before the pandemic." Researchers ask only one question: are the numbers higher, lower or as expected, given the trend before the pandemic? That a curve still points downwards says nothing about whether it falls as fast as it used to. Trends that change are a warning that should be followed up.
+
+Life expectancy sums up public health. From 2010 to 2019 it rose by 0.22 years per year. From 2020 to 2025 it rose by 0.02 years per year. The progress has almost stopped.
+
+Aavitsland dismissed the large increases in the use of heart medication. So let us try another indicator. From 2010 to 2019, age-adjusted mortality from cardiovascular disease fell by 13 deaths per 100,000 per year. From 2020 to 2025 it fell by only 3 per year. Had the decline continued, 3000 fewer Norwegians would have died of it in 2025.
+
+Then "something else." Consultations for memory and concentration problems, 98 and 150 percent above expected, are according to Aavitsland caused by changed behaviour among patients and GPs. But [FHI's own study](https://www.sciencedirect.com/science/article/pii/S0264410X2401346X?via%3Dihub) (independent of the GPs) found that 7 percent of people with two vaccine doses had memory problems after Omicron, and 6 percent had concentration problems. Aavitsland calls them "fortunately few." How many hundred thousand Norwegians are 6 percent?
+
+Aavitsland's original reason for dismissing the research was that everything looked fine in the surveillance data. Now he has switched reason and says that worsening trends do not mean worsening health. The conclusion looks decided in advance.
+
+*Richard Aubrey White has a PhD in biostatistics from Harvard University. He is a researcher at the Norwegian Institute of Public Health (FHI), but does not speak on behalf of the institute.*
