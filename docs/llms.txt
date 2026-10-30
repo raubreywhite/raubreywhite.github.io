@@ -1,5 +1,7 @@
 # White, Ph.D.
 
+> Richard Aubrey White, applied statistician at the Norwegian Institute of Public Health. CV, publications, presentations and writing on syndromic surveillance, mortality monitoring and public health statistics.
+
 ## Pages
 
 - [publications](https://www.rwhite.no/publications.llms.md)
