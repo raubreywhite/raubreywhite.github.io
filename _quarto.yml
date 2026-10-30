@@ -13,6 +13,7 @@ resources:
 website:
   title: "White, Ph.D."
   site-url: "https://www.rwhite.no"
+  llms-txt: true
   favicon: favicon.png
   body-header: |
     <script data-goatcounter="https://rwhiteno.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
