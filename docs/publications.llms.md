@@ -22,21 +22,21 @@ Clark et al. · *eClinicalMedicine* [\[ DOI \]](https://doi.org/10.1016/j.eclin
 
 Gohy et al. · *Surgery* [\[ DOI \]](https://doi.org/10.1016/j.surg.2025.109928) [\[ PDF \]](https://www.rwhite.no/articles/2026-gohy.pdf)
 
-97Excess all-cause mortality in Norway in 2024
-
-White et al. · *Scandinavian Journal of Public Health* [\[ DOI \]](https://doi.org/10.1177/14034948251371830) [\[ PDF \]](https://www.rwhite.no/articles/2026-white-mortality.pdf)
-
-96Labour epidural analgesia and early childhood behavioural outcomes: the moderating role of maternal mental health and pro-inflammatory cytokines
+97Labour epidural analgesia and early childhood behavioural outcomes: the moderating role of maternal mental health and pro-inflammatory cytokines
 
 Asif et al. · *Anaesthesia* [\[ DOI \]](https://doi.org/10.1111/anae.70203) [\[ PDF \]](https://www.rwhite.no/articles/2026-asif.pdf)
 
-95A debatable representation of all-cause mortality in Norway in 2024—authors’ reply
+96A debatable representation of all-cause mortality in Norway in 2024—authors’ reply
 
 White et al. · *Scandinavian Journal of Public Health* [\[ DOI \]](https://doi.org/10.1177/14034948251403426) [\[ PDF \]](https://www.rwhite.no/articles/2026-white-mortality-authors-reply.pdf)
 
-94Excess primary healthcare consultations in Norway in 2024 compared to pre-COVID-19-pandemic baseline trends
+95Excess primary healthcare consultations in Norway in 2024 compared to pre-COVID-19-pandemic baseline trends
 
 White et al. · *Archives of Public Health* [\[ DOI \]](https://doi.org/10.1186/s13690-025-01817-8) [\[ PDF \]](https://www.rwhite.no/articles/2026-white-consultations.pdf)
+
+94Excess all-cause mortality in Norway in 2024
+
+White et al. · *Scandinavian Journal of Public Health* [\[ DOI \]](https://doi.org/10.1177/14034948251371830) [\[ PDF \]](https://www.rwhite.no/articles/2026-white-mortality.pdf)
 
 2025
 
@@ -162,13 +162,13 @@ Nørgaard et al. · *Eurosurveillance* [\[ PDF \]](https://www.rwhite.no/articl
 
 Vestergaard et al. · *Eurosurveillance* [\[ PDF \]](https://www.rwhite.no/articles/2020-vestergaard.pdf)
 
-65Inflammatory markers in women with postpartum depressive symptoms
-
-Bränn et al. · *Journal of neuroscience research* [\[ PDF \]](https://www.rwhite.no/articles/2020-brann.pdf)
-
-64Urbanization and preparedness for outbreaks with high-impact respiratory pathogens
+65Urbanization and preparedness for outbreaks with high-impact respiratory pathogens
 
 Hauge et al. · *Norwegian Institute of Public Health* [\[ PDF \]](https://www.rwhite.no/articles/2020-hauge.pdf)
+
+64Inflammatory markers in women with postpartum depressive symptoms
+
+Bränn et al. · *Journal of neuroscience research* [\[ PDF \]](https://www.rwhite.no/articles/2020-brann.pdf)
 
 2019
 
@@ -188,21 +188,21 @@ Benedetti et al. · *Public Health Action* [\[ PDF \]](https://www.rwhite.no/ar
 
 Salih Joelsson et al. · *PloS one* [\[ PDF \]](https://www.rwhite.no/articles/2019-salih.pdf)
 
-59Indirect effects of pneumococcal childhood vaccination in individuals treated with immunosuppressive drugs in ambulatory care: a case-cohort study
-
-Steens et al. · *Clinical Infectious Diseases* [\[ PDF \]](https://www.rwhite.no/articles/2019-steens.pdf)
-
-58Evaluating costs and health consequences of sick leave strategies against pandemic and seasonal influenza in Norway using a dynamic model
+59Evaluating costs and health consequences of sick leave strategies against pandemic and seasonal influenza in Norway using a dynamic model
 
 Edwards et al. · *BMJ open* [\[ PDF \]](https://www.rwhite.no/articles/2019-edwards.pdf)
 
-57Immigrant screening for latent tuberculosis infection: numbers needed to test and treat, a Norwegian population-based cohort study
+58Immigrant screening for latent tuberculosis infection: numbers needed to test and treat, a Norwegian population-based cohort study
 
 Winje et al. · *BMJ open* [\[ PDF \]](https://www.rwhite.no/articles/2019-winje.pdf)
 
-56The role of domestic reservoirs in domestically acquired Salmonella infections in Norway: epidemiology of salmonellosis, 2000–2015, and results of a national prospective case–control study, 2010–2012
+57The role of domestic reservoirs in domestically acquired Salmonella infections in Norway: epidemiology of salmonellosis, 2000–2015, and results of a national prospective case–control study, 2010–2012
 
 MacDonald et al. · *Epidemiology \&amp; Infection* [\[ PDF \]](https://www.rwhite.no/articles/2019-macdonald.pdf)
+
+56Indirect effects of pneumococcal childhood vaccination in individuals treated with immunosuppressive drugs in ambulatory care: a case-cohort study
+
+Steens et al. · *Clinical Infectious Diseases* [\[ PDF \]](https://www.rwhite.no/articles/2019-steens.pdf)
 
 2018
 
