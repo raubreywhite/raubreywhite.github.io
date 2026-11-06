@@ -410,17 +410,17 @@ Vos et al. · *The lancet* [\[ PDF \]](https://www.rwhite.no/articles/2012-vos.
 
 Lim et al. · *The lancet* [\[ PDF \]](https://www.rwhite.no/articles/2012-lim.pdf)
 
-7Randomized study of the effect of local anesthetic volume and concentration on the duration of peripheral nerve blockade
+7Novel Statistical Methods Applied in Clinical Trials and Gut Microbiota
+
+White · *Harvard University* [\[ PDF \]](https://www.rwhite.no/articles/2012-white.pdf)
+
+6Randomized study of the effect of local anesthetic volume and concentration on the duration of peripheral nerve blockade
 
 Fredrickson, Abeysekera & White · *Regional Anesthesia \&amp; Pain Medicine* [\[ PDF \]](https://www.rwhite.no/articles/2012-fredrickson.pdf)
 
-6Trends in mild, moderate, and severe stunting and underweight, and progress towards MDG 1 in 141 developing countries: a systematic analysis of population representative data
+5Trends in mild, moderate, and severe stunting and underweight, and progress towards MDG 1 in 141 developing countries: a systematic analysis of population representative data
 
 Stevens et al. · *The lancet* [\[ PDF \]](https://www.rwhite.no/articles/2012-stevens.pdf)
-
-5Novel Statistical Methods Applied in Clinical Trials and Gut Microbiota
-
-White · *Harvard University* [\[ PDF \]](https://www.rwhite.no/articles/2012-white.pdf)
 
 4The Global Burden of Disease Study: the Impact of Vision Loss: prevalence and trends of blindness and visual impairment over the past 28 years
 
