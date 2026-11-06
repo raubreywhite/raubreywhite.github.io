@@ -45,6 +45,7 @@
   }
   list(
     year = suppressWarnings(as.integer(.get1(e$year))),
+    date = .get1(e$date),
     title = .esc(.get1(e$title)),
     authors = if (!is.null(e$author)) .esc(.fmt_authors(e$author)) else "",
     journal = if (is.na(jr)) NA_character_ else .esc(jr),
@@ -53,14 +54,19 @@
   )
 }
 
-# Emit .cvpub cards. keys = NULL -> all entries, year desc. Otherwise the given
-# bib keys in order. Year shown once per consecutive group.
+# Emit .cvpub cards. keys = NULL -> all entries, year desc, then date desc
+# within a year (entries without a date last). Otherwise the given bib keys in
+# order. Year shown once per consecutive group.
 pub_cards <- function(d, keys = NULL, number = FALSE) {
   if (is.null(keys)) {
     rows <- lapply(seq_along(d), function(i) .pub_row(d[i]))
     rows <- rows[order(
       -vapply(rows, function(r) r$year, integer(1)),
-      seq_along(rows)
+      vapply(rows, function(r) r$date, character(1)),
+      seq_along(rows),
+      decreasing = c(FALSE, TRUE, FALSE),
+      method = "radix",
+      na.last = TRUE
     )]
   } else {
     rows <- lapply(keys, function(k) .pub_row(d[k]))
