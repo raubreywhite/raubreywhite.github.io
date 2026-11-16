@@ -18,7 +18,7 @@ From 2015 to 2022 he was statistical lead for the Norwegian Mortality Monitoring
 
 Publications
 
-[70,110](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
+[70,307](https://scholar.google.com/citations?user=75oKEWoAAAAJ&hl=en&oi=ao)
 
 Citations
 
@@ -106,7 +106,7 @@ R packages — CRAN
 
 R packages — GitHub
 
-[cs9](https://niphr.github.io/cs9)[MOMO](https://github.com/EuroMOMOnetwork/MOMO/)
+[cs9](https://niphr.github.io/cs9)[MOMO](https://github.com/EuroMOMOnetwork/MOMO/)[pbn](https://www.rwhite.no/pbn/)
 
 ## Key Publications
 
