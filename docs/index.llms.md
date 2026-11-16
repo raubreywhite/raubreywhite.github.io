@@ -106,7 +106,7 @@ R packages — CRAN
 
 R packages — GitHub
 
-[cs9](https://niphr.github.io/cs9)[MOMO](https://github.com/EuroMOMOnetwork/MOMO/)[pbn](https://www.rwhite.no/pbn/)
+[cs9](https://niphr.github.io/cs9)[csdocs](https://niphr.github.io/csdocs/)[MOMO](https://github.com/EuroMOMOnetwork/MOMO/)[pbn](https://www.rwhite.no/pbn/)
 
 ## Key Publications
 
